@@ -1,0 +1,154 @@
+
+
+\usepackage{makeidx}
+\usepackage[dvips]{graphicx}
+\usepackage{graphicx}
+
+\usepackage{comment}
+
+\usepackage{listings}
+% \usepackage[mathscr]{eucal}
+\usepackage{bm}
+\usepackage{array}
+\usepackage{url}
+\usepackage{calc}
+\usepackage{float}
+\usepackage{latexsym}
+% \usepackage{rotating}
+\DeclareGraphicsExtensions{.eps,.jpg,.png,.pdf}
+\usepackage[usenames, dvipsnames]{xcolor}
+\usepackage[sort,nocompress]{cite}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{lscape}
+\usepackage{amsmath}
+\let\proof\relax
+\let\endproof\relax
+\usepackage{amsthm,amsfonts,amssymb}
+\usepackage[bookmarks,bookmarksopen,bookmarksdepth=2]{hyperref}
+\usepackage{pdflscape}
+
+
+
+
+\usepackage{setspace}
+\usepackage{color}
+\ifnum\full=1
+\usepackage[margin=0.9in]{geometry}
+\usepackage{fullpage}
+
+\setlength{\parskip}{0cm}
+
+%\setstretch{1.03}
+%\addtolength{\parskip}{1pt}
+% \setcounter{page}{0}
+\renewcommand{\tabcolsep}{5pt}
+\else
+\renewcommand{\tabcolsep}{0pt}
+\fi
+
+\renewcommand{\arraystretch}{1.2}
+
+\hyphenpenalty=5000
+\tolerance=1000
+
+\usepackage{enumitem}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{plotmarks}
+
+%%commands for notes
+
+\definecolor{mycolor}{rgb}{0.99,0.33,0.44}
+\newcommand{\pmnote}[1]{\colorbox{mycolor}{\parbox{0.9\linewidth}{[{\footnotesize {\bf PM:} { {#1}}}]}}}
+
+
+%% Sets, groups
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Sn}{\mathbb{S}_n}
+
+
+
+
+%Boolean functions
+
+\newcommand{\Bfn}[1]{\mathcal{B}_{#1}}
+\newcommand{\BN}{\mathcal{B}_n}
+\newcommand{\Bn}[1]{\mathcal{B}_{#1}}
+\newcommand{\Bnstar}[1]{\mathcal{B}_{#1}^*}
+
+\newcommand{\AI}{\mathsf{AI}}
+\newcommand{\AIk}[1]{\mathsf{AI}_{#1}}
+\newcommand{\AN}{\mathsf{AN}}
+%\newcommand{\FAI}{\mathsf{FAI}}
+\newcommand{\NL}{\mathsf{NL}}
+\newcommand{\NLk}[1]{\mathsf{NL}_{#1}}
+%\newcommand{\NLd}{\mathsf{NL_d}}
+\newcommand{\res}{\mathsf{res}}
+
+\newcommand{\NPB}{\mathsf{NPB}}
+
+%\newcommand{\DS}[1]{\mathsf{DS}(#1)}
+%\newcommand{\DSR}[2]{\mathsf{DS}^{#2}(#1)}
+
+
+\newcommand{\WPB}[1]{\mathcal{WPB}_{#1}}
+\newcommand{\WAPB}[1]{\mathcal{WAPB}_{#1}}
+\newcommand{\SWAPB}[1]{\mathcal{SWAPB}_{#1}}
+\newcommand{\SYM}[1]{\mathcal{SYM}_{#1}}
+%for affine weightwise: degree and number of variables
+\newcommand{\Ekn}[2]{\mathsf{E}_{#1,#2}}
+\newcommand{\mdist}[2]{\mathsf{d}_{#1,#2}}
+
+\newcommand{\kraw}[3]{\mathsf{K}_{#1}(#2,#3)}
+\newcommand{\phikn}[2]{\varphi_{#1,#2}}
+
+\newcommand{\orb}{\mathsf{O}}
+
+%usual notations
+\newcommand{\supp}{\mathsf{supp}}
+\newcommand{\suppk}[1]{\mathsf{supp}_{#1}}
+\newcommand{\w}{\mathsf{w_H}}
+\newcommand{\hd}{\mathsf{d_H}}
+\newcommand{\degg}{\mathsf{deg}}
+\newcommand{\Span}{\mathsf{Span}}
+\newcommand{\rank}{\mathsf{rank}}
+%Walsh transform
+\newcommand{\wt}[1]{W_{#1}} 
+\newcommand{\Wsupp}[1]{\mathsf{Wsupp}_{#1}} 
+%restricted Walsh transform W_k,a (f)
+\newcommand{\wtk}[2]{\mathcal{W}_{#1,#2}} 
+
+
+\newtheorem{Prop}{Property}
+\newtheorem{Cons}{Construction}
+
+\newtheorem{tables}{Tables}
+
+% For algorithms
+\usepackage{algorithm,algpseudocode}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+% \renewcommand{\ALG@name}{Construction}
+\newenvironment{constr}[1][htb]{%
+\floatname{algorithm}{Construction}% Update algorithm name
+   \begin{algorithm}[#1]%
+  }{\end{algorithm}}
+ 
+
+\algnewcommand\algorithmicparfor{\textbf{par-for}}
+\algdef{S}[FOR]{ParFor}[1]{\algorithmicparfor\ #1\ \algorithmicdo}
+ 
+%latin
+
+\newcommand{\ie}{\textit{i.e.} }
+\newcommand{\eg}{\textit{e.g.} }
+\newcommand{\ea}{\textit{et al.} }
+
+
