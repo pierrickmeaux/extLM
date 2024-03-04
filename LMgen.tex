@@ -63,25 +63,24 @@
 Generalization of LM construction based on group action, taking half of each orbit of even cardinal, and the alternatively the floor or ceiling of half of each orbit of odd cardinal. See Construction~\ref{Alg:WAPBconst}.
 
 \begin{figure}[H]
-
-		\begin{algorithmic}[1]			
-			\Require $v\in \{-1,0,1\}^{n+1}$ % with $v_k \equiv \pm (\binom{n}{k} \mod 2)$.
+	\begin{algorithmic}[1]			
+		\Require $v\in \{-1,0,1\}^{n+1}$ % with $v_k \equiv \pm (\binom{n}{k} \mod 2)$.
 		\Require $\alpha \in \Sn$. One representative $r_{k,i}$ of each orbit of the action of $<\alpha>$ on $\Ekn{k}{n}$. $s_k$ the number of orbits of $\Ekn{k}{n}$.
-\Ensure  $f\in \WAPB{n}$.
-\State Initiate $\supp(f)=\emptyset$ \;
-\For{$k \gets 0$ to $n$}
-\For{$i \gets 1$ to $s_k$}
-\State $u=r_{k,i}$ \;
-\State Compute $\ell=|\orb_{\alpha}(r_{k,i})|$ \;
-\For{$j \gets 1$ to $(\ell+v_k)/2$}
-\State  $\supp(f)$.append($u$)\;
-\State  $u \gets \alpha \circ \alpha \ltimes u$\;
-\State $v_k\gets -v_k$ \;
-\EndFor
-\EndFor		
-\EndFor	
-			\State  \Return $f$
-		\end{algorithmic}
+		\Ensure  $f\in \WAPB{n}$.
+		\State Initiate $\supp(f)=\emptyset$ \;
+		\For{$k \gets 0$ to $n$}
+			\For{$i \gets 1$ to $s_k$}
+				\State $u=r_{k,i}$ \;
+				\State Compute $\ell=|\orb_{\alpha}(r_{k,i})|$ \;
+				\For{$j \gets 1$ to $(\ell+v_k)/2$}
+					\State  $\supp(f)$.append($u$)\;
+					\State  $u \gets \alpha \circ \alpha \ltimes u$\;
+					\State $v_k\gets -v_k$ \;
+				\EndFor
+			\EndFor		
+		\EndFor	
+		\State  \Return $f$
+	\end{algorithmic}
 \caption{WAPB Construction~\label{Alg:WAPBconst}}
 \end{figure}
 
@@ -165,7 +164,7 @@ and finally:
 	
 \end{proof}
 
-
+\pmnote{Add the improvements on the nonlinearity bound, the formula in terms of sets for the $\NLk{k}$ and the generalizations to other subgroups.}
 
 
 
