@@ -43,28 +43,28 @@ Bhubaneswar, Odisha 752050, India.\\
  
 \section{Introduction} 
 \section{Preliminaries}
-Let $\FF_2^n$ be the vector space of dimension $n$ over the binary field $\FF_2$. For any two vectors $a=(a_1, a_2, \ldots, a_n)$ and $b = (b_1, b_2, \ldots, b_n)$ in $\FF_2^n$, the dot product is defined as $a\cdot b = a_1 b_1 + a_2 b_2 + \cdots + a_nb_n \bmod 2$.
+Let $\F_2^n$ be the vector space of dimension $n$ over the binary field $\F_2$. For any two vectors $a=(a_1, a_2, \ldots, a_n)$ and $b = (b_1, b_2, \ldots, b_n)$ in $\F_2^n$, the dot product is defined as $a\cdot b = a_1 b_1 + a_2 b_2 + \cdots + a_nb_n \bmod 2$.
 %and additon $+$ is by .......
 
-A Boolean function of $n$-variable is a map from $\FF_2^n$ to $\FF_2$ and $\BN$ be the set of all $n$-variable Boolean functions. The $2^n$-length binary sequence $(f(v_0), f(v_1), \ldots, f(v_{2^n-1}))$ is called as the truth table of the Boolean function $f$ corresponds to the ordered vectors of $\FF_2^n$ as $v_0 = (0,0,\ldots,0), v_1= (0,0,\ldots,1),\ldots, v_{2^n-1}=(1,1,\ldots,1)$. 
-The Hamming weight of a vector $x \in \FF_2^n$, denoted by $\w(x)$, is the number nonzero cordinates (i.e., $1$s) in the vector $x$. The support of $f \in \BN$, denoted by $\supp(f)= \{x \in \FF_2^n : f(x) = 1\}$. Therefore, the Hamming weight of the Boolean function $f$, is cardinality of $\supp(f)$ and is denoted by $wt(f)$. The function $f$ is called balanced if $\w(f)= 2^{n-1}$. Let $f(x), g(x) \in \BN$, then 
-The Hamming distance between two Boolean functions $f, g \in \BN$ is defined by $\hd(f,g) = |\{x \in \FF_2^n : f(x) \neq g(x) \}|$  i.e., $\hd(f,g) = \w(f + g)$.
+A Boolean function of $n$-variable is a map from $\F_2^n$ to $\F_2$ and $\BN$ be the set of all $n$-variable Boolean functions. The $2^n$-length binary sequence $(f(v_0), f(v_1), \ldots, f(v_{2^n-1}))$ is called as the truth table of the Boolean function $f$ corresponds to the ordered vectors of $\F_2^n$ as $v_0 = (0,0,\ldots,0), v_1= (0,0,\ldots,1),\ldots, v_{2^n-1}=(1,1,\ldots,1)$. 
+The Hamming weight of a vector $x \in \F_2^n$, denoted by $\w(x)$, is the number nonzero coordinates (i.e., $1$s) in the vector $x$. The support of $f \in \BN$, denoted by $\supp(f)= \{x \in \F_2^n : f(x) = 1\}$. Therefore, the Hamming weight of the Boolean function $f$, is cardinality of $\supp(f)$ and is denoted by $wt(f)$. The function $f$ is called balanced if $\w(f)= 2^{n-1}$. Let $f(x), g(x) \in \BN$, then 
+The Hamming distance between two Boolean functions $f, g \in \BN$ is defined by $\hd(f,g) = |\{x \in \F_2^n : f(x) \neq g(x) \}|$  i.e., $\hd(f,g) = \w(f + g)$.
 
-An $n$-variable Boolean function $f$ can be expressed as a polynomial in the ring $\FF_2[x_1,x_2,\ldots,x_n]/<x_1^2+x_1,x_2^2+x_2,\ldots,x_n^2+x_n>$, i.e. 
-$f(x) = \sum\limits_{u \in \FF_2^n}c_u x^{a_1}x^{u_2}\cdots x^{a_n},$
-where $c_u$ are the coefficients with a value in $\FF_2$.
+An $n$-variable Boolean function $f$ can be expressed as a polynomial in the ring $\F_2[x_1,x_2,\ldots,x_n]/<x_1^2+x_1,x_2^2+x_2,\ldots,x_n^2+x_n>$, i.e. 
+$f(x) = \sum\limits_{u \in \F_2^n}c_u x^{a_1}x^{u_2}\cdots x^{a_n},$
+where $c_u$ are the coefficients with a value in $\F_2$.
 It is called as the algebraic normal form or ANF and the number of variables in the highest order monomial with nonzero coefficient is called the \textit{algebraic degree} of the function $f$, and denoted as $\deg(f)$.
-A function $f$ is called as affine function if $f(x)= a\cdot x + b$ for $a \in \FF_2^n$ and $b \in \FF_2$. If $b=0$, then $f$ is also called a linear Boolean function. $\Af$ denotes the set of all $n$-variable affine functions. 
+A function $f$ is called as affine function if $f(x)= a\cdot x + b$ for $a \in \F_2^n$ and $b \in \F_2$. If $b=0$, then $f$ is also called a linear Boolean function. $\Af$ denotes the set of all $n$-variable affine functions. 
 %The complexity of computing the ANF of $f$ from the truth table is of $\mathcal{O}(N log_2 N)$, for $N=2^n$ is the size input to $f$. 
 
 \noindent\textbf{\definitionname(Walsh-Hadamard Transform)}
-The Walsh-Hadamard transform of a function on $\FF_2^n$ is the map $W_f : \FF_2^n \to \R$, defined by $$\wt{f}(w)= \sum_{x \in \FF_2^n} (-1)^{f(x)+ w \cdot x}.$$   
+The Walsh-Hadamard transform of a function on $\F_2^n$ is the map $W_f : \F_2^n \to \R$, defined by $$\wt{f}(w)= \sum_{x \in \F_2^n} (-1)^{f(x)+ w \cdot x}.$$   
 
 \noindent\textbf{\definitionname(Nonlinearity)}
 The nonlinearity of $f \in \BN$ denoted as $\NL(f)$, is the minimum Hamming distance of $f$ to any affine function. That is, $\NL(f) = \min\limits_{g \in \Af} \hd(f,g)$.
-It can be verified that $\NL(f) = 2^{n-1} - \frac{1}{2}\max\limits_{w \in \FF_2^n} |\wt{f}(w)|$.
+It can be verified that $\NL(f) = 2^{n-1} - \frac{1}{2}\max\limits_{w \in \F_2^n} |\wt{f}(w)|$.
 
-We denote $\Ekn{n}{k} = \{x \in \FF_2^n : \w(x)=k\}$ and $\wkn{n}{k}(f) = |\{x \in \Ekn{n}{k} : f(x) = 1 \}| = |\supp(f) \cap \Ekn{n}{k}|$. Accordingly, the Hamming distance of two functions $f, g \in \BN$ on $\Ekn{k}{n}$ denoted as $\mdist{n}{k}(f,g) = |\{x \in \Ekn{n}{k} : f(x) \neq g(x)\}|$. The cryptographic criteria like balancedness, nonlinearity and algebraic immunity of a function $f$ defined over $\FF_2^n$ can also be defined, if we restrict $f$ to the set $\Ekn{k}{n}$. For two integers $m, n$ with $m \leq n$, we define $[m,n] = \{m, m+1, \ldots, n\}$.
+We denote $\Ekn{n}{k} = \{x \in \F_2^n : \w(x)=k\}$ and $\wkn{n}{k}(f) = |\{x \in \Ekn{n}{k} : f(x) = 1 \}| = |\supp(f) \cap \Ekn{n}{k}|$. Accordingly, the Hamming distance of two functions $f, g \in \BN$ on $\Ekn{k}{n}$ denoted as $\mdist{n}{k}(f,g) = |\{x \in \Ekn{n}{k} : f(x) \neq g(x)\}|$. The cryptographic criteria like balancedness, nonlinearity and algebraic immunity of a function $f$ defined over $\F_2^n$ can also be defined, if we restrict $f$ to the set $\Ekn{k}{n}$. For two integers $m, n$ with $m \leq n$, we define $[m,n] = \{m, m+1, \ldots, n\}$.
 
 \noindent\textbf{\definitionname(Weightwise Almost Perfectly Balanced (WAPB)}
 A Boolean function $f \in \BN$ is said to be weightwise almost perfectly balanced (WAPB) if for all $k \in [0,n]$, \[\wkn{n}{k}(f)=
@@ -80,7 +80,7 @@ A Boolean function $f \in \BN$ is said to be weightwise almost perfectly balance
 \frac{{n \choose k}}{2} &  \textit{ if } k \in [1,n-1], \\
 \frac{{n \choose k} \pm 1}{2} & \textit{ if } k \in \{0,n\} 
 \end{cases} \]
-To make a WPB Boolean function balanced on $\FF_2^n$, we impose $f(0,0,\ldots,0) \neq f(1,1,\ldots,1)$. Using Lucas' Theorem~\cite{LucasTh}, we have that a WPB function exists only if, $n$ is a power of $2$. Hence, there are $\displaystyle {2\prod_{k = 1}^{n-1} {{{n \choose k}} \choose {{n \choose k}/2}}}$ balanced WPB Boolean functions.
+To make a WPB Boolean function balanced on $\F_2^n$, we impose $f(0,0,\ldots,0) \neq f(1,1,\ldots,1)$. Using Lucas' Theorem~\cite{LucasTh}, we have that a WPB function exists only if, $n$ is a power of $2$. Hence, there are $\displaystyle {2\prod_{k = 1}^{n-1} {{{n \choose k}} \choose {{n \choose k}/2}}}$ balanced WPB Boolean functions.
 
 \noindent\textbf{\definitionname(Restricted Walsh Transform)}
 Let $f$ be an $n$-variable Boolean function, then its Walsh transform $\wtk{f}{k}(a)$ is defined as:
@@ -91,7 +91,7 @@ The nonlinearity of $f \in \BN$ over $\Ekn{n}{k}$, denoted as $\NLk{k}(f)$, is t
 The following identity and upper bound on the nonlinearity of a Boolean function over $\Ekn{k}{n}$ can be derived. The upper bound is further improved by Mesnager et al. in ~\cite{Mesnager2018}.
 \begin{lemma}~\cite{TOSC:CarMeaRot17}\label{lem:wnl}
 If $f \in \BN$ then for $k \in [0,n]$, 
-\[\NLk{k}(f) = \frac{|\Ekn{n}{k}|}{2}- \frac{1}{2}\max_{a \in \FF_2^n} |\wtk{f}{k}(a)| \textit{ and } \]
+\[\NLk{k}(f) = \frac{|\Ekn{n}{k}|}{2}- \frac{1}{2}\max_{a \in \F_2^n} |\wtk{f}{k}(a)| \textit{ and } \]
 \[\NLk{k}(f) \leq \frac{1}{2} [|\Ekn{n}{k}| - \sqrt{|\Ekn{n}{k}|}] = \frac{1}{2} [{n \choose k} - \sqrt{{n \choose k}}].\]
 \end{lemma}
 \textcolor{red}{AI, Weightwise AI}
@@ -100,15 +100,15 @@ If $f \in \BN$ then for $k \in [0,n]$,
 $$ K_k(x,n)= \sum_{j=0}^{k} {x \choose j} {n-x \choose k-j} \text{ for } k = 0, 1, \ldots n.$$
 Following the results in~\cite{DCC:DalMaiSar06,DAM:GinMea22}, the following relations can be derived.
 \begin{theorem}[Krawtchouk Polynomials relations] \label{thm:Kraw}
-For a integers $n > 0$, $0 \leq k \leq n$ and fixed $a \in \FF_2^n$ such that $\w(a) = l$, the following relations holds.
+For a integers $n > 0$, $0 \leq k \leq n$ and fixed $a \in \F_2^n$ such that $\w(a) = l$, the following relations holds.
 \begin{enumerate}
 \item $\sum\limits_{x \in \Ekn{k}{n}} (-1)^{a.x} = \kraw{k}{l}{n}$.
-\item If $l_{a,b}(x)= a \cdot x + b$, where $a \in \FF_2^n, b \in \FF_2$, be an affine Boolean function then 
+\item If $l_{a,b}(x)= a \cdot x + b$, where $a \in \F_2^n, b \in \F_2$, be an affine Boolean function then 
 $$\wkn{n}{k}(l_{a,b}) = \frac{1}{2} (|\Ekn{k}{n}| - (-1)^b \kraw{k}{l}{n}).$$
 \end{enumerate}
 \end{theorem}
 \iffalse
-Let $l_{a,b}$ be an $n$-variable affine Boolean function defined as $l_{a,b}(x)= a \cdot x + b$ for $a \in \FF_2^n$ and $ b \in \FF_2^n$, then using the Theorem~\ref{thm:Kraw}, the Hamming weight of $f$ in $\Ekn{k}{n}$ is given as:
+Let $l_{a,b}$ be an $n$-variable affine Boolean function defined as $l_{a,b}(x)= a \cdot x + b$ for $a \in \F_2^n$ and $ b \in \F_2^n$, then using the Theorem~\ref{thm:Kraw}, the Hamming weight of $f$ in $\Ekn{k}{n}$ is given as:
 \begin{align*}
 \w(f) & = \sum_{x \in \Ekn{k}{n}} a.x + b \\
       & = \frac{1}{2}(\sum_{ x \in \Ekn{k}{n}} 1 - (-1)^{a \cdot x + b} )   \\
@@ -121,35 +121,35 @@ $$ \left\{  \frac{{ n \choose k}}{2} \pm \frac{\kraw{k}{l}{n}}{2},  l \in [0,n] 
 \end{proposition}
 \fi
 \noindent\textbf{\definitionname(Rotation Symmetric Boolean function)}
-A Boolean function $f$ is rotation symmetric (RotS) if and only if for any $(x_1,x_2,\ldots,x_n)\in \FF_2^n$,
+A Boolean function $f$ is rotation symmetric (RotS) if and only if for any $(x_1,x_2,\ldots,x_n)\in \F_2^n$,
 $$ f(\rho_n^k(x_1,x_2,\ldots,x_n))= f(x_1,x_2,\ldots,x_n) $$ for every $1 \leq k \leq n$ where $\rho_n$ is a cyclic shift permutation on $n$-elements i.e., $\rho_n(x_1,x_2,\ldots,x_n) = (x_n,x_1,\ldots,x_{n-1})$ and $\rho_n^k = \rho_n \circ \rho_n^{k-1}$ for $k > 1$ i.e., the composition of $\rho_n$ $k$ times.% Such functions are called rotation symmetric Boolean functions (RSBF).
-Therefore, RotS Boolean functions have the same truth value for all vectors in every orbit obtained by the action of permutation group $\langle \rho_n \rangle$ on $\FF_2^n$. 
+Therefore, RotS Boolean functions have the same truth value for all vectors in every orbit obtained by the action of permutation group $\langle \rho_n \rangle$ on $\F_2^n$. 
 
-Let denote $P = \langle \rho_n \rangle$ be the cyclic permutation group generated by the permutation $\rho_n$. Applying Burnside's lemma, we can have the number of orbits obtained due the action of $P$ on $\FF_2^n$ is $g_n = \frac{1}{n}\sum_{t \vert n} \phi(t) 2^{n/t}$~\cite{DAM:SM08}. Let $\orbs = \{\orb_1, \orb_2,\ldots, \orb_{g_n}\}$ be the set of orbits obtained due the action of $P$ on $\FF_2^n$. An orbit leader/representative $\nu_\orb$ is chosen for each orbit $\orb \in \orbs$. The representatives can be chosen using some ordering, for example it may be the lexicographically smallest element in the orbit.
+Let denote $P = \langle \rho_n \rangle$ be the cyclic permutation group generated by the permutation $\rho_n$. Applying Burnside's lemma, we can have the number of orbits obtained due the action of $P$ on $\F_2^n$ is $g_n = \frac{1}{n}\sum_{t \vert n} \phi(t) 2^{n/t}$~\cite{DAM:SM08}. Let $\orbs = \{\orb_1, \orb_2,\ldots, \orb_{g_n}\}$ be the set of orbits obtained due the action of $P$ on $\F_2^n$. An orbit leader/representative $\nu_\orb$ is chosen for each orbit $\orb \in \orbs$. The representatives can be chosen using some ordering, for example it may be the lexicographically smallest element in the orbit.
 
 \noindent\textbf{\definitionname(2-Rotation Symmetric Boolean function)}
 A Boolean function $f$ is 2-rotation symmetric (2-RotS) if and only if 
 for every orbit $\orb \in \orbs$ with representative element $\nu$,
 $$f(\rho_n^{2i+1}(\nu)) = f(\nu);~~~ f(\rho_n^{2i}(\nu)) = f(\nu)+1 \text{ for every } 1 \leq i \leq \lfloor\frac{|\orb|}{2}\rfloor.$$ 
 %for every $1 \leq i \leq \lfloor\frac{|\orb|}{2}\rfloor$.
-Therefore, 2-RotS Boolean functions have the alternative truth value for the lexicograpphically ordered vectors in every orbit obtained by the action of permutation group $P$ on $\FF_2^n$. 
+Therefore, 2-RotS Boolean functions have the alternative truth value for the lexicograpphically ordered vectors in every orbit obtained by the action of permutation group $P$ on $\F_2^n$. 
 As example, a 2-RotS Boolean function on $n = 5$ satisfies $f(00001) = f(00100) = f(10000)$ and $f(00010) = f(01000) = 1+f(00001)$ for the orbit $\{00001, 00010, \ldots, 10000\}$ with representative  $00001$.
 
-A construction of a class of 2-RotS WPB Boolean functions is presented by Liu and Mesnager~\citep{DCC:LiuMes19}.
-\begin{proposition} \citep{DCC:LiuMes19}~\label{constr:LM19} For a Boolean function $f \in \BN$ with $n$ is power of $2$, if $f(x^2)=f(x)+1$ holds for all $x \in \FF_{2^n} \setminus \{0,1\}$, then $f$ is WPB.  
+A construction of a class of 2-RotS WPB Boolean functions is presented by Liu and Mesnager~\cite{DCC:LiuMes19}.
+\begin{proposition} \cite{DCC:LiuMes19}~\label{constr:LM19} For a Boolean function $f \in \BN$ with $n$ is power of $2$, if $f(x^2)=f(x)+1$ holds for all $x \in \F_{2^n} \setminus \{0,1\}$, then $f$ is WPB.  
 \end{proposition}
-Since, $n$ is the power of $2$ in the construction proposed in Proposition~\ref{constr:LM19}, the cardinality of all orbits in $\FF_{2^n} \setminus \{0,1\}$ are even. Therefore, $f(x^2)=f(x)+1, x \in \FF_{2^n} \setminus \{0,1\}$ is well defined and hence, the truth value $1$ and $0$ can be assigned alternatively to the half of the vectors in the each orbit. This can not be assigned when $n$ is not a power of $2$ as there are some orbits with cardinality odd and hence the $f(x^2) = f(x)+1$ can not be defined. However, we have proposed an generalization of this concept to construct WAPB Boolean function on any $n$ where $n$ is a natural number in Section~\ref{sec:ELM}. 
+Since, $n$ is the power of $2$ in the construction proposed in Proposition~\ref{constr:LM19}, the cardinality of all orbits in $\F_{2^n} \setminus \{0,1\}$ are even. Therefore, $f(x^2)=f(x)+1, x \in \F_{2^n} \setminus \{0,1\}$ is well defined and hence, the truth value $1$ and $0$ can be assigned alternatively to the half of the vectors in the each orbit. This can not be assigned when $n$ is not a power of $2$ as there are some orbits with cardinality odd and hence the $f(x^2) = f(x)+1$ can not be defined. However, we have proposed an generalization of this concept to construct WAPB Boolean function on any $n$ where $n$ is a natural number in Section~\ref{sec:ELM}. 
 
 \section{Construction of WAPB Boolean functions using Group action}\label{sec:GA}
-In this section we will present a construction of 2-RotS WAPB Boolean functions using a cyclic permutation group action. Let $G = \langle \pi \rangle$ be a cyclic subgroup of the symmetric group $\Sn$ on $n$ elements. The group action of $G$ on $\FF_2^n$ partitions the set into $g_n$ number of orbits. The orbit generated by $x \in \FF_2^n$ is denoted as $O_\pi(x) = \{g(x) : g \in G\} = \{x , \pi(x), \pi^2 (x),\ldots ,\pi^{l-1}(x)\}$ where $l$ is the order of the permutation $\pi$. As $\w(\pi^{i}(x)) = \w(x)$ for $1 \leq i \leq {l-1}$, the group action $G$ splits each $\Ekn{n}{k}$ into orbits and let $g_{n,k}$ be the number of orbits in $\Ekn{n}{k}$.
+In this section we will present a construction of 2-RotS WAPB Boolean functions using a cyclic permutation group action. Let $G = \langle \pi \rangle$ be a cyclic subgroup of the symmetric group $\Sn$ on $n$ elements. The group action of $G$ on $\F_2^n$ partitions the set into $g_n$ number of orbits. The orbit generated by $x \in \F_2^n$ is denoted as $O_\pi(x) = \{g(x) : g \in G\} = \{x , \pi(x), \pi^2 (x),\ldots ,\pi^{l-1}(x)\}$ where $l$ is the order of the permutation $\pi$. As $\w(\pi^{i}(x)) = \w(x)$ for $1 \leq i \leq {l-1}$, the group action $G$ splits each $\Ekn{n}{k}$ into orbits and let $g_{n,k}$ be the number of orbits in $\Ekn{n}{k}$.
 Denote $\nu_{n,k,i}$ be the orbit representative of $i$-th orbit $\Ekn{n}{k}$ with some ordering.
 The construction of 2-RotS WAPB Boolean functions is presented as follows.
 %and $\rho_{k}$ be the set of all $r_{k,i}$ for each $k$. 
 
-\begin{constr}\label{cons:GA}
-\caption{Construction of 2-RotS WAPB Boolean function}
-\begin{algorithmic}[1]
-% \Require $ v=(0,0,\ldots,0) \in \FF_2^{n+1}$
+\begin{constr}
+\caption{Construction of 2-RotS WAPB Boolean function\label{cons:GA}}
+\begin{algorithmic}
+% \Require $ v=(0,0,\ldots,0) \in \F_2^{n+1}$
 \Require $\pi \in \Sn$ %, G = <\pi> , r_{k,i},g_{n,k}$ is given.
 \Ensure A 2-RotS WAPB Boolean function $f_\pi \in \BN$
 \State Initiate $\supp(f_\pi) = \phi$
@@ -174,6 +174,7 @@ The construction of 2-RotS WAPB Boolean functions is presented as follows.
 \EndFor
 \State \textbf{return} $f_\pi$
 \end{algorithmic}
+
 \end{constr}
 Construction~\ref{cons:GA} ensures a balanced WAPB Boolean function. The binary variable $t$ indicates whether the partially constructed is balanced (when $t = 0$) or having an extra $1$ (when $t = 1$) during each iteration of orbits.
 \begin{example}
@@ -199,45 +200,45 @@ Hence, for $x = (x_1, x_2, \ldots, x_n)$, we have
 \psi(x) & = & (\rho_{n_1}(x_1,\ldots,x_{n_1}), \rho_{n_2}(x_{n_1+1},\ldots,x_{n_1+n_2}), \ldots, \rho_{n_w}(x_{n-n_w+1},\ldots,x_n))
 \end{eqnarray}
 where $\rho_{n_i}$ is the cyclic shift permutation on $n_i$ elements.
-Here, $ord(\psi) = 2^{a_w} = n_w$. Hence, the cardinality of orbits obtained due the action of $G$ on $\FF_2^n$ are of power of $2$ i.e., $|O_\psi(x)| = 2^l$ where $0 \leq l \leq a_w$ for $x \in \FF_2^n$.
+Here, $ord(\psi) = 2^{a_w} = n_w$. Hence, the cardinality of orbits obtained due the action of $G$ on $\F_2^n$ are of power of $2$ i.e., $|O_\psi(x)| = 2^l$ where $0 \leq l \leq a_w$ for $x \in \F_2^n$.
 Hence, there are some orbits of cardinality $1$ and rest are of even cardinality. 
 \begin{lemma}\label{lem:orbNo}
 Let $n$ be a positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}. Then there are $2^w$ orbits of cardinality $1$ where $w = \w(n)$.
 \end{lemma}
 \begin{proof}
-For a vector $x \in \FF_2^n$ is having an orbit of cardinality $1$ i.e., $|O_\psi(x)| = 1$ if and only if the cordinates of $x$ present in the cycles are of same value i.e., 
+For a vector $x \in \F_2^n$ is having an orbit of cardinality $1$ i.e., $|O_\psi(x)| = 1$ if and only if the coordinates of $x$ present in the cycles are of same value i.e., 
 \begin{align}\label{eqn:part}
  & x_1  = x_2 = \ldots = x_{n_1}; \nonumber\\
  & x_{n_1+1}  = x_{n_1+2} = \ldots = x_{n_1+n_2}; \nonumber\\
 & \vdots \\
  & x_{n-n_w+1}  = x_{n-n_w+2} = \ldots = x_n. \nonumber
 \end{align}
-As each partition of cordinates can be either $0$ or $1$, there are $2^w$ vectors $x$ in $\FF_2^n$ satisfying Equation~\ref{eqn:part} and hence $|O_\psi(x)| = 1$.
+As each partition of coordinates can be either $0$ or $1$, there are $2^w$ vectors $x$ in $\F_2^n$ satisfying Equation~\ref{eqn:part} and hence $|O_\psi(x)| = 1$.
 \end{proof}
 
-Since every orbit contains the vectors of same weight, we denote the weight of an orbit is the weight of vectors in the orbit i.e, $\w(O_\psi(x)) = \w(x)$ for $x \in \FF_2^n$. Further, for $x = (x_1, x_2,\ldots, x_n), y = (y_1, y_2, \ldots, y_n) \in \FF_2^n$, we say $y$ covers $x$ (i.e., $x \preceq y $), if $x_{i} \leq y_{i}, \forall 1 \leq i \leq n$ i.e., $y_i = 1$ if $x_i = 1, \forall 1 \leq i \leq n$.
+Since every orbit contains the vectors of same weight, we denote the weight of an orbit is the weight of vectors in the orbit i.e, $\w(O_\psi(x)) = \w(x)$ for $x \in \F_2^n$. Further, for $x = (x_1, x_2,\ldots, x_n), y = (y_1, y_2, \ldots, y_n) \in \F_2^n$, we say $y$ covers $x$ (i.e., $x \preceq y $), if $x_{i} \leq y_{i}, \forall 1 \leq i \leq n$ i.e., $y_i = 1$ if $x_i = 1, \forall 1 \leq i \leq n$.
 Similarly, given two positive integers $n$ and $k$ with binary representation $n = 2^{a_1} + 2^{a_2} + + \cdots + 2^{a_w}$ and $k = 2^{b_1}+ 2^{b_2} + \cdots + 2^{b_t}$, we denote $k \preceq n$ if $\{b_1, b_2, \ldots, b_t\} \subseteq \{a_1, a_2, \ldots, a_w\}$.
 \begin{lemma}
 Let $n$ be a positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}. For $k \in [0,n]$, the number of orbits of weight $k$ and cardinality $1$ is $1$ if $k \preceq n$, otherwise it is $0$.
 \end{lemma}
 \begin{proof}
 Let $k = 2^{b_1}+ 2^{b_2} + \cdots + 2^{b_t}$ where $0 \leq b_1 < b_2 < \cdots < b_t$.\\
-Case I: Let $k \preceq n$ i.e., $\{b_1, b_2, \ldots, b_t\} \subseteq \{a_1, a_2, \ldots, a_w\}$. Since the only way of writing $k$ as sum of powers of $2$ is $k = 2^{b_1}+ 2^{b_2} + \cdots + 2^{b_t}$ and satisfying the condition in Equation~\ref{eqn:part}, there is only one vector $x$ with $\w(x) = k$ and $|O_\psi(x)| = 1$. In this case, the cordinates of $x$ in the partitions of cardinality $2^{b_1}, 2^{b_2}, \ldots, 2^{b_t}$ are having value $1$ and other cordinates have value $0$.
+Case I: Let $k \preceq n$ i.e., $\{b_1, b_2, \ldots, b_t\} \subseteq \{a_1, a_2, \ldots, a_w\}$. Since the only way of writing $k$ as sum of powers of $2$ is $k = 2^{b_1}+ 2^{b_2} + \cdots + 2^{b_t}$ and satisfying the condition in Equation~\ref{eqn:part}, there is only one vector $x$ with $\w(x) = k$ and $|O_\psi(x)| = 1$. In this case, the coordinates of $x$ in the partitions of cardinality $2^{b_1}, 2^{b_2}, \ldots, 2^{b_t}$ are having value $1$ and other coordinates have value $0$.
 
-\noindent Case II: Let $k \not\preceq n$, then $\{b_1, b_2, \ldots, b_t\} \not \subseteq \{a_1, a_2, \ldots, a_w\}$. Therefore, if $\w(x) = k$, the nonzero cordinates of $x$ can not be partitioned of (distinct) sizes from the set $\{2^{a_1}, 2^{a_2}, \ldots, 2^{b_w}\}$.
-As a result, the cordinates of $x$ will not satisfy the Equation~\ref{eqn:part}. Hence,
+\noindent Case II: Let $k \not\preceq n$, then $\{b_1, b_2, \ldots, b_t\} \not \subseteq \{a_1, a_2, \ldots, a_w\}$. Therefore, if $\w(x) = k$, the nonzero coordinates of $x$ can not be partitioned of (distinct) sizes from the set $\{2^{a_1}, 2^{a_2}, \ldots, 2^{b_w}\}$.
+As a result, the coordinates of $x$ will not satisfy the Equation~\ref{eqn:part}. Hence,
 $|O_\psi(x)| > 1$. Hence, in this case there is no orbit of weight $k$ and cardinality $1$.
 \end{proof}
 
-Let denote $\orbs$ be the set of all orbits due the action of $\psi$ on $\FF_2^n$. Further, we denote $\orbs_o$ be the set of orbits of odd cardinality (i.e., here $1$) and $\orbs_e$ be the set of orbits of even cardinality. Since the cardinality of all orbits of carinality odd is $1$, abusing the notation, we also denote $\orbs_o$ as the set of all vectors belonging in the orbits of cardinality odd. Hence from Equation~\ref{eqn:part}, 
-$\orbs_o = \{(x_1, x_2, \cdots, x_n) \in \FF_2^n : x_1 = x_2 = \ldots = x_{n_1}; x_{n_1 + 1} = x_{n_1 + 2}, \cdots, x_{n_1 + n_2}; \cdots ; x_{(n- n_w ) + 1},x_{(n- n_w ) + 2}, \cdots, x_n\}$.
+Let denote $\orbs$ be the set of all orbits due the action of $\psi$ on $\F_2^n$. Further, we denote $\orbs_o$ be the set of orbits of odd cardinality (i.e., here $1$) and $\orbs_e$ be the set of orbits of even cardinality. Since the cardinality of all orbits of carinality odd is $1$, abusing the notation, we also denote $\orbs_o$ as the set of all vectors belonging in the orbits of cardinality odd. Hence from Equation~\ref{eqn:part}, 
+$\orbs_o = \{(x_1, x_2, \cdots, x_n) \in \F_2^n : x_1 = x_2 = \ldots = x_{n_1}; x_{n_1 + 1} = x_{n_1 + 2}, \cdots, x_{n_1 + n_2}; \cdots ; x_{(n- n_w ) + 1},x_{(n- n_w ) + 2}, \cdots, x_n\}$.
 For example, if $n = 6$, there are there are $2^\w(6) = 2^2 = 4$ orbits of weight $1$ and $\orbs_o = \{000000, 000011, 111100, 111111\}$. 
 
 
 By choosing such permutation $\psi$ for Construction~\ref{cons:GA}, we have every slice $\Ekn{n}{k}$, $0 \leq k \leq n$, contains at most one orbit of odd cardinality (and i.e., $1$). Therefore, it becomes easy to construct 2-RotS WAPB Boolean functions as other orbits are of even cardinality. Hence, we have the following result.
 \begin{proposition}\label{prop:WAPB}
 Let $n$ be a positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
-For a Boolean function $f_\psi \in \BN$, if $f_\psi(\psi(x)) = 1+f_\psi(x)$ holds for all $x \in \FF_2^n \setminus \orbs_o$ where $\orbs_o$ is the set of vectors whose orbit cardinality is $1$, then $f_\psi$ is WAPB.
+For a Boolean function $f_\psi \in \BN$, if $f_\psi(\psi(x)) = 1+f_\psi(x)$ holds for all $x \in \F_2^n \setminus \orbs_o$ where $\orbs_o$ is the set of vectors whose orbit cardinality is $1$, then $f_\psi$ is WAPB.
 \end{proposition}
 Hence, when $n = 2^m$, a power of $2$, $\psi = \rho_n$ and Construction~\ref{cons:GA} on input $\psi \in \Sn$ results the 2-RotS WPB Boolean function by Liu and Mesnager~\cite{DCC:LiuMes19}. A simplified version of Construction~\ref{cons:GA} is presented in Construction~\ref{cons:ELM} for input $\psi$.
 
@@ -246,7 +247,7 @@ Hence, when $n = 2^m$, a power of $2$, $\psi = \rho_n$ and Construction~\ref{con
 \begin{algorithmic}[1]
 \Require $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}
 \Ensure A $2$-RotS WAPB Boolean function $f_\psi \in \BN$
-\State For every orbit $\orb$ in $\FF_2^n$ due to the action of $G = \langle \psi \rangle$, do the following:
+\State For every orbit $\orb$ in $\F_2^n$ due to the action of $G = \langle \psi \rangle$, do the following:
 \If{$|\orb|$ is even}
 	\State $f$ satisfies $f_\psi(\psi(x)) = 1+f(x)$ for $x \in \orb$
 	%assign $f(\psi^{2i}(x)) = 0$ and $f(\pi^{2i+1}(x)) = 1$ for $0 \leq i < \frac{|O|}{2}$ and            $x$ be the orbit representative of $O$.
@@ -259,7 +260,7 @@ Hence, when $n = 2^m$, a power of $2$, $\psi = \rho_n$ and Construction~\ref{con
 \end{constr}
 
 \begin{theorem}
-The number of orbits generated due the action of $\psi$ on $\FF_2^n$ is
+The number of orbits generated due the action of $\psi$ on $\F_2^n$ is
 $$g_n= \frac{1}{n_w} \sum_{k=1}^{n_w}  2^{\gcd(n_1,k)+ \gcd(n_2,k) + \cdots + \gcd(n_w,k)}.$$
 \end{theorem}
 \begin{proof}
@@ -268,13 +269,13 @@ $$\psi(x) = (\rho_{n_1}(x_1,\ldots,x_{n_1}), \rho_{n_2}(x_{n_1+1},\ldots,x_{n_1+
 where $\rho_{n_i}$ is the cyclic shift permutation on $n_i$ elements.
 Hence, we denote, $\psi_n = (\rho_{n_1},\rho_{n_2},\ldots,\rho_{n_w})$ and for positive integers $k$, we have $\psi_n^k = (\rho_{n_1}^k,\rho_{n_2}^k,\ldots,\rho_{n_w}^k)$.
 
-Now to apply Burnside's lemma, for every $k \in \{1, 2, \ldots, n_w\}$, we need to compute the number of fixed vectors $z \in \FF_2^n$ by $\psi_n^k$ i.e., $\psi_n^k(z) = z$. That is, for every $k \in \{1, 2, \ldots, n_w\}$, we need to compute the number of vectors $z \in \FF_2^n$ such that $\rho_{n_1}^k(z_1) = z_1, \rho_{n_2}^k(z_2) = z_2, \ldots, \rho_{n_w}^k(z_w) = z_w$ where $z = (z_1,z_2, \ldots, z_w)$ and $z_1 \in \FF_2^{n_1}, z_2 \in \FF_2^{n_2}, \ldots, z_w \in \FF_2^{n_w}$.
+Now to apply Burnside's lemma, for every $k \in \{1, 2, \ldots, n_w\}$, we need to compute the number of fixed vectors $z \in \F_2^n$ by $\psi_n^k$ i.e., $\psi_n^k(z) = z$. That is, for every $k \in \{1, 2, \ldots, n_w\}$, we need to compute the number of vectors $z \in \F_2^n$ such that $\rho_{n_1}^k(z_1) = z_1, \rho_{n_2}^k(z_2) = z_2, \ldots, \rho_{n_w}^k(z_w) = z_w$ where $z = (z_1,z_2, \ldots, z_w)$ and $z_1 \in \F_2^{n_1}, z_2 \in \F_2^{n_2}, \ldots, z_w \in \F_2^{n_w}$.
 
 Here, the number of permutation cycles in $\rho_{n_i}^k= \gcd(n_i,k)$ for $1 \leq i \leq w$ and $1 \leq k \leq n_w$. So, the length of each permutation cycle in $\rho_{n_i}^k$ is $\frac{n_i}{\gcd(n_i,k)}$. 
 Therefore, the total number of permutation cycles in $\psi^k$ is $$\gcd(n_1,k)+ \gcd(n_2,k) + \cdots + \gcd(n_w,k).$$
 As every permutation cycle fixes all $0$'s or all $1$'s, each permutation cycle has two choices.
-$\rho_{n_i}^k$ fixes $2^{\gcd(n_i,k)}$ number of $z_i \in \FF_2^{n_i}$. Therefore, $\psi^k$ fixes $2^{\gcd(n_1,k)+ \gcd(n_2,k) + \cdots + \gcd(n_w,k)}$ number of $z \in \FF_2^n$. Hence, by using the Burnside Lemma, the number of orbits is\\
-$\displaystyle{g_n = \frac{1}{n_w} \sum_{\pi \in G} |fix_{\FF_2^n}(\pi)| 
+$\rho_{n_i}^k$ fixes $2^{\gcd(n_i,k)}$ number of $z_i \in \F_2^{n_i}$. Therefore, $\psi^k$ fixes $2^{\gcd(n_1,k)+ \gcd(n_2,k) + \cdots + \gcd(n_w,k)}$ number of $z \in \F_2^n$. Hence, by using the Burnside Lemma, the number of orbits is\\
+$\displaystyle{g_n = \frac{1}{n_w} \sum_{\pi \in G} |fix_{\F_2^n}(\pi)| 
     = \frac{1}{n_w} \sum_{k=1}^{n_w}  2^{\gcd(n_1,k)+ \gcd(n_2,k) + \cdots + \gcd(n_w,k)}}$.
 \end{proof}
 Now we can count the number of such WAPB $f_\psi$ functions on $n$ variables. There are $2^w$ many orbits of cardinality $1$ and remaining $g_n - 2^w$ orbits are having cardinality even. The orbit representative of even cardinality orbits can be assigned $0$ or $1$ and accordingly other vectors in the orbit are assigned. Further, we need to choose $2^{w-1}$ vectors from the $2^w$ orbits of cardinality $1$ in $\binom{2^w}{2^{w-1}}$ ways to make $f_\psi$ balanced. Hence $\binom{2^w}{2^{w-1}}\times 2^{g_n - 2^w}$ WAPB Boolean functions can be generated using Construction~\ref{cons:ELM}.
@@ -282,15 +283,15 @@ Now we will study some cryptographic properties of the function $f_\psi \in \BN$
 
 \begin{proposition}~\label{prop:setSize}
 For $n \geq 2$ as in Equation~\ref{eqn:binn}, let $\psi \in \Sn$ be the permutation as defined in Equation~\ref{eqn:cycperm}.Then 
-$$\left| \{x \in \FF_2^n \setminus \orbs_o : c \cdot (x + \psi(x))= 1\} \right| 
+$$\left| \{x \in \F_2^n \setminus \orbs_o : c \cdot (x + \psi(x))= 1\} \right| 
 = \left \{ \begin{array}{ll}
-2^{n-1}  &  \text{ if } c \in \FF_2^n \setminus \orbs_o  \\
+2^{n-1}  &  \text{ if } c \in \F_2^n \setminus \orbs_o  \\
 0              &  \text{ if } c \in \orbs_o.
 \end{array} \right.$$
 \end{proposition}
 
 \begin{proof}
-Now for any $x = (x_1, x_2, \ldots, x_n), c = (c_1, c_2, \ldots, c_n) \in \FF_2^n$,
+Now for any $x = (x_1, x_2, \ldots, x_n), c = (c_1, c_2, \ldots, c_n) \in \F_2^n$,
 \begin{eqnarray}
 c \cdot (x+\psi(x)) & = & c_1(x_1 + x_{n_1}) + c_2 (x_2 + x_1) + \cdots + c_{n_1}( x_{n_1} + x_{{n_1}-1}) \nonumber \\
 && +c_{{n_1}+1}(x_{{n_1}+1}+ x_{{n_1}+ {n_2}}) + \cdots + c_{n_1+n_2}(x_{n_1+n_2} + x_{n_1+n_2- 1})\nonumber\\
@@ -306,9 +307,9 @@ Therefore, $c \cdot (x+\psi(x))$ is a linear Boolean function on $n$ variables. 
 $c_1 = c_2 = \ldots = c_{n_1}$; $c_{n_1+1} = c_{n_1 + 2} = \cdots = c_{n_1 + n_2}; \ldots; c_{(n- n_w ) + 1} = c_{(n- n_w) + 2} = \cdots = c_n$ i.e., $c \in \orbs_o$.
 Hence,
 \begin{equation}\label{eqn:cx3}
-\left| \{x \in \FF_2^n : c \cdot (x + \psi(x))= 1\} \right| = \w(c \cdot (x+\psi(x))) 
+\left| \{x \in \F_2^n : c \cdot (x + \psi(x))= 1\} \right| = \w(c \cdot (x+\psi(x))) 
 = \left\{ \begin{array}{ll}
-2^{n-1} & \text{if } c \in \FF_2^n \setminus \orbs_o \\
+2^{n-1} & \text{if } c \in \F_2^n \setminus \orbs_o \\
 0 & \text{if } c \in \orbs_o
 \end{array} \right.
 \end{equation}
@@ -318,9 +319,9 @@ Now further, if $x = (x_1, x_2, \ldots, x_n) \in \orbs_o$, then $\psi(x) = x$ an
 &\implies & \left| \{x \in \orbs_o : c \cdot (x + \psi(x))= 1\} \right| = 0.
 \end{eqnarray}
 Now combining Equation~\ref{eqn:cx3} and Equation~\ref{eqn:cx4} we have the desired result
-$$\left| \{x \in \FF_2^n \setminus \orbs_o : c \cdot (x + \psi(x))= 1\} \right| 
+$$\left| \{x \in \F_2^n \setminus \orbs_o : c \cdot (x + \psi(x))= 1\} \right| 
 = \left \{ \begin{array}{ll}
-2^{n-1}  &  \text{ if } c \in \FF_2^n \setminus \orbs_o  \\
+2^{n-1}  &  \text{ if } c \in \F_2^n \setminus \orbs_o  \\
 0              &  \text{ if } c \in \orbs_o.
 \end{array} \right.$$
 \end{proof} 
@@ -330,12 +331,12 @@ Let $n \geq 2$ be an positive integer as in Equation~\ref{eqn:binn} and $\psi \i
 Then $\NL(f_\psi) \ge 2^{n-2} - 2^{w-1}$.
 \end{theorem}
 \begin{proof}
-Let $a \in \FF_2^n$ and $\psi \in \Sn$ be the permutation defined as in Equation~\ref{eqn:cycperm}.
+Let $a \in \F_2^n$ and $\psi \in \Sn$ be the permutation defined as in Equation~\ref{eqn:cycperm}.
 As $\w(n) = w$, from Lemma~\ref{lem:orbNo} there are $2^w$ orbits with cardinality $1$ and remaining orbits are of even cardinality. 
-%Let denote $\orbs$ be the set of all orbits due the action of $\psi$ on $\FF_2^n$, $\orbs_o$ be the set of orbits of odd cardinality (i.e., here $1$) and $\orbs_e$ be the set of orbits of even cardinality.
+%Let denote $\orbs$ be the set of all orbits due the action of $\psi$ on $\F_2^n$, $\orbs_o$ be the set of orbits of odd cardinality (i.e., here $1$) and $\orbs_e$ be the set of orbits of even cardinality.
 Then the Walsh spectrum of $f_\psi$ at $a$ is as follows.
 \begin{eqnarray} \label{eqn:ws}
-\wt{f}(a) & =  &\sum_{x \in \FF_2^n} (-1)^{f(x)+a \cdot x} 
+\wt{f}(a) & =  &\sum_{x \in \F_2^n} (-1)^{f(x)+a \cdot x} 
 = \sum_{\orb \in \orbs} \sum_{x \in \orb} (-1)^{f(x)+ a \cdot x}
 = \sum_{\orb \in \orbs_e} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x} + \sum_{\orb \in \orbs_o} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x} \nonumber \\
 \implies |\wt{f}(a)| & \leq  & |\sum_{\orb \in \orbs_e} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x}| + | \sum_{\orb \in \orbs_o} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x}|.
@@ -360,29 +361,29 @@ There are some vectors $x$ in even orbits such that $((-1)^{ a \cdot x} - (-1)^{
 && ~~~~~~~~~~~~~~~\left.  \left. +  \sum_{x \in \orb : a \cdot (x + \psi(x))= 1 } (-1)^{f(x)} ((-1)^{ a \cdot x} - (-1)^{a \cdot \psi(x)})  \right) \right] \\
 & = & \frac{1}{2} \left[ \sum_{\orb \in \orbs_e} \sum_{x \in \orb : a \cdot (x + \psi(x))= 1} (-1)^{f(x)} ((-1)^{ a \cdot x} - (-1)^{a \cdot \psi(x)})  \right] \\
 & = & \frac{1}{2} \left[ \sum_{\orb \in \orbs_e} \sum_{x \in \orb : a \cdot (x + \psi(x))= 1 } 2 \times (-1)^{f(x)+ a \cdot x}  \right] = \sum_{\orb \in \orbs_e} \sum_{x \in \orb : a \cdot (x + \psi(x))= 1 } (-1)^{f(x)+ a \cdot x} \\
-& = & \sum_{x \in \FF_2^n\setminus \orb_o : a \cdot (x + \psi(x))=1} (-1)^{f(x)+ a \cdot x}.
+& = & \sum_{x \in \F_2^n\setminus \orb_o : a \cdot (x + \psi(x))=1} (-1)^{f(x)+ a \cdot x}.
 \end{eqnarray*}
 Now, using the Proposition~\ref{prop:setSize}, we have an upper bound to the sum
 \begin{eqnarray}
 \left| \sum_{\orb \in \orbs_e} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x} \right| 
-    & = & \left|\sum_{x \in \FF_2^n\setminus \orb_o : a \cdot (x + \psi(x))=1} (-1)^{f(x)+ a \cdot x}\right| \nonumber\\
+    & = & \left|\sum_{x \in \F_2^n\setminus \orb_o : a \cdot (x + \psi(x))=1} (-1)^{f(x)+ a \cdot x}\right| \nonumber\\
     & \leq & \left\{
     \begin{array}{ll}
-        2^{n-1} & \text{ if } a \in \FF_2^n \setminus \orbs_o \\
+        2^{n-1} & \text{ if } a \in \F_2^n \setminus \orbs_o \\
         0           & \text{ if } a \in \orbs_o. \label{eqn:sume}
     \end{array}   \right.  
 \end{eqnarray} 
 Hence, from Equation~\ref{eqn:ws}, Equation~\ref{eqn:sumo} and Equation~\ref{eqn:sume}, we have
 \begin{equation}\label{eqn:ws2}
 |\wt{f}(a)| \leq \left\{ \begin{array}{ll}
-        2^{n-1} + 2^w & \text{ if } a \in \FF_2^n \setminus \orbs_o \\
+        2^{n-1} + 2^w & \text{ if } a \in \F_2^n \setminus \orbs_o \\
         2^w        & \text{ if } a \in \orbs_o
     \end{array}   \right. 
 \end{equation}
 Hence, the nonlinearity of $f_\psi$ satisfies
 \begin{eqnarray*}
-\NL(f_\psi) & ~\ge~ & 2^{n-1}-\frac{1}{2} \max_{a\in \FF_2^n}| \wt{f}(a)|
-~\geq~ 2^{n-1}-\frac{1}{2} \max_{a\in \FF_2^n} \{2^{n-1}+2^w,2^w \} ~=~ 2^{n-1} - 2^{n-2} - 2^{w-1} \\
+\NL(f_\psi) & ~\ge~ & 2^{n-1}-\frac{1}{2} \max_{a\in \F_2^n}| \wt{f}(a)|
+~\geq~ 2^{n-1}-\frac{1}{2} \max_{a\in \F_2^n} \{2^{n-1}+2^w,2^w \} ~=~ 2^{n-1} - 2^{n-2} - 2^{w-1} \\
 \implies \NL(f_\psi) & \ge & 2^{n-2} - 2^{w-1}.
 \end{eqnarray*}
 \end{proof}
@@ -400,23 +401,23 @@ Max Nonlinearity & $4$ & $12$ & $26$ & $48$ & $116$ & $236$ & $440$\\ \hline
 \iffalse
 -------------************------------*****************----------------*******************----------******
 \begin{lemma}\label{lem:BitXOR}
-Let $a = (a_1, a_2, \ldots, a_n) \in \FF_2^n$. Let $ a \lll \gamma$ be denoted as the cyclic left shift of $a$ by $ \gamma$ bits and $ a ^\wedge b$ be denoted the vector bitwise XOR operation. Then $$ \w(a ^\wedge (a \lll 1) ) = 2 ( \w(a) - |\{ (a_i, a_{i (\mod(n)) + 1}) : a_i + a_{i (\mod(n) + 1} = 0 \text{ for } i \in [1,n] \}|). $$
+Let $a = (a_1, a_2, \ldots, a_n) \in \F_2^n$. Let $ a \lll \gamma$ be denoted as the cyclic left shift of $a$ by $ \gamma$ bits and $ a ^\wedge b$ be denoted the vector bitwise XOR operation. Then $$ \w(a ^\wedge (a \lll 1) ) = 2 ( \w(a) - |\{ (a_i, a_{i (\mod(n)) + 1}) : a_i + a_{i (\mod(n) + 1} = 0 \text{ for } i \in [1,n] \}|). $$
 \end{lemma}
 \begin{proof}
-Let $a = (a_1, a_2, \ldots, a_n) \in \FF_2^n$. Let $ \overleftarrow{a} = a \lll 1 = (a_2, a_3, \ldots, a_n,a_1)$. Now $ \w(a ^\wedge \overleftarrow{a}) = \w( a_1 + a_2, a_2 + a_3, \ldots , a_{n-1} + a_n , a_n + a_1) = a_1 + a_2 + a_2 + a_3 + \cdots + a_{n-1} + a_n + a_n + a_1 - 2 \times  |\{ (a_i, a_{i (mod(n) + 1}) : a_i + a_{i (mod(n) + 1} = 0 \text{ for } i \in [1,n] \}| $, since each consecutive pair $(a_i, a_{i (mod(n) + 1})$ such that $a_i = a_{i (mod(n) + 1} = 1  $ donate 2- $1$'s to the sum $ a_1 + a_2 + a_2 + a_3 + \cdots + a_{n-1} + a_n + a_n + a_1 $ but  $a_i + a_{i (mod(n) + 1} = 0$.
+Let $a = (a_1, a_2, \ldots, a_n) \in \F_2^n$. Let $ \overleftarrow{a} = a \lll 1 = (a_2, a_3, \ldots, a_n,a_1)$. Now $ \w(a ^\wedge \overleftarrow{a}) = \w( a_1 + a_2, a_2 + a_3, \ldots , a_{n-1} + a_n , a_n + a_1) = a_1 + a_2 + a_2 + a_3 + \cdots + a_{n-1} + a_n + a_n + a_1 - 2 \times  |\{ (a_i, a_{i (mod(n) + 1}) : a_i + a_{i (mod(n) + 1} = 0 \text{ for } i \in [1,n] \}| $, since each consecutive pair $(a_i, a_{i (mod(n) + 1})$ such that $a_i = a_{i (mod(n) + 1} = 1  $ donate 2- $1$'s to the sum $ a_1 + a_2 + a_2 + a_3 + \cdots + a_{n-1} + a_n + a_n + a_1 $ but  $a_i + a_{i (mod(n) + 1} = 0$.
 \end{proof}
 
 \begin{lemma} \label{lem:setSize_k}
 For $n \geq 2$ as in Equation~\ref{eqn:binn}, let $\psi \in \Sn$ be the permutation as defined in Equation~\ref{eqn:cycperm}.Then 
 $$\left| \{x \in \Ekn{k}{n} : c \cdot (x + \psi(x))= 1\} \right| 
 = \left \{ \begin{array}{ll}
- \sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)}   &  \text{ if } c \in \FF_2^n \setminus \orbs_o  \\
+ \sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)}   &  \text{ if } c \in \F_2^n \setminus \orbs_o  \\
 0              &  \text{ if } c \in \orbs_o.
 \end{array} \right.$$
 where $ d = \w( c_1 + c_2 , c_2 + c_3, \ldots, c_{n_1}+ c_1, c_{n_1 + 1} + c_{n_1 + 2} , c_{n_1 + 2} + c_{n_1 + 3}, \ldots, c_{n_1 + n_2}+ c_{n_1 + 1}, \ldots, c_{n -{n_w} + 1} + c_{n -{n_w} + 2}, c_{n -{n_w} + 2} + c_{n -{n_w} + 3}, \ldots, c_{n} + c_{n -{n_w} + 1}) $.
 \end{lemma} 
 \begin{proof}
-Let $x = (x_1,x_2, \ldots,x_n) \in \Ekn{k}{n} \subset \FF_2^n $ and $ c = (c_1,c_2,\ldots,c_n) \in \FF_2^n$.
+Let $x = (x_1,x_2, \ldots,x_n) \in \Ekn{k}{n} \subset \F_2^n $ and $ c = (c_1,c_2,\ldots,c_n) \in \F_2^n$.
 \begin{eqnarray}
 c \cdot (x+\psi(x)) & = & c_1(x_1 + x_{n_1}) + c_2 (x_2 + x_1) + \cdots + c_{n_1}( x_{n_1} + x_{{n_1}-1}) \nonumber \\
 && +c_{{n_1}+1}(x_{{n_1}+1}+ x_{{n_1}+ {n_2}}) + \cdots + c_{n_1+n_2}(x_{n_1+n_2} + x_{n_1+n_2- 1})\nonumber\\
@@ -429,7 +430,7 @@ c \cdot (x+\psi(x)) & = & c_1(x_1 + x_{n_1}) + c_2 (x_2 + x_1) + \cdots + c_{n_1
 \end{eqnarray}
  Here $c \cdot (x+\psi(x))$ is the zero Boolean function if and only if
 $c_1 = c_2 = \ldots = c_{n_1}$; $c_{n_1+1} = c_{n_1 + 2} = \cdots = c_{n_1 + n_2}; \ldots; c_{(n- n_w ) + 1} = c_{(n- n_w) + 2} = \cdots = c_n$ i.e., $c \in \orbs_o$. \\
- Now, if $a_i + a_{i (\mod l ) + 1} = 1$, then we can see in Equation~\ref{eqn:cxk2}, the corresponding variable $ x_i $ will contribute to the sum. Let us denote $A_{n_1}=  (a_1, a_2, \ldots, a_{n_1}), A_{n_2}= (a_{n_1 + 1}, a_{n_1 + 2}, \ldots, a_{n_1 + n_2}), \cdots \text{ and } A_{n_w}= (a_{n -{n_w} + 1}, a_{n -{n_w} + 2}, \ldots, a_{n})$. Therefore from the Lemma~\ref{lem:BitXOR}, the number of $ x_i $'s are going to remain in Equation~ \ref{eqn:cxk2} for an $ c \in \FF_2^n \setminus \orbs_o$, is given as 
+ Now, if $a_i + a_{i (\mod l ) + 1} = 1$, then we can see in Equation~\ref{eqn:cxk2}, the corresponding variable $ x_i $ will contribute to the sum. Let us denote $A_{n_1}=  (a_1, a_2, \ldots, a_{n_1}), A_{n_2}= (a_{n_1 + 1}, a_{n_1 + 2}, \ldots, a_{n_1 + n_2}), \cdots \text{ and } A_{n_w}= (a_{n -{n_w} + 1}, a_{n -{n_w} + 2}, \ldots, a_{n})$. Therefore from the Lemma~\ref{lem:BitXOR}, the number of $ x_i $'s are going to remain in Equation~ \ref{eqn:cxk2} for an $ c \in \F_2^n \setminus \orbs_o$, is given as 
 \begin{eqnarray}
    && \w(A_{n_1} ^ \wedge \overleftarrow{A_{n_1}}, A_{n_2} ^ \wedge \overleftarrow{A_{n_2}}, \ldots , A_{n_w} ^ \wedge \overleftarrow{A_{n_w}})   \nonumber \\
  =  && 2 ( \w(A_{n_1}) - |\{ (c_i, c_{i(\mod(n_1)) + 1}) : c_i + c_{i(\mod(n_1)) + 1} = 0 \text{ for } i \in [1,n_1] \}|)  \nonumber \\ 
@@ -444,7 +445,7 @@ $c_1 = c_2 = \ldots = c_{n_1}$; $c_{n_1+1} = c_{n_1 + 2} = \cdots = c_{n_1 + n_2
 Since, $x \in \Ekn{k}{n}$, we will assign $i$ number of $1$'s to the variables that are present in the Equation~\ref{eqn:cxk2} such that $a. (x+ \psi(x))=1$ and  $(k-i)$ $1$'s are assign to the variables which are not present in the Equation~\ref{eqn:cxk2}. This implies,
 $$\left| \{x \in \Ekn{k}{n} : c \cdot (x + \psi(x))= 1\} \right|
 = \left \{ \begin{array}{ll}
-\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {{n-d} \choose {k-i}}  &  \text{ if } c \in \FF_2^n \setminus \orbs_o  \\
+\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {{n-d} \choose {k-i}}  &  \text{ if } c \in \F_2^n \setminus \orbs_o  \\
 0              &  \text{ if } c \in \orbs_o.
 \end{array} \right. $$
 where $ d = \w(A_{n_1} ^ \wedge \overleftarrow{A_{n_1}}, A_{n_2} ^ \wedge \overleftarrow{A_{n_2}}, \ldots , A_{n_w} ^ \wedge \overleftarrow{A_{n_w}})$.
@@ -454,8 +455,8 @@ where $ d = \w(A_{n_1} ^ \wedge \overleftarrow{A_{n_1}}, A_{n_2} ^ \wedge \overl
 Let $n \geq 2$ be an positive integer as in Equation~\ref{eqn:binn} and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
 Then $$\NLk{k}(f) ~\geq ~ 
 \left\{ \begin{array}{ll}
-       \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max_{a\in \FF_2^n}|\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)}| & \text{ if }  k \not\preceq n \\
-        \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max_{a\in \FF_2^n}|\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)} + 1 | & \text{ if } k \preceq n
+       \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max_{a\in \F_2^n}|\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)}| & \text{ if }  k \not\preceq n \\
+        \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max_{a\in \F_2^n}|\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)} + 1 | & \text{ if } k \preceq n
     \end{array}   \right.$$
 \end{theorem}
 \begin{proof}
@@ -493,34 +494,34 @@ Now, using the Lemma~\ref{lem:setSize_k}, we have an upper bound to the sum
     & = & \left|\sum_{x \in \Ekn{k}{n} \setminus \orb_o : a \cdot (x + \psi(x))=1} (-1)^{f(x)+ a \cdot x}\right| \nonumber\\
     & \leq & \left\{
     \begin{array}{ll}
-     \sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)}   & \text{ if } a \in \FF_2^n \setminus \orbs_o \\
+     \sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)}   & \text{ if } a \in \F_2^n \setminus \orbs_o \\
         0           & \text{ if } a \in \orbs_o. \label{eqn:sume_k}
     \end{array}   \right.  
 \end{eqnarray} 
 where $ d = \w(A_{n_1} ^ \wedge \overleftarrow{A_{n_1}}, A_{n_2} ^ \wedge \overleftarrow{A_{n_2}}, \ldots , A_{n_w} ^ \wedge \overleftarrow{A_{n_w}})$.
 Hence, from Equation~\ref{eqn:ws_k}%, Equation~\ref{eqn:sumo_k} 
-and Equation~\ref{eqn:sume_k}, we have the following bounds for $\wtk{f}{k}$ at $a \in \FF_2^n$ for $\Ekn{k}{n}$ depending on $ k \not\preceq n $ and $ k \preceq n$. \\
+and Equation~\ref{eqn:sume_k}, we have the following bounds for $\wtk{f}{k}$ at $a \in \F_2^n$ for $\Ekn{k}{n}$ depending on $ k \not\preceq n $ and $ k \preceq n$. \\
 For $ k \not\preceq n $, we have 
 \begin{equation}\label{eqn:ws2_even_k}
 |\wtk{f}{k}(a)| \leq \left\{ \begin{array}{ll}
-        \sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)} & \text{ if } a \in \FF_2^n \setminus \orbs_o \\
+        \sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)} & \text{ if } a \in \F_2^n \setminus \orbs_o \\
         0        & \text{ if } a \in \orbs_o
     \end{array}   \right. 
 \end{equation}
 and for $ k \preceq n$, we have 
 \begin{equation}\label{eqn:ws2_odd_k}
 |\wtk{f}{k}(a)| \leq \left\{ \begin{array}{ll}
-        \sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)} + 1 & \text{ if } a \in \FF_2^n \setminus \orbs_o \\
+        \sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)} + 1 & \text{ if } a \in \F_2^n \setminus \orbs_o \\
         1      & \text{ if } a \in \orbs_o
     \end{array}   \right. 
 \end{equation}
 Hence, the nonlinearity of $f_\psi$ satisfies
 \begin{eqnarray*}
-\NLk{k}(f_\psi) & ~\ge~ & 2^{n-1}-\frac{1}{2} \max_{a\in \FF_2^n}| \wtk{f}{k}(a)|
+\NLk{k}(f_\psi) & ~\ge~ & 2^{n-1}-\frac{1}{2} \max_{a\in \F_2^n}| \wtk{f}{k}(a)|
 ~\geq ~ 
 \left\{ \begin{array}{ll}
-       \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max_{a\in \FF_2^n}|\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)}| & \text{ if }  k \not\preceq n \\
-        \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max_{a\in \FF_2^n}|\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)} + 1 | & \text{ if } k \preceq n
+       \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max_{a\in \F_2^n}|\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)}| & \text{ if }  k \not\preceq n \\
+        \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max_{a\in \F_2^n}|\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)} + 1 | & \text{ if } k \preceq n
     \end{array}   \right. 
 \end{eqnarray*}
 where $ d = \w(A_{n_1} ^ \wedge \overleftarrow{A_{n_1}}, A_{n_2} ^ \wedge \overleftarrow{A_{n_2}}, \ldots , A_{n_w} ^ \wedge \overleftarrow{A_{n_w}})$.
@@ -531,7 +532,7 @@ where $ d = \w(A_{n_1} ^ \wedge \overleftarrow{A_{n_1}}, A_{n_2} ^ \wedge \overl
 
 
 \begin{lemma}
-Let $a = (a_1, a_2, \ldots, a_n) \in \FF_2^n$. Let $ \rho(a)$ be denoted as the cyclic left shift of $a$ by $ 1 $ bits and $ a + b$ be denoted the vector bitwise XOR operation. Then $$ \w(a + \rho(a) ) = 2 ( \w(a) - |\{ (a_i, a_{i (\mod(n)) + 1}) : a_i + a_{i (\mod(n) + 1} = 0 \text{ for } i \in [1,n] \}|). $$
+Let $a = (a_1, a_2, \ldots, a_n) \in \F_2^n$. Let $ \rho(a)$ be denoted as the cyclic left shift of $a$ by $ 1 $ bits and $ a + b$ be denoted the vector bitwise XOR operation. Then $$ \w(a + \rho(a) ) = 2 ( \w(a) - |\{ (a_i, a_{i (\mod(n)) + 1}) : a_i + a_{i (\mod(n) + 1} = 0 \text{ for } i \in [1,n] \}|). $$
 \end{lemma}
 \fi
 Now we will study the weightwise nonlinearity of $f_\psi$.
@@ -542,12 +543,12 @@ $$\left| \{x \in \Ekn{n}{k} \setminus \orbs_o : c \cdot (x + \psi(x))= 1\} \righ
 where $l = \w(c+\psi^{-1}(c))$.
 \end{lemma} 
 \begin{proof}
-Let $x = (x_1,x_2, \ldots,x_n) \in \Ekn{n}{k}$ and $c = (c_1,c_2,\ldots,c_n) \in \FF_2^n$. Then as in Equation~\ref{eqn:cx2}, we have 
+Let $x = (x_1,x_2, \ldots,x_n) \in \Ekn{n}{k}$ and $c = (c_1,c_2,\ldots,c_n) \in \F_2^n$. Then as in Equation~\ref{eqn:cx2}, we have 
 \begin{eqnarray*}
 c \cdot (x+\psi(x)) & = & (c+\psi^{-1}(c)) \cdot x \label{eqn:cxk2}
 \end{eqnarray*}
 is a linear function on $n$ variable defined over the slice $\Ekn{n}{k}$.
-%Consider $c+\psi^{-1}(c) = (\overline c_1, \overline c_2, \ldots, \overline c_n) \in \FF_2^n$ where $\overline c_1 = c_1 + c_2, \overline c_2 = c_2 + c_3, \ldots, \overline c_n = c_n + c_{n-n_w+1}$.
+%Consider $c+\psi^{-1}(c) = (\overline c_1, \overline c_2, \ldots, \overline c_n) \in \F_2^n$ where $\overline c_1 = c_1 + c_2, \overline c_2 = c_2 + c_3, \ldots, \overline c_n = c_n + c_{n-n_w+1}$.
 Therefore, using Theorem~\ref{thm:Kraw}, we have
 $$\left| \{x \in \Ekn{n}{k} : c \cdot (x + \psi(x))= 1\} \right| = \wkn{n}{k}((c+\psi^{-1}(c)) \cdot x) = \frac{1}{2} (|\Ekn{n}{k}| - \kraw{k}{l}{n})$$
 where $l = \w(c+\psi^{-1}(c))$.
@@ -555,7 +556,7 @@ If $x \in \Ekn{n}{k}$ and $|\orbs_\psi(x)| = 1$ i.e., $x \in \Ekn{n}{k} \cap \or
 $$\left| \{x \in \Ekn{n}{k} \setminus \orbs_o : c \cdot (x + \psi(x))= 1\} \right| 
 = \frac{1}{2} (|\Ekn{n}{k}| - \kraw{k}{l}{n}).$$
 \iffalse
-If $ c \in \FF_2^n \setminus \orbs_o$, then we have
+If $ c \in \F_2^n \setminus \orbs_o$, then we have
 \begin{align*}
 \w(c \cdot (x + \psi(x)) & = \sum_{\substack{j=0 \\ odd}}^k {\w(c+\psi(c)) \choose j}{ n - \w(c+\psi(c)) \choose  k-j}\\
                          & = \frac{1}{2} \left[{n \choose k} - \left(\sum_{j=0}^k {\w(c+\psi(c)) \choose j}{ n - \w(c+\psi(c)) \choose  k-j} - 2 \sum_{\substack{j=0 \\ odd}}^k {\w(c+\psi(c)) \choose j}{ n - \w(c+\psi(c)) \choose  k-j} \right) \right] \\
@@ -565,7 +566,7 @@ If $ c \in \FF_2^n \setminus \orbs_o$, then we have
 Hence,
 $$\left| \{x \in \Ekn{k}{n} : c \cdot (x + \psi(x))= 1\} \right|
 = \left \{ \begin{array}{ll}
-\frac{1}{2} \left[ |\Ekn{k}{n}| - \kraw{k}{\w(c + \psi(c))}{n} \right]  &  \text{ if } c \in \FF_2^n \setminus \orbs_o  \\
+\frac{1}{2} \left[ |\Ekn{k}{n}| - \kraw{k}{\w(c + \psi(c))}{n} \right]  &  \text{ if } c \in \F_2^n \setminus \orbs_o  \\
 0              &  \text{ if } c \in \orbs_o.
 \end{array} \right. $$ \fi
 \end{proof}
@@ -579,15 +580,15 @@ Then $$\NLk{k}(f) ~\geq ~
 \end{array}   \right.$$
 \iffalse
 \left\{ \begin{array}{ll}
-       \displaystyle{\frac{|\Ekn{n}{k}|}{2} - \frac{1}{4}\max_{a\in \FF_2^n}|\Ekn{n}{k}| - \kraw{k}{l}{n}} & \text{ if }  k \not\preceq n \\
-    \displaystyle{\frac{|\Ekn{n}{k}|}{2} - \frac{1}{4}\max_{a\in \FF_2^n} |\Ekn{n}{k}| - \kraw{k}{l}{n}) - \frac{1}{2}} & \text{ if } k \preceq n
+       \displaystyle{\frac{|\Ekn{n}{k}|}{2} - \frac{1}{4}\max_{a\in \F_2^n}|\Ekn{n}{k}| - \kraw{k}{l}{n}} & \text{ if }  k \not\preceq n \\
+    \displaystyle{\frac{|\Ekn{n}{k}|}{2} - \frac{1}{4}\max_{a\in \F_2^n} |\Ekn{n}{k}| - \kraw{k}{l}{n}) - \frac{1}{2}} & \text{ if } k \preceq n
     \end{array}   \right.$$
 where $l = \w(c+\psi^{-1}(c))$.\fi
 \end{theorem}
 \begin{proof}
 Let $\orbs_k$ be the set of all orbits of the group action $G = \langle \psi \rangle$ on $\Ekn{k}{n}$.
 Let $\orbs_{e,k}$ be the set of all orbits in $\orbs_k$ of cardinality even and $\orbs_{o,k}$ be the set of orbits in $\orbs_{k,n}$ of cardinality odd of $\orbs_k$. \\
-The restricted Walsh spectrum of $f_\psi$ at $a \in \FF_2^n$ is as follows.
+The restricted Walsh spectrum of $f_\psi$ at $a \in \F_2^n$ is as follows.
 \begin{eqnarray} \label{eqn:ws_k}
 \wtk{f}{k}(a) & =  & \sum_{x \in \Ekn{k}{n}} (-1)^{f(x)+a \cdot x} 
 = \sum_{\orb \in \orbs_k} \sum_{x \in \orb} (-1)^{f(x)+ a \cdot x} \nonumber \\ 
@@ -629,27 +630,27 @@ Hence from Equation~\ref{eqn:ws_k} and Lemma~\ref{lem:setSize_k}, we have
 where $l = \w(a+\psi^{-1}(a))$.
 \iffalse
 Hence, from Equation~\ref{eqn:ws_k}%, Equation~\ref{eqn:sumo_k} 
-and Equation~\ref{eqn:sume_k}, we have the following bounds for $\wtk{f}{k}$ at $a \in \FF_2^n$ for $\Ekn{k}{n}$ depending on $ k \not\preceq n $ and $ k \preceq n$. \\
+and Equation~\ref{eqn:sume_k}, we have the following bounds for $\wtk{f}{k}$ at $a \in \F_2^n$ for $\Ekn{k}{n}$ depending on $ k \not\preceq n $ and $ k \preceq n$. \\
 For $ k \not\preceq n $, we have 
 \begin{equation}\label{eqn:ws2_even_k}
 |\wtk{f}{k}(a)| \leq \left\{ \begin{array}{ll}
-        \frac{1}{2} \left[ |\Ekn{k}{n}| - \kraw{k}{\w(a + \psi(a))}{n} \right] & \text{ if } a \in \FF_2^n \setminus \orbs_o \\
+        \frac{1}{2} \left[ |\Ekn{k}{n}| - \kraw{k}{\w(a + \psi(a))}{n} \right] & \text{ if } a \in \F_2^n \setminus \orbs_o \\
         0        & \text{ if } a \in \orbs_o
     \end{array}   \right. 
 \end{equation}
 and for $ k \preceq n$, we have 
 \begin{equation}\label{eqn:ws2_odd_k}
 |\wtk{f}{k}(a)| \leq \left\{ \begin{array}{ll}
-        \frac{1}{2} \left[ |\Ekn{k}{n}| - \kraw{k}{\w(a + \psi(a))}{n} \right] + 1 & \text{ if } a \in \FF_2^n \setminus \orbs_o \\
+        \frac{1}{2} \left[ |\Ekn{k}{n}| - \kraw{k}{\w(a + \psi(a))}{n} \right] + 1 & \text{ if } a \in \F_2^n \setminus \orbs_o \\
         1      & \text{ if } a \in \orbs_o
     \end{array}   \right. 
 \end{equation}\fi
 Hence, the nonlinearity of $f_\psi$ satisfies
 \begin{eqnarray*}
-\NLk{k}(f_\psi) ~ = ~ \frac{|\Ekn{n}{k}|}{2} -\frac{1}{2} \max_{a\in \FF_2^n}| \wtk{f}{k}(a)|
+\NLk{k}(f_\psi) ~ = ~ \frac{|\Ekn{n}{k}|}{2} -\frac{1}{2} \max_{a\in \F_2^n}| \wtk{f}{k}(a)|
 & ~\geq~ & \left\{ \begin{array}{ll}
-\displaystyle{\frac{|\Ekn{n}{k}|}{2} - \frac{1}{4}\max_{a\in \FF_2^n} (|\Ekn{n}{k}| - \kraw{k}{l}{n})} & \text{ if }  k \not\preceq n \\
-\displaystyle{\frac{|\Ekn{n}{k}|}{2} - \frac{1}{4}\max_{a\in \FF_2^n} (|\Ekn{n}{k}| - \kraw{k}{l}{n}) - \frac{1}{2}} & \text{ if } k \preceq n
+\displaystyle{\frac{|\Ekn{n}{k}|}{2} - \frac{1}{4}\max_{a\in \F_2^n} (|\Ekn{n}{k}| - \kraw{k}{l}{n})} & \text{ if }  k \not\preceq n \\
+\displaystyle{\frac{|\Ekn{n}{k}|}{2} - \frac{1}{4}\max_{a\in \F_2^n} (|\Ekn{n}{k}| - \kraw{k}{l}{n}) - \frac{1}{2}} & \text{ if } k \preceq n
 \end{array}   \right. \\
 & ~ = ~ & \left\{ \begin{array}{ll}
 \displaystyle{\frac{|\Ekn{n}{k}|}{4} + \frac{1}{4}\min_{0 \leq l \leq n} \kraw{k}{l}{n}}  & \text{ if }  k \not\preceq n \\
@@ -660,7 +661,7 @@ Hence, the nonlinearity of $f_\psi$ satisfies
 \displaystyle{\frac{1}{4}\left({n \choose k} + \min_{0 \leq l \leq n} \kraw{k}{l}{n} - 2\right)} & \text{ if } k \preceq n.
 \end{array}   \right.
 \end{eqnarray*}
-%\[\NLk{k}(f) = \frac{|\Ekn{n}{k}|}{2}- \frac{1}{2}\max_{a \in \FF_2^n} |\wtk{f}{k}(a)|
+%\[\NLk{k}(f) = \frac{|\Ekn{n}{k}|}{2}- \frac{1}{2}\max_{a \in \F_2^n} |\wtk{f}{k}(a)|
 \end{proof}
 
 
@@ -671,44 +672,44 @@ Let $n \geq 2$ be an positive integer as in Equation~\ref{eqn:binn} and $\psi \i
 Then $\NL(f_\psi) \ge 2^{n-2} - 2^{n-n_w}$.
 \end{theorem}
 \begin{proof}
-Let $x = (y,z) \in \FF_2^n$, where $y\in \FF_2^{n-n_w}$ and $z \in \FF_2^{n_w}$. Let denote 
+Let $x = (y,z) \in \F_2^n$, where $y\in \F_2^{n-n_w}$ and $z \in \F_2^{n_w}$. Let denote 
 the permutation $\psi \in \Sn$ in Equation~\ref{eqn:cycperm} as $\psi = \overline{\psi}~\pi_w$ where $\overline{\psi}  = (x_1, x_2, \ldots, x_{n_1}) (x_{n_1+1}, x_{n_1+2}, \ldots, x_{n_1+n_2})\cdots (x_{n-n_{w-1}-n_w+1}, \ldots, x_{n-n_{w-1}})$ and $\pi_w = (x_{n-n_w+1}, x_{n-n_w+2}, \ldots, x_n)$.
-Let $\orbs$ be the set of all orbits of $G = \langle \rho_{n_w} \rangle$ acts on $\FF_2^{n_w}$.
+Let $\orbs$ be the set of all orbits of $G = \langle \rho_{n_w} \rangle$ acts on $\F_2^{n_w}$.
 For the simplicity, we denote $f = f_\psi$.
-Then, the Walsh-Hadamard transform of $f$ at $a = (b,c) \in \FF_2^n$ with $b \in \FF_2^{n-n_w}$ and $c \in \FF_2^{n_w}$ is
+Then, the Walsh-Hadamard transform of $f$ at $a = (b,c) \in \F_2^n$ with $b \in \F_2^{n-n_w}$ and $c \in \F_2^{n_w}$ is
 
 %\begin{align*}
 %\wt{f}(a)&=\sum_{x\in \F_2^n} (-1)^{f(x)+a x}\\
 %&=\sum_{i=1}^{t} \sum_{z\in O_i} \sum_{y\in \F_2^{n-n_w}}(-1)^{f(y,z)+by+cz} + \sum_{i=t+1}^{t+s} \sum_{z\in O_i} \sum_{y\in \F_2^{n-n_w}}(-1)^{f(y,z)+by+cz},\\
 %\end{align*}	
-%$$ \wt{f_\psi}(a) = \sum_{x\in \FF_2^n} (-1)^{f_\psi(x)+a \cdot x} 
+%$$ \wt{f_\psi}(a) = \sum_{x\in \F_2^n} (-1)^{f_\psi(x)+a \cdot x} 
 %= \sum_{\orb \in \orbs} \sum_{x \in \orb}(-1)^{f_\psi(x)+a \cdot x}
 %= \sum_{\orb \in \orbs} \sum_{(y,z) \in \orb} (-1)^{f_\psi(y,z)+b \cdot y+c \cdot z}.$$
 %= \sum_{\orb \in \orbs} \sum_{(y,z) \in \orb} \sum_{y\in \F_2^{n-n_w}}(-1)^{f(y,z)+by+cz}.$$
 \begin{eqnarray*}
-\wt{f}(a) & = & \sum_{x\in \FF_2^n} (-1)^{f(x)+a \cdot x}
-= \sum_{z \in \FF_2^{n_w}} \sum_{y \in \FF_2^{n-n_w}}(-1)^{f(y,z)+b \cdot y+c \cdot z} \\
-& = & \sum_{\orb \in \orbs} \sum_{z \in \orb} \sum_{y \in \FF_2^{n-n_w}}(-1)^{fs(y,z)+b \cdot y+c \cdot z}
+\wt{f}(a) & = & \sum_{x\in \F_2^n} (-1)^{f(x)+a \cdot x}
+= \sum_{z \in \F_2^{n_w}} \sum_{y \in \F_2^{n-n_w}}(-1)^{f(y,z)+b \cdot y+c \cdot z} \\
+& = & \sum_{\orb \in \orbs} \sum_{z \in \orb} \sum_{y \in \F_2^{n-n_w}}(-1)^{fs(y,z)+b \cdot y+c \cdot z}
 \end{eqnarray*}
-Here, $\orb_0 = \{0^{n_w}\}$ and $\orb_1 = \{1^{n_w}\}$ are the only orbits of cardinality $1$ in $\FF_2^{n_w}$. 
+Here, $\orb_0 = \{0^{n_w}\}$ and $\orb_1 = \{1^{n_w}\}$ are the only orbits of cardinality $1$ in $\F_2^{n_w}$. 
 Denote $\hat{\orbs} = \orbs \setminus \{\orb_0,\orb_1\}$ which is the set of all orbits of cardinality even. Hence,
 \begin{equation}\label{eq:wt}
-\wt{f}(a) = \sum_{\orb \in \hat{\orbs}} \sum_{z \in \orb} \sum_{y \in \FF_2^{n-n_w}} (-1)^{f(y,z) + b\cdot y + c\cdot z} + \sum_{z \in \{0^{n_w}, 1^{n_w}\}} \sum_{y \in \FF_2^{n-n_w}}(-1)^{f(y,z) + b\cdot y + c \cdot z}
+\wt{f}(a) = \sum_{\orb \in \hat{\orbs}} \sum_{z \in \orb} \sum_{y \in \F_2^{n-n_w}} (-1)^{f(y,z) + b\cdot y + c\cdot z} + \sum_{z \in \{0^{n_w}, 1^{n_w}\}} \sum_{y \in \F_2^{n-n_w}}(-1)^{f(y,z) + b\cdot y + c \cdot z}
 \end{equation}	
 %$\[|\sum_{i=t+1}^{t+s} \sum_{z\in O_i} \sum_{y\in \F_2^{n-n_w}}(-1)^{f(y,z)+by+cz}| \le  |\sum_{z\in \{0_{n_w}, 1_{n_w}\}} \sum_{y\in \F_2^{n-n_w}}(-1)^{f(y,z)+by+cz}|\]$
 The bound for the second sum is given as 
 \begin{align*}
-|\sum_{z \in \{0^{n_w}, 1^{n_w}\}} \sum_{y \in \FF_2^{n-n_w}}(-1)^{f(y,z) + b\cdot y + c \cdot z}|
- %& = |\sum_{y \in \FF_2^{n-n_w}} (-1)^{f(y,0^{n_w})+b \cdot y} + \sum_{y \in \FF_2^{n-n_w}} (-1)^{f(y,1^{n_w})+b \cdot y + c \cdot 1^{n_w}}|  \\
-      & \leq |\sum_{y \in \FF_2^{n-n_w}} (-1)^{f(y,0^{n_w})+b \cdot y}| + |\sum_{y \in \FF_2^{n-n_w}} (-1)^{f(y,1^{n_w})+b \cdot y + c \cdot 1^{n_w}}|  \leq   2^{n-n_w+1}.
+|\sum_{z \in \{0^{n_w}, 1^{n_w}\}} \sum_{y \in \F_2^{n-n_w}}(-1)^{f(y,z) + b\cdot y + c \cdot z}|
+ %& = |\sum_{y \in \F_2^{n-n_w}} (-1)^{f(y,0^{n_w})+b \cdot y} + \sum_{y \in \F_2^{n-n_w}} (-1)^{f(y,1^{n_w})+b \cdot y + c \cdot 1^{n_w}}|  \\
+      & \leq |\sum_{y \in \F_2^{n-n_w}} (-1)^{f(y,0^{n_w})+b \cdot y}| + |\sum_{y \in \F_2^{n-n_w}} (-1)^{f(y,1^{n_w})+b \cdot y + c \cdot 1^{n_w}}|  \leq   2^{n-n_w+1}.
 \end{align*}
 Then, we have from the first sum of Equation~\ref{eq:wt} as 
 \begin{align*}
-\sum_{\orb \in \hat{\orbs}} \sum_{z \in \orb} \sum_{y \in \FF_2^{n-n_w}} (-1)^{f(y,z) + b\cdot y + c\cdot z}
-& = \frac{1}{2} \sum_{\orb \in \hat{\orbs}} \sum_{z \in \orb} \sum_{y \in \FF_2^{n-n_w}} \left((-1)^{f(y,z) + b\cdot y + c\cdot z} + (-1)^{f(y,\pi_w(z)) + b\cdot y + c\cdot \pi_w(z)} \right)\\
+\sum_{\orb \in \hat{\orbs}} \sum_{z \in \orb} \sum_{y \in \F_2^{n-n_w}} (-1)^{f(y,z) + b\cdot y + c\cdot z}
+& = \frac{1}{2} \sum_{\orb \in \hat{\orbs}} \sum_{z \in \orb} \sum_{y \in \F_2^{n-n_w}} \left((-1)^{f(y,z) + b\cdot y + c\cdot z} + (-1)^{f(y,\pi_w(z)) + b\cdot y + c\cdot \pi_w(z)} \right)\\
 %& = \frac{1}{2} \left[ \sum_{O \in \hat{\mathcal{O}}} \sum_{z \in O} (-1)^{c.z} \sum_{y \in \mathbb{F}_2^{n-n_w}}(-1)^{f(y,z) + b.y} + \right. \\
 %& \left. \hspace{0.2in}   \sum_{O \in \hat{\mathcal{O}}} \sum_{z \in O} (-1)^{c.\pi_{n_w}(z)} \sum_{y \in \mathbb{F}_2^{n-n_w}}(-1)^{f(y,\pi_w(z)) + b.y}  \right] \\
-& =  \frac{1}{2} \sum_{\orb \in \hat{\orbs}} \sum_{z \in \orb} \sum_{y \in \FF_2^{n-n_w}}
+& =  \frac{1}{2} \sum_{\orb \in \hat{\orbs}} \sum_{z \in \orb} \sum_{y \in \F_2^{n-n_w}}
 \left((-1)^{f(y,z)+b\cdot y}  \right)\left( (-1)^{c \cdot z} \pm (-1)^{c\cdot \pi_w(z)} \right).
 \end{align*}
 Here the sign $\pm$ in the above expression is $+$ if $f(y,\pi_w(z) = f(y,z)$ else it is $-$.\\
@@ -749,17 +750,17 @@ and finally:
 	
 \end{proposition}
 \begin{proof}
-	Let $ c = 0^n \in \FF_2^n$. Then $c(z + \pi(z))=0$. Hence $|\{ z \in \FF_2^{n} \setminus \{0_{n},1_{n}\}, c(z+\pi(z))=1   \}| = 0$. Similarly, if $c = 1^n$, then  $$|\{ z \in \FF_2^{n} \setminus \{0_{n},1_{n}\}, 1^n(z+\pi(z))=1   \}| = |\{ z \in \FF_2^{n} \setminus \{0_{n},1_{n}\}, (z_1 + z_n)+(z_2 + z_1)+ \cdots (z_n + z_{n-1})= 1 \}|$$ is given as follows:
+	Let $ c = 0^n \in \F_2^n$. Then $c(z + \pi(z))=0$. Hence $|\{ z \in \F_2^{n} \setminus \{0_{n},1_{n}\}, c(z+\pi(z))=1   \}| = 0$. Similarly, if $c = 1^n$, then  $$|\{ z \in \F_2^{n} \setminus \{0_{n},1_{n}\}, 1^n(z+\pi(z))=1   \}| = |\{ z \in \F_2^{n} \setminus \{0_{n},1_{n}\}, (z_1 + z_n)+(z_2 + z_1)+ \cdots (z_n + z_{n-1})= 1 \}|$$ is given as follows:
 	\begin{align*}
 	(z_1 + z_n)+(z_2 + z_1)+ \cdots (z_n + z_{n-1}) = 2(z_1 + z_2 + \cdots + z_n) 
 	\end{align*}
-	This implies, there is no $z \in \FF_2^n$ such that the above equation will be 1. \\
-Let $c=(c_1,c_2,\ldots,c_n) \in \FF_2^n \setminus \{0^n,1^n\}$. Then 
+	This implies, there is no $z \in \F_2^n$ such that the above equation will be 1. \\
+Let $c=(c_1,c_2,\ldots,c_n) \in \F_2^n \setminus \{0^n,1^n\}$. Then 
 \begin{align*}
          & c_1(x_1 + x_n) + c_2(x_2 + x_1) + \ldots + c_n (x_n + x_{n-1})  = 0 \\
 \implies &  x_1 ( c_1 + c_2) + x_2 (c_2 + c_3) + \ldots + x_{n-1}(c_{n-1} + c_n) + x_n(c_n + c_1)= 0  
 \end{align*}
-Hence, this can be written as $A= \{ x \in \FF_2^n : u. x = 0\}$ for $ u = (u_1,u_2, \ldots,u_n) \in \FF_2^n$ where $ u_i = c_i + c_{i+1}$ for $  1 \leq i \leq {n-1} $, and $u_n = c_n + c_1$. Since, $ u \neq 0 $ as $c \not\in \{0^n,1^n\}$ and $A$ is a hyperplane, implies that the cardinality of the set $A$ is $2^{n-1}$.
+Hence, this can be written as $A= \{ x \in \F_2^n : u. x = 0\}$ for $ u = (u_1,u_2, \ldots,u_n) \in \F_2^n$ where $ u_i = c_i + c_{i+1}$ for $  1 \leq i \leq {n-1} $, and $u_n = c_n + c_1$. Since, $ u \neq 0 $ as $c \not\in \{0^n,1^n\}$ and $A$ is a hyperplane, implies that the cardinality of the set $A$ is $2^{n-1}$.
 \end{proof}
 \fi
 
