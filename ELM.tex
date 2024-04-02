@@ -326,14 +326,13 @@ $$\left| \{x \in \F_2^n \setminus \orbs_o : c \cdot (x + \psi(x))= 1\} \right|
 \end{array} \right.$$
 \end{proof} 
 
-\begin{theorem}
+\begin{theorem}\label{thm:nlboundf}
 Let $n \geq 2$ be an positive integer as in Equation~\ref{eqn:binn} and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
 Then $\NL(f_\psi) \ge 2^{n-2} - 2^{w-1}$.
 \end{theorem}
 \begin{proof}
 Let $a \in \F_2^n$ and $\psi \in \Sn$ be the permutation defined as in Equation~\ref{eqn:cycperm}.
 As $\w(n) = w$, from Lemma~\ref{lem:orbNo} there are $2^w$ orbits with cardinality $1$ and remaining orbits are of even cardinality. 
-%Let denote $\orbs$ be the set of all orbits due the action of $\psi$ on $\F_2^n$, $\orbs_o$ be the set of orbits of odd cardinality (i.e., here $1$) and $\orbs_e$ be the set of orbits of even cardinality.
 Then the Walsh spectrum of $f_\psi$ at $a$ is as follows.
 \begin{eqnarray} \label{eqn:ws}
 \wt{f}(a) & =  &\sum_{x \in \F_2^n} (-1)^{f(x)+a \cdot x} 
@@ -387,154 +386,19 @@ Hence, the nonlinearity of $f_\psi$ satisfies
 \implies \NL(f_\psi) & \ge & 2^{n-2} - 2^{w-1}.
 \end{eqnarray*}
 \end{proof}
-In the following table we have presented the maximum nonlinearity among all $f_\psi$ for the number of variables $n = \{4, 5, \ldots, 8\}$
+In the following table we have presented the maximum and minimum nonlinearity among all $f_\psi$ for the number of variables $n = \{4, 5, \ldots, 10\}$ along with the upperbound of balanced Boolean functions and lowerbound of $f_{\psi}$ as per Theorem~\ref{thm:nlboundf}. We have searched all such Boolean functions for $n \leq 6$ and from $2^{25}$ such Boolean functions for $n > 6$.
 \begin{center}
 \begin{tabular}{|c|c|c|c||c|c|c|c|}\hline
 $n$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$\\ \hline
 Number of functions & $2^4 \times \binom{2}{1}$ & $2^8 \times \binom{4}{2}$ & $2^{18} \times \binom{4}{2}$&$2^{36} \times \binom{8}{4}$&$2^{34} \times \binom{2}{1}$& $2^{68} \times \binom{4}{2}$& $2^{138} \times \binom{4}{2}$\\
 & $ = 2^5$& $= 3\times 2^9$& $= 3\times 2^{19}$& $= 35\times 2^{37}$&$ = 2^{35}$&$= 3\times 2^{69}$& $= 3\times 2^{139}$\\ \hline
-Max Nonlinearity & $4$ & $12$ & $26$ & $48$ & $116$ & $236$ & $440$\\ \hline
+Max Nonlinearity & $4$ & $12$ & $26$ & $52$ & $116$ & $236$ & $440$\\ \hline
+Nonlinearity upper bound & $4$ & $12$ & $26$ & $56$ & $116$ & $240$ & $492$\\ \hline
+Min Nonlinearity & $4$ & $6$ & $14$ & $32$ & $80$ & $192$ & $402$\\ \hline
+Nonlinearity lower bound & $3$ & $6$ & $14$ & $28$ & $63$ & $126$ & $254$\\ \hline
 \end{tabular}
 \end{center}
 
-
-\iffalse
--------------************------------*****************----------------*******************----------******
-\begin{lemma}\label{lem:BitXOR}
-Let $a = (a_1, a_2, \ldots, a_n) \in \F_2^n$. Let $ a \lll \gamma$ be denoted as the cyclic left shift of $a$ by $ \gamma$ bits and $ a ^\wedge b$ be denoted the vector bitwise XOR operation. Then $$ \w(a ^\wedge (a \lll 1) ) = 2 ( \w(a) - |\{ (a_i, a_{i (\mod(n)) + 1}) : a_i + a_{i (\mod(n) + 1} = 0 \text{ for } i \in [1,n] \}|). $$
-\end{lemma}
-\begin{proof}
-Let $a = (a_1, a_2, \ldots, a_n) \in \F_2^n$. Let $ \overleftarrow{a} = a \lll 1 = (a_2, a_3, \ldots, a_n,a_1)$. Now $ \w(a ^\wedge \overleftarrow{a}) = \w( a_1 + a_2, a_2 + a_3, \ldots , a_{n-1} + a_n , a_n + a_1) = a_1 + a_2 + a_2 + a_3 + \cdots + a_{n-1} + a_n + a_n + a_1 - 2 \times  |\{ (a_i, a_{i (mod(n) + 1}) : a_i + a_{i (mod(n) + 1} = 0 \text{ for } i \in [1,n] \}| $, since each consecutive pair $(a_i, a_{i (mod(n) + 1})$ such that $a_i = a_{i (mod(n) + 1} = 1  $ donate 2- $1$'s to the sum $ a_1 + a_2 + a_2 + a_3 + \cdots + a_{n-1} + a_n + a_n + a_1 $ but  $a_i + a_{i (mod(n) + 1} = 0$.
-\end{proof}
-
-\begin{lemma} \label{lem:setSize_k}
-For $n \geq 2$ as in Equation~\ref{eqn:binn}, let $\psi \in \Sn$ be the permutation as defined in Equation~\ref{eqn:cycperm}.Then 
-$$\left| \{x \in \Ekn{k}{n} : c \cdot (x + \psi(x))= 1\} \right| 
-= \left \{ \begin{array}{ll}
- \sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)}   &  \text{ if } c \in \F_2^n \setminus \orbs_o  \\
-0              &  \text{ if } c \in \orbs_o.
-\end{array} \right.$$
-where $ d = \w( c_1 + c_2 , c_2 + c_3, \ldots, c_{n_1}+ c_1, c_{n_1 + 1} + c_{n_1 + 2} , c_{n_1 + 2} + c_{n_1 + 3}, \ldots, c_{n_1 + n_2}+ c_{n_1 + 1}, \ldots, c_{n -{n_w} + 1} + c_{n -{n_w} + 2}, c_{n -{n_w} + 2} + c_{n -{n_w} + 3}, \ldots, c_{n} + c_{n -{n_w} + 1}) $.
-\end{lemma} 
-\begin{proof}
-Let $x = (x_1,x_2, \ldots,x_n) \in \Ekn{k}{n} \subset \F_2^n $ and $ c = (c_1,c_2,\ldots,c_n) \in \F_2^n$.
-\begin{eqnarray}
-c \cdot (x+\psi(x)) & = & c_1(x_1 + x_{n_1}) + c_2 (x_2 + x_1) + \cdots + c_{n_1}( x_{n_1} + x_{{n_1}-1}) \nonumber \\
-&& +c_{{n_1}+1}(x_{{n_1}+1}+ x_{{n_1}+ {n_2}}) + \cdots + c_{n_1+n_2}(x_{n_1+n_2} + x_{n_1+n_2- 1})\nonumber\\
-&& + \cdots \nonumber\\
-&& + c_{n-n_w+1} (x_{n-n_w+1} + x_n) + \cdots + a_n(x_n + x_{n-1}) \label{eqn:cxk1}\nonumber\\
-\implies c \cdot (x+\psi(x)) & = & x_1(c_1 + c_2) + x_2(c_2 + c_3) + \cdots + x_{n_1}(c_{n_1} + c_1)\nonumber \\
-&& + x_{n_1+1}(c_{n_1+1} + c_{n_1+2}) + \cdots + x_{n_1+n_2} (c_{n_1 + n_2} + c_{n_1+1})\nonumber \\
-&& + \cdots \nonumber\\
-&& + x_{n-n_w+1} (c_{n-n_w+1} + c_{n-n_w+2})+ \cdots +  x_n(c_n + c_{n-n_w+1}).\label{eqn:cxk2}
-\end{eqnarray}
- Here $c \cdot (x+\psi(x))$ is the zero Boolean function if and only if
-$c_1 = c_2 = \ldots = c_{n_1}$; $c_{n_1+1} = c_{n_1 + 2} = \cdots = c_{n_1 + n_2}; \ldots; c_{(n- n_w ) + 1} = c_{(n- n_w) + 2} = \cdots = c_n$ i.e., $c \in \orbs_o$. \\
- Now, if $a_i + a_{i (\mod l ) + 1} = 1$, then we can see in Equation~\ref{eqn:cxk2}, the corresponding variable $ x_i $ will contribute to the sum. Let us denote $A_{n_1}=  (a_1, a_2, \ldots, a_{n_1}), A_{n_2}= (a_{n_1 + 1}, a_{n_1 + 2}, \ldots, a_{n_1 + n_2}), \cdots \text{ and } A_{n_w}= (a_{n -{n_w} + 1}, a_{n -{n_w} + 2}, \ldots, a_{n})$. Therefore from the Lemma~\ref{lem:BitXOR}, the number of $ x_i $'s are going to remain in Equation~ \ref{eqn:cxk2} for an $ c \in \F_2^n \setminus \orbs_o$, is given as 
-\begin{eqnarray}
-   && \w(A_{n_1} ^ \wedge \overleftarrow{A_{n_1}}, A_{n_2} ^ \wedge \overleftarrow{A_{n_2}}, \ldots , A_{n_w} ^ \wedge \overleftarrow{A_{n_w}})   \nonumber \\
- =  && 2 ( \w(A_{n_1}) - |\{ (c_i, c_{i(\mod(n_1)) + 1}) : c_i + c_{i(\mod(n_1)) + 1} = 0 \text{ for } i \in [1,n_1] \}|)  \nonumber \\ 
-+  &&  2 ( \w(A_{n_2}) - |\{ (c_i, c_{i(\mod(n_1 + n_2)) + 1}) : c_i + c_{i(\mod(n_1 + n_2)) + 1} = 0 \text{ for } i \in [n_1 +1 ,n_1 + n_2] \}|) \nonumber \\
-+  &&  \cdots   \nonumber\\
-+  &&  2 ( \w(A_{n_w}) - |\{ (c_i, c_{i(\mod(n_1 + n_2 + \ldots + n_w)) + 1}) : c_i + c_{i(\mod(n_1 + n_2 + \ldots + n_w) + 1} = 0 \text{ for } i \in [n-{n_w} + 1, n ] \}|) \nonumber \\
-= && 2 \w(a) - 2 \times ( |\{ (c_i, c_{i(\mod(n_1)) + 1}) : c_i + c_{i(\mod(n_1)) + 1} = 0 \text{ for } i \in [1,n_1] \}|  \nonumber \\
-+ && |\{ (c_i, c_{i(\mod(n_1 + n_2)) + 1}) : c_i + c_{i(\mod(n_1 + n_2)) + 1} = 0 \text{ for } i \in [n_1 +1 ,n_1 + n_2] \}|    \nonumber \\
-+ && \cdots  \nonumber \\ 
-+ && |\{ (c_i, c_{i(\mod(n_1 + n_2 + \ldots + n_w)) + 1}) : c_i + c_{i(\mod(n_1 + n_2 + \ldots + n_w) + 1} = 0 \text{ for } i \in [n-{n_w} + 1, n ] \}| ) \nonumber 
-\end{eqnarray}
-Since, $x \in \Ekn{k}{n}$, we will assign $i$ number of $1$'s to the variables that are present in the Equation~\ref{eqn:cxk2} such that $a. (x+ \psi(x))=1$ and  $(k-i)$ $1$'s are assign to the variables which are not present in the Equation~\ref{eqn:cxk2}. This implies,
-$$\left| \{x \in \Ekn{k}{n} : c \cdot (x + \psi(x))= 1\} \right|
-= \left \{ \begin{array}{ll}
-\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {{n-d} \choose {k-i}}  &  \text{ if } c \in \F_2^n \setminus \orbs_o  \\
-0              &  \text{ if } c \in \orbs_o.
-\end{array} \right. $$
-where $ d = \w(A_{n_1} ^ \wedge \overleftarrow{A_{n_1}}, A_{n_2} ^ \wedge \overleftarrow{A_{n_2}}, \ldots , A_{n_w} ^ \wedge \overleftarrow{A_{n_w}})$.
-\end{proof}
-
-\begin{theorem}
-Let $n \geq 2$ be an positive integer as in Equation~\ref{eqn:binn} and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
-Then $$\NLk{k}(f) ~\geq ~ 
-\left\{ \begin{array}{ll}
-       \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max_{a\in \F_2^n}|\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)}| & \text{ if }  k \not\preceq n \\
-        \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max_{a\in \F_2^n}|\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)} + 1 | & \text{ if } k \preceq n
-    \end{array}   \right.$$
-\end{theorem}
-\begin{proof}
-Let $\psi \in \Sn$ be the permutation defined as in Equation~\ref{eqn:cycperm}. 
-Let $\orbs_k$ be the set of all orbits of the group action $G$ on $\Ekn{k}{n}$.
-Let $\orbs_{e,k}$ be the set of all orbits in $\orbs_k$ of cardinality even and $\orbs_{o,k}$ be the set of orbits in $\orbs_{k,n}$ of cardinality odd of $\orbs_k$. \\
-The \textcolor{red}{weightwise} Walsh spectrum of $f_\psi$ at $a \in \Ekn{k}{n}$ is as follows. (\textcolor{red}{weightwise Walsh spectrum needs to be defined at $NL_k$})
-\begin{eqnarray} \label{eqn:ws_k}
-\wtk{f}{k}(a) & =  & \sum_{x \in \Ekn{k}{n}} (-1)^{f(x)+a \cdot x} 
-= \sum_{\orb \in \orbs_k} \sum_{x \in \orb} (-1)^{f(x)+ a \cdot x} \nonumber \\ 
-& = &\sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x} + \sum_{\orb \in \orbs_{o,k}} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x} \nonumber \\
-\implies |\wtk{f}{k}(a)| & \leq  & |\sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x}| + | \sum_{\orb \in \orbs_{o,k}} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x}| \nonumber \\ 
-\implies |\wtk{f}{k}(a)| & \leq & |\sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x}| + 1
-\end{eqnarray}
-as the number of odd orbits is at most $1$ and its cardinality is $1$. Further,
-\begin{eqnarray}\label{eqn:wse_k}
-\sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x} & = &
-\frac{1}{2} \left[ \sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x} + \sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb} (-1)^{ f(\psi(x)) + a \cdot \psi(x)} \right]  \nonumber \\
-%      && \because f(\psi(x)) = f(x) + 1  \\      
-& = & \frac{1}{2} \left[ \sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x} + (-1)^{f(\psi(x))+ a \cdot \psi(x)}   \right]  \nonumber \\
-& = & \frac{1}{2}  \left[ \sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x} - (-1)^{f(x) + a \cdot \psi(x)}   \right] ~~~~~~(\text{as }f(\psi(x)) = 1+f(x)))   \nonumber \\
-& = & \frac{1}{2} \left[ \sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb} (-1)^{ f(x)} \left((-1)^{a \cdot x} - (-1)^{ a \cdot \psi(x)}\right) \right]
-\end{eqnarray}
-The vectors $x$ for which $((-1)^{ a \cdot x} - (-1)^{a \cdot \psi(x)}) = 0$ i.e., $a \cdot (x + \psi(x))= 0$ have contribution $0$ to the sum in Equation~\ref{eqn:wse_k}. Hence, we have
-\begin{eqnarray*}
-\sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x} 
-& = & \frac{1}{2} \left[ \sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb : a \cdot (x + \psi(x))= 1} (-1)^{f(x)} ((-1)^{ a \cdot x} - (-1)^{a \cdot \psi(x)})  \right] \\
-& = & \sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb : a \cdot (x + \psi(x))= 1 } (-1)^{f(x)+ a \cdot x} 
-= \sum_{x \in \Ekn{k}{n} \setminus \{z\} : a \cdot (x + \psi(x))=1} (-1)^{f(x)+ a \cdot x}
-\end{eqnarray*}
-where $z$ (if any) is the vector of orbit cardninality odd.
-Now, using the Lemma~\ref{lem:setSize_k}, we have an upper bound to the sum
-\begin{eqnarray}
-\left| \sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb} (-1)^{ f(x) + a \cdot x} \right| 
-    & = & \left|\sum_{x \in \Ekn{k}{n} \setminus \orb_o : a \cdot (x + \psi(x))=1} (-1)^{f(x)+ a \cdot x}\right| \nonumber\\
-    & \leq & \left\{
-    \begin{array}{ll}
-     \sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)}   & \text{ if } a \in \F_2^n \setminus \orbs_o \\
-        0           & \text{ if } a \in \orbs_o. \label{eqn:sume_k}
-    \end{array}   \right.  
-\end{eqnarray} 
-where $ d = \w(A_{n_1} ^ \wedge \overleftarrow{A_{n_1}}, A_{n_2} ^ \wedge \overleftarrow{A_{n_2}}, \ldots , A_{n_w} ^ \wedge \overleftarrow{A_{n_w}})$.
-Hence, from Equation~\ref{eqn:ws_k}%, Equation~\ref{eqn:sumo_k} 
-and Equation~\ref{eqn:sume_k}, we have the following bounds for $\wtk{f}{k}$ at $a \in \F_2^n$ for $\Ekn{k}{n}$ depending on $ k \not\preceq n $ and $ k \preceq n$. \\
-For $ k \not\preceq n $, we have 
-\begin{equation}\label{eqn:ws2_even_k}
-|\wtk{f}{k}(a)| \leq \left\{ \begin{array}{ll}
-        \sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)} & \text{ if } a \in \F_2^n \setminus \orbs_o \\
-        0        & \text{ if } a \in \orbs_o
-    \end{array}   \right. 
-\end{equation}
-and for $ k \preceq n$, we have 
-\begin{equation}\label{eqn:ws2_odd_k}
-|\wtk{f}{k}(a)| \leq \left\{ \begin{array}{ll}
-        \sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)} + 1 & \text{ if } a \in \F_2^n \setminus \orbs_o \\
-        1      & \text{ if } a \in \orbs_o
-    \end{array}   \right. 
-\end{equation}
-Hence, the nonlinearity of $f_\psi$ satisfies
-\begin{eqnarray*}
-\NLk{k}(f_\psi) & ~\ge~ & 2^{n-1}-\frac{1}{2} \max_{a\in \F_2^n}| \wtk{f}{k}(a)|
-~\geq ~ 
-\left\{ \begin{array}{ll}
-       \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max_{a\in \F_2^n}|\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)}| & \text{ if }  k \not\preceq n \\
-        \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max_{a\in \F_2^n}|\sum_{\substack{i=0 \\ i:odd}}^k {d \choose i} {(n-d) \choose (k-i)} + 1 | & \text{ if } k \preceq n
-    \end{array}   \right. 
-\end{eqnarray*}
-where $ d = \w(A_{n_1} ^ \wedge \overleftarrow{A_{n_1}}, A_{n_2} ^ \wedge \overleftarrow{A_{n_2}}, \ldots , A_{n_w} ^ \wedge \overleftarrow{A_{n_w}})$.
-\end{proof}
-------****************-------------****************------------***************-----------*****************
-
-
-
-
-\begin{lemma}
-Let $a = (a_1, a_2, \ldots, a_n) \in \F_2^n$. Let $ \rho(a)$ be denoted as the cyclic left shift of $a$ by $ 1 $ bits and $ a + b$ be denoted the vector bitwise XOR operation. Then $$ \w(a + \rho(a) ) = 2 ( \w(a) - |\{ (a_i, a_{i (\mod(n)) + 1}) : a_i + a_{i (\mod(n) + 1} = 0 \text{ for } i \in [1,n] \}|). $$
-\end{lemma}
-\fi
 Now we will study the weightwise nonlinearity of $f_\psi$.
 \begin{lemma} \label{lem:setSize_k}
 For $n \geq 2$ as in Equation~\ref{eqn:binn}, let $\psi \in \Sn$ be the permutation as defined in Equation~\ref{eqn:cycperm}.Then 
@@ -548,27 +412,12 @@ Let $x = (x_1,x_2, \ldots,x_n) \in \Ekn{n}{k}$ and $c = (c_1,c_2,\ldots,c_n) \in
 c \cdot (x+\psi(x)) & = & (c+\psi^{-1}(c)) \cdot x \label{eqn:cxk2}
 \end{eqnarray*}
 is a linear function on $n$ variable defined over the slice $\Ekn{n}{k}$.
-%Consider $c+\psi^{-1}(c) = (\overline c_1, \overline c_2, \ldots, \overline c_n) \in \F_2^n$ where $\overline c_1 = c_1 + c_2, \overline c_2 = c_2 + c_3, \ldots, \overline c_n = c_n + c_{n-n_w+1}$.
 Therefore, using Theorem~\ref{thm:Kraw}, we have
 $$\left| \{x \in \Ekn{n}{k} : c \cdot (x + \psi(x))= 1\} \right| = \wkn{n}{k}((c+\psi^{-1}(c)) \cdot x) = \frac{1}{2} (|\Ekn{n}{k}| - \kraw{k}{l}{n})$$
 where $l = \w(c+\psi^{-1}(c))$.
 If $x \in \Ekn{n}{k}$ and $|\orbs_\psi(x)| = 1$ i.e., $x \in \Ekn{n}{k} \cap \orbs_o$ then $c \cdot (x+\psi(x)) = 0$. Hence,
 $$\left| \{x \in \Ekn{n}{k} \setminus \orbs_o : c \cdot (x + \psi(x))= 1\} \right| 
 = \frac{1}{2} (|\Ekn{n}{k}| - \kraw{k}{l}{n}).$$
-\iffalse
-If $ c \in \F_2^n \setminus \orbs_o$, then we have
-\begin{align*}
-\w(c \cdot (x + \psi(x)) & = \sum_{\substack{j=0 \\ odd}}^k {\w(c+\psi(c)) \choose j}{ n - \w(c+\psi(c)) \choose  k-j}\\
-                         & = \frac{1}{2} \left[{n \choose k} - \left(\sum_{j=0}^k {\w(c+\psi(c)) \choose j}{ n - \w(c+\psi(c)) \choose  k-j} - 2 \sum_{\substack{j=0 \\ odd}}^k {\w(c+\psi(c)) \choose j}{ n - \w(c+\psi(c)) \choose  k-j} \right) \right] \\
-                         & = \frac{1}{2} \left[{n \choose k} - \sum_{\substack{j=0 \\ odd}}^k (-1)^{j} {\w(c+\psi(c)) \choose j}{ n - \w( c +\psi(c) \choose  k-j}   \right]     \\
-                         & = \frac{1}{2} \left[ |\Ekn{k}{n}| - \kraw{k}{\w(c + \psi(c))}{n} \right]                        
-\end{align*}
-Hence,
-$$\left| \{x \in \Ekn{k}{n} : c \cdot (x + \psi(x))= 1\} \right|
-= \left \{ \begin{array}{ll}
-\frac{1}{2} \left[ |\Ekn{k}{n}| - \kraw{k}{\w(c + \psi(c))}{n} \right]  &  \text{ if } c \in \F_2^n \setminus \orbs_o  \\
-0              &  \text{ if } c \in \orbs_o.
-\end{array} \right. $$ \fi
 \end{proof}
 
 \begin{theorem}
@@ -578,12 +427,6 @@ Then $$\NLk{k}(f) ~\geq ~
 \displaystyle{\frac{1}{4}\left({n \choose k} + \min_{0 \leq l \leq n} \kraw{k}{l}{n}\right)}  & \text{ if }  k \not\preceq n \\
 \displaystyle{\frac{1}{4}\left({n \choose k} + \min_{0 \leq l \leq n} \kraw{k}{l}{n} - 2\right)} & \text{ if } k \preceq n.
 \end{array}   \right.$$
-\iffalse
-\left\{ \begin{array}{ll}
-       \displaystyle{\frac{|\Ekn{n}{k}|}{2} - \frac{1}{4}\max_{a\in \F_2^n}|\Ekn{n}{k}| - \kraw{k}{l}{n}} & \text{ if }  k \not\preceq n \\
-    \displaystyle{\frac{|\Ekn{n}{k}|}{2} - \frac{1}{4}\max_{a\in \F_2^n} |\Ekn{n}{k}| - \kraw{k}{l}{n}) - \frac{1}{2}} & \text{ if } k \preceq n
-    \end{array}   \right.$$
-where $l = \w(c+\psi^{-1}(c))$.\fi
 \end{theorem}
 \begin{proof}
 Let $\orbs_k$ be the set of all orbits of the group action $G = \langle \psi \rangle$ on $\Ekn{k}{n}$.
