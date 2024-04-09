@@ -46,65 +46,94 @@ Bhubaneswar, Odisha 752050, India.\\
 Let $\F_2^n$ be the vector space of dimension $n$ over the binary field $\F_2$. For any two vectors $a=(a_1, a_2, \ldots, a_n)$ and $b = (b_1, b_2, \ldots, b_n)$ in $\F_2^n$, the dot product is defined as $a\cdot b = a_1 b_1 + a_2 b_2 + \cdots + a_nb_n \bmod 2$.
 %and additon $+$ is by .......
 
-A Boolean function of $n$-variable is a map from $\F_2^n$ to $\F_2$ and $\BN$ be the set of all $n$-variable Boolean functions. The $2^n$-length binary sequence $(f(v_0), f(v_1), \ldots, f(v_{2^n-1}))$ is called as the truth table of the Boolean function $f$ corresponds to the ordered vectors of $\F_2^n$ as $v_0 = (0,0,\ldots,0), v_1= (0,0,\ldots,1),\ldots, v_{2^n-1}=(1,1,\ldots,1)$. 
-The Hamming weight of a vector $x \in \F_2^n$, denoted by $\w(x)$, is the number nonzero coordinates (i.e., $1$s) in the vector $x$. The support of $f \in \BN$, denoted by $\supp(f)= \{x \in \F_2^n : f(x) = 1\}$. Therefore, the Hamming weight of the Boolean function $f$, is cardinality of $\supp(f)$ and is denoted by $wt(f)$. The function $f$ is called balanced if $\w(f)= 2^{n-1}$. Let $f(x), g(x) \in \BN$, then 
+A Boolean function of $n$ variables is a map from $\F_2^n$ to $\F_2$ and $\BN$ is the set of all $n$-variable Boolean functions. 
+The $2^n$-length binary sequence $(f(v_0), f(v_1), \ldots, f(v_{2^n-1}))$ is called as the truth table of the Boolean function $f$, it corresponds to the ordered vectors of $\F_2^n$ as $v_0 = (0,0,\ldots,0), v_1= (0,0,\ldots,1),\ldots, v_{2^n-1}=(1,1,\ldots,1)$. 
+The Hamming weight of a vector $x \in \F_2^n$, denoted by $\w(x)$, is the number nonzero coordinates (i.e., $1$s) in the vector $x$. The support of $f \in \BN$, denoted by $\supp(f)= \{x \in \F_2^n : f(x) = 1\}$. Therefore, the Hamming weight of the Boolean function $f$, is cardinality of $\supp(f)$ and is denoted by $\w(f)$. The function $f$ is called balanced if $\w(f)= 2^{n-1}$. Let $f(x), g(x) \in \BN$, then 
 The Hamming distance between two Boolean functions $f, g \in \BN$ is defined by $\hd(f,g) = |\{x \in \F_2^n : f(x) \neq g(x) \}|$  i.e., $\hd(f,g) = \w(f + g)$.
 
 An $n$-variable Boolean function $f$ can be expressed as a polynomial in the ring $\F_2[x_1,x_2,\ldots,x_n]/<x_1^2+x_1,x_2^2+x_2,\ldots,x_n^2+x_n>$, i.e. 
-$f(x) = \sum\limits_{u \in \F_2^n}c_u x^{a_1}x^{u_2}\cdots x^{a_n},$
+$f(x) = \sum\limits_{u \in \F_2^n}c_u x^{u_1}x^{u_2}\cdots x^{u_n},$
 where $c_u$ are the coefficients with a value in $\F_2$.
 It is called as the algebraic normal form or ANF and the number of variables in the highest order monomial with nonzero coefficient is called the \textit{algebraic degree} of the function $f$, and denoted as $\deg(f)$.
 A function $f$ is called as affine function if $f(x)= a\cdot x + b$ for $a \in \F_2^n$ and $b \in \F_2$. If $b=0$, then $f$ is also called a linear Boolean function. $\Af$ denotes the set of all $n$-variable affine functions. 
 %The complexity of computing the ANF of $f$ from the truth table is of $\mathcal{O}(N log_2 N)$, for $N=2^n$ is the size input to $f$. 
 
-\noindent\textbf{\definitionname(Walsh-Hadamard Transform)}
-The Walsh-Hadamard transform of a function on $\F_2^n$ is the map $W_f : \F_2^n \to \R$, defined by $$\wt{f}(w)= \sum_{x \in \F_2^n} (-1)^{f(x)+ w \cdot x}.$$   
+%\noindent\textbf{\definitionname(Walsh-Hadamard Transform)}
+\begin{definition}[Walsh-Hadamard Transform]\label{def:Walsh}
+The Walsh-Hadamard transform of a function on $\F_2^n$ is the map $W_f : \F_2^n \to \R$, defined by \[\wt{f}(w)= \sum_{x \in \F_2^n} (-1)^{f(x)+ w \cdot x}.\]
+\end{definition}
 
-\noindent\textbf{\definitionname(Nonlinearity)}
+
+%\noindent\textbf{\definitionname(Nonlinearity)}
+\begin{definition}[Nonlinearity]\label{def:Nonlinearity}
 The nonlinearity of $f \in \BN$ denoted as $\NL(f)$, is the minimum Hamming distance of $f$ to any affine function. That is, $\NL(f) = \min\limits_{g \in \Af} \hd(f,g)$.
 It can be verified that $\NL(f) = 2^{n-1} - \frac{1}{2}\max\limits_{w \in \F_2^n} |\wt{f}(w)|$.
+\end{definition}
 
-We denote $\Ekn{n}{k} = \{x \in \F_2^n : \w(x)=k\}$ and $\wkn{n}{k}(f) = |\{x \in \Ekn{n}{k} : f(x) = 1 \}| = |\supp(f) \cap \Ekn{n}{k}|$. Accordingly, the Hamming distance of two functions $f, g \in \BN$ on $\Ekn{k}{n}$ denoted as $\mdist{n}{k}(f,g) = |\{x \in \Ekn{n}{k} : f(x) \neq g(x)\}|$. The cryptographic criteria like balancedness, nonlinearity and algebraic immunity of a function $f$ defined over $\F_2^n$ can also be defined, if we restrict $f$ to the set $\Ekn{k}{n}$. For two integers $m, n$ with $m \leq n$, we define $[m,n] = \{m, m+1, \ldots, n\}$.
+We denote $\Ekn{k}{n} = \{x \in \F_2^n : \w(x)=k\}$ and $\wkn{k}{n}(f) = |\{x \in \Ekn{k}{n} : f(x) = 1 \}| = |\supp(f) \cap \Ekn{k}{n}|$. Accordingly, the Hamming distance of two functions $f, g \in \BN$ on $\Ekn{k}{n}$ denoted as $\mdist{k}{n}(f,g) = |\{x \in \Ekn{k}{n} : f(x) \neq g(x)\}|$. The cryptographic criteria like balancedness, nonlinearity and algebraic immunity of a function $f$ defined over $\F_2^n$ can also be defined, if we restrict $f$ to the set $\Ekn{k}{n}$. For two integers $m, n$ with $m \leq n$, we define $[m,n] = \{m, m+1, \ldots, n\}$.
 
-\noindent\textbf{\definitionname(Weightwise Almost Perfectly Balanced (WAPB)}
-A Boolean function $f \in \BN$ is said to be weightwise almost perfectly balanced (WAPB) if for all $k \in [0,n]$, \[\wkn{n}{k}(f)=
+%\noindent\textbf{\definitionname(Weightwise Almost Perfectly Balanced (WAPB)}
+\begin{definition}[Weightwise Almost Perfectly Balanced (WAPB)]\label{def:WAPB}
+A Boolean function $f \in \BN$ is said to be weightwise almost perfectly balanced (WAPB) if for all $k \in [0,n]$, \[\wkn{k}{n}(f)=
 \begin{cases}
 \frac{{n\choose k}}{2} & \textit{if } {n \choose k} \textit{ is even},\\
 \frac{{n \choose k}\pm 1}{2} & \textit{if } {n \choose k} \textit{ is \; odd}.
 \end{cases} \]
+\end{definition}
 %For $k \in [0,n]$, $\dk^f \in \{-1, 0, 1\}$ is defined as $\dk^f = 2 \wtk(f) - {n\choose k}$. That is, $\wtk(f) = \frac{1}{2}\left[{n\choose k} + \dk^f\right]$. 
 %Therefore, we can construct a WAPB Boolean function for any $n$ using Lucas' Theorem ~\cite{LucasTh}.\\
-\noindent\textbf{\definitionname(Weightwise Perfectly Balanced (WPB))} A Boolean function $f \in \BN$ is said to be weightwise perfectly balanced (WPB) if for all $k \in [0,n]$, 
-\[\wkn{n}{k}(f) =
-\begin{cases}
-\frac{{n \choose k}}{2} &  \textit{ if } k \in [1,n-1], \\
-\frac{{n \choose k} \pm 1}{2} & \textit{ if } k \in \{0,n\} 
-\end{cases} \]
-To make a WPB Boolean function balanced on $\F_2^n$, we impose $f(0,0,\ldots,0) \neq f(1,1,\ldots,1)$. Using Lucas' Theorem~\cite{LucasTh}, we have that a WPB function exists only if, $n$ is a power of $2$. Hence, there are $\displaystyle {2\prod_{k = 1}^{n-1} {{{n \choose k}} \choose {{n \choose k}/2}}}$ balanced WPB Boolean functions.
 
-\noindent\textbf{\definitionname(Restricted Walsh Transform)}
+%\noindent\textbf{\definitionname(Weightwise Perfectly Balanced (WPB))} A Boolean function $f \in \BN$ is said to be weightwise perfectly balanced (WPB) if for all $k \in [0,n]$, 
+\begin{definition}[Weightwise Perfectly Balanced (WPB)]\label{def:WPB}
+A Boolean function $f \in \BN$ is said to be weightwise perfectly balanced (WPB) if for all $k \in [1,n-1]$, 
+\[\wkn{n}{k}(f) = \frac{{n \choose k}}{2},\]
+and $f(0,0,\ldots,0)=0=1+f(1,1,\ldots,1)$.
+%\begin{cases}
+%\frac{{n \choose k}}{2} &  \textit{ if } k \in [1,n-1], \\
+%\frac{{n \choose k} \pm 1}{2} & \textit{ if } k \in \{0,n\} 
+%\end{cases} \]
+%To make a WPB Boolean function balanced on $\F_2^n$, we impose $f(0,0,\ldots,0) \neq f(1,1,\ldots,1)$. 
+\end{definition}
+
+%Using Lucas' Theorem~\cite{LucasTh}, we have that a WPB function exists only if, $n$ is a power of $2$. Hence, there are $\displaystyle {2\prod_{k = 1}^{n-1} {{{n \choose k}} \choose {{n \choose k}/2}}}$ balanced WPB Boolean functions.
+
+Using Lucas' Theorem~\cite{LucasTh}, we have that a WPB function exists only if, $n$ is a power of $2$. Hence, there are $\displaystyle {\prod_{k = 1}^{n-1} {{{n \choose k}} \choose {{n \choose k}/2}}}$ WPB Boolean functions.
+
+
+%\noindent\textbf{\definitionname(Restricted Walsh Transform)}
+\begin{definition}[Restricted Walsh Transform]\label{def:restWalsh}
 Let $f$ be an $n$-variable Boolean function, then its Walsh transform $\wtk{f}{k}(a)$ is defined as:
-$$ \wtk{f}{k}(a) = \sum_{x \in \Ekn{k}{n}} (-1)^{f(x)+ a \cdot x} $$
+\[\wtk{f}{k}(a) = \sum_{x \in \Ekn{k}{n}} (-1)^{f(x)+ a \cdot x}.\]
+\end{definition}
 
-\noindent\textbf{\definitionname(Weightwise Nonlinearity)}~\label{def:nl}
-The nonlinearity of $f \in \BN$ over $\Ekn{n}{k}$, denoted as $\NLk{k}(f)$, is the Hamming distance of $f$ to the set of all affine functions $\Af$ when evaluated over $\Ekn{n}{k}$. That is, $\NLk{k}(f) = \min_{g \in \Af} \mdist{n}{k}(f,g) = \min_{g \in \Af} \wkn{n}{k}(f+g)$.\\
+
+%\noindent\textbf{\definitionname(Weightwise Nonlinearity)}~\label{def:nl}
+\begin{definition}[Weightwise Nonlinearity]\label{def:wtNl}
+The nonlinearity of $f \in \BN$ over $\Ekn{k}{n}$, denoted as $\NLk{k}(f)$, is the Hamming distance of $f$ to the set of all affine functions $\Af$ when evaluated over $\Ekn{k}{n}$. 
+That is, $\NLk{k}(f) = \min_{g \in \Af} \mdist{k}{n}(f,g) = \min_{g \in \Af} \wkn{k}{n}(f+g)$.\\
+\end{definition}
+
+
+
+
 The following identity and upper bound on the nonlinearity of a Boolean function over $\Ekn{k}{n}$ can be derived. The upper bound is further improved by Mesnager et al. in ~\cite{Mesnager2018}.
-\begin{lemma}~\cite{TOSC:CarMeaRot17}\label{lem:wnl}
+\begin{lemma}[~\cite{TOSC:CarMeaRot17}, Propositions $4$ and $5$]\label{lem:wnl}
 If $f \in \BN$ then for $k \in [0,n]$, 
-\[\NLk{k}(f) = \frac{|\Ekn{n}{k}|}{2}- \frac{1}{2}\max_{a \in \F_2^n} |\wtk{f}{k}(a)| \textit{ and } \]
-\[\NLk{k}(f) \leq \frac{1}{2} [|\Ekn{n}{k}| - \sqrt{|\Ekn{n}{k}|}] = \frac{1}{2} [{n \choose k} - \sqrt{{n \choose k}}].\]
+\[\NLk{k}(f) = \frac{|\Ekn{k}{n}|}{2}- \frac{1}{2}\max_{a \in \F_2^n} |\wtk{f}{k}(a)| \textit{, and } \]
+\[\NLk{k}(f) \leq \frac{1}{2} [|\Ekn{k}{n}| - \sqrt{|\Ekn{k}{n}|}] = \frac{1}{2} [{n \choose k} - \sqrt{{n \choose k}}].\]
 \end{lemma}
+
 \textcolor{red}{AI, Weightwise AI}
 
-\noindent\textbf{\definitionname(Krawtchouk Polynomial)} For a positive integer $n$, the Krawtchouk polynomial~\cite[Page 151]{book:MacSlo78} of degree $k$ is given by 
-$$ K_k(x,n)= \sum_{j=0}^{k} {x \choose j} {n-x \choose k-j} \text{ for } k = 0, 1, \ldots n.$$
+\noindent\textbf{\definitionname(Krawtchouk Polynomial)} For a positive integer $n$, the Krawtchouk polynomial~\cite[Page $151$]{book:MacSlo78} of degree $k$ is given by 
+\[\kraw{k}{x}{n}= \sum_{j=0}^{k} (-1)^j {x \choose j} {n-x \choose k-j} \text{ for } k = 0, 1, \ldots n.\]
 Following the results in~\cite{DCC:DalMaiSar06,DAM:GinMea22}, the following relations can be derived.
 \begin{theorem}[Krawtchouk Polynomials relations] \label{thm:Kraw}
-For a integers $n > 0$, $0 \leq k \leq n$ and fixed $a \in \F_2^n$ such that $\w(a) = l$, the following relations holds.
+For integers $n > 0$, $0 \leq k \leq n$ and fixed $a \in \F_2^n$ such that $\w(a) = \ell$, the following relations hold.
 \begin{enumerate}
-\item $\sum\limits_{x \in \Ekn{k}{n}} (-1)^{a.x} = \kraw{k}{l}{n}$.
+\item $\sum\limits_{x \in \Ekn{k}{n}} (-1)^{a.x} = \kraw{k}{\ell}{n}$.
 \item If $l_{a,b}(x)= a \cdot x + b$, where $a \in \F_2^n, b \in \F_2$, be an affine Boolean function then 
-$$\wkn{n}{k}(l_{a,b}) = \frac{1}{2} (|\Ekn{k}{n}| - (-1)^b \kraw{k}{l}{n}).$$
+\[\wkn{n}{k}(l_{a,b}) = \frac{1}{2} (|\Ekn{k}{n}| - (-1)^b \kraw{k}{\ell}{n}).\]
 \end{enumerate}
 \end{theorem}
 \iffalse
