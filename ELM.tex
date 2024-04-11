@@ -197,7 +197,8 @@ The construction of 2-RotS WAPB Boolean functions is presented as follows.
 				\State $\supp(f_\pi)$.append($u$)
 				\State $ u \gets \pi \circ \pi(u)$ 
 			\EndFor 
-			\State Update $t \gets t \oplus 1$
+%			\State Update $t \gets t \oplus 1$
+			\State Update $t \gets 1 - t$
 		\EndIf
 	\EndFor
 \EndFor
@@ -307,7 +308,7 @@ $\rho_{n_i}^k$ fixes $2^{\gcd(n_i,k)}$ number of $z_i \in \F_2^{n_i}$. Therefore
 $\displaystyle{g_n = \frac{1}{n_w} \sum_{\pi \in G} |fix_{\F_2^n}(\pi)| 
     = \frac{1}{n_w} \sum_{k=1}^{n_w}  2^{\gcd(n_1,k)+ \gcd(n_2,k) + \cdots + \gcd(n_w,k)}}$.
 \end{proof}
-Now we can count the number of such WAPB $f_\psi$ functions on $n$ variables. There are $2^w$ many orbits of cardinality $1$ and remaining $g_n - 2^w$ orbits are having cardinality even. The orbit representative of even cardinality orbits can be assigned $0$ or $1$ and accordingly other vectors in the orbit are assigned. Further, we need to choose $2^{w-1}$ vectors from the $2^w$ orbits of cardinality $1$ in $\binom{2^w}{2^{w-1}}$ ways to make $f_\psi$ balanced. Hence $\binom{2^w}{2^{w-1}}\times 2^{g_n - 2^w}$ WAPB Boolean functions can be generated using Construction~\ref{cons:ELM}.
+Now we can count the number of such WAPB $f_\psi$ functions on $n$ variables. There are $2^w$ many orbits of cardinality $1$ and remaining $g_n - 2^w$ orbits are having cardinality even. The orbit representative of even cardinality orbits can be assigned $0$ or $1$ and accordingly other vectors in the orbit are assigned. Further, we need to choose $2^{w-1}$ vectors from the $2^w$ orbits of cardinality $1$ in $\binom{2^w}{2^{w-1}}$ ways to make $f_\psi$ balanced. Hence $\binom{2^w}{2^{w-1}}\times 2^{g_n - 2^w}$ balanced WAPB Boolean functions can be generated using Construction~\ref{cons:ELM}.
 Now we will study some cryptographic properties of the function $f_\psi \in \BN$. 
 
 \begin{proposition}~\label{prop:setSize}
