@@ -416,16 +416,18 @@ Hence, the nonlinearity of $f_\psi$ satisfies
 \implies \NL(f_\psi) & \ge & 2^{n-2} - 2^{w-1}.
 \end{eqnarray*}
 \end{proof}
-In the following table we have presented the maximum and minimum nonlinearity among all $f_\psi$ for the number of variables $n = \{4, 5, \ldots, 10\}$ along with the upperbound of balanced Boolean functions and lowerbound of $f_{\psi}$ as per Theorem~\ref{thm:nlboundf}. We have searched all such Boolean functions for $n \leq 6$ and from $2^{25}$ such Boolean functions for $n > 6$.
+In the following table we have presented the maximum and minimum nonlinearity among all $f_\psi$ for the number of variables $n = \{4, 5, \ldots, 10\}$ along with the upperbound of balanced Boolean functions and lowerbound of $f_{\psi}$ as per Theorem~\ref{thm:nlboundf}. We have searched all such Boolean functions for $n \leq 6$ and from $2^{20}$ randomly chosen such Boolean functions for $n > 6$.
 \begin{center}
 \begin{tabular}{|c|c|c|c||c|c|c|c|}\hline
 $n$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$\\ \hline
 Number of functions & $2^4 \times \binom{2}{1}$ & $2^8 \times \binom{4}{2}$ & $2^{18} \times \binom{4}{2}$&$2^{36} \times \binom{8}{4}$&$2^{34} \times \binom{2}{1}$& $2^{68} \times \binom{4}{2}$& $2^{138} \times \binom{4}{2}$\\
 & $ = 2^5$& $= 3\times 2^9$& $= 3\times 2^{19}$& $= 35\times 2^{37}$&$ = 2^{35}$&$= 3\times 2^{69}$& $= 3\times 2^{139}$\\ \hline
-Max Nonlinearity & $4$ & $12$ & $26$ & $52$ & $116$ & $236$ & $440$\\ \hline
+Max Nonlinearity & $4$ & $12$ & $26$ & $56$ & $116$ & $236$ & $480$\\ \hline
+\% functions at max nl & $100$ & $22.917$ & $0.651042$ & $0.304318$ & $0.008297$ & $0.072575$ & $0.013638$\\ \hline
 Nonlinearity upper bound & $4$ & $12$ & $26$ & $56$ & $116$ & $240$ & $492$\\ \hline
-Min Nonlinearity & $4$ & $6$ & $14$ & $32$ & $80$ & $192$ & $402$\\ \hline
-Nonlinearity lower bound & $3$ & $6$ & $14$ & $28$ & $63$ & $126$ & $254$\\ \hline
+Min Nonlinearity & $4$ & $6$ & $14$ & $28$ & $64$ & $192$ & $328$\\ \hline
+\% functions at min nl & $100$ & $4.17$ & $0.260417$ & $0.014687$ & $0.006199$ & $0.000191$ & $2^{-20}$\\ \hline
+Nonlinearity lower bound & $3$ & $6$ & $14$ & $28$ & $63$ & $144$ & $254$\\ \hline
 \end{tabular}
 \end{center}
 
