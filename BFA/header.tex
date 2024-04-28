@@ -1,0 +1,220 @@
+
+
+\usepackage{makeidx}
+\usepackage[dvips]{graphicx}
+\usepackage{graphicx}
+
+\usepackage{comment}
+
+\usepackage{listings}
+% \usepackage[mathscr]{eucal}
+\usepackage{bm}
+\usepackage{array}
+\usepackage{url}
+\usepackage{calc}
+\usepackage{float}
+\usepackage{latexsym}
+% \usepackage{rotating}
+\DeclareGraphicsExtensions{.eps,.jpg,.png,.pdf}
+\usepackage[usenames, dvipsnames]{xcolor}
+\usepackage[sort,nocompress]{cite}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{lscape}
+\usepackage{amsmath}
+\let\proof\relax
+\let\endproof\relax
+\usepackage{amsthm,amsfonts,amssymb}
+\usepackage[bookmarks,bookmarksopen,bookmarksdepth=2]{hyperref}
+\usepackage{pdflscape}
+
+
+%\usepackage{natbib}
+
+%  \def\rmdefault{ptm}
+
+
+
+\usepackage{setspace}
+\usepackage{color}
+\ifnum\full=1
+\usepackage[margin=0.9in]{geometry}
+\usepackage{fullpage}
+
+\setlength{\parskip}{0cm}
+
+%\setstretch{1.03}
+%\addtolength{\parskip}{1pt}
+% \setcounter{page}{0}
+\renewcommand{\tabcolsep}{5pt}
+\else
+\renewcommand{\tabcolsep}{0pt}
+\fi
+
+\renewcommand{\arraystretch}{1.2}
+
+\hyphenpenalty=5000
+\tolerance=1000
+
+
+
+
+%\ifnum\full=1
+%\usepackage{natbib}
+%\bibliographystyle{alpha}
+%\setlength{\bibsep}{0pt}
+%\renewcommand{\bibsection}{\section*{References}\small}
+%\else
+%\usepackage[numbers]{natbib}
+%\bibliographystyle{splncs04}
+%\fi
+
+
+
+\usepackage{enumitem}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{plotmarks}
+
+
+%notes
+
+%\definecolor{myorange}{rgb}{0.99,0.6,0.25}
+%\newcommand{\pmnote}[1]{\colorbox{myorange}{\parbox{0.9\linewidth}{[{\footnotesize {\bf PM:} { {#1}}}]}}}
+
+
+\definecolor{mycolor}{rgb}{0.99,0.33,0.44}
+\newcommand{\pmnote}[1]{\colorbox{mycolor}{\parbox{0.9\linewidth}{[{\footnotesize {\bf PM:} { {#1}}}]}}}
+
+
+%% Sets
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Znm}{\mathbb{Z}_q^{n \times m}}
+
+
+
+%Boolean functions
+
+\newcommand{\Bfn}[1]{\mathcal{B}_{#1}}
+\newcommand{\BN}{\mathcal{B}_n}
+\newcommand{\Bn}[1]{\mathcal{B}_{#1}}
+\newcommand{\Bnstar}[1]{\mathcal{B}_{#1}^*}
+
+\newcommand{\Bvad}[3]{\mathcal{B}({#1},{#2},{#3})}
+
+
+\newcommand{\AI}{\mathsf{AI}}
+\newcommand{\AN}{\mathsf{AN}}
+
+\newcommand{\Sn}{\mathbb{S}_n}
+\newcommand{\orb}{\mathsf{O}}
+\newcommand{\orbs}{\mathcal{O}}
+
+\newcommand{\FAI}{\mathsf{FAI}}
+\newcommand{\NL}{\mathsf{NL}}
+\newcommand{\NLk}[1]{\mathsf{NL}_{#1}}
+\newcommand{\AIk}[1]{\mathsf{AI}_{#1}}
+%\newcommand{\NLd}{\mathsf{NL_d}}
+\newcommand{\res}{\mathsf{res}}
+\newcommand{\bal}{\mathsf{bal}}
+\newcommand{\gnlk}{\mathsf{GWNL}}
+
+
+\newcommand{\NPB}{\mathsf{NPB}}
+
+\newcommand{\DS}[1]{\mathsf{DS}(#1)}
+\newcommand{\DSR}[2]{\mathsf{DS}^{#2}(#1)}
+
+
+\newcommand{\WPB}[1]{\mathcal{WPB}_{#1}}
+\newcommand{\WAPB}[1]{\mathcal{WAPB}_{#1}}
+\newcommand{\SWAPB}[1]{\mathcal{SWAPB}_{#1}}
+\newcommand{\SYM}[1]{\mathcal{SYM}_{#1}}
+
+
+\newcommand{\kraw}[3]{\mathsf{K}_{#1}(#2,#3)}
+\newcommand{\phikn}[2]{\varphi_{#1,#2}}
+
+\newcommand{\const}[2]{g_{#1,#2}}
+\newcommand{\setn}[1]{S_{#1}}
+\newcommand{\symsetsmall}[1]{A_{#1}}
+\newcommand{\symset}[2]{B_{#1,#2}}
+\newcommand{\Af}{\mathcal{A}_n}
+\newcommand{\mdist}[2]{d_{#1,#2}}
+
+
+%usual notations
+\newcommand{\supp}{\mathsf{supp}}
+\newcommand{\suppk}[1]{\mathsf{supp}_{#1}}
+\newcommand{\w}{\mathsf{w_H}}
+\newcommand{\hd}{\mathsf{d_H}}
+\newcommand{\degg}{\mathsf{deg}}
+\newcommand{\Span}{\mathsf{Span}}
+\newcommand{\rank}{\mathsf{rank}}
+%Walsh transform
+\newcommand{\wt}[1]{W_{#1}} 
+\newcommand{\Wsupp}[1]{\mathsf{Wsupp}_{#1}} 
+%restricted Walsh transform W_k,a (f)
+\newcommand{\wtk}[2]{\mathcal{W}_{#1,#2}} 
+
+\newcommand{\wkn}[2]{\mathsf{w}_{#1,#2}}
+\newcommand{\Ekn}[2]{\mathsf{E}_{#1,#2}}
+
+%S-equivalent classes
+\newcommand{\sclass}[1]{\mathcal{S}(#1)}
+\renewcommand{\S}{\mathcal{S}}
+\newcommand{\Sz}{\mathcal{S}_0}
+\newcommand{\sclassz}[1]{\mathcal{S}_0(#1)}
+\newcommand{\degsy}{ds}
+%\newcommand{\degsz}{\degg_{\Sz}}
+\newcommand{\degsz}{\mathsf{\sigma deg}}
+
+\newcommand{\minAI}[1]{\mathsf{mAI}\mathcal{S}_0(#1)}
+\newcommand{\minNL}[1]{\mathsf{mNL}\mathcal{S}_0(#1)}
+\newcommand{\mindegg}[1]{\mathsf{mdeg}\mathcal{S}_0(#1)}
+
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\mAN}[2]{\mathsf{d}_{#1}^{#2}}
+
+
+%gates
+\newcommand{\AND}{\textsf{AND}}
+\newcommand{\XOR}{\textsf{XOR}}
+\newcommand{\MUX}{\textsf{MUX}}
+
+
+
+
+
+\newtheorem{Prop}{Property}
+\newtheorem{Cons}{Construction}
+
+\newtheorem{tables}{Tables}
+
+% For algorithms
+\usepackage{algorithm,algpseudocode}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+% \renewcommand{\ALG@name}{Construction}
+\newenvironment{constr}[1][htb]{%
+\floatname{algorithm}{Construction}% Update algorithm name
+   \begin{algorithm}[#1]%
+  }{\end{algorithm}}
+ 
+
+\algnewcommand\algorithmicparfor{\textbf{par-for}}
+\algdef{S}[FOR]{ParFor}[1]{\algorithmicparfor\ #1\ \algorithmicdo}
+ 
+%latin
+
+\newcommand{\ie}{\textit{i.e.} }
+\newcommand{\eg}{\textit{e.g.} }
+\newcommand{\ea}{\textit{et al.} }
+
+
