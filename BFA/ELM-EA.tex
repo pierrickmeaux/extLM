@@ -127,36 +127,67 @@ Denote $\nu_{k,n,i}$ be the orbit representative of $i$-th orbit $\Ekn{k}{n}$ wi
 The construction of 2-RotS WAPB Boolean functions is presented as follows.
 %and $\rho_{k}$ be the set of all $r_{k,i}$ for each $k$. 
 
-
+\iffalse
 
 \begin{constr}
-\caption{Construction of 2-RotS WAPB Boolean function\label{cons:GA}}
-\begin{algorithmic}
-% \Require $ v=(0,0,\ldots,0) \in \F_2^{n+1}$
-\Require $\pi \in \Sn$ %, G = <\pi> , r_{k,i},g_{n,k}$ is given.
-\Ensure A 2-RotS WAPB Boolean function $f_\pi \in \BN$
-\State Initiate $\supp(f_\pi) = \emptyset$
-\State $t = 0$
-\For {$k \gets 0$ to $n$ }
-	\For {$i \gets 1$ to $g_{k,n}$}
+	\caption{Construction of 2-RotS WAPB Boolean function\label{cons:GA}}
+	\begin{algorithmic}
+		% \Require $ v=(0,0,\ldots,0) \in \F_2^{n+1}$
+		\Require $\pi \in \Sn$ %, G = <\pi> , r_{k,i},g_{n,k}$ is given.
+		\Ensure A 2-RotS WAPB Boolean function $f_\pi \in \BN$
+		\State Initiate $\supp(f_\pi) = \emptyset$
+		\State $t = 0$
+		\For {$k \gets 0$ to $n$ }
+		\For {$i \gets 1$ to $g_{k,n}$}
 		\State $u = \nu_{k,n,i}$; $l= |O_\pi(u)|$
 		\If {$l$ is even}
-			\For {$j \gets 1$ to $\frac{l}{2}$}
-				\State $\supp(f_\pi)$.append($u$)
-				\State $ u \gets \pi \circ \pi(u)$
-			\EndFor
+		\For {$j \gets 1$ to $\frac{l}{2}$}
+		\State $\supp(f_\pi)$.append($u$)
+		\State $ u \gets \pi \circ \pi(u)$
+		\EndFor
 		\Else
-			\State $u = \pi^{t}(u)$
-			\For {$j \gets 1$ to $\lceil\frac{l - t}{2}\rceil$}
-				\State $\supp(f_\pi)$.append($u$)
-				\State $ u \gets \pi \circ \pi(u)$ 
-			\EndFor 
-			\State Update $t \gets 1-t$
+		\State $u = \pi^{t}(u)$
+		\For {$j \gets 1$ to $\lceil\frac{l - t}{2}\rceil$}
+		\State $\supp(f_\pi)$.append($u$)
+		\State $ u \gets \pi \circ \pi(u)$ 
+		\EndFor 
+		\State Update $t \gets 1-t$
 		\EndIf
-	\EndFor
-\EndFor
-\State \textbf{return} $f_\pi$
-\end{algorithmic}
+		\EndFor
+		\EndFor
+		\State \textbf{return} $f_\pi$
+	\end{algorithmic}
+
+\end{constr}
+\fi
+
+\begin{constr}
+	\scriptsize
+	\caption{Construction of 2-RotS WAPB Boolean function\label{cons:GA}}
+	\begin{algorithmic}
+		% \Require $ v=(0,0,\ldots,0) \in \F_2^{n+1}$
+		\Require $\pi \in \Sn$ %, G = <\pi> , r_{k,i},g_{n,k}$ is given.
+		\Ensure A 2-RotS WAPB Boolean function $f_\pi \in \BN$
+		\State Initiate $\supp(f_\pi) = \emptyset$, and $t = 0$
+		\For {$k \gets 0$ to $n$ }
+		\For {$i \gets 1$ to $g_{k,n}$}
+		\State $u = \nu_{k,n,i}$; $l= |O_\pi(u)|$
+		\If {$l$ is even}
+		\For {$j \gets 1$ to $\frac{l}{2}$}
+		\State $\supp(f_\pi)$.append($u$);  $ u \gets \pi \circ \pi(u)$
+		\EndFor
+		\Else
+		\State $u = \pi^{t}(u)$
+		\For {$j \gets 1$ to $\lceil\frac{l - t}{2}\rceil$}
+		\State $\supp(f_\pi)$.append($u$); $ u \gets \pi \circ \pi(u)$ 
+		\EndFor 
+		\State Update $t \gets 1-t$
+		\EndIf
+		\EndFor
+		\EndFor
+		\State \textbf{return} $f_\pi$
+	\end{algorithmic}
+	
 \end{constr}
 
 Construction~\ref{cons:GA} ensures a balanced WAPB Boolean function. The binary variable $t$ indicates whether the partially constructed is balanced (when $t = 0$) or having an extra $1$ (when $t = 1$) during each iteration of orbits.
@@ -226,6 +257,7 @@ For a Boolean function $f_\psi \in \BN$, if $f_\psi(\psi(x)) = 1+f_\psi(x)$ hold
 Hence, when $n = 2^m$, a power of $2$, $\psi = \rho_n$ and Construction~\ref{cons:GA} on input $\psi \in \Sn$ results the 2-RotS WPB Boolean function by Liu and Mesnager~\cite{DCC:LiuMes19}. A simplified version of Construction~\ref{cons:GA} is presented in Construction~\ref{cons:ELM} for input $\psi$.
 
 \begin{constr} 
+	\scriptsize
 \caption{Construction of 2-RotS WAPB Boolean function using $\psi \in \Sn$ \label{cons:ELM}}
 \begin{algorithmic}
 \Require $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}
@@ -412,11 +444,16 @@ $$\left| \{x \in \Ekn{n}{k} \setminus \orbs_o : c \cdot (x + \psi(x))= 1\} \righ
 \fi
 \begin{theorem}
 Let $n \geq 2$ be an positive integer as in Equation~\ref{eqn:binn} and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
-Then $$\NLk{k}(f) ~\geq ~ 
+Then 
+\iffalse
+$$\NLk{k}(f) ~\geq ~ 
 \left\{ \begin{array}{ll}
 \displaystyle{\frac{1}{4}\left({n \choose k} + \min_{0 \leq l \leq n} \kraw{k}{l}{n}\right)}  & \text{ if }  k \not\preceq n \\
 \displaystyle{\frac{1}{4}\left({n \choose k} + \min_{0 \leq l \leq n} \kraw{k}{l}{n} - 2\right)} & \text{ if } k \preceq n.
 \end{array}   \right.$$
+\fi
+$$\NLk{k}(f) ~\geq ~ 
+\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{0 \leq l \leq n} \kraw{k}{l}{n}-2\right)}.$$
 \end{theorem}
 \iffalse
 \begin{proof}
