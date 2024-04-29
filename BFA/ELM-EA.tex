@@ -240,7 +240,7 @@ For a vector $x \in \F_2^n$ is having an orbit of cardinality $1$ i.e., $|O_\psi
 As each partition of coordinates can be either $0$ or $1$, there are $2^w$ vectors $x$ in $\F_2^n$ satisfying Equation~\ref{eqn:part} and hence $|O_\psi(x)| = 1$.
 \end{proof}
 \fi
-Since every orbit contains the vectors of same weight, we denote the weight of an orbit as the weight of vectors in the orbit \ie $\w(O_\psi(x)) = \w(x)$ for $x \in \F_2^n$. Further, for $x = (x_1, x_2,\ldots, x_n), y = (y_1, y_2, \ldots, y_n) \in \F_2^n$, we say $y$ covers $x$ (\ie $x \preceq y $), if $x_{i} \leq y_{i}, \forall 1 \leq i \leq n$ \ie $y_i = 1$ if $x_i = 1, \forall 1 \leq i \leq n$.
+Since every orbit contains vectors of the same weight, we define the weight of an orbit as the weight of the vectors within that orbit \ie $\w(O_\psi(x)) = \w(x)$ for $x \in \F_2^n$. Further, for $x = (x_1, x_2,\ldots, x_n), y = (y_1, y_2, \ldots, y_n) \in \F_2^n$, we say $y$ covers $x$ (\ie $x \preceq y $), if $x_{i} \leq y_{i}, \forall 1 \leq i \leq n$ \ie $y_i = 1$ if $x_i = 1, \forall 1 \leq i \leq n$.
 Similarly, given two positive integers $n$ and $k$ with binary representation $n = 2^{a_1} + 2^{a_2} + + \cdots + 2^{a_w}$ and $k = 2^{b_1}+ 2^{b_2} + \cdots + 2^{b_t}$, we denote $k \preceq n$ if $\{b_1, b_2, \ldots, b_t\} \subseteq \{a_1, a_2, \ldots, a_w\}$.
 \begin{lemma}
 Let $n$ be a positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}. For $k \in [0,n]$, the number of orbits of weight $k$ and cardinality $1$ is $1$ if $k \preceq n$, otherwise it is $0$.
@@ -255,16 +255,22 @@ As a result, the coordinates of $x$ will not satisfy the Equation~\ref{eqn:part}
 $|O_\psi(x)| > 1$. Hence, in this case there is no orbit of weight $k$ and cardinality $1$.
 \end{proof}
 \fi
-Let denote $\orbs$ be the set of all orbits due the action of $\psi$ on $\F_2^n$. Further, we denote $\orbs_o$ be the set of orbits of odd cardinality (i.e., here $1$) and $\orbs_e$ be the set of orbits of even cardinality. Since the cardinality of all orbits of carinality odd is $1$, abusing the notation, we also denote $\orbs_o$ as the set of all vectors belonging in the orbits of cardinality odd. Hence %from Equation~\ref{eqn:part}, 
+%Let denote $\orbs$ be the set of all orbits due the action of $\psi$ on $\F_2^n$. 
+Let $\orbs$ denote the set of all orbits resulting from the action of $\psi$ on $\F_2^n$. 
+Further, we denote by $\orbs_o$ the set of orbits of odd cardinality (\ie here $1$) and we denote by $\orbs_e$ the set of orbits of even cardinality. 
+Since the cardinality of all orbits of odd cardinality is $1$, abusing the notation, we also denote $\orbs_o$ as the set of all vectors belonging in the orbits of odd cardinality. Hence %from Equation~\ref{eqn:part}, 
 $\orbs_o = \{(x_1, x_2, \cdots, x_n) \in \F_2^n : x_1 = x_2 = \ldots = x_{n_1}; x_{n_1 + 1} = x_{n_1 + 2} = \cdots = x_{n_1 + n_2}; \cdots ; x_{(n- n_w ) + 1}  = x_{(n- n_w ) + 2} = \cdots = x_n\}$.
-For example, if $n = 6$, there are there are $2^\w(6) = 2^2 = 4$ orbits of weight $1$ and $\orbs_o = \{000000, 000011, 111100, 111111\}$. 
+For example, if $n = 6$, there are $2^\w(6) = 2^2 = 4$ orbits of weight $1$ and $\orbs_o = \{000000, 000011, 111100, 111111\}$. 
 
-By choosing such permutation $\psi$ for Construction~\ref{cons:GA}, we have every slice $\Ekn{n}{k}$, $0 \leq k \leq n$, contains at most one orbit of odd cardinality (and i.e., $1$). Therefore, it becomes easy to construct 2-RotS WAPB Boolean functions as other orbits are of even cardinality. Hence, we have the following result.
+By choosing such permutation $\psi$ for Construction~\ref{cons:GA}, we ensure that every slice $\Ekn{k}{n}$, for $0 \leq k \leq n$, contains at most one orbit of odd cardinality (namely, $1$). 
+Consequently, it becomes simple to construct 2-RotS WAPB functions, as the remaining orbits are of even cardinality. 
+hence, we get the following result.
+
 \begin{proposition}\label{prop:WAPB}
 Let $n$ be a positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
 For a Boolean function $f_\psi \in \BN$, if $f_\psi(\psi(x)) = 1+f_\psi(x)$ holds for all $x \in \F_2^n \setminus \orbs_o$ where $\orbs_o$ is the set of vectors whose orbit cardinality is $1$, then $f_\psi$ is WAPB.
 \end{proposition}
-Hence, when $n = 2^m$, a power of $2$, $\psi = \rho_n$ and Construction~\ref{cons:GA} on input $\psi \in \Sn$ results the 2-RotS WPB Boolean function by Liu and Mesnager~\cite{DCC:LiuMes19}. A simplified version of Construction~\ref{cons:GA} is presented in Construction~\ref{cons:ELM} for input $\psi$.
+Hence, when $n = 2^m$, a power of $2$, $\psi = \rho_n$ and Construction~\ref{cons:GA} on input $\psi \in \Sn$ results in the 2-RotS WPB Boolean function by Liu and Mesnager~\cite{DCC:LiuMes19}. A simplified version of Construction~\ref{cons:GA} is presented in Construction~\ref{cons:ELM} for input $\psi$.
 
 \begin{constr} 
 	\scriptsize
@@ -305,8 +311,8 @@ $\displaystyle{g_n = \frac{1}{n_w} \sum_{\pi \in G} |fix_{\F_2^n}(\pi)|
     = \frac{1}{n_w} \sum_{k=1}^{n_w}  2^{\gcd(n_1,k)+ \gcd(n_2,k) + \cdots + \gcd(n_w,k)}}$.
 \end{proof}
 \fi
-There are $2^w$ many orbits of cardinality $1$ and remaining $g_n - 2^w$ orbits are having cardinality even. Hence $\binom{2^w}{2^{w-1}}\times 2^{g_n - 2^w}$ WAPB Boolean functions can be generated using Construction~\ref{cons:ELM}.
-Now we will study some cryptographic properties of the function $f_\psi \in \BN$. 
+There are $2^w$ many orbits of cardinality $1$ and the remaining $g_n - 2^w$ orbits have even cardinality. Hence, $\binom{2^w}{2^{w-1}}\times 2^{g_n - 2^w}$ WAPB Boolean functions can be generated using Construction~\ref{cons:ELM}.
+Now, we will study some cryptographic properties of the function $f_\psi \in \BN$. 
 \iffalse
 \begin{proposition}~\label{prop:setSize}
 For $n \geq 2$ as in Equation~\ref{eqn:binn}, let $\psi \in \Sn$ be the permutation as defined in Equation~\ref{eqn:cycperm}.Then 
@@ -415,7 +421,9 @@ Hence, the nonlinearity of $f_\psi$ satisfies
 \end{eqnarray*}
 \end{proof}
 \fi
-In the following table we have presented the maximum and minimum nonlinearity among all $f_\psi$ for the number of variables $n = \{4, 5, \ldots, 10\}$ along with the upperbound of balanced Boolean functions and lowerbound of $f_{\psi}$ as per Theorem~\ref{thm:nlboundf}. We have searched all such Boolean functions for $n \leq 6$ and from $2^{20}$ randomly chosen such Boolean functions for $n > 6$.
+%In the following table we have presented the maximum and minimum nonlinearity among all $f_\psi$ for the number of variables $n = \{4, 5, \ldots, 10\}$ along with the upperbound of balanced Boolean functions and lowerbound of $f_{\psi}$ as per Theorem~\ref{thm:nlboundf}. We have searched all such Boolean functions for $n \leq 6$ and from $2^{20}$ randomly chosen such Boolean functions for $n > 6$.
+In the following table we present the maximum and minimum nonlinearity among all $f_\psi$ for the number of variables $n = \{4, 5, \ldots, 10\}$ along with the upperbound of balanced Boolean functions and lowerbound of $f_{\psi}$ as per Theorem~\ref{thm:nlboundf}. 
+We have searched all such Boolean functions for $n \leq 6$ and from $2^{20}$ randomly chosen such Boolean functions for $n > 6$.
 \begin{center}
 \begin{tabular}{|c|c|c|c||c|c|c|c|}\hline
 $n$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$\\ \hline
@@ -430,7 +438,8 @@ Nonlinearity lower bound & $3$ & $6$ & $14$ & $28$ & $63$ & $144$ & $254$\\ \hli
 \end{tabular}
 \end{center}
 
-Now we will study the weightwise nonlinearity of $f_\psi$.
+%Now we will study the weightwise nonlinearity of $f_\psi$.
+Now we study the weightwise nonlinearity of $f_\psi$.
 \iffalse
 \begin{lemma} \label{lem:setSize_k}
 For $n \geq 2$ as in Equation~\ref{eqn:binn}, let $\psi \in \Sn$ be the permutation as defined in Equation~\ref{eqn:cycperm}.Then 
@@ -629,9 +638,9 @@ Hence, this can be written as $A= \{ x \in \F_2^n : u. x = 0\}$ for $ u = (u_1,u
 \fi
 
 \section{Conclusions and Future work}
-We have presented a construction of a class of WAPB Boolean functions in $n$ variables using the group action of a cyclic permutation group. Considering a special permution $\psi_n$, the class of WAPB Boolean function generated from the above technique generalizes the WBP construction proposed by Liu and Mesnager~\cite{DCC:LiuMes19}. Then we studied the nonlinearity and weightwise
-nonlinearities of this class of Booelan function. 
-For our future work, we will study some other cryptographic properties like algebraic immunity and weightwise algebraic immmunites of this class of functions.
+We have presented a construction of a class of WAPB Boolean functions in $n$ variables, utilizing the group action of a cyclic permutation group. Considering a special permutation $\psi_n$, this class of WAPB Boolean functions generalizes the WBP construction proposed by Liu and Mesnager~\cite{DCC:LiuMes19}. 
+Subsequently, we studied the nonlinearity and weightwise nonlinearities of this class of Boolean functions. 
+For our future work, we will explore additional cryptographic properties such as algebraic immunity and weightwise algebraic immunities for this class of functions.
 
 \ifnum\full=0
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
