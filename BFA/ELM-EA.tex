@@ -111,7 +111,8 @@ Let $\orbs = \{\orb_1, \orb_2,\ldots, \orb_{g_n}\}$ be the set of orbits obtaine
 
 A Boolean function $f$ is {\em 2-rotation symmetric} (2-RotS) if and only if 
 for every orbit $\orb \in \orbs$ with representative element $\nu$,
-$$f(\rho_n^{2i+1}(\nu)) = f(\nu);~~~ f(\rho_n^{2i}(\nu)) = f(\nu)+1 \text{ for every } 1 \leq i \leq \lfloor\frac{|\orb|}{2}\rfloor.$$ 
+%$$f(\rho_n^{2i+1}(\nu)) = f(\nu);~~~ f(\rho_n^{2i}(\nu)) = f(\nu)+1 \text{ for every } 1 \leq i \leq \lfloor\frac{|\orb|}{2}\rfloor.$$ 
+$$f(\rho_n^{2i}(\nu)) = f(\nu) \text{ for every } 1 \leq i < \frac{|\orb|}{2}; ~~~ f(\rho_n^{2i-1}(\nu)) = f(\nu)+1 \text{ for every } 1 \leq i \leq \frac{|\orb|}{2}.$$
 %for every $1 \leq i \leq \lfloor\frac{|\orb|}{2}\rfloor$.
 Therefore, 2-RotS Boolean functions have the alternative truth value for the lexicographically ordered vectors in every orbit obtained by the action of permutation group $P$ on $\F_2^n$. 
 As example, a 2-RotS Boolean function on $n = 5$ satisfies $f(00001) = f(00100) = f(10000)$ and $f(00010) = f(01000) = 1+f(00001)$ for the orbit $\{00001, 00010, \ldots, 10000\}$ with representative  $00001$.
@@ -453,7 +454,7 @@ $$\NLk{k}(f) ~\geq ~
 \end{array}   \right.$$
 \fi
 $$\NLk{k}(f) ~\geq ~ 
-\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{1 \leq l \leq n-1} \kraw{k}{l}{n}-2\right)}.$$
+\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{0 \leq l \leq n} \kraw{k}{l}{n}-2\right)}.$$
 \end{theorem}
 \iffalse
 \begin{proof}
