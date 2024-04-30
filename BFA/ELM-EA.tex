@@ -18,12 +18,13 @@ Deepak Kumar Dalai\inst{1}, Krishna Mallick\inst{2}, Pierrick M\'eaux\inst{3}
 
 \institute{
 School of Mathematical Sciences,
-National Institute of Science Education and Research, HBNI,\\
-Bhubaneswar, Odisha 752050, India.\\
+National Institute of Science Education and Research, \\
+An OCC of Homi Bhabha National Institute, Bhubaneswar, Odisha 752050, India.\\
 \email{deepak@niser.ac.in}
 \and
 School of Computer Sciences,
-National Institute of Science Education and Research, HBNI,\\
+National Institute of Science Education and Research, \\
+An OCC of Homi Bhabha National Institute,
 Bhubaneswar, Odisha 752050, India.\\
 \email{krishna.mallick@niser.ac.in}
 \and  University of Luxembourg, Luxembourg\\
@@ -77,7 +78,7 @@ A Boolean function $f \in \BN$ is said to be {\em weightwise perfectly balanced}
 \[\wkn{n}{k}(f) = {n \choose k}/2, \text{ for all }k \in [1,n-1] \text{ and } f(0,0,\ldots,0) = 1+f(1,1,\ldots,1).\]
 Using Lucas' Theorem~\cite{LucasTh}, we have that a WPB function exists only if, $n$ is a power of $2$.
 
-Let $f$ be an $n$-variable Boolean function, then its {\em weightwise Walsh transform} $\wtk{f}{k}(a)$ is defined as:
+For $f \in \BN$ and $a \in \F_2^n$, {\em weightwise Walsh transform} $\wtk{f}{k}(a)$ is defined by 
 \[\wtk{f}{k}(a) = \sum_{x \in \Ekn{k}{n}} (-1)^{f(x)+ a \cdot x}.\]
 The {\em weightwise nonlinearity} of $f \in \BN$ over $\Ekn{k}{n}$, denoted as $\NLk{k}(f)$, is the Hamming distance of $f$ to the set of all affine functions $\Af$ when evaluated over $\Ekn{k}{n}$. 
 That is, $\NLk{k}(f) = \min_{g \in \Af} \mdist{k}{n}(f,g) = \min_{g \in \Af} \wkn{k}{n}(f+g)$.
@@ -292,7 +293,7 @@ Hence, when $n = 2^m$, a power of $2$, $\psi = \rho_n$ and Construction~\ref{con
 
 \begin{theorem}
 The number of orbits generated due the action of $\psi$ on $\F_2^n$ is
-$g_n= \frac{1}{n_w} \sum_{k=1}^{n_w}  2^{\gcd(n_1,k)+ \gcd(n_2,k) + \cdots + \gcd(n_w,k)}.$
+$g_n= \frac{1}{n_w} \sum\limits_{k=1}^{n_w}  2^{\gcd(n_1,k)+ \gcd(n_2,k) + \cdots + \gcd(n_w,k)}.$
 \end{theorem}
 \iffalse
 \begin{proof}
