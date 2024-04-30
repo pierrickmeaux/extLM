@@ -37,7 +37,7 @@ Bhubaneswar, Odisha 752050, India.\\
 \setcounter{page}{1}	
 \begin{abstract}
 The construction of Boolean functions with good cryptographic properties over a subset of vectors with fixed Hamming weight $\Ekn{k}{n} \subset \F_2^n$ is significant in lightweight stream ciphers like FLIP~\cite{EC:MJSC16}. 
-We have presented a general idea to construct of a class of weightwise almost perfectly balanced (WAPB) Boolean functions by using the action of a cyclic permutation group on $\F_2^n$. Further, considering a special permutation group $\langle \psi_n \rangle$ (where $\psi_n$ is a special type of permutation on $n$ elements), we present a class of WAPB Boolean functions on $n$ variables. This class generalizes the weightwise perfectly balanced (WPB) Boolean function construction by Liu and Mesnager~\cite{DCC:LiuMes19}. Further, we studied the nonlinearity and weightwise nonlinearities of this class of functions.   
+We have presented a general idea to construct a class of weightwise almost perfectly balanced (WAPB) Boolean functions by using the action of a cyclic permutation group on $\F_2^n$. Further, considering a particular permutation group $\langle \psi_n \rangle$ (where $\psi_n$ is a special type of permutation on $n$ elements), we present a class of WAPB Boolean functions on $n$ variables. This class generalizes the weightwise perfectly balanced (WPB) Boolean function construction by Liu and Mesnager~\cite{DCC:LiuMes19}. Further, we studied the nonlinearity and weightwise nonlinearities of this class of functions.   
 \end{abstract}
  
 \section{Introduction}
@@ -45,8 +45,8 @@ An $n$-variable Boolean function $f$ is a mapping from the $n$-dimensional vecto
 Generally, the cryptographic criteria of the Boolean functions are defined over the entire domain of vector space $\F_2^n$. The study of the Boolean functions over a restricted domain became interesting after the proposal of the stream cipher FLIP in 2016~\cite{EC:MJSC16}. 
 In this stream cipher, the Hamming weight of the inputs to the filter function is  $\frac{n}{2}$.  
 An initial cryptographic study of Boolean function in a restricted domain is introduced by Carlet et al. in~\cite{TOSC:CarMeaRot17}.    
-The Boolean functions balanced over the subsets of $\F_2^n$ containing vectors with constant Hamming weight are said to be weightwise perfectly balanced (WPB). The first weightwise perfectly balanced (WPB) Boolean function construction was introduced in~\cite{TOSC:CarMeaRot17} in 2017.  There are several studies and constructions~\cite{CC:TangLiu19,DCC:LiuMes19,DAM:LiSu20,CC:MesSu21,DAM:Su21,DAM:ZhuSu22,DAM:GinMea22,INDO:GinMea22,Latin:GinMea23,DAM:ZLCQZ23,AMC:DM24} of WPB and WAPB functions available in the literature.
-Liu and Mesnager~\cite{DCC:LiuMes19} presented a class of WPB Boolean functions that are 2-rotation symmetric. These functions have the best weightwise nonlinearities and nonlinearity compared to the available constructions till now. In this paper, we have generalized this construction to get a class of WAPB Boolean functions for any number of variables.
+The Boolean functions balanced over the subsets of $\F_2^n$ containing vectors with constant Hamming weight are said to be weightwise perfectly balanced (WPB). The first weightwise perfectly balanced (WPB) Boolean function construction was introduced in~\cite{TOSC:CarMeaRot17} in 2017. Several studies and constructions~\cite{CC:TangLiu19,DCC:LiuMes19,DAM:LiSu20,CC:MesSu21,DAM:Su21,DAM:ZhuSu22,DAM:GinMea22,INDO:GinMea22,Latin:GinMea23,DAM:ZLCQZ23,AMC:DM24} of WPB and WAPB functions are available in the literature.
+Liu and Mesnager~\cite{DCC:LiuMes19} presented a class of WPB Boolean functions that are 2-rotation symmetric. These functions have the best weightwise nonlinearities and nonlinearity compared to the currently available constructions. In this paper, we have generalized this construction to get a class of WAPB Boolean functions for any number of variables.
 \section{Preliminaries}
 Let $\BN$ be the set of all $n$-variable Boolean functions. 
 The $2^n$-length binary sequence $(f(v_0), f(v_1), \ldots, f(v_{2^n-1}))$ is called as the {\em truth table} of the Boolean function $f$, it corresponds to the ordered vectors of $\F_2^n$ as $v_0 = (0,0,\ldots,0), v_1= (0,0,\ldots,1),\ldots, v_{2^n-1}=(1,1,\ldots,1)$. 
@@ -641,7 +641,7 @@ Hence, this can be written as $A= \{ x \in \F_2^n : u. x = 0\}$ for $ u = (u_1,u
 \section{Conclusions and Future work}
 We have presented a construction of a class of WAPB Boolean functions in $n$ variables, utilizing the group action of a cyclic permutation group. Considering a special permutation $\psi_n$, this class of WAPB Boolean functions generalizes the WBP construction proposed by Liu and Mesnager~\cite{DCC:LiuMes19}. 
 Subsequently, we studied the nonlinearity and weightwise nonlinearities of this class of Boolean functions. 
-For our future work, we will explore additional cryptographic properties such as algebraic immunity and weightwise algebraic immunities for this class of functions.
+For future work, we will explore additional cryptographic properties such as algebraic immunity and weightwise algebraic immunities for this class of functions.
 
 \ifnum\full=0
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
