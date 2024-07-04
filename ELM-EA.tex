@@ -45,18 +45,22 @@ An $n$-variable Boolean function $f$ is a mapping from the $n$-dimensional vecto
 Generally, the cryptographic criteria of the Boolean functions are defined over the entire domain of vector space $\F_2^n$. The study of the Boolean functions over a restricted domain became interesting after the proposal of the stream cipher FLIP in 2016~\cite{EC:MJSC16}. 
 In this stream cipher, the Hamming weight of the inputs to the filter function is  $\frac{n}{2}$.  
 An initial cryptographic study of Boolean function in a restricted domain is introduced by Carlet et al. in~\cite{TOSC:CarMeaRot17}.    
-The Boolean functions balanced over the subsets of $\F_2^n$ containing vectors with constant Hamming weight are said to be weightwise perfectly balanced (WPB). The first weightwise perfectly balanced (WPB) Boolean function construction was introduced in~\cite{TOSC:CarMeaRot17} in 2017. Several studies and constructions~\cite{CC:TangLiu19,DCC:LiuMes19,DAM:LiSu20,CC:MesSu21,DAM:Su21,DAM:ZhuSu22,DAM:GinMea22,INDO:GinMea22,Latin:GinMea23,DAM:ZLCQZ23,AMC:DM24} of WPB and WAPB functions are available in the literature.
+The Boolean functions balanced over the subsets of $\F_2^n$ containing vectors with constant Hamming weight are said to be weightwise perfectly balanced (WPB). 
+These functions exist only when $n$ is a power of two, in the general case only functions \textit{almost} balanced exist, where in this context the word almost means that the number of preimages of $0$ and of $1$ differs by at most $1$). 
+The function almost balanced on each subset of constant Hamming weight are said to be weightwise almost perfectly balanced (WAPB). 
+The first weightwise perfectly balanced (WPB) Boolean function construction was introduced in~\cite{TOSC:CarMeaRot17} in 2017. Several studies and constructions~\cite{CC:TangLiu19,DCC:LiuMes19,DAM:LiSu20,CC:MesSu21,DAM:Su21,DAM:ZhuSu22,DAM:GinMea22,INDO:GinMea22,Latin:GinMea23,DAM:ZLCQZ23,AMC:DM24} of WPB and WAPB functions are available in the literature.
 Liu and Mesnager~\cite{DCC:LiuMes19} presented a class of WPB Boolean functions that are 2-rotation symmetric. These functions have the best weightwise nonlinearities and nonlinearity compared to the currently available constructions. In this paper, we have generalized this construction to get a class of WAPB Boolean functions for any number of variables.
 \section{Preliminaries}
 Let $\BN$ be the set of all $n$-variable Boolean functions. 
 The $2^n$-length binary sequence $(f(v_0), f(v_1), \ldots, f(v_{2^n-1}))$ is called as the {\em truth table} of the Boolean function $f$, it corresponds to the ordered vectors of $\F_2^n$ as $v_0 = (0,0,\ldots,0), v_1= (0,0,\ldots,1),\ldots, v_{2^n-1}=(1,1,\ldots,1)$. 
-The {\em Hamming weight} of a vector $x \in \F_2^n$, denoted by $\w(x)$, is the number of nonzero coordinates (i.e., $1$s) in the vector $x$. The support of an $n$-variable Boolean function $f$, denoted as $\supp(f)$, is the set of input vectors for which the function evaluates to 1. Formally, $\supp(f) = \{ x \in \F_2^n : f(x) = 1 \}$. The {\em Hamming weight} of the Boolean function $f$ is $\w(f) = |\supp(f)|$. The function $f$ is called {\em balanced} if $\w(f)= 2^{n-1}$. Let $f(x), g(x) \in \BN$, then the {\em Hamming distance} between two Boolean functions $f, g \in \BN$ is defined by $\hd(f,g) = |\{x \in \F_2^n : f(x) \neq g(x) \}|$  i.e., $\hd(f,g) = \w(f + g)$.
+The {\em Hamming weight} of a vector $x \in \F_2^n$, denoted by $\w(x)$, is the number of nonzero coordinates (i.e., $1$s) in the vector $x$. The support of an $n$-variable Boolean function $f$, denoted as $\supp(f)$, is the set of input vectors for which the function evaluates to $1$, that is, $\supp(f) = \{ x \in \F_2^n : f(x) = 1 \}$. 
+The {\em Hamming weight} of the Boolean function $f$ is $\w(f) = |\supp(f)|$. The function $f$ is called {\em balanced} if $\w(f)= 2^{n-1}$. Let $f(x), g(x) \in \BN$, then the {\em Hamming distance} between two Boolean functions $f, g \in \BN$ is defined by $\hd(f,g) = |\{x \in \F_2^n : f(x) \neq g(x) \}|$  i.e., $\hd(f,g) = \w(f + g)$.
 
 An $n$-variable Boolean function $f$ can be expressed as a polynomial in the ring $\F_2[x_1,x_2,\ldots,x_n]/<x_1^2+x_1,x_2^2+x_2,\ldots,x_n^2+x_n>$, i.e. 
 $f(x) = \sum\limits_{u \in \F_2^n}c_u x^{u_1}x^{u_2}\cdots x^{u_n},$
 where $c_u$ are the coefficients with a value in $\F_2$.
 This way of representing the function $f$ as a polynomial over $\F_2$ is unique and is known as the {\em algebraic normal form} or ANF. The {\em algebraic degree} of the function $f$, denoted as $\deg(f)$ is defined as the maximum number of variables in any monomial with a nonzero coefficient of its ANF. 
-A function $f$ is called as {\em affine function} if $f(x)= a \cdot x + b$ for $a \in \F_2^n, b \in \F_2$ and $ a.x = a_1 x_1 + a_2 x_2 + \cdots + a_n x_n$. If $b=0$, then $f$ is also called a {\em linear} Boolean function. $\Af$ denotes the set of all $n$-variable affine functions. 
+A function $f$ is called as {\em affine function} if $f(x)= a \cdot x + b$ for $a \in \F_2^n, b \in \F_2$ where $\cdot $ denotes the inner product $ a\cdot x = a_1 x_1 + a_2 x_2 + \cdots + a_n x_n$. If $b=0$, then $f$ is also called a {\em linear} Boolean function. $\Af$ denotes the set of all $n$-variable affine functions. 
 
 The {\em Walsh-Hadamard transform} of a function on $\F_2^n$ is the map $W_f : \F_2^n \to \R$, defined by 
 %$\wt{f}(w)= \sum_{x \in \F_2^n} (-1)^{f(x)+ w \cdot x}$
@@ -125,6 +129,14 @@ A construction of a class of 2-RotS WPB Boolean functions is presented by Liu an
 Since, $n$ is the power of $2$ in the construction proposed in Proposition~\ref{constr:LM19}, the cardinality of all orbits in $\F_{2^n} \setminus \{0,1\}$ are even. Therefore, $f(x^2)=f(x)+1, x \in \F_{2^n} \setminus \{0,1\}$ is well defined and hence, the truth value $1$ and $0$ can be assigned alternatively to the half of the vectors in the each orbit. 
 This cannot be assigned when $n$ is not a power of $2$, as some orbits have odd cardinality; therefore, the condition $f(x^2) = f(x)+1$ cannot be defined. 
 However, we propose a generalization of this concept in Section~\ref{sec:GA} to construct WAPB Boolean function for any $n$ where $n$ is a natural number in Section~\ref{sec:GA}. 
+
+\begin{remark}
+	When $n$ is not a power of two, the 2-RotS property depends on the choice of the orbit representative. 
+	Indeed, for any odd-length orbit of length bigger than $1$, we have $f(\nu)=f(\rho_n^{|O|-1}(\nu))$ and for any other representative for this orbit, $\rho_n^r(\nu)$ where $r\ne 0$, the $2$-rotation symmetric property is not respected since $f(\rho_n^r(\nu))=f(\rho_n^{|O|-1}(\rho_n^r(\nu))))=f(\rho_n^{r-1}(\nu))$. 
+	
+	For simplicity, we use a total order to choose the representative in each orbit, hence the 2-RotS property depends only on the permutation group and the chosen order.
+	
+\end{remark}
 
 \section{Construction of WAPB Boolean functions using Group action}\label{sec:GA}
 %In this section, we present a general idea to construct of 2-RotS WAPB Boolean functions using a cyclic permutation group action. Let $G = \langle \pi \rangle$ be a cyclic subgroup of the symmetric group $\Sn$ on $n$ elements. The group action of $G$ on $\F_2^n$ partitions the set into $g_n$ number of orbits. The orbit generated by $x \in \F_2^n$ is denoted as $O_\pi(x) = \{g(x) : g \in G\} = \{x , \pi(x), \pi^2 (x),\ldots ,\pi^{l-1}(x)\}$ where $l$ is the order of the permutation $\pi$. As $\w(\pi^{i}(x)) = \w(x)$ for $1 \leq i \leq {l-1}$, the group action $G$ splits each $\Ekn{k}{n}$ into orbits and let $g_{k,n}$ be the number of orbits in $\Ekn{k}{n}$.

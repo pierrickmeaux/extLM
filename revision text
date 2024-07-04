@@ -7,14 +7,24 @@ REVIEW 1 :
 
 REVIEW 2 :
       - p.1: It would be good to have a short definition of WAPB functions already in the intro >>> 
+      
+      PM: I added:
+      
+      These functions exist only when $n$ is a power of two, in the general case only functions \textit{almost} balanced exist, where in this context the word almost means that the number of preimages of $0$ and of $1$ differs by at most $1$). 
+The function almost balanced on each subset of constant Hamming weight are said to be weightwise almost perfectly balanced (WAPB). 
+      
 
       - p.2, I.1 : "The support of ..". This is no sentence. >>> The support of an $n$-variable Boolean function $f$, denoted as $\supp(f)$, is the set of input vectors for which the function evaluates to 1. Formally, $ \supp(f) = \{ x \in \FF_2^n : f(x) = 1 \} $. 
+      
+      PM: I modified slightly to avoid the sentence without verb "Formally, "
+      
 
       - p.2: You might want to mention that the representation in the quotient ring is unique, hence you can talk about "the" ANF. >>> This way of representing the function $f$ as a polynomial over $\F_2$ is unique and is known as the {\em algebraic normal form} or ANF. 
 
       - p.2: Please say what you mean by "highest order monomial" >>> The {\em algebraic degree} of the function $f$, denoted as $\deg(f)$ is defined as the maximum number of variables in any monomial with a nonzero coefficient of its ANF. 
 
       - p.2: Say that a*x means the inner product >>> A function $f$ is called as {\em affine function} if $f(x)= a \cdot x + b$ for $a \in \F_2^n, b \in \F_2$ and $ a.x = a_1 x_1 + a_2 x_2 + \cdots + a_n x_n$. 
+      PM: A function $f$ is called as {\em affine function} if $f(x)= a \cdot x + b$ for $a \in \F_2^n, b \in \F_2$ where $\cdot $ denotes the inner product $ a\cdot x = a_1 x_1 + a_2 x_2 + \cdots + a_n x_n$.
 
       - p.2: Please give a reference to who came up with the notions of WPB and WAPB functions >>> We have updated the reference for WPB and WAPB.
 
@@ -25,6 +35,16 @@ REVIEW 2 :
       - p.2: What is g_n? >>> where $g_n$ denotes the number of distinct orbits.
 
       - p.3: It seems you need to be more careful with notation. The definition of the 2-rotation symmetric Boolean functions does not only depend on the permutation group, but also on the particular choice of orbit representatives. In the example on p.3, if you take the orbit representative 01000, then  you need f(01000) = f(00001). >>>>>
+      
+      I added a remark:
+      
+      	When $n$ is not a power of two, the 2-RotS property depends on the choice of the orbit representative. 
+	Indeed, for any odd-length orbit of length bigger than $1$, we have $f(\nu)=f(\rho_n^{|O|-1}(\nu))$ and for any other representative for this orbit, $\rho_n^r(\nu)$ where $r\ne 0$, the $2$-rotation symmetric property is not respected since $f(\rho_n^r(\nu))=f(\rho_n^{|O|-1}(\rho_n^r(\nu))))=f(\rho_n^{r-1}(\nu))$. 
+	
+	For simplicity, we use a total order to choose the representative in each orbit, hence the 2-RotS property depends only on the permutation group and the chosen order.
+      
+      
+      
 
       - p.3: When you explain Prop 1, please mention what the permutation group is. >>>>> We have mentioned the permutation group that is used in Prop 1. 
 
