@@ -76,6 +76,8 @@
      \par}%
   \fi}
 %
+%
+
 \def\switcht@albion{%
 \def\abstractname{Abstract.}
 \def\ackname{Acknowledgement.}
@@ -145,7 +147,7 @@
  \def\problemname{Probl\`eme}%
  \def\proofname{Preuve}%
  \def\propertyname{Caract\'eristique}%
-%\def\propositionname{Proposition}%
+ \def\propositionname{Proposition}%
  \def\questionname{Question}%
  \def\remarkname{Remarque}%
  \def\seename{voir}

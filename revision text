@@ -1,0 +1,36 @@
+// Revised Comments. 
+// Notation " >>> " :  Revised / Edited as 
+// Notation ">>>>>" : Mentioned with clarification.
+
+REVIEW 1 : 
+      - No Comments.
+
+REVIEW 2 :
+      - p.1: It would be good to have a short definition of WAPB functions already in the intro >>> 
+
+      - p.2, I.1 : "The support of ..". This is no sentence. >>> The support of an $n$-variable Boolean function $f$, denoted as $\supp(f)$, is the set of input vectors for which the function evaluates to 1. Formally, $ \supp(f) = \{ x \in \FF_2^n : f(x) = 1 \} $. 
+
+      - p.2: You might want to mention that the representation in the quotient ring is unique, hence you can talk about "the" ANF. >>> This way of representing the function $f$ as a polynomial over $\F_2$ is unique and is known as the {\em algebraic normal form} or ANF. 
+
+      - p.2: Please say what you mean by "highest order monomial" >>> The {\em algebraic degree} of the function $f$, denoted as $\deg(f)$ is defined as the maximum number of variables in any monomial with a nonzero coefficient of its ANF. 
+
+      - p.2: Say that a*x means the inner product >>> A function $f$ is called as {\em affine function} if $f(x)= a \cdot x + b$ for $a \in \F_2^n, b \in \F_2$ and $ a.x = a_1 x_1 + a_2 x_2 + \cdots + a_n x_n$. 
+
+      - p.2: Please give a reference to who came up with the notions of WPB and WAPB functions >>> We have updated the reference for WPB and WAPB.
+
+      - p.2: It seems the Krawtchouk polynomial is not used throughout the paper >>>>> The Krawchouk polynomial is used to provide a lower bound on the weightwise nonlinearity $\NLk{k}(f)$ for the function that are constructed by Contruction-II as described in Theorem-3.
+
+      - p.2-3: As far as I understood, the permutation to be considered is an element of S_n and acts on vectors as an index permutation, am I right? This needs to be clarified. At first reading I was confused as I thought about permutations on F_2^n. >>>>> We have updated with the Symmetric group $\Sn$.  
+ 
+      - p.2: What is g_n? >>> where $g_n$ denotes the number of distinct orbits.
+
+      - p.3: It seems you need to be more careful with notation. The definition of the 2-rotation symmetric Boolean functions does not only depend on the permutation group, but also on the particular choice of orbit representatives. In the example on p.3, if you take the orbit representative 01000, then  you need f(01000) = f(00001). >>>>>
+
+      - p.3: When you explain Prop 1, please mention what the permutation group is. >>>>> We have mentioned the permutation group that is used in Prop 1. 
+
+
+
+REVIEW 3 :
+      - No Comments.
+
+
