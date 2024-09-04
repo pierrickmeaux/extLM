@@ -144,7 +144,17 @@ If $f \in \BN$ then for $k \in [0,n]$,
 For a positive integer $n$, the Krawtchouk polynomial~\cite[Page $151$]{book:MacSlo78} of degree $k$ is given by 
 \[\kraw{k}{x}{n}= \sum_{j=0}^{k} (-1)^j {x \choose j} {n-x \choose k-j} \text{ for } k = 0, 1, \ldots n.\]
 \end{definition}
-Following the results in~\cite{DCC:DalMaiSar06,DAM:GinMea22}, the following relations can be derived.
+We have listed some nice properties of the Krawtchouk Polynomials from ~\cite{DCC:DalMaiSar06} which are useful for proving some later results.
+\begin{proposition}\label{prop:krawprop}
+\begin{enumerate}
+\item\label{itm1} $\kraw{0}{l}{n}=1, \kraw{1}{l}{n}= n-2l$.
+\item\label{itm2} $\kraw{k}{l}{n} = (-1)^l \kraw{n-k}{l}{n}$ (that impies, $\kraw{\frac{n}{2}}{l}{n}=0$ for $n$ even and $l$ odd).
+\item\label{itm3} $\kraw{k}{l}{n}= (-1)^k \kraw{k}{n-l}{n}$, (that impies, $\kraw{k}{\frac{n}{2}}{n} = 0$ for $n$ even and $k$ odd).
+\item\label{itm4} For $n$ odd, $|\kraw{k}{1}{n}| \geq |\kraw{k}{l}{n}|$ where $0 \leq k \leq n$ and $ 1 \leq l \leq n-1$,
+\item\label{itm5} For $n$ even, $|\kraw{k}{1}{n}| \geq |\kraw{k}{l}{n}|$ where $0 \leq k \leq n$ and $1 \leq l \leq n-1$ except $k = \frac{n}{2}$ or $l = \frac{n}{2}$.
+\end{enumerate}
+\end{proposition}
+Further from the results in~\cite{DCC:DalMaiSar06,DAM:GinMea22}, the following relations can be derived.
 \begin{theorem}[Krawtchouk Polynomials relations] \label{thm:Kraw}
 For integers $n > 0$, $0 \leq k \leq n$ and fixed $a \in \F_2^n$ such that $\w(a) = \ell$, the following relations hold.
 \begin{enumerate}
@@ -499,8 +509,8 @@ $$\left| \{x \in \Ekn{k}{n} \setminus \orbs_o : c \cdot (x + \psi(x))= 1\} \righ
 Let $n \geq 2$ be an positive integer as in Equation~\ref{eqn:binn} and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
 Then $$\NLk{k}(f_\psi) ~\geq ~ 
 \left\{ \begin{array}{ll}
-\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{0 \leq l \leq n} \kraw{k}{l}{n}\right)}  & \text{ if }  k \not\preceq n \\
-\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{0 \leq l \leq n} \kraw{k}{l}{n} - 2\right)} & \text{ if } k \preceq n.
+\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{0 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n}\right)}  & \text{ if }  k \not\preceq n \\
+\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{0 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n} - 2\right)} & \text{ if } k \preceq n.
 \end{array}   \right.$$
 \end{theorem}
 \begin{proof}
@@ -561,8 +571,58 @@ where $l = \w(a+\psi^{-1}(a))$. Hence, the nonlinearity of $f_\psi$ satisfies
 \displaystyle{\frac{1}{4}\left({n \choose k} + \min_{0 \leq l \leq n} \kraw{k}{l}{n} - 2\right)} & \text{ if } k \preceq n.
 \end{array}   \right.
 \end{eqnarray*}
-%\[\NLk{k}(f) = \frac{|\Ekn{k}{n}|}{2}- \frac{1}{2}\max_{a \in \F_2^n} |\wtk{f}{k}(a)|
+Further, it can be checked that $l = \w(a+\psi^{-1}(a))$ is even. Hence, we have
+$$\NLk{k}(f_\psi) ~\geq ~ 
+\left\{ \begin{array}{ll}
+\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{0 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n}\right)}  & \text{ if }  k \not\preceq n \\
+\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{0 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n} - 2\right)} & \text{ if } k \preceq n.
+\end{array}   \right.$$
 \end{proof}
+Now we will study some cases of $k$ where the minimum can be obtained.
+\begin{theorem}
+\begin{enumerate}
+\item Let $n = 2m+1$ be an odd integer for some $m \in \Z^+$. 
+Then, $\min\limits_{0 \leq l \leq n }\kraw{m}{l}{n} = \kraw{m}{2}{n}$ if $m$ is even and $\min\limits_{0 \leq l \leq n }\kraw{m+1}{l}{n} = \kraw{m+1}{2}{n}$
+if $m$ is odd.
+\item Let $n = 2m$ be an even integer for some $m \in \Z^+$. If $m$ is even, then 
+$\min\limits_{0 \leq l \leq n }\kraw{m}{l}{n}= \kraw{m}{2}{n}$. If $m$ is odd, then $\min\limits_{0 \leq l \leq n }\kraw{m - 1}{l}{n} = \kraw{m - 1}{2}{n}$ and $\min\limits_{0 \leq l \leq n }\kraw{m + 1}{l}{n} = \kraw{m + 1}{1}{n}$.  
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+\item Here $n = 2m+1$ be an odd integer for some $m \in \Z^+$.
+Then
+\begin{eqnarray*}
+\kraw{m+1}{1}{n} & = & \sum_{j=0}^{m+1} (-1)^j {1\choose j}{n-1 \choose m+1-j} = 
+{n-1 \choose m+1} - {n-1 \choose m} \text{ and } \\
+\kraw{m+1}{2}{n} & = & \sum_{j=0}^{m+1} (-1)^j {2\choose j}{n-2 \choose m+1-j} = 
+{n-2 \choose m+1} - 2{n-2 \choose m} + {n-2 \choose m-1} \\
+& = & {n-2 \choose m+1} - {n-2 \choose m} - {n-2 \choose m-1} + {n-2 \choose m}  = {n-1 \choose m+1} - {n-1 \choose m}.
+\end{eqnarray*}
+\iffalse
+\begin{align*}
+\kraw{m+1}{1}{n} &= {n \choose \frac{n+1}{2}} - 2 \sum_{j = 0, \text{ odd}}^{\frac{n+1}{2}} {1 \choose j}{n-1 \choose \frac{n+1}{2}-j} \\
+&= {n \choose \frac{n+1}{2}} - 2 {n-1 \choose \frac{n-1}{2}} 
+\end{align*}
+
+\begin{align*}
+\kraw{\frac{n+1}{2}}{2}{n} &= {n \choose \frac{n+1}{2}} - 2 \sum_{j = 0, \text{ odd}}^{\frac{n+1}{2}} {2 \choose j}{n-2 \choose \frac{n+1}{2}-j} \\
+&= {n \choose \frac{n+1}{2}} - 4 {n-2 \choose \frac{n-1}{2}} \\
+& = {n \choose \frac{n+1}{2}} - 2 \left( {n-2 \choose \frac{n-1}{2}} + {n-2 \choose \frac{n-1}{2}} \right) \\
+& = {n \choose \frac{n+1}{2}} - 2 \left( {n-2 \choose \frac{n-1}{2}} + {n-2 \choose \frac{n-3}{2}} \right) \\
+& = {n \choose \frac{n+1}{2}} - 2  {n-1 \choose \frac{n-1}{2}} 
+\end{align*}
+\fi
+Hence, $\kraw{m+1}{1}{n} = \kraw{m+1}{2}{n} < 0$. From  Proposition~\ref{prop:krawprop}[Item~\ref{itm2}], we have $\kraw{m}{1}{n} = - \kraw{m+1}{1}{n}$ and $\kraw{m}{2}{n} = \kraw{m+1}{2}{n}$.
+That implies, $\kraw{m}{1}{n} > 0$ and $\kraw{m}{2}{n} < 0$ i.e., $\kraw{m}{2}{n} -\kraw{m}{1}{n} < 0$.
+
+If $m$ is even, then $\kraw{m}{0}{n} = \kraw{m}{n}{n} = {n \choose m} > 0$. Now using Proposition~\ref{prop:krawprop}[Item~\ref{itm4}], $\min\limits_{0 \leq l \leq n }\kraw{m}{l}{n} = \min\limits_{1 \leq l \leq n-1 }\kraw{m}{l}{n} = \kraw{m}{2}{n}$.
+
+Similarly, if $m$ is odd, then $\kraw{m+1}{0}{n} = \kraw{m+1}{n}{n} = {n \choose m+1} > 0$. Using Proposition~\ref{prop:krawprop}[Item~\ref{itm4}], $\min\limits_{0 \leq l \leq n }\kraw{m+1}{l}{n} = \min\limits_{1 \leq l \leq n-1 }\kraw{m+1}{l}{n} = \kraw{m+1}{2}{n}$.
+\item 
+\end{enumerate}
+\end{proof}
+
 \begin{table}[h!]\label{tab:NLk_bound}
 \centering
 %\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}\hline
@@ -656,8 +716,10 @@ For any $n = 2^m \geq 8$ and $f_\psi$ be a WPB Boolean function as defined in \r
 19, &  \text{ if } i = m-1.
 \end{array} \right. $$	
 \end{proposition}
-\begin{corollary}
-\end{corollary}
+
+
+
+
 
 \iffalse
 %%%%%%%%%%%%%%%=======================================================================%%%%%%%%%%%%
