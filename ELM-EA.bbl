@@ -1,0 +1,93 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{ZLC{\etalchar{+}}23}
+
+\bibitem[CMR17]{TOSC:CarMeaRot17}
+Claude Carlet, Pierrick M{\'{e}}aux, and Yann Rotella.
+\newblock Boolean functions with restricted input and their robustness;
+  application to the {FLIP} cipher.
+\newblock {\em {IACR} Trans. Symmetric Cryptol.}, 2017(3), 2017.
+
+\bibitem[DM24]{AMC:DM24}
+Deepak~Kumar Dalai and Krishna Mallick.
+\newblock A class of weightwise almost perfectly balanced boolean functions.
+\newblock {\em Advances in Mathematics of Communications}, 18(2):480--504,
+  2024.
+
+\bibitem[Fin47]{LucasTh}
+N.~J. Fine.
+\newblock Binomial coefficients modulo a prime.
+\newblock {\em The American Mathematical Monthly}, 54(10):589--592, 1947.
+
+\bibitem[GM22a]{DAM:GinMea22}
+Agnese Gini and Pierrick M{\'{e}}aux.
+\newblock On the weightwise nonlinearity of weightwise perfectly balanced
+  functions.
+\newblock {\em Discret. Appl. Math.}, 322:320--341, 2022.
+
+\bibitem[GM22b]{INDO:GinMea22}
+Agnese Gini and Pierrick M{\'{e}}aux.
+\newblock Weightwise almost perfectly balanced functions: Secondary
+  constructions for all n and better weightwise nonlinearities.
+\newblock In {\em Progress in Cryptology - {INDOCRYPT}}, volume 13774 of {\em
+  Lecture Notes in Computer Science}, pages 492--514. Springer, 2022.
+
+\bibitem[GM23]{Latin:GinMea23}
+Agnese Gini and Pierrick M{\'{e}}aux.
+\newblock On the algebraic immunity of weightwise perfectly balanced functions.
+\newblock In {\em LATINCRYPT}, volume 14168 of {\em Lecture Notes in Computer
+  Science}, pages 3--23. Springer, 2023.
+
+\bibitem[LM19]{DCC:LiuMes19}
+Jian Liu and Sihem Mesnager.
+\newblock Weightwise perfectly balanced functions with high weightwise
+  nonlinearity profile.
+\newblock {\em Des. Codes Cryptogr.}, 87(8):1797--1813, 2019.
+
+\bibitem[LS20]{DAM:LiSu20}
+Jingjing Li and Sihong Su.
+\newblock Construction of weightwise perfectly balanced boolean functions with
+  high weightwise nonlinearity.
+\newblock {\em Discret. Appl. Math.}, 279:218--227, 2020.
+
+\bibitem[MJSC16]{EC:MJSC16}
+Pierrick M{\'{e}}aux, Anthony Journault, Fran{\c c}ois-Xavier Standaert, and
+  Claude Carlet.
+\newblock Towards stream ciphers for efficient {FHE} with low-noise
+  ciphertexts.
+\newblock pages 311--343, 2016.
+
+\bibitem[MS78]{book:MacSlo78}
+F.J. MacWilliams and N.J.A. Sloane.
+\newblock {\em The Theory of Error-Correcting Codes}.
+\newblock North-holland Publishing Company, 2nd edition, 1978.
+
+\bibitem[MS21]{CC:MesSu21}
+Sihem Mesnager and Sihong Su.
+\newblock On constructions of weightwise perfectly balanced boolean functions.
+\newblock {\em Cryptography and Communications}, 2021.
+
+\bibitem[Su21]{DAM:Su21}
+Sihong Su.
+\newblock The lower bound of the weightwise nonlinearity profile of a class of
+  weightwise perfectly balanced functions.
+\newblock {\em Discret. Appl. Math.}, 297:60--70, 2021.
+
+\bibitem[TL19]{CC:TangLiu19}
+Deng Tang and Jian Liu.
+\newblock A family of weightwise (almost) perfectly balanced boolean functions
+  with optimal algebraic immunity.
+\newblock {\em Cryptogr. Commun.}, 11(6):1185--1197, 2019.
+
+\bibitem[ZLC{\etalchar{+}}23]{DAM:ZLCQZ23}
+Qinglan Zhao, Mengran Li, Zhixiong Chen, Baodong Qin, and Dong Zheng.
+\newblock A unified construction of weightwise perfectly balanced boolean
+  functions.
+\newblock {\em Discrete Applied Mathematics}, 337:190--201, 2023.
+
+\bibitem[ZS22]{DAM:ZhuSu22}
+Linya Zhu and Sihong Su.
+\newblock A systematic method of constructing weightwise almost perfectly
+  balanced boolean functions on an arbitrary number of variables.
+\newblock {\em Discrete Applied Mathematics}, 314:181--190, 2022.
+
+\end{thebibliography}

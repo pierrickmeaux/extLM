@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ELM.aux
+The style file: alpha.bst
+Database file #1: add.bib
+Repeated entry---line 3660 of file add.bib
+ : @article{DAM:SM08
+ :                  ,
+I'm skipping whatever remains of this entry
+You've used 8 entries,
+            2543 wiz_defined-function locations,
+            618 strings with 5799 characters,
+and the built_in function-call counts, 3089 in all, are:
+= -- 311
+> -- 159
+< -- 1
++ -- 54
+- -- 53
+* -- 231
+:= -- 537
+add.period$ -- 24
+call.type$ -- 8
+change.case$ -- 50
+chr.to.int$ -- 8
+cite$ -- 8
+duplicate$ -- 111
+empty$ -- 210
+format.name$ -- 62
+if$ -- 607
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 9
+newline$ -- 43
+num.names$ -- 24
+pop$ -- 36
+preamble$ -- 1
+purify$ -- 58
+quote$ -- 0
+skip$ -- 98
+stack$ -- 0
+substring$ -- 169
+swap$ -- 8
+text.length$ -- 1
+text.prefix$ -- 1
+top$ -- 0
+type$ -- 60
+warning$ -- 0
+while$ -- 31
+width$ -- 11
+write$ -- 104
+(There was 1 error message)

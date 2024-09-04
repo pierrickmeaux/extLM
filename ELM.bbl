@@ -1,0 +1,48 @@
+\begin{thebibliography}{CMR17}
+
+\bibitem[CMR17]{TOSC:CarMeaRot17}
+Claude Carlet, Pierrick M{\'{e}}aux, and Yann Rotella.
+\newblock Boolean functions with restricted input and their robustness;
+  application to the {FLIP} cipher.
+\newblock {\em {IACR} Trans. Symmetric Cryptol.}, 2017(3), 2017.
+
+\bibitem[DMS06]{DCC:DalMaiSar06}
+Deepak~Kumar Dalai, Subhamoy Maitra, and Sumanta Sarkar.
+\newblock Basic theory in construction of boolean functions with maximum
+  possible annihilator immunity.
+\newblock {\em Designs, Codes and Cryptography}, 2006.
+
+\bibitem[Fin47]{LucasTh}
+N.~J. Fine.
+\newblock Binomial coefficients modulo a prime.
+\newblock {\em The American Mathematical Monthly}, 54(10):589--592, 1947.
+
+\bibitem[GM22]{DAM:GinMea22}
+Agnese Gini and Pierrick M{\'{e}}aux.
+\newblock On the weightwise nonlinearity of weightwise perfectly balanced
+  functions.
+\newblock {\em Discret. Appl. Math.}, 322:320--341, 2022.
+
+\bibitem[LM19]{DCC:LiuMes19}
+Jian Liu and Sihem Mesnager.
+\newblock Weightwise perfectly balanced functions with high weightwise
+  nonlinearity profile.
+\newblock {\em Des. Codes Cryptogr.}, 87(8):1797--1813, 2019.
+
+\bibitem[MS78]{book:MacSlo78}
+F.J. MacWilliams and N.J.A. Sloane.
+\newblock {\em The Theory of Error-Correcting Codes}.
+\newblock North-holland Publishing Company, 2nd edition, 1978.
+
+\bibitem[MZD18]{Mesnager2018}
+Sihem Mesnager, Zhengchun Zhou, and Cunsheng Ding.
+\newblock On the nonlinearity of boolean functions with restricted input.
+\newblock {\em Cryptography and Communications}, Mar 2018.
+
+\bibitem[SM08]{DAM:SM08}
+Pantelimon Stanica and Subhamoy Maitra.
+\newblock Rotation symmetric boolean functions - count and cryptographic
+  properties.
+\newblock {\em Discret. Appl. Math.}, 156(10):1567--1580, 2008.
+
+\end{thebibliography}

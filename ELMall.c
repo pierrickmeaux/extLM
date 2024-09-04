@@ -98,7 +98,13 @@ int main()
 				for(j = 1; j < l; j++) f[orbe[i][j]] = f[orbe[i][j-1]]^1;
 			}
 			//Printing truth table of functions
-			for(i = 0; i < tot; i++)	printf("%d",f[i]);
+//			for(i = 0; i < tot; i++)	printf("%d",f[i]);
+			printf("[");
+			for(i = 0; i < tot; i++){
+				printf("%d",f[i]);
+				printf(",");
+			}
+			printf("]");
 			printf("\n");
 		}}
 	}
