@@ -555,7 +555,34 @@ Hence from Equation~\ref{eqn:ws_k} and Lemma~\ref{lem:setSize_k}, we have
     \frac{1}{2} (|\Ekn{k}{n}| - \kraw{k}{l}{n}) + 1 & \text{if } k \preceq n.
     \end{array}\right.
 \end{eqnarray}
-where $l = \w(a+\psi^{-1}(a))$. Hence, the nonlinearity of $f_\psi$ satisfies
+where $l = \w(a+\psi^{-1}(a))$. 
+
+
+\pmnote{I suggest the following change:
+
+Since $\psi$ is a permutation, $a$ and $\psi^{-1}(a)$ have the same Hamming weight, therefore the addition of these two vectors have an even Hamming weight. 
+Moreover, we show that the values $l=0$ and $l=n$ cannot lead to the maximum absolute values of the Walsh spectrum under some conditions.
+
+The case $l=0$ is obtained only when $a=\psi^{-1}(a)$, that is when $a$ belongs to an orbit of $\psi$ of cardinality $1$. Such vectors $a$ are characterized by Equation~\ref{eqn:part} in the proof of Lemma~\ref{lem:orbNo}, they are constant on each of the $w$ parts. 
+Since the Hamming weight of $x$ and $\psi(x)$ is the same one on each of the $w$ parts ($\psi_n$ is made of disjoint cycles), the Hamming weight of $x+ \psi(x)$ is even on each part for all $x\in \F_2^n$. 
+Accordingly, for such $a$ we have $\{x\in \F_2^n \, | \, a \cdot (x + \psi(x))= 1\}=\emptyset$ and $|\wtk{f_\psi}{k}(a)|\le 1$ using Equation~\ref{eqn:ws_k1}
+
+The case $l=n$ is obtained only when $a+\psi^{-1}(a)=1_n$,
+that is when each part is the repetition of $01$ or $10$. This case is not possible when $n$ is odd since the part $n_1$ have size $1$ hence the first element of $a+\psi^{-1}(a)$ is $0$ for all $a$. 
+For the $a$ such that $a+\psi^{-1}(a)=1_n$ the following holds:
+\[a\cdot (x+\psi(x))=a \cdot x+a\cdot \psi(x)= a \cdot x + \psi^{-1}(a) \cdot x =(a+\psi^{-1}(a)) \cdot x =\w(x) \mod 2.\]
+Accordingly, when $k$ is even for such $a$ we have $\{x\in \F_2^n \, | \, a \cdot (x + \psi(x))= 1\}=\emptyset$ and $|\wtk{f_\psi}{k}(a)|\le 1$ using Equation~\ref{eqn:ws_k1}.
+
+%When $n$ is a multiple of $4$, the vectors $a$ we consider have an even Hamming weight, hence 
+
+
+}
+
+
+
+
+
+Hence, the nonlinearity of $f_\psi$ satisfies
 \begin{eqnarray*}
 \NLk{k}(f_\psi) ~ = ~ \frac{|\Ekn{k}{n}|}{2} -\frac{1}{2} \max_{a\in \F_2^n}| \wtk{f_\psi}{k}(a)|
 & ~\geq~ & \left\{ \begin{array}{ll}
