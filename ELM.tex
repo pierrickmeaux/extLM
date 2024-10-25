@@ -39,9 +39,37 @@ Bhubaneswar, Odisha 752050, India.\\
 
 \setcounter{page}{1}	
 \begin{abstract}
+	The construction of Boolean functions with good cryptographic properties over a subset of vectors with fixed Hamming weight is significant in lightweight stream ciphers like FLIP. 
+	We present a general idea to construct a class of Weightwise Almost Perfectly Balanced (WAPB) Boolean functions by using the action of a cyclic permutation group on $\mathbb{F}_2^n$. Further, considering a particular permutation group $\langle \psi_n \rangle$ (where $\psi_n$ is a special type of permutation on $n$ elements), we present a class of WAPB Boolean functions on $n$ variables. This class generalizes the Weightwise Perfectly Balanced (WPB) Boolean function construction by Liu and Mesnager. Further, we studied the nonlinearity and weightwise nonlinearities of this class of functions.   
+
+\keywords{Boolean function, Weightwise perfectly balanced (WPB), Weightwise almost perfectly balanced (WAPB), Nonlinearity}
 \end{abstract}
  
 \section{Introduction} 
+
+An $n$-variable Boolean function $f$ is a mapping from the $n$-dimensional vector space $\F_2^n$ to $\F_2$, where $\F_2$ denotes a finite field with two elements $\{0,1\}$. Depending upon the underlying algebraic structure, the symbol`$+$' is to indicate addition operations in both $\F_2$ and $\mathbb{R}$. 
+Typically, the cryptographic criteria of the Boolean functions are defined over the entire domain of vector space $\F_2^n$. However, the study of Boolean functions over restricted domains gained interest following the introduction of the stream cipher FLIP in 2016~\cite{EC:MJSC16}.
+In FLIP, the inputs to the filter function have a fixed Hamming weight of $\frac{n}{2}$.  
+An initial cryptographic study of Boolean function in a restricted domain was conducted by Carlet et al. in~\cite{TOSC:CarMeaRot17}.
+Boolean functions that are balanced over the subsets of $\F_2^n$ containing vectors with constant Hamming weight are said to be Weightwise Perfectly Balanced (WPB). 
+Such functions exist only when $n$ is a power of two,; otherwise, only functions that are \textit{almost balanced} can exist. Here, \textit{almost balanced} means that the counts of preimages of $0$ and $1$ differ by at most one. Functions that are almost balanced on each subset of constant Hamming weight are termed Weightwise Almost Perfectly Balanced (WAPB).
+
+The first weightwise perfectly balanced (WPB) Boolean function construction was introduced in~\cite{TOSC:CarMeaRot17} in 2017. 
+Multiple studies and constructions~\cite{CC:TangLiu19,DCC:LiuMes19,
+DAM:LiSu20,
+CC:MesSu21,BFA:MesSuLi21,DAM:Su21,
+DAM:ZhuSu22,DAM:GinMea22,CEC:MPJDL22,ACI:ManKuLar22,INDO:GinMea22,CC:MSLZ22,DAM:GuoSu22,
+C2SI:GinMea23,Latin:GinMea23,DAM:ZLCQZ23,BFA:DalMal23,AMC:ZhangSu23,Mat:ZJZQ23,ASIACCS:YCL+23,CCDS:GinMea24,
+AMC:DM24,SAC:Meaux24} of WPB and WAPB functions are available in the literature.
+Liu and Mesnager~\cite{DCC:LiuMes19} presented a class of WPB Boolean functions that are 2-rotation symmetric. These functions have the best weightwise nonlinearities compared to the currently available constructions. In this article, we have generalize this construction to create a class of WAPB Boolean functions for any number of variables.
+
+
+\pmnote{add more detailed contribution part}
+
+
+
+
+
 \section{Preliminaries}
 Let $\F_2^n$ be the vector space of dimension $n$ over the binary field $\F_2$. For any two vectors $a=(a_1, a_2, \ldots, a_n)$ and $b = (b_1, b_2, \ldots, b_n)$ in $\F_2^n$, the dot product is defined as $a\cdot b = a_1 b_1 + a_2 b_2 + \cdots + a_nb_n \bmod 2$.
 %and additon $+$ is by .......
@@ -327,20 +355,20 @@ Hence, when $n = 2^m$, a power of $2$, $\psi = \rho_n$ and Construction~\ref{con
 \end{algorithmic}
 \end{constr}
 
-\pmnote{	
-For construction 2, I propose the following modifications:
+%\pmnote{	
+%For construction 2, I propose the following modifications:
 
-\begin{itemize}
-	\item in input we add a representative $\nu_i$
-	\item in input we add a binary vector $v$ of length the number of orbits.
-	\item then, for every orbit $f$ takes the value $v_i$ on $\nu_i$, and we keep "$f$ satisfies $f_\psi(\psi(x)) = 1+f(x)$ for $x \in \orb$"
-	\item we withdraw the last part, forcing $f_\psi$ to be balanced.
-\end{itemize}
+%\begin{itemize}
+%	\item in input we add a representative $\nu_i$
+%	\item in input we add a binary vector $v$ of length the number of orbits.
+%	\item then, for every orbit $f$ takes the value $v_i$ on $\nu_i$, and we keep "$f$ satisfies $f_\psi(\psi(x)) = 1+f(x)$ for $x \in \orb$"
+%	\item we withdraw the last part, forcing $f_\psi$ to be balanced.
+%\end{itemize}
 
-The advantage of the extra inputs would be to define more easily each function later on (if we use an order to list the representatives, we can identify a function in $n$ variables only from the the vector $v$).
+%The advantage of the extra inputs would be to define more easily each function later on (if we use an order to list the representatives, we can identify a function in $n$ variables only from the the vector $v$).
 
-Regarding the balancedness, WAPB functions are not required to be balanced, so we would have a more general description (I do not think the balancedness is used in the proofs after). We would make a remark on the restriction that is sufficient to be balanced, or even than the weight of $f$ is determined by the weight of $v$ restricted to the orbits of size $1$.
-}
+%Regarding the balancedness, WAPB functions are not required to be balanced, so we would have a more general description (I do not think the balancedness is used in the proofs after). We would make a remark on the restriction that is sufficient to be balanced, or even than the weight of $f$ is determined by the weight of $v$ restricted to the orbits of size $1$.
+%}
 
 \begin{theorem}
 The number of orbits generated due the action of $\psi$ on $\F_2^n$ is
@@ -387,6 +415,22 @@ c \cdot (x+\psi(x)) & = & c_1(x_1 + x_{n_1}) + c_2 (x_2 + x_1) + \cdots + c_{n_1
 && + (c_{n-n_w+1} + c_{n-n_w+2})x_{n-n_w+1} + \cdots +  (c_n + c_{n-n_w+1})x_n \label{eqn:cx2} \\
 \implies c \cdot (x+\psi(x)) & = & (c+\psi^{-1}(c)) \cdot x. \nonumber
 \end{eqnarray}
+
+\pmnote{I think this can be generalized to any permutation $\pi$ of $\Sn$: $c \cdot (x+\pi(x))= c \cdot x + c \cdot \pi(x) = c \cdot x + \pi^{-1}(c) \cdot x = (c+\pi^{-1}(c)) \cdot x$.
+	
+	This holds because the scalar products $c \cdot \pi(x)$ and $ \pi^{-1}(c) \cdot x$ are equal: $\pi(\pi^{-1}(c)) \cdot \pi(x)=c \cdot \pi(x)$.
+	
+	
+Accordingly, I think the same arguments could be used for the nonlinearity of any function from Construction 1: the size of the set would be $0$ when the orbit has size $1$, $2^{n-1}$ otherwise.
+
+Then following the proof of Theorem 4, it would lead to $\NL(f_\pi) \ge 2^{n-2} -\frac{1}{2} |\text{elements in odd orbits}|$.
+	
+What are your thoughts?	We could have a remark on that rather than Theorem 2.
+
+
+   }
+
+
 Therefore, $c \cdot (x+\psi(x))$ is a linear Boolean function on $n$ variables. Here, $c \cdot (x+\psi(x))$ is the zero Boolean function if and only if
 $c_1 = c_2 = \ldots = c_{n_1}$; $c_{n_1+1} = c_{n_1 + 2} = \cdots = c_{n_1 + n_2}; \ldots; c_{(n- n_w ) + 1} = c_{(n- n_w) + 2} = \cdots = c_n$ i.e., $c \in \orbs_o$.
 Hence,
@@ -626,6 +670,10 @@ Then
 {n-2 \choose m+1} - 2{n-2 \choose m} + {n-2 \choose m-1} \\
 & = & {n-2 \choose m+1} - {n-2 \choose m} - {n-2 \choose m-1} + {n-2 \choose m}  = {n-1 \choose m+1} - {n-1 \choose m}.
 \end{eqnarray*}
+
+
+
+
 \iffalse
 \begin{align*}
 \kraw{m+1}{1}{n} &= {n \choose \frac{n+1}{2}} - 2 \sum_{j = 0, \text{ odd}}^{\frac{n+1}{2}} {1 \choose j}{n-1 \choose \frac{n+1}{2}-j} \\
@@ -675,13 +723,16 @@ Similarly, if $m$ is odd, then $\kraw{m+1}{0}{n} = \kraw{m+1}{n}{n} = {n \choose
  \end{table}
 
 %Now we will study the restricted nonlinearity $\NLk{2}(f_\psi)$.
+
+\pmnote{I think the following lines would be better inside the proof of Theorem~\ref{thm:nl2}}
+
 We have
 $$\kraw{k}{l}{n} = \sum_{j=0}^k(-1)^j{l \choose j}{n-l \choose k-j}
                = \sum_{j=0}^k {l \choose j}{n-l \choose k-j} - 2 \sum_{\substack{j=0 \\ j: \text{odd}}}^k {l \choose j}{n-l \choose k-j}
                = {n \choose k} - 2 \sum_{\substack{j=0 \\ j: \text{odd}}}^k {l \choose j}{n-l \choose k-j}.$$
 Hence, $\kraw{2}{l}{n} = {n \choose 2} - 2 \sum\limits_{\substack{j=0 \\ j: \text{odd}}}^2 {l \choose j}{n-l \choose 2-j} = {n \choose 2} - 2{l \choose 1}{n-l \choose 1} = {n \choose 2} - 2l(n-l)$. For real value of $l$, the function $\kraw{2}{l}{n}$ has minima at $l = \frac{n}{2}$ as $\frac{d(\kraw{2}{l}{n})}{dl} = 4l-2n = 0$ at $l = \frac{n}{2}$ and $\frac{d^2(\kraw{2}{l}{n})}{dl^2} = 4 > 0$. In our case, as $l = \w(a+\psi^{-1}(a))$ for $a \in \F_2^n$ is an integer, we have $\min\limits_{0 \leq l \leq n} \kraw{2}{l}{n}$ is ${n \choose 2} - 2(\frac{n}{2})^2 = -\frac{n}{2}$ when $n$ is even. For $n$ is odd, it can be checked that $\kraw{2}{l}{n}$ has minimum at $l = \frac{n-1}{2}$ and $l = \frac{n+1}{2}$ with value $\min\limits_{0 \leq l \leq n} \kraw{2}{l}{n} =
-{n \choose 2} - 2\frac{n-1}{2} \frac{n+1}{2}= -\frac{n-1}{2}$. Hence, combining both the cases, we have $\min\limits_{0 \leq l \leq n} \kraw{2}{l}{n} = -\lfloor \frac{n}{2} \rfloor$. Further, denote $\NLk{k}^n = \min\{\NLk{k}^n(f_\psi) | f_\psi \in \BN  \text{constructed as in Proposition~\ref{prop:WAPB}}\}$.
-\begin{theorem}
+{n \choose 2} - 2\frac{n-1}{2} \frac{n+1}{2}= -\frac{n-1}{2}$. Hence, combining both the cases, we have $\min\limits_{0 \leq l \leq n} \kraw{2}{l}{n} = -\lfloor \frac{n}{2} \rfloor$. Further, denote $\NLk{k}^n = \min\{\NLk{k}^n(f_\psi) \,| \, f_\psi \in \BN  \text{constructed as in Proposition~\ref{prop:WAPB}}\}$.
+\begin{theorem}\label{thm:nl2}
 Let $n \geq 2$ be an positive integer as in Equation~\ref{eqn:binn} and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
 Then $$\NLk{2}(f_\psi) ~\geq ~ \left\{
 \begin{array}{lr}
@@ -725,6 +776,9 @@ It can be checked that for $x = (y,y) \in R$, $\orb_x = \{(z,z) : z \in \orb_y\}
 Then for a WPB $f \in \BN$ satisfying Proposition~\ref{prop:WAPB}, we have a WPB $g \in \Bn{\frac{n}{2}}$  such that $g(y) = f(x)$ for all $y \in \F_2^{\frac{n}{2}}$. 
 This implies, 
 %$$6 \leq \NLk{2}^8(g) = \NLk{\Ekn{2}{8}}(g) = \NLk{R}(f) \leq \NLk{\Ekn{4}{16}}(f) \leq \NLk{4}^{16}(f).$$
+
+\pmnote{Can you elaborate for the equality part $\NLk{\Ekn{2}{\frac{n}{2}}}(g) = \NLk{R}(f)$ in the Equation below? }
+
 $$\NLk{2}^{\frac{n}{2}}(g) = \NLk{\Ekn{2}{\frac{n}{2}}}(g) = \NLk{R}(f) \leq \NLk{\Ekn{4}{n}}(f) \leq \NLk{4}^{n}(f).$$ 
 %\NLk{R \subset \Ekn{8}{32}}(f) \leq \NLk{8}^32(f) \leq \cdots \NLk{w}   $$ 
 Then we have the generalised result as
