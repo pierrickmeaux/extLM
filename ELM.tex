@@ -39,14 +39,12 @@ Bhubaneswar, Odisha 752050, India.\\
 
 \setcounter{page}{1}	
 \begin{abstract}
-	The construction of Boolean functions with good cryptographic properties over a subset of vectors with fixed Hamming weight is significant in lightweight stream ciphers like FLIP. 
-	We present a general idea to construct a class of Weightwise Almost Perfectly Balanced (WAPB) Boolean functions by using the action of a cyclic permutation group on $\mathbb{F}_2^n$. Further, considering a particular permutation group $\langle \psi_n \rangle$ (where $\psi_n$ is a special type of permutation on $n$ elements), we present a class of WAPB Boolean functions on $n$ variables. This class generalizes the Weightwise Perfectly Balanced (WPB) Boolean function construction by Liu and Mesnager. Further, we studied the nonlinearity and weightwise nonlinearities of this class of functions.   
-
+The construction of Boolean functions with good cryptographic properties over a subset of vectors with fixed Hamming weight is significant in lightweight stream ciphers like FLIP. 
+We present a general idea to construct a class of Weightwise Almost Perfectly Balanced (WAPB) Boolean functions by using the action of a cyclic permutation group on $\mathbb{F}_2^n$. Further, considering a particular permutation group $\langle \psi_n \rangle$ (where $\psi_n$ is a special type of permutation on $n$ elements), we present a class of WAPB Boolean functions on $n$ variables. This class generalizes the Weightwise Perfectly Balanced (WPB) Boolean function construction by Liu and Mesnager. Further, we studied the nonlinearity and weightwise nonlinearities of this class of functions.
 \keywords{Boolean function, Weightwise perfectly balanced (WPB), Weightwise almost perfectly balanced (WAPB), Nonlinearity}
 \end{abstract}
  
-\section{Introduction} 
-
+\section{Introduction}
 An $n$-variable Boolean function $f$ is a mapping from the $n$-dimensional vector space $\F_2^n$ to $\F_2$, where $\F_2$ denotes a finite field with two elements $\{0,1\}$. Depending upon the underlying algebraic structure, the symbol`$+$' is to indicate addition operations in both $\F_2$ and $\mathbb{R}$. 
 Typically, the cryptographic criteria of the Boolean functions are defined over the entire domain of vector space $\F_2^n$. However, the study of Boolean functions over restricted domains gained interest following the introduction of the stream cipher FLIP in 2016~\cite{EC:MJSC16}.
 In FLIP, the inputs to the filter function have a fixed Hamming weight of $\frac{n}{2}$.  
@@ -56,20 +54,11 @@ Such functions exist only when $n$ is a power of two,; otherwise, only functions
 
 The first weightwise perfectly balanced (WPB) Boolean function construction was introduced in~\cite{TOSC:CarMeaRot17} in 2017. 
 Multiple studies and constructions~\cite{CC:TangLiu19,DCC:LiuMes19,
-DAM:LiSu20,
-CC:MesSu21,BFA:MesSuLi21,DAM:Su21,
-DAM:ZhuSu22,DAM:GinMea22,CEC:MPJDL22,ACI:ManKuLar22,INDO:GinMea22,CC:MSLZ22,DAM:GuoSu22,
-C2SI:GinMea23,Latin:GinMea23,DAM:ZLCQZ23,BFA:DalMal23,AMC:ZhangSu23,Mat:ZJZQ23,ASIACCS:YCL+23,CCDS:GinMea24,
-AMC:DM24,SAC:Meaux24} of WPB and WAPB functions are available in the literature.
+DAM:LiSu20,CC:MesSu21,BFA:MesSuLi21,DAM:Su21,DAM:ZhuSu22,DAM:GinMea22,CEC:MPJDL22,ACI:ManKuLar22,INDO:GinMea22,CC:MSLZ22,DAM:GuoSu22,C2SI:GinMea23,Latin:GinMea23,DAM:ZLCQZ23,BFA:DalMal23,AMC:ZhangSu23,Mat:ZJZQ23,ASIACCS:YCL+23,CCDS:GinMea24,AMC:DM24,SAC:Meaux24} of WPB and WAPB functions are available in the literature.
 Liu and Mesnager~\cite{DCC:LiuMes19} presented a class of WPB Boolean functions that are 2-rotation symmetric. These functions have the best weightwise nonlinearities compared to the currently available constructions. In this article, we have generalize this construction to create a class of WAPB Boolean functions for any number of variables.
 
 
 \pmnote{add more detailed contribution part}
-
-
-
-
-
 \section{Preliminaries}
 Let $\F_2^n$ be the vector space of dimension $n$ over the binary field $\F_2$. For any two vectors $a=(a_1, a_2, \ldots, a_n)$ and $b = (b_1, b_2, \ldots, b_n)$ in $\F_2^n$, the dot product is defined as $a\cdot b = a_1 b_1 + a_2 b_2 + \cdots + a_nb_n \bmod 2$.
 %and additon $+$ is by .......
@@ -84,15 +73,11 @@ $f(x) = \sum\limits_{u \in \F_2^n}c_u x^{u_1}x^{u_2}\cdots x^{u_n},$
 where $c_u$ are the coefficients with a value in $\F_2$.
 It is called as the algebraic normal form or ANF and the number of variables in the highest order monomial with nonzero coefficient is called the \textit{algebraic degree} of the function $f$, and denoted as $\deg(f)$.
 A function $f$ is called as affine function if $f(x)= a\cdot x + b$ for $a \in \F_2^n$ and $b \in \F_2$. If $b=0$, then $f$ is also called a linear Boolean function. $\Af$ denotes the set of all $n$-variable affine functions. 
-%The complexity of computing the ANF of $f$ from the truth table is of $\mathcal{O}(N log_2 N)$, for $N=2^n$ is the size input to $f$. 
 
-%\noindent\textbf{\definitionname(Walsh-Hadamard Transform)}
 \begin{definition}[Walsh-Hadamard Transform]\label{def:Walsh}
 The Walsh-Hadamard transform of a function on $\F_2^n$ is the map $W_f : \F_2^n \to \R$, defined by \[\wt{f}(w)= \sum_{x \in \F_2^n} (-1)^{f(x)+ w \cdot x}.\]
 \end{definition}
 
-
-%\noindent\textbf{\definitionname(Nonlinearity)}
 \begin{definition}[Nonlinearity]\label{def:Nonlinearity}
 The nonlinearity of $f \in \BN$ denoted as $\NL(f)$, is the minimum Hamming distance of $f$ to any affine function. That is, $\NL(f) = \min\limits_{g \in \Af} \hd(f,g)$.
 It can be verified that $\NL(f) = 2^{n-1} - \frac{1}{2}\max\limits_{w \in \F_2^n} |\wt{f}(w)|$.
@@ -100,7 +85,6 @@ It can be verified that $\NL(f) = 2^{n-1} - \frac{1}{2}\max\limits_{w \in \F_2^n
 
 We denote $\Ekn{k}{n} = \{x \in \F_2^n : \w(x)=k\}$ and $\wkn{k}{n}(f) = |\{x \in \Ekn{k}{n} : f(x) = 1 \}| = |\supp(f) \cap \Ekn{k}{n}|$. Accordingly, the Hamming distance of two functions $f, g \in \BN$ on $\Ekn{k}{n}$ denoted as $\mdist{k}{n}(f,g) = |\{x \in \Ekn{k}{n} : f(x) \neq g(x)\}|$. The cryptographic criteria like balancedness, nonlinearity and algebraic immunity of a function $f$ defined over $\F_2^n$ can also be defined, if we restrict $f$ to the set $\Ekn{k}{n}$. For two integers $m, n$ with $m \leq n$, we define $[m,n] = \{m, m+1, \ldots, n\}$.
 
-%\noindent\textbf{\definitionname(Weightwise Almost Perfectly Balanced (WAPB)}
 \begin{definition}[Weightwise Almost Perfectly Balanced (WAPB)]\label{def:WAPB}
 A Boolean function $f \in \BN$ is said to be weightwise almost perfectly balanced (WAPB) if for all $k \in [0,n]$, \[\wkn{k}{n}(f)=
 \begin{cases}
@@ -108,41 +92,24 @@ A Boolean function $f \in \BN$ is said to be weightwise almost perfectly balance
 \frac{{n \choose k}\pm 1}{2} & \textit{if } {n \choose k} \textit{ is \; odd}.
 \end{cases} \]
 \end{definition}
-%For $k \in [0,n]$, $\dk^f \in \{-1, 0, 1\}$ is defined as $\dk^f = 2 \wtk(f) - {n\choose k}$. That is, $\wtk(f) = \frac{1}{2}\left[{n\choose k} + \dk^f\right]$. 
-%Therefore, we can construct a WAPB Boolean function for any $n$ using Lucas' Theorem ~\cite{LucasTh}.\\
 
-%\noindent\textbf{\definitionname(Weightwise Perfectly Balanced (WPB))} A Boolean function $f \in \BN$ is said to be weightwise perfectly balanced (WPB) if for all $k \in [0,n]$, 
 \begin{definition}[Weightwise Perfectly Balanced (WPB)]\label{def:WPB}
 A Boolean function $f \in \BN$ is said to be weightwise perfectly balanced (WPB) if for all $k \in [1,n-1]$, 
 \[\wkn{k}{n}(f) = \frac{{n \choose k}}{2},\]
 and $f(0,0,\ldots,0)=0=1+f(1,1,\ldots,1)$.
-%\begin{cases}
-%\frac{{n \choose k}}{2} &  \textit{ if } k \in [1,n-1], \\
-%\frac{{n \choose k} \pm 1}{2} & \textit{ if } k \in \{0,n\} 
-%\end{cases} \]
-%To make a WPB Boolean function balanced on $\F_2^n$, we impose $f(0,0,\ldots,0) \neq f(1,1,\ldots,1)$. 
 \end{definition}
-
-%Using Lucas' Theorem~\cite{LucasTh}, we have that a WPB function exists only if, $n$ is a power of $2$. Hence, there are $\displaystyle {2\prod_{k = 1}^{n-1} {{{n \choose k}} \choose {{n \choose k}/2}}}$ balanced WPB Boolean functions.
 
 Using Lucas' Theorem~\cite{LucasTh}, we have that a WPB function exists only if, $n$ is a power of $2$. Hence, there are $\displaystyle {\prod_{k = 1}^{n-1} {{{n \choose k}} \choose {{n \choose k}/2}}}$ WPB Boolean functions.
 
-
-%\noindent\textbf{\definitionname(Restricted Walsh Transform)}
 \begin{definition}[Restricted Walsh Transform]\label{def:restWalsh}
 Let $f$ be an $n$-variable Boolean function, then its Walsh transform $\wtk{f}{k}(a)$ is defined as:
 \[\wtk{f}{k}(a) = \sum_{x \in \Ekn{k}{n}} (-1)^{f(x)+ a \cdot x}.\]
 \end{definition}
 
-
-%\noindent\textbf{\definitionname(Weightwise Nonlinearity)}~\label{def:nl}
 \begin{definition}[Weightwise Nonlinearity]\label{def:wtNl}
 The nonlinearity of $f \in \BN$ over $\Ekn{k}{n}$, denoted as $\NLk{k}(f)$, is the Hamming distance of $f$ to the set of all affine functions $\Af$ when evaluated over $\Ekn{k}{n}$. 
 That is, $\NLk{k}(f) = \min_{g \in \Af} \mdist{k}{n}(f,g) = \min_{g \in \Af} \wkn{k}{n}(f+g)$.\\
 \end{definition}
-
-
-
 
 The following identity and upper bound on the nonlinearity of a Boolean function over $\Ekn{k}{n}$ can be derived. The upper bound is further improved by Mesnager et al. in ~\cite{Mesnager2018}.
 \begin{lemma}[~\cite{TOSC:CarMeaRot17}, Propositions $4$ and $5$]\label{lem:wnl}
@@ -151,65 +118,17 @@ If $f \in \BN$ then for $k \in [0,n]$,
 \[\NLk{k}(f) \leq \frac{1}{2} [|\Ekn{k}{n}| - \sqrt{|\Ekn{k}{n}|}] = \frac{1}{2} [{n \choose k} - \sqrt{{n \choose k}}].\]
 \end{lemma}
 
-
-
 \begin{definition}[Algebraic immunity and weightwise algebraic immunity] \label{def:ai}
-	The algebraic immunity of a Boolean function $f\in \Bfn{n}$, denoted as $\AI(f)$, is defined as:
-	\[ \AI(f) = \min_{g \neq 0}\{ \degg(g) \; | \; fg = 0 \; \text{or} \; (f + 1)g = 0 \}{,} \]
-	where $\degg(g)$ is the algebraic degree of $g$.
-	The function $g$ is called an annihilator of $f$ (or $f + 1$). 
-	
-	The weightwise algebraic immunity of $f\in \Bfn{n}$ for $k\in [0,n]$, denoted as $\AI_k(f)$, is defined as:
-	\[ \AIk{k}(f) = \min_{g \neq 0 \text{ over } \Ekn{k}{n}}\{ \degg(g) \; | \; fg = 0 \; \text{or} \; (f + 1)g = 0 \}{.} \]	
-%	For $S=\Ekn{k}{n}$ we denote $\AI_{\Ekn{k}{n}}(f)$ by $\AIk{k}(f)$ and call it weightwise algebraic immunity.
-	
-	
+The algebraic immunity of a Boolean function $f\in \Bfn{n}$, denoted as $\AI(f)$, is defined as:
+\[ \AI(f) = \min_{g \neq 0}\{ \degg(g) \; | \; fg = 0 \; \text{or} \; (f + 1)g = 0 \}{,} \]
+where $\degg(g)$ is the algebraic degree of $g$.
+The function $g$ is called an annihilator of $f$ (or $f + 1$).
+
+The weightwise algebraic immunity of $f\in \Bfn{n}$ for $k\in [0,n]$, denoted as $\AI_k(f)$, is defined as:
+\[ \AIk{k}(f) = \min_{g \neq 0 \text{ over } \Ekn{k}{n}}\{ \degg(g) \; | \; fg = 0 \; \text{or} \; (f + 1)g = 0 \}{.} \]	
 \end{definition}
-
-
-\begin{definition}[Krawtchouk Polynomial]\label{def:Kr}
-%\noindent\textbf{\definitionname(Krawtchouk Polynomial)} 
-For a positive integer $n$, the Krawtchouk polynomial~\cite[Page $151$]{book:MacSlo78} of degree $k$ is given by 
-\[\kraw{k}{x}{n}= \sum_{j=0}^{k} (-1)^j {x \choose j} {n-x \choose k-j} \text{ for } k = 0, 1, \ldots n.\]
-\end{definition}
-We have listed some nice properties of the Krawtchouk Polynomials from ~\cite{DCC:DalMaiSar06} which are useful for proving some later results.
-\begin{proposition}\label{prop:krawprop}
-\begin{enumerate}
-\item\label{itm1} $\kraw{0}{l}{n}=1, \kraw{1}{l}{n}= n-2l$.
-\item\label{itm2} $\kraw{k}{l}{n} = (-1)^l \kraw{n-k}{l}{n}$ (that impies, $\kraw{\frac{n}{2}}{l}{n}=0$ for $n$ even and $l$ odd).
-\item\label{itm3} $\kraw{k}{l}{n}= (-1)^k \kraw{k}{n-l}{n}$, (that impies, $\kraw{k}{\frac{n}{2}}{n} = 0$ for $n$ even and $k$ odd).
-\item\label{itm4} For $n$ odd, $|\kraw{k}{1}{n}| \geq |\kraw{k}{l}{n}|$ where $0 \leq k \leq n$ and $ 1 \leq l \leq n-1$,
-\item\label{itm5} For $n$ even, $|\kraw{k}{1}{n}| \geq |\kraw{k}{l}{n}|$ where $0 \leq k \leq n$ and $1 \leq l \leq n-1$ except $k = \frac{n}{2}$ or $l = \frac{n}{2}$.
-\end{enumerate}
-\end{proposition}
-Further from the results in~\cite{DCC:DalMaiSar06,DAM:GinMea22}, the following relations can be derived.
-\begin{theorem}[Krawtchouk Polynomials relations] \label{thm:Kraw}
-For integers $n > 0$, $0 \leq k \leq n$ and fixed $a \in \F_2^n$ such that $\w(a) = \ell$, the following relations hold.
-\begin{enumerate}
-\item $\sum\limits_{x \in \Ekn{k}{n}} (-1)^{a.x} = \kraw{k}{\ell}{n}$.
-\item If $l_{a,b}(x)= a \cdot x + b$, where $a \in \F_2^n, b \in \F_2$, be an affine Boolean function then 
-\[\wkn{k}{n}(l_{a,b}) = \frac{1}{2} (|\Ekn{k}{n}| - (-1)^b \kraw{k}{\ell}{n}).\]
-\end{enumerate}
-\end{theorem}
-
-
-\iffalse
-Let $l_{a,b}$ be an $n$-variable affine Boolean function defined as $l_{a,b}(x)= a \cdot x + b$ for $a \in \F_2^n$ and $ b \in \F_2^n$, then using the Theorem~\ref{thm:Kraw}, the Hamming weight of $f$ in $\Ekn{k}{n}$ is given as:
-\begin{align*}
-\w(f) & = \sum_{x \in \Ekn{k}{n}} a.x + b \\
-      & = \frac{1}{2}(\sum_{ x \in \Ekn{k}{n}} 1 - (-1)^{a \cdot x + b} )   \\
-      & = \frac{1}{2}(\sum_{ x \in \Ekn{k}{n}} 1 - (-1)^b  \sum_{ x \in \Ekn{k}{n}}  (-1)^{a \cdot x}) \\    & = \frac{1}{2} (|\Ekn{k}{n}| - (-1)^b \kraw{k}{l}{n} )  \text{ where } l = \w(a)
-\end{align*} 
-
-\begin{proposition}~\cite{DAM:GinMea22}
-Let $m \in \N^*$ and $ n = 2^m$ and $k \in [1,n-1]$ the Hamming weight of $n$-variable affine function is:
-$$ \left\{  \frac{{ n \choose k}}{2} \pm \frac{\kraw{k}{l}{n}}{2},  l \in [0,n]  \right\} $$ 
-\end{proposition}
-\fi
-
 
 \begin{definition}[Rotation Symmetric Boolean function]\label{def:RSF}
-%\noindent\textbf{\definitionname(Rotation Symmetric Boolean function)}
 A Boolean function $f$ is rotation symmetric (RotS) if and only if for any $(x_1,x_2,\ldots,x_n)\in \F_2^n$,
 $$f(\rho_n^k(x_1,x_2,\ldots,x_n))= f(x_1,x_2,\ldots,x_n) $$ for every $1 \leq k \leq n$ where $\rho_n$ is a cyclic shift permutation on $n$-elements i.e., $\rho_n(x_1,x_2,\ldots,x_n) = (x_2,x_3,\ldots,x_{n},x_1)$ and $\rho_n^k = \rho_n \circ \rho_n^{k-1}$ for $k > 1$ i.e., the composition of $\rho_n$ $k$ times.% Such functions are called rotation symmetric Boolean functions (RSBF).
 Therefore, RotS Boolean functions have the same truth value for all vectors in every orbit obtained by the action of permutation group $\langle \rho_n \rangle$ on $\F_2^n$. 
@@ -218,11 +137,9 @@ Therefore, RotS Boolean functions have the same truth value for all vectors in e
 Let denote $P = \langle \rho_n \rangle$ be the cyclic permutation group generated by the permutation $\rho_n$. Applying Burnside's lemma, we can have the number of orbits obtained due the action of $P$ on $\F_2^n$ is $g_n = \frac{1}{n}\sum_{t \vert n} \phi(t) 2^{n/t}$~\cite{DAM:SM08}. Let $\orbs = \{\orb_1, \orb_2,\ldots, \orb_{g_n}\}$ be the set of orbits obtained due the action of $P$ on $\F_2^n$. An orbit leader/representative $\nu_\orb$ is chosen for each orbit $\orb \in \orbs$. The representatives can be chosen using some ordering, for example it may be the lexicographically smallest element in the orbit.
 
 \begin{definition}[2-Rotation Symmetric Boolean function]\label{def:2RSF}
-%\noindent\textbf{\definitionname(2-Rotation Symmetric Boolean function)}
 A Boolean function $f$ is 2-rotation symmetric (2-RotS) if and only if 
 for every orbit $\orb \in \orbs$ with representative element $\nu$,
 $$f(\rho_n^{2i+1}(\nu)) = f(\nu);~~~ f(\rho_n^{2i}(\nu)) = f(\nu)+1 \text{ for every } 1 \leq i \leq \lfloor\frac{|\orb|}{2}\rfloor.$$ 
-%for every $1 \leq i \leq \lfloor\frac{|\orb|}{2}\rfloor$.
 \end{definition}
 Therefore, 2-RotS Boolean functions have the alternative truth value for the lexicograpphically ordered vectors in every orbit obtained by the action of permutation group $P$ on $\F_2^n$. 
 As example, a 2-RotS Boolean function on $n = 5$ satisfies $f(00001) = f(00100) = f(10000)$ and $f(00010) = f(01000) = 1+f(00001)$ for the orbit $\{00001, 00010, \ldots, 10000\}$ with representative  $00001$.
@@ -230,7 +147,157 @@ As example, a 2-RotS Boolean function on $n = 5$ satisfies $f(00001) = f(00100) 
 A construction of a class of 2-RotS WPB Boolean functions is presented by Liu and Mesnager~\cite{DCC:LiuMes19}.
 \begin{proposition} \cite{DCC:LiuMes19}~\label{constr:LM19} For a Boolean function $f \in \BN$ with $n$ is power of $2$, if $f(x^2)=f(x)+1$ holds for all $x \in \F_{2^n} \setminus \{0,1\}$, then $f$ is WPB.  
 \end{proposition}
-Since, $n$ is the power of $2$ in the construction proposed in Proposition~\ref{constr:LM19}, the cardinality of all orbits in $\F_{2^n} \setminus \{0,1\}$ are even. Therefore, $f(x^2)=f(x)+1, x \in \F_{2^n} \setminus \{0,1\}$ is well defined and hence, the truth value $1$ and $0$ can be assigned alternatively to the half of the vectors in the each orbit. This can not be assigned when $n$ is not a power of $2$ as there are some orbits with cardinality odd and hence the $f(x^2) = f(x)+1$ can not be defined. However, we have proposed an generalization of this concept to construct WAPB Boolean function on any $n$ where $n$ is a natural number in Section~\ref{sec:ELM}. 
+Since, $n$ is the power of $2$ in the construction proposed in Proposition~\ref{constr:LM19}, the cardinality of all orbits in $\F_{2^n} \setminus \{0,1\}$ are even. Therefore, $f(x^2)=f(x)+1, x \in \F_{2^n} \setminus \{0,1\}$ is well defined and hence, the truth value $1$ and $0$ can be assigned alternatively to the half of the vectors in the each orbit. This can not be assigned when $n$ is not a power of $2$ as there are some orbits with cardinality odd and hence the $f(x^2) = f(x)+1$ can not be defined. However, we have proposed an generalization of this concept to construct WAPB Boolean function on any $n$ where $n$ is a natural number in Section~\ref{sec:ELM}.
+
+Now we will present a brief study on Krawtchouk Polynomial which is useful for later results.
+\begin{definition}[Krawtchouk Polynomial]\label{def:Kr}
+For a positive integer $n$, the Krawtchouk polynomial~\cite[Page $151$]{book:MacSlo78} of degree $k$ is given by 
+\[\kraw{k}{x}{n}= \sum_{j=0}^{k} (-1)^j {x \choose j} {n-x \choose k-j} \text{ for } k = 0, 1, \ldots n.\]
+\end{definition}
+Some nice properties of the Krawtchouk Polynomials from ~\cite[Proposition 4, Corollary 1]{DCC:DalMaiSar06} are presented in the following Proposition.
+\begin{proposition}\label{prop:krawprop}
+\begin{enumerate}
+\item\label{itm1} $\kraw{0}{l}{n}=1, \kraw{1}{l}{n}= n-2l$.
+\item\label{itm2} $\kraw{k}{l}{n} = (-1)^l \kraw{n-k}{l}{n}$ (that impies, $\kraw{\frac{n}{2}}{l}{n}=0$ for $n$ even and $l$ odd).
+\item\label{itm3} $\kraw{k}{l}{n}= (-1)^k \kraw{k}{n-l}{n}$, (that impies, $\kraw{k}{\frac{n}{2}}{n} = 0$ for $n$ even and $k$ odd).
+\item\label{itm4} For $n$ odd, $|\kraw{k}{1}{n}| \geq |\kraw{k}{l}{n}|$ where $0 \leq k \leq n$ and $ 1 \leq l \leq n-1$,
+\item\label{itm5} For $n$ even, $|\kraw{k}{1}{n}| \geq |\kraw{k}{l}{n}|$ where $0 \leq k \leq n$ and $1 \leq l \leq n-1$ except $k = \frac{n}{2}$ or $l = \frac{n}{2}$.
+\item\label{itm6} $(n-l)\kraw{k}{l+1}{n} = (n-2k) \kraw{k}{l}{n} - l   \kraw{k}{l-1}{n}$.
+\end{enumerate}
+\end{proposition}
+The following relations are derived from some results in~\cite{DCC:DalMaiSar06,DAM:GinMea22}, 
+\begin{theorem}[Krawtchouk Polynomials relations] \label{thm:Kraw}
+For integers $n > 0$, $0 \leq k \leq n$ and fixed $a \in \F_2^n$ such that $\w(a) = \ell$, the following relations hold.
+\begin{enumerate}
+\item $\sum\limits_{x \in \Ekn{k}{n}} (-1)^{a.x} = \kraw{k}{\ell}{n}$.
+\item If $l_{a,b}(x)= a \cdot x + b$, where $a \in \F_2^n, b \in \F_2$, be an affine Boolean function then 
+\[\wkn{k}{n}(l_{a,b}) = \frac{1}{2} (|\Ekn{k}{n}| - (-1)^b \kraw{k}{\ell}{n}).\]
+\end{enumerate}
+\end{theorem}
+Now we present some results on the sequences from Krawtchouk polynomial.
+\begin{lemma}\label{lem:KProp}
+Let $n$ be a positive integer and $k \in [0,n]$. Then
+\begin{enumerate}
+\item\label{itm:l1} $\kraw{k}{1}{n} \geq 0$ if $k \leq \lfloor\frac{n}{2}\rfloor$ and $\kraw{k}{1}{n} < 0$ if $k > \lfloor\frac{n}{2}\rfloor$.
+In particular, $\kraw{k}{1}{n} = 0$ if $n$ is even and $k = \frac{n}{2}$.
+\item \label{itm:l2} $\kraw{k}{2}{n} \geq 0$ iff $k \leq \frac{n}{2} - \frac{\sqrt{n}}{2}$ or $k \geq \frac{n}{2} + \frac{\sqrt{n}}{2}$.\\
+In particular, $\kraw{k}{2}{n} = 0$ if $n$ is an even square integer and $k = \frac{n}{2} \pm \frac{\sqrt{n}}{2}$.
+\item\label{itm:ksd} $\kraw{k}{l+1}{n} + \kraw{k}{l}{n} = 2\kraw{k}{l}{n-1}$
+and $\kraw{k}{l+1}{n} - \kraw{k}{l}{n} = -2\kraw{k-1}{l}{n-1}$.
+\item \label{itm:ksd2} $\kraw{k}{l}{n} + \kraw{k-1}{l}{n} = \kraw{k}{l}{n+1}$ and $\kraw{k}{l}{n} - \kraw{k-1}{l}{n} = \kraw{k}{l+1}{n+1}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\begin{enumerate}
+\item The proof can be derived from expression $\kraw{k}{1}{n} = {n-1 \choose k} - {n-1 \choose k-1}$.
+\item $\kraw{k}{2}{n} = {n-2 \choose k} - 2{n-2 \choose k-1} + {n-2 \choose k-2} = \frac{(n-2)!((2k-n)^2-n)}{k!(n-k)!}$.\\
+Hence, $\kraw{k}{2}{n} \geq 0 \iff (2k-n)^2-n \geq 0 \iff (2k-n)^2 \geq n \iff 2k-n \geq \sqrt{n} \text{ or, } 2k-n \leq -\sqrt{n} \iff k \geq \frac{n}{2}+\frac{\sqrt{n}}{2} \text{ or, } k \leq \frac{n}{2}-\frac{\sqrt{n}}{2}$.
+The particular case follows similarly.
+\item We have,
+\begin{eqnarray*}
+ \kraw{k}{l+1}{n} + \kraw{k}{l}{n} & = & \sum_{j=0}^k (-1)^j{l+1 \choose j} {n-l-1 \choose k-j} + \sum_{j=0}^k)(-1)^j{l \choose j} {n-l \choose k-j} \\
+ & = & \sum_{j=0}^k(-1)^j\left[{l+1 \choose j} {n-l-1 \choose k-j} + {l \choose j} {n-l \choose k-j}\right] \\
+ & = & \sum_{j=0}^k(-1)^j\left[{l+1 \choose j} {n-l-1 \choose k-j} + {l \choose j} \left({n-l-1 \choose k-j} + {n-l-1 \choose k-j-1}\right)\right] \\
+ & = & \sum_{j=0}^k(-1)^j\left[{l+1 \choose j} {n-l-1 \choose k-j} + {l \choose j} \left({n-l-1 \choose k-j} + {n-l-1 \choose k-j-1}\right)\right]\\
+ & = & \sum_{j=0}^k(-1)^j\left[\left({l+1 \choose j} + {l \choose j}\right){n-l-1 \choose k-j} + {l \choose j} {n-l-1 \choose k-j-1}\right]\\
+ & = & \sum_{j=0}^k(-1)^j\left({l+1 \choose j} + {l \choose j}-{l \choose j-1}\right){n-l-1 \choose k-j}\\
+ & = & 2\sum_{j=0}^k(-1)^j {l \choose j}{n-l-1 \choose k-j} = 2\kraw{k}{l}{n-1}.
+\end{eqnarray*}
+The second part of this Item be proved using the similar technique as above.
+\item These can be proved by adding and subtracting the equalities in Item~\ref{itm:ksd}.
+\end{enumerate}
+\end{proof}
+We present the minimum of the sequence $\kraw{k}{l}{n}, 0 \leq l \leq n$ for a fixed $k$ and $n$ in the following theorem.
+\begin{theorem}\label{thm:minK}
+\begin{enumerate}
+\item\label{itm:odd} Let $n = 2m+1$ be an odd integer for some $m \in \Z^+$. Then for $k \in [0,n]$ 
+$$\min\limits_{0 \leq l \leq n-1 }\kraw{k}{l}{n} = 
+\begin{cases}
+\kraw{k}{n-1}{n} = -\kraw{k}{1}{n} & \text{ for  } k \in [0,\frac{n-1}{2}] \text{ and odd}, \\
+\kraw{k}{1}{n} & \text{ for }    k \in [\frac{n+1}{2}, n].
+\end{cases}$$
+In particular, $\min\limits_{0 \leq l \leq n-1 }\kraw{m}{l}{n} = \kraw{m}{2}{n} = -\kraw{m}{1}{n}$.
+
+\item\label{itm:even} Let $n = 2m$ be an even integer for some $m \in \Z^+$.\\ Then for $k \in [m+1, n]$ and even,
+$\min\limits_{0 \leq l \leq n }\kraw{k}{l}{n}= \kraw{k}{1}{n}$.
+In particular,
+\begin{enumerate}
+\item $\min\limits_{0 \leq l \leq n }\kraw{m}{l}{n}= \kraw{m}{2}{n}$ if $m$ is even;
+\item  for $n \geq 10$, $\min\limits_{0 \leq l \leq n }\kraw{m - 1}{l}{n} = \kraw{m - 1}{2}{n}$ if $m$ is odd.
+\end{enumerate} 
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+\item 
+From Proposition~\ref{prop:krawprop}[Item~\ref{itm4}], for $k \in [0,n]$,  we have $|\kraw{k}{1}{n}| \geq |\kraw{k}{l}{n}|$ for all $l \in [1, n-1]$.
+
+For $k \in [\frac{n+1}{2}, n]$, $\kraw{k}{1}{n} < 0$ (from Lemma~\ref{lem:KProp}[Item~\ref{itm:l1}]), we have $\min\limits_{1 \leq l \leq n-1 }\kraw{k}{l}{n} = \kraw{k}{1}{n}$. 
+
+Further, $k$ being odd in $[0,\frac{n-1}{2}]$, using Proposition~\ref{prop:krawprop}[Item~\ref{itm3}], we have $\kraw{k}{1}{n} = - \kraw{k}{n-1}{n}$.
+Hence, for $k \in [0,\frac{n-1}{2}]$, as $\kraw{k}{1}{n} \geq 0$ (from Lemma~\ref{lem:KProp}[Item~\ref{itm:l1}]), $\max\limits_{1 \leq l \leq n-1 }\kraw{k}{l}{n} = \kraw{k}{1}{n}$ i.e., $\min\limits_{1 \leq l \leq n-1 }\kraw{k}{l}{n} = \kraw{k}{n-1}{n}$.
+
+As $\kraw{k}{0}{n} = {n \choose k} > 0$, we have $\min\limits_{0 \leq l \leq n-1 }\kraw{k}{l}{n} = \min\limits_{1 \leq l \leq n-1 }\kraw{k}{l}{n}$ and the result of the first part of the Theorem.
+
+As $n = 2m+1$, we have from Lemma~\ref{lem:KProp}[Item~\ref{itm:ksd} and Item~\ref{itm:l1}] that $\kraw{m}{2}{n}+\kraw{m}{1}{n} = 2\kraw{m}{1}{n-1} = 0$. That implies, $\kraw{m}{2}{n} = -\kraw{m}{1}{n} \leq 0$.
+
+As $\kraw{m}{0}{n} = {n \choose m} > 0$, $\min\limits_{0 \leq l \leq n }\kraw{m}{l}{n} = \min\limits_{1 \leq l \leq n-1 }\kraw{m}{l}{n} = \kraw{m}{2}{n}$ (from Proposition~\ref{prop:krawprop}[Item~\ref{itm4}]). Hence the second part is done.
+
+\item 
+As $k \geq m+1$, from Proposition~\ref{prop:krawprop}[Item~\ref{itm5}], we have $|\kraw{k}{1}{n}| \geq |\kraw{k}{l}{n}|$ for $l \in [1,n-1]$. As $\kraw{k}{1}{n} \leq 0$ (from Lemma~\ref{lem:KProp}[Item~\ref{itm:l1}]) and $\kraw{k}{0}{n} = \kraw{k}{n}{n} = {n \choose k} > 0$, $\min\limits_{0 \leq l \leq n }\kraw{k}{l}{n} = \min\limits_{1 \leq l \leq n-1 }\kraw{k}{l}{n} = \kraw{k}{1}{n}$. Hence, the first part is done.
+
+Further from Lemma~\ref{lem:KProp}[Item~\ref{itm:l2}]), we have 
+$\kraw{m}{2}{n} \leq 0$ as $m = \frac{n}{2}$.
+
+\begin{enumerate}
+ \item Here, $m = \frac{n}{2}$ is even. We will show $|\kraw{m}{2}{n}| \geq |\kraw{m}{l}{n}|$ for $1 \leq l \leq n-1$. At first, we will use induction on $l$ to show it for $l$ even and $2 \leq l \leq \frac{n}{2}$.\\
+For $l = 2$, it is already $|\kraw{m}{2}{n}| = |\kraw{m}{l}{n}|$.
+
+Assume that $|\kraw{m}{2}{n}| \geq |\kraw{m}{l}{n}|$ for some even $l$ and $2 \leq l \leq \frac{n}{2}-2$. Then, we need to prove that $|\kraw{m}{2}{n}| \geq |\kraw{m}{l+2}{n}|$.
+From Proposition~\ref{prop:krawprop}[Item~\ref{itm6}], for $2 \leq l \leq \frac{n-4}{2} = \frac{n}{2}-2$, we have
+\begin{align*}
+& (n-(l+1)) \kraw{m}{l+2}{n} = (n-2m) \kraw{m}{l+1}{n} - (l+1)\kraw{m}{l}{n} \\
+  & ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=  - (l+1)\kraw{m}{l}{n}, \mbox{ as } n = 2m \\
+\implies & |(n-l-1) \kraw{m}{l+2}{n}| = |-(l+1) \kraw{m}{l}{n}| \\
+%\implies & (n-l-1) |\kraw{m}{l+2}{n}| = (l+1) |\kraw{m}{l}{n}| \\
+\implies & |\kraw{m}{l+2}{n}| = \frac{l+1}{n-l-1} |\kraw{m}{l}{n}|  \leq |\kraw{m}{l}{n}| \leq |\kraw{m}{2}{n}| \text{ as } \frac{l+1}{n-l-1} \leq 1.
+\end{align*}
+Therefore, $|\kraw{m}{2}{n}| \geq |\kraw{m}{l}{n}|$ for all $2 \leq l \leq \frac{n}{2}$ and even. From Proposition~\ref{prop:krawprop}[Item~\ref{itm2}], $\kraw{m}{l}{n} = 0$ for $l$ odd. Hence, $|\kraw{m}{2}{n}| \geq |\kraw{m}{l}{n}|$ for all $1 \leq l \leq \frac{n}{2}$. Further, from Proposition~\ref{prop:krawprop}[Item~\ref{itm3}], $\kraw{m}{l}{n} = \kraw{m}{n-l}{n}$ as $m$ even. Hence, $|\kraw{m}{2}{n}| \geq |\kraw{m}{l}{n}|$ for all $1 \leq l \leq n-1$.
+Therefore, as $\kraw{m}{2}{n} < 0$ and $\kraw{m}{0}{n} = \kraw{m}{n}{n} = {n \choose m} > 0$, $\min\limits_{0 \leq l \leq n }\kraw{m}{l}{n}= \min\limits_{1 \leq l \leq n-1}\kraw{m}{l}{n} = \kraw{m}{2}{n}$ for $m$ even.
+
+\item Now $m = \frac{n}{2}$ is odd.
+At first, we will show that $|\kraw{m-1}{2}{n}| \geq |\kraw{m-1}{l}{n}|$ for $2 \leq l \leq \frac{n}{2}$ using induction on $l$.\\
+For $l = 2$, it is already $|\kraw{m-1}{2}{n}| = |\kraw{m-1}{l}{n}|$.\\
+We will prove it for $l = 3$ i.e. $|\kraw{m-1}{2}{n}| \geq |\kraw{m-1}{3}{n}|$. This is needed as we will see later that the induction has a recursion with depth two.
+It can be checked from Lemma~\ref{lem:KProp}[Item~\ref{itm:l2}] that $\kraw{m-1}{2}{n} \leq 0$ for  $n \geq 4$. To prove $|\kraw{m-1}{2}{n}| \geq |\kraw{m-1}{3}{n}|$, we need to show that $\kraw{m-1}{2}{n} \leq \kraw{m-1}{3}{n} \leq -\kraw{m-1}{2}{n}$ i.e., $\kraw{m-1}{3}{n}-\kraw{m-1}{2}{n} \geq 0$ and 
+$\kraw{m-1}{3}{n}+\kraw{m-1}{2}{n} \leq 0$.\\
+From Lemma~\ref{lem:KProp}[Item~\ref{itm:ksd} and Item~\ref{itm:l1}], we have $\kraw{m-1}{3}{n}+\kraw{m-1}{2}{n} = 2\kraw{m-1}{2}{n-1} = 
+2\left( 2\kraw{m-1}{1}{n-2} - \kraw{m-1}{1}{n-1}\right) = -2\kraw{m-1}{1}{n-1}
+\leq 0$.\\
+Similarly, $\kraw{m-1}{3}{n}-\kraw{m-1}{2}{n} = -2\kraw{m-2}{2}{n-1} \geq 0$ if $m-2 \geq \frac{n-1-\sqrt{n-1}}{2}$ i.e., if $n \geq 10$ (Lemma~\ref{lem:KProp}[Item~\ref{itm:l2}]).
+Hence, $|\kraw{m-1}{2}{n}| \geq |\kraw{m-1}{3}{n}|$ if $n \geq 10$.
+
+Assume that $|\kraw{m-1}{2}{n}| \geq |\kraw{m-1}{l-1}{n}|$ and $|\kraw{m-1}{2}{n}| \geq |\kraw{m-1}{l}{n}|$ for some $3 \leq l \leq \frac{n}{2}-1$. Then, we need to prove that $|\kraw{m-1}{2}{n}| \geq |\kraw{m-1}{l+1}{n}|$.
+
+Using Proposition~\ref{prop:krawprop}[Item~\ref{itm6}], we have 
+\begin{align*}
+& (n-l)\kraw{m-1}{l+1}{n} = (n-2(m-1)) \kraw{m-1}{l}{n} - l\kraw{m-1}{l-1}{n} \\
+& ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ = 2\kraw{m-1}{l}{n} - l\kraw{m-1}{l-1}{n} \\
+\implies & (n-l)|\kraw{m-1}{l+1}{n}| \leq 2|\kraw{m-1}{l}{n}| + l|\kraw{m-1}{l-1}{n}| \leq (2+l)|\kraw{m-1}{2}{n}| \\
+\implies & |\kraw{m-1}{l+1}{n}| \leq \frac{l+2}{n-l}|\kraw{m-1}{2}{n}| \\
+\implies & |\kraw{m-1}{l+1}{n}| \leq |\kraw{m-1}{2}{n}| ~~~~~~~\text{ as } \frac{l+2}{n-l} \leq 1 \text{ for } 2 \leq l \leq \frac{n}{2}-1.
+\end{align*}
+Hence, $|\kraw{m-1}{2}{n}| \geq |\kraw{m-1}{l}{n}|$ for $2 \leq l \leq \frac{n}{2}$.
+
+Then $|\kraw{m+1}{2}{n}| \geq |\kraw{m+1}{l}{n}|$ for $2 \leq l \leq \frac{n}{2}$ as $|\kraw{m+1}{l}{n}|=|\kraw{m-1}{l}{n}|$ (from Proposition~\ref{prop:krawprop}[Item~\ref{itm2}]).
+
+Now, we will show that $\min\limits_{0 \leq l \leq n }\kraw{m + 1}{l}{n} = \kraw{m + 1}{1}{n}$. 
+From Lemma~\ref{lem:KProp}[Item~\ref{itm:ksd} and Item~\ref{itm:l1}], we have $\kraw{m+1}{2}{n} - \kraw{m+1}{1}{n} = -2 \kraw{m}{1}{n-1} > 0$. Similarly, $\kraw{m+1}{2}{n} + \kraw{m+1}{1}{n} = 2 \kraw{m+1}{1}{n-1} \leq 0$. That implies $-\kraw{m+1}{1}{n} \leq \kraw{m+1}{2}{n} < \kraw{m+1}{1}{n}$ i.e., $|\kraw{m+1}{2}{n}| \leq |\kraw{m+1}{1}{n}|$.
+
+From Lemma~\ref{lem:KProp}[Item~\ref{itm:l1}], we have $\kraw{m+1}{1}{n} \leq 0$. Hence $\min\limits_{0 \leq l \leq n }\kraw{m + 1}{l}{n} = \kraw{m + 1}{1}{n}$.
+\end{enumerate}
+\end{enumerate} 
+\end{proof}
 
 \section{Construction of WAPB Boolean functions using Group action}\label{sec:GA}
 In this section we will present a construction of 2-RotS WAPB Boolean functions using a cyclic permutation group action. Let $G = \langle \pi \rangle$ be a cyclic subgroup of the symmetric group $\Sn$ on $n$ elements. Let the group action of $G$ on $\F_2^n$ partitions the set into $g_n$ number of orbits. The orbit generated by $x \in \F_2^n$ is denoted as $O_\pi(x) = \{g(x) : g \in G\} = \{x , \pi(x), \pi^2 (x),\ldots ,\pi^{l-1}(x)\}$ where $l$ is the order of the permutation $\pi$. As $\w(\pi^{i}(x)) = \w(x)$ for $1 \leq i \leq {l-1}$, the group action $G$ splits each $\Ekn{k}{n}$ into orbits and let $g_{k,n}$ be the number of orbits in $\Ekn{k}{n}$.
@@ -355,20 +422,20 @@ Hence, when $n = 2^m$, a power of $2$, $\psi = \rho_n$ and Construction~\ref{con
 \end{algorithmic}
 \end{constr}
 
-%\pmnote{	
-%For construction 2, I propose the following modifications:
+\pmnote{	
+For construction 2, I propose the following modifications:
 
-%\begin{itemize}
-%	\item in input we add a representative $\nu_i$
-%	\item in input we add a binary vector $v$ of length the number of orbits.
-%	\item then, for every orbit $f$ takes the value $v_i$ on $\nu_i$, and we keep "$f$ satisfies $f_\psi(\psi(x)) = 1+f(x)$ for $x \in \orb$"
-%	\item we withdraw the last part, forcing $f_\psi$ to be balanced.
-%\end{itemize}
+\begin{itemize}
+	\item in input we add a representative $\nu_i$
+	\item in input we add a binary vector $v$ of length the number of orbits.
+	\item then, for every orbit $f$ takes the value $v_i$ on $\nu_i$, and we keep "$f$ satisfies $f_\psi(\psi(x)) = 1+f(x)$ for $x \in \orb$"
+	\item we withdraw the last part, forcing $f_\psi$ to be balanced.
+\end{itemize}
 
-%The advantage of the extra inputs would be to define more easily each function later on (if we use an order to list the representatives, we can identify a function in $n$ variables only from the the vector $v$).
+The advantage of the extra inputs would be to define more easily each function later on (if we use an order to list the representatives, we can identify a function in $n$ variables only from the the vector $v$).
 
-%Regarding the balancedness, WAPB functions are not required to be balanced, so we would have a more general description (I do not think the balancedness is used in the proofs after). We would make a remark on the restriction that is sufficient to be balanced, or even than the weight of $f$ is determined by the weight of $v$ restricted to the orbits of size $1$.
-%}
+Regarding the balancedness, WAPB functions are not required to be balanced, so we would have a more general description (I do not think the balancedness is used in the proofs after). We would make a remark on the restriction that is sufficient to be balanced, or even than the weight of $f$ is determined by the weight of $v$ restricted to the orbits of size $1$.
+}
 
 \begin{theorem}
 The number of orbits generated due the action of $\psi$ on $\F_2^n$ is
@@ -403,36 +470,13 @@ $$\left| \{x \in \F_2^n \setminus \orbs_o : c \cdot (x + \psi(x))= 1\} \right|
 
 \begin{proof}
 Now for any $x = (x_1, x_2, \ldots, x_n), c = (c_1, c_2, \ldots, c_n) \in \F_2^n$,
-\dkdnote{need to write $\psi(x)$ in proper order}
-\begin{eqnarray}
-c \cdot (x+\psi(x)) & = & c_1(x_1 + x_{n_1}) + c_2 (x_2 + x_1) + \cdots + c_{n_1}( x_{n_1} + x_{{n_1}-1}) \nonumber \\
-&& +c_{{n_1}+1}(x_{{n_1}+1}+ x_{{n_1}+ {n_2}}) + \cdots + c_{n_1+n_2}(x_{n_1+n_2} + x_{n_1+n_2- 1})\nonumber\\
-&& + \cdots \nonumber\\
-&& + c_{n-n_w+1} (x_{n-n_w+1} + x_n) + \cdots + c_n(x_n + x_{n-1}) \label{eqn:cx1}\nonumber\\
-\implies c \cdot (x+\psi(x)) & = & (c_1 + c_2)x_1 + (c_2 + c_3)x_2 + \cdots + (c_{n_1} + c_1)x_{n_1}\nonumber \\
-&& + (c_{n_1+1} + c_{n_1+2})x_{n_1+1} + \cdots + (c_{n_1 + n_2} + c_{n_1+1})x_{n_1+n_2} \nonumber \\
-&& + \cdots \nonumber\\
-&& + (c_{n-n_w+1} + c_{n-n_w+2})x_{n-n_w+1} + \cdots +  (c_n + c_{n-n_w+1})x_n \label{eqn:cx2} \\
-\implies c \cdot (x+\psi(x)) & = & (c+\psi^{-1}(c)) \cdot x. \nonumber
-\end{eqnarray}
 
-\pmnote{I think this can be generalized to any permutation $\pi$ of $\Sn$: $c \cdot (x+\pi(x))= c \cdot x + c \cdot \pi(x) = c \cdot x + \pi^{-1}(c) \cdot x = (c+\pi^{-1}(c)) \cdot x$.
-	
-	This holds because the scalar products $c \cdot \pi(x)$ and $ \pi^{-1}(c) \cdot x$ are equal: $\pi(\pi^{-1}(c)) \cdot \pi(x)=c \cdot \pi(x)$.
-	
-	
-Accordingly, I think the same arguments could be used for the nonlinearity of any function from Construction 1: the size of the set would be $0$ when the orbit has size $1$, $2^{n-1}$ otherwise.
-
-Then following the proof of Theorem 4, it would lead to $\NL(f_\pi) \ge 2^{n-2} -\frac{1}{2} |\text{elements in odd orbits}|$.
-	
-What are your thoughts?	We could have a remark on that rather than Theorem 2.
-
-
-   }
-
-
-Therefore, $c \cdot (x+\psi(x))$ is a linear Boolean function on $n$ variables. Here, $c \cdot (x+\psi(x))$ is the zero Boolean function if and only if
-$c_1 = c_2 = \ldots = c_{n_1}$; $c_{n_1+1} = c_{n_1 + 2} = \cdots = c_{n_1 + n_2}; \ldots; c_{(n- n_w ) + 1} = c_{(n- n_w) + 2} = \cdots = c_n$ i.e., $c \in \orbs_o$.
+\begin{equation}\label{eqn:cx2}
+c \cdot (x+\psi(x)) = c \cdot x + c \cdot \psi(x) = c \cdot x + \psi^{-1}(c) \cdot x  =  (c+\psi^{-1}(c)) \cdot x 
+\end{equation}
+Therefore, $c \cdot (x+\psi(x))$ is a linear Boolean function on $n$ variables. $c \cdot (x+\psi(x))$ is the zero Boolean function if and only if
+$c  = \psi^{-1}(c)$ 
+i.e., $c \in \orbs_o$.
 Hence,
 \begin{equation}\label{eqn:cx3}
 \left| \{x \in \F_2^n : c \cdot (x + \psi(x))= 1\} \right| = \w(c \cdot (x+\psi(x))) 
@@ -503,7 +547,7 @@ Hence, from Equation~\ref{eqn:ws}, Equation~\ref{eqn:sumo} and Equation~\ref{eqn
 \begin{equation}\label{eqn:ws2}
 |\wt{f_\psi}(a)| \leq \left\{ \begin{array}{ll}
         2^{n-1} + 2^w & \text{ if } a \in \F_2^n \setminus \orbs_o \\
-        2^w        & \text{ if } a \in \orbs_o
+        2^w        & \text{ if } a \in \orbs_o.
     \end{array}   \right. 
 \end{equation}
 Hence, the nonlinearity of $f_\psi$ satisfies
@@ -527,7 +571,6 @@ Min Nonlinearity & $4$ & $6$ & $14$ & $28$ & $64$ & $192$ & $328$\\ \hline
 Nonlinearity lower bound & $3$ & $6$ & $14$ & $28$ & $63$ & $144$ & $254$\\ \hline
 \end{tabular}
 \end{center}
-
 Now we will study the weightwise nonlinearity of $f_\psi$.
 \begin{lemma} \label{lem:setSize_k}
 For $n \geq 2$ as in Equation~\ref{eqn:binn}, let $\psi \in \Sn$ be the permutation as defined in Equation~\ref{eqn:cycperm}.Then 
@@ -599,34 +642,7 @@ Hence from Equation~\ref{eqn:ws_k} and Lemma~\ref{lem:setSize_k}, we have
     \frac{1}{2} (|\Ekn{k}{n}| - \kraw{k}{l}{n}) + 1 & \text{if } k \preceq n.
     \end{array}\right.
 \end{eqnarray}
-where $l = \w(a+\psi^{-1}(a))$. 
-
-
-\pmnote{I suggest the following change:
-
-Since $\psi$ is a permutation, $a$ and $\psi^{-1}(a)$ have the same Hamming weight, therefore the addition of these two vectors have an even Hamming weight. 
-Moreover, we show that the values $l=0$ and $l=n$ cannot lead to the maximum absolute values of the Walsh spectrum under some conditions.
-
-The case $l=0$ is obtained only when $a=\psi^{-1}(a)$, that is when $a$ belongs to an orbit of $\psi$ of cardinality $1$. Such vectors $a$ are characterized by Equation~\ref{eqn:part} in the proof of Lemma~\ref{lem:orbNo}, they are constant on each of the $w$ parts. 
-Since the Hamming weight of $x$ and $\psi(x)$ is the same one on each of the $w$ parts ($\psi_n$ is made of disjoint cycles), the Hamming weight of $x+ \psi(x)$ is even on each part for all $x\in \F_2^n$. 
-Accordingly, for such $a$ we have $\{x\in \F_2^n \, | \, a \cdot (x + \psi(x))= 1\}=\emptyset$ and $|\wtk{f_\psi}{k}(a)|\le 1$ using Equation~\ref{eqn:ws_k1}
-
-The case $l=n$ is obtained only when $a+\psi^{-1}(a)=1_n$,
-that is when each part is the repetition of $01$ or $10$. This case is not possible when $n$ is odd since the part $n_1$ have size $1$ hence the first element of $a+\psi^{-1}(a)$ is $0$ for all $a$. 
-For the $a$ such that $a+\psi^{-1}(a)=1_n$ the following holds:
-\[a\cdot (x+\psi(x))=a \cdot x+a\cdot \psi(x)= a \cdot x + \psi^{-1}(a) \cdot x =(a+\psi^{-1}(a)) \cdot x =\w(x) \mod 2.\]
-Accordingly, when $k$ is even for such $a$ we have $\{x\in \F_2^n \, | \, a \cdot (x + \psi(x))= 1\}=\emptyset$ and $|\wtk{f_\psi}{k}(a)|\le 1$ using Equation~\ref{eqn:ws_k1}.
-
-%When $n$ is a multiple of $4$, the vectors $a$ we consider have an even Hamming weight, hence 
-
-
-}
-
-
-
-
-
-Hence, the nonlinearity of $f_\psi$ satisfies
+where $l = \w(a+\psi^{-1}(a))$. Hence, the nonlinearity of $f_\psi$ satisfies
 \begin{eqnarray*}
 \NLk{k}(f_\psi) ~ = ~ \frac{|\Ekn{k}{n}|}{2} -\frac{1}{2} \max_{a\in \F_2^n}| \wtk{f_\psi}{k}(a)|
 & ~\geq~ & \left\{ \begin{array}{ll}
@@ -642,63 +658,82 @@ Hence, the nonlinearity of $f_\psi$ satisfies
 \displaystyle{\frac{1}{4}\left({n \choose k} + \min_{0 \leq l \leq n} \kraw{k}{l}{n} - 2\right)} & \text{ if } k \preceq n.
 \end{array}   \right.
 \end{eqnarray*}
-Further, it can be checked that $l = \w(a+\psi^{-1}(a))$ is even. Hence, we have
+Further, it can be checked that $l = \w(a+\psi^{-1}(a))$ is always even. Hence, we have
 $$\NLk{k}(f_\psi) ~\geq ~ 
 \left\{ \begin{array}{ll}
 \displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{0 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n}\right)}  & \text{ if }  k \not\preceq n \\
 \displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{0 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n} - 2\right)} & \text{ if } k \preceq n.
-\end{array}   \right.$$
+\end{array}  \right.$$
 \end{proof}
-Now we will study some cases of $k$ where the minimum can be obtained.
-\begin{theorem}
+\begin{table}[h!]\label{tab:NLk_bound}
+\centering
+%\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}\hline
+\begin{tabular}{|*{10}{c|}}\hline
+\multirow{2}*{\backslashbox{n}{k}} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+& n-2 & n-3 & n-4 & n-5 & n-6 & n-7 & n-8 & n-9 &  n-10\\ \hline
+\multirow{2}*{15} & 24 & 0 & 330 & 0 & 1215 & 0 & - & - & -  \\
+& 0 & 45 & 0 & 500 & 0 & 1506 & - & - & - \\ \hline
+\multirow{2}*{16} & 28 & 0 & 443 & 0 & 1931 & 0 & 3003 & - & -  \\
+& 8 & 0 & 228 & 0 & 1502 & 0 & - & - & - \\ \hline
+\multirow{2}*{17} & 32 & 0 & 580 & 0 & 3003 & 0 & 5720 & - & -  \\
+& 0 & 60 & 0 & 910 & 0 & 4004 & 0 & - & - \\ \hline
+\multirow{2}*{18} & 36 & 0 & 750 & 0 & 4550 & 0 & 10725 & 0 & -  \\
+& 8 & 0 & 340 & 0 & 3094 & 0 & 9724 & 0 & - \\ \hline
+\multirow{2}*{19} & 40 & 0 & 950 & 0 & 6650 & 0 & 18343 & 0 & -  \\
+& 0 & 76 & 0 & 1530 & 0 & 9282 & 0 & 21879 & - \\ \hline
+\multirow{2}*{20} & 45 & 0 & 1190 & 0 & 9524 & 0 & 30719 & 0 & 43758  \\
+& 10 &0 & 484 & 0 & 5814 & 0 & 25194 & 0 & 43758 \\ \hline
+%\multirow{2}*{19} & - & - & - & - & - & - & - & - & -  \\
+%& - &- & - & - & - & - & - & - & - \\ \hline
+\end{tabular}
+\caption{A lower bound of $\NLk{k}(f_\psi)$ as per Theorem~\ref{thm:NLk_bound}}
+ \end{table}
+Now we will study some cases of $k$ where the minimum of $\kraw{k}{l}{n}$ can be obtained. We have
+{\small
+\begin{equation}\label{eqn:KP1}
+\kraw{k}{l}{n} = \sum_{j=0}^k(-1)^j{l \choose j}{n-l \choose k-j}
+               = \sum_{j=0}^k {l \choose j}{n-l \choose k-j} - 2 \sum_{\substack{j=0 \\ j: \text{odd}}}^k {l \choose j}{n-l \choose k-j}
+               = {n \choose k} - 2 \sum_{\substack{j=0 \\ j: \text{odd}}}^k {l \choose j}{n-l \choose k-j}. 
+\end{equation}}
+%Let $a \in \F_2^n$, from Lemma~\ref{lem:setSize_k} $l$ defined as $l= \w(a + \psi^{-1}(a))$. We can see that $\w(a + \psi^{-1}(a)) = \w(a)+ \w(\psi^{-1}(a)) - 2 \w(a \cap \psi^{-1}(a)) = 2 (\w(a) - \w(a \cap \psi^{-1}(a)))$. This shows that $l= \w(a + \psi^{-1}(a))$ is always an even number. Since $0 \leq l \leq n$, when $n$ is odd, $l$ can never be equal to $n$.
+
+
+Now applying the results of Theorem~\ref{thm:minK} in Theorem~\ref{thm:NLk_bound}, we have nonlinearity bounds for some $k$.
+\begin{theorem}\label{thm:NLk_bound2}
 \begin{enumerate}
-\item Let $n = 2m+1$ be an odd integer for some $m \in \Z^+$. 
-Then, $\min\limits_{0 \leq l \leq n }\kraw{m}{l}{n} = \kraw{m}{2}{n}$ if $m$ is even and $\min\limits_{0 \leq l \leq n }\kraw{m+1}{l}{n} = \kraw{m+1}{2}{n}$
-if $m$ is odd.
-\item Let $n = 2m$ be an even integer for some $m \in \Z^+$. If $m$ is even, then 
-$\min\limits_{0 \leq l \leq n }\kraw{m}{l}{n}= \kraw{m}{2}{n}$. If $m$ is odd, then $\min\limits_{0 \leq l \leq n }\kraw{m - 1}{l}{n} = \kraw{m - 1}{2}{n}$ and $\min\limits_{0 \leq l \leq n }\kraw{m + 1}{l}{n} = \kraw{m + 1}{1}{n}$.  
+\item If $n$ is odd then
+$$\NLk{k}(f_\psi) ~\geq ~ 
+\left\{ \begin{array}{ll}
+\displaystyle{\frac{1}{2}{n-1 \choose k-1}}  & \text{ if }  k \in [0,\frac{n-1}{2}], \text{ odd and } k \not\preceq n; \\
+\displaystyle{\frac{1}{2}\left({n-1 \choose k-1} - 1\right)} & \text{ if } k \in [0,\frac{n-1}{2}], \text{ odd and } k \preceq n; \\
+\displaystyle{\frac{1}{2}{n-1 \choose k}}  & \text{ if }  k \in [\frac{n+1}{2},n] \text{ and } k \not\preceq n; \\
+\displaystyle{\frac{1}{2}\left({n-1 \choose k} - 1\right)}  & \text{ if }  k \in [\frac{n+1}{2},n] \text{ and } k \preceq n.
+\end{array}  \right.$$
+\item If $n$ is even and $k \in [\frac{n}{2}+1, n]$ is even then 
+$$\NLk{k}(f_\psi) ~\geq ~ 
+\left\{ \begin{array}{ll}
+\displaystyle{\frac{1}{2}{n-1 \choose k}}  & \text{ if }  k \not\preceq n; \\
+\displaystyle{\frac{1}{2}\left({n-1 \choose k} - 1\right)} & \text{ if } k \preceq n.
+\end{array}  \right.$$
 \end{enumerate}
 \end{theorem}
-\begin{proof}
+We have the nonlinearity bounds for the largest slice (i.e., $k = \lfloor\frac{n}{2}\rfloor$) in the following Theorem.
+\begin{theorem}\label{thm:NLk_boundm}
 \begin{enumerate}
-\item Here $n = 2m+1$ be an odd integer for some $m \in \Z^+$.
-Then
-\begin{eqnarray*}
-\kraw{m+1}{1}{n} & = & \sum_{j=0}^{m+1} (-1)^j {1\choose j}{n-1 \choose m+1-j} = 
-{n-1 \choose m+1} - {n-1 \choose m} \text{ and } \\
-\kraw{m+1}{2}{n} & = & \sum_{j=0}^{m+1} (-1)^j {2\choose j}{n-2 \choose m+1-j} = 
-{n-2 \choose m+1} - 2{n-2 \choose m} + {n-2 \choose m-1} \\
-& = & {n-2 \choose m+1} - {n-2 \choose m} - {n-2 \choose m-1} + {n-2 \choose m}  = {n-1 \choose m+1} - {n-1 \choose m}.
-\end{eqnarray*}
-
-
-
-
-\iffalse
-\begin{align*}
-\kraw{m+1}{1}{n} &= {n \choose \frac{n+1}{2}} - 2 \sum_{j = 0, \text{ odd}}^{\frac{n+1}{2}} {1 \choose j}{n-1 \choose \frac{n+1}{2}-j} \\
-&= {n \choose \frac{n+1}{2}} - 2 {n-1 \choose \frac{n-1}{2}} 
-\end{align*}
-
-\begin{align*}
-\kraw{\frac{n+1}{2}}{2}{n} &= {n \choose \frac{n+1}{2}} - 2 \sum_{j = 0, \text{ odd}}^{\frac{n+1}{2}} {2 \choose j}{n-2 \choose \frac{n+1}{2}-j} \\
-&= {n \choose \frac{n+1}{2}} - 4 {n-2 \choose \frac{n-1}{2}} \\
-& = {n \choose \frac{n+1}{2}} - 2 \left( {n-2 \choose \frac{n-1}{2}} + {n-2 \choose \frac{n-1}{2}} \right) \\
-& = {n \choose \frac{n+1}{2}} - 2 \left( {n-2 \choose \frac{n-1}{2}} + {n-2 \choose \frac{n-3}{2}} \right) \\
-& = {n \choose \frac{n+1}{2}} - 2  {n-1 \choose \frac{n-1}{2}} 
-\end{align*}
-\fi
-Hence, $\kraw{m+1}{1}{n} = \kraw{m+1}{2}{n} < 0$. From  Proposition~\ref{prop:krawprop}[Item~\ref{itm2}], we have $\kraw{m}{1}{n} = - \kraw{m+1}{1}{n}$ and $\kraw{m}{2}{n} = \kraw{m+1}{2}{n}$.
-That implies, $\kraw{m}{1}{n} > 0$ and $\kraw{m}{2}{n} < 0$ i.e., $\kraw{m}{2}{n} -\kraw{m}{1}{n} < 0$.
-
-If $m$ is even, then $\kraw{m}{0}{n} = \kraw{m}{n}{n} = {n \choose m} > 0$. Now using Proposition~\ref{prop:krawprop}[Item~\ref{itm4}], $\min\limits_{0 \leq l \leq n }\kraw{m}{l}{n} = \min\limits_{1 \leq l \leq n-1 }\kraw{m}{l}{n} = \kraw{m}{2}{n}$.
-
-Similarly, if $m$ is odd, then $\kraw{m+1}{0}{n} = \kraw{m+1}{n}{n} = {n \choose m+1} > 0$. Using Proposition~\ref{prop:krawprop}[Item~\ref{itm4}], $\min\limits_{0 \leq l \leq n }\kraw{m+1}{l}{n} = \min\limits_{1 \leq l \leq n-1 }\kraw{m+1}{l}{n} = \kraw{m+1}{2}{n}$.
-\item 
+\item If $n = 2m+1$ is odd then
+$$\NLk{m}(f_\psi) ~\geq ~ 
+\left\{ \begin{array}{ll}
+\displaystyle{\frac{1}{2}{n-1 \choose m-1}}  & \text{ if }  m \not\preceq n ~(\text{i.e., } n \text{ is not of the form } 2^t-1); \\
+\displaystyle{\frac{1}{2}\left({n-1 \choose m-1} - 1\right)} & \text{ if } m \preceq n ~(\text{i.e., } n \text{ is of the form } 2^t-1).
+\end{array}  \right.$$
+\item If $n = 2m$ is even then 
+\begin{enumerate}
+ \item $\NLk{m}(f_\psi) ~\geq ~ {n-2 \choose m}$ if $m$ is even.
+ \item \red{$\NLk{m-1}(f_\psi) ~\geq ~ \frac{1}{2}\left({n-2 \choose m-1} + {n-2 \choose m-3}\right)$ if $m$ is odd and $n \geq 10$.}
 \end{enumerate}
-\end{proof}
-
-\begin{table}[h!]\label{tab:NLk_bound}
+\end{enumerate}
+\end{theorem}
+\begin{table}[h!]\label{tab:NLk_bound1}
 \centering
 %\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}\hline
 \begin{tabular}{|*{10}{c|}}\hline
@@ -723,16 +758,13 @@ Similarly, if $m$ is odd, then $\kraw{m+1}{0}{n} = \kraw{m+1}{n}{n} = {n \choose
  \end{table}
 
 %Now we will study the restricted nonlinearity $\NLk{2}(f_\psi)$.
-
-\pmnote{I think the following lines would be better inside the proof of Theorem~\ref{thm:nl2}}
-
 We have
 $$\kraw{k}{l}{n} = \sum_{j=0}^k(-1)^j{l \choose j}{n-l \choose k-j}
                = \sum_{j=0}^k {l \choose j}{n-l \choose k-j} - 2 \sum_{\substack{j=0 \\ j: \text{odd}}}^k {l \choose j}{n-l \choose k-j}
                = {n \choose k} - 2 \sum_{\substack{j=0 \\ j: \text{odd}}}^k {l \choose j}{n-l \choose k-j}.$$
 Hence, $\kraw{2}{l}{n} = {n \choose 2} - 2 \sum\limits_{\substack{j=0 \\ j: \text{odd}}}^2 {l \choose j}{n-l \choose 2-j} = {n \choose 2} - 2{l \choose 1}{n-l \choose 1} = {n \choose 2} - 2l(n-l)$. For real value of $l$, the function $\kraw{2}{l}{n}$ has minima at $l = \frac{n}{2}$ as $\frac{d(\kraw{2}{l}{n})}{dl} = 4l-2n = 0$ at $l = \frac{n}{2}$ and $\frac{d^2(\kraw{2}{l}{n})}{dl^2} = 4 > 0$. In our case, as $l = \w(a+\psi^{-1}(a))$ for $a \in \F_2^n$ is an integer, we have $\min\limits_{0 \leq l \leq n} \kraw{2}{l}{n}$ is ${n \choose 2} - 2(\frac{n}{2})^2 = -\frac{n}{2}$ when $n$ is even. For $n$ is odd, it can be checked that $\kraw{2}{l}{n}$ has minimum at $l = \frac{n-1}{2}$ and $l = \frac{n+1}{2}$ with value $\min\limits_{0 \leq l \leq n} \kraw{2}{l}{n} =
-{n \choose 2} - 2\frac{n-1}{2} \frac{n+1}{2}= -\frac{n-1}{2}$. Hence, combining both the cases, we have $\min\limits_{0 \leq l \leq n} \kraw{2}{l}{n} = -\lfloor \frac{n}{2} \rfloor$. Further, denote $\NLk{k}^n = \min\{\NLk{k}^n(f_\psi) \,| \, f_\psi \in \BN  \text{constructed as in Proposition~\ref{prop:WAPB}}\}$.
-\begin{theorem}\label{thm:nl2}
+{n \choose 2} - 2\frac{n-1}{2} \frac{n+1}{2}= -\frac{n-1}{2}$. Hence, combining both the cases, we have $\min\limits_{0 \leq l \leq n} \kraw{2}{l}{n} = -\lfloor \frac{n}{2} \rfloor$. Further, denote $\NLk{k}^n = \min\{\NLk{k}^n(f_\psi) | f_\psi \in \BN  \text{constructed as in Proposition~\ref{prop:WAPB}}\}$.
+\begin{theorem}
 Let $n \geq 2$ be an positive integer as in Equation~\ref{eqn:binn} and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
 Then $$\NLk{2}(f_\psi) ~\geq ~ \left\{
 \begin{array}{lr}
@@ -776,9 +808,6 @@ It can be checked that for $x = (y,y) \in R$, $\orb_x = \{(z,z) : z \in \orb_y\}
 Then for a WPB $f \in \BN$ satisfying Proposition~\ref{prop:WAPB}, we have a WPB $g \in \Bn{\frac{n}{2}}$  such that $g(y) = f(x)$ for all $y \in \F_2^{\frac{n}{2}}$. 
 This implies, 
 %$$6 \leq \NLk{2}^8(g) = \NLk{\Ekn{2}{8}}(g) = \NLk{R}(f) \leq \NLk{\Ekn{4}{16}}(f) \leq \NLk{4}^{16}(f).$$
-
-\pmnote{Can you elaborate for the equality part $\NLk{\Ekn{2}{\frac{n}{2}}}(g) = \NLk{R}(f)$ in the Equation below? }
-
 $$\NLk{2}^{\frac{n}{2}}(g) = \NLk{\Ekn{2}{\frac{n}{2}}}(g) = \NLk{R}(f) \leq \NLk{\Ekn{4}{n}}(f) \leq \NLk{4}^{n}(f).$$ 
 %\NLk{R \subset \Ekn{8}{32}}(f) \leq \NLk{8}^32(f) \leq \cdots \NLk{w}   $$ 
 Then we have the generalised result as
@@ -798,7 +827,8 @@ For any $n = 2^m \geq 8$ and $f_\psi$ be a WPB Boolean function as defined in \r
 \end{array} \right. $$	
 \end{proposition}
 
-
+\section{On WAPB Boolean function due to the action of cyclic group}
+\dkdnote{We can add another section on WAPB Boolean function due to the action of cyclic group.}
 
 
 
@@ -911,7 +941,5 @@ Hence, this can be written as $A= \{ x \in \F_2^n : u. x = 0\}$ for $ u = (u_1,u
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{alpha}
 \bibliography{add}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
-	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 \end{document}
