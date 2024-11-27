@@ -573,7 +573,7 @@ Let $\orbs_{e,k}, \orbs_{o,k}$ and $\orbs_{1,k}$ be the set of all orbits in $\o
 \wtk{f_\pi}{k}(a) & =  & \sum_{x \in \Ekn{k}{n}} (-1)^{f_\pi (x)+a \cdot x} 
  = \sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb} (-1)^{ f_\pi (x) + a \cdot x} + \sum_{\orb \in \orbs_{o,k}} \sum_{x \in \orb} (-1)^{ f_\pi (x) + a \cdot x}.
 \end{eqnarray}
-Following the similar process in the proof of Theorem~\ref{thm:nlbfpi}, we have
+Following a similar process as in the proof of Theorem~\ref{thm:nlbfpi}, we have
 \begin{eqnarray}\label{eqn:wse_k}
 \sum_{\orb \in \orbs_{e,k}} \sum_{x \in \orb} (-1)^{ f_\pi(x) + a \cdot x} 
 & = & \sum_{\orb \in \orbs_{e,k}} \sum_{\substack{x \in \orb \\ a \cdot (x + \pi(x))= 1}} (-1)^{f_\pi(x)+ a \cdot x} 
@@ -589,9 +589,11 @@ Hence, substituting the values in Equation~\ref{eqn:wse_k} and Equation~\ref{eqn
 \wtk{f_\pi}{k}(a) & =  & \sum_{\orb \in \orbs_{e,k}} \sum_{\substack{x \in \orb \\ a \cdot (x + \pi(x))= 1}} (-1)^{f_\pi(x)+ a \cdot x} + \sum_{\orb \in \orbs_{o,k}\setminus \orbs_{1,k}} \sum_{\substack{x \in \orb \\ a \cdot (x + \pi(x))= 1}} (-1)^{f_\pi(x)+ a \cdot x} + \sum_{\orb \in \orbs_{o,k}} (-1)^{ f_\pi(\nu_\orb) + a \cdot \nu_\orb} \nonumber \\
 & =  & \sum_{\orb \in \orbs_k\setminus \orbs_{1,k}} \sum_{\substack{x \in \orb \\ a \cdot (x + \pi(x))= 1}} (-1)^{f_\pi(x)+ a \cdot x} + \sum_{\orb \in \orbs_{o,k}} (-1)^{ f_\pi(\nu_\orb) + a \cdot \nu_\orb}\nonumber \\
 \implies |\wtk{f_\pi}{k}(a)| & \leq & |\sum_{\orb \in \orbs_k\setminus \orbs_{1,k}} \sum_{\substack{x \in \orb \\ a \cdot (x + \pi(x))= 1}} (-1)^{f_\pi(x)+ a \cdot x}| + |\sum_{\orb \in \orbs_{o,k}} (-1)^{ f_\pi(\nu_\orb) + a \cdot \nu_\orb}|\nonumber \\
-& \leq & \frac{1}{2} (|\Ekn{k}{n}| - \kraw{k}{l}{n}) + |\orbs_{o,k}|
+& \leq & \frac{1}{2} (|\Ekn{k}{n}| - \kraw{k}{l}{n}) + |\orbs_{o,k}|,
 \end{eqnarray*}
-Hence, the nonlinearity of $f_\pi$ satisfies
+where the last equation comes from Proposition~\ref{prop:x+pix}.
+
+Hence, the restricted nonlinearity of $f_\pi$ satisfies
 \begin{eqnarray*}
 \NLk{k}(f_\pi) & = & \frac{|\Ekn{k}{n}|}{2} -\frac{1}{2} \max_{a\in \F_2^n}| \wtk{f_\pi}{k}(a)| \geq \frac{|\Ekn{k}{n}|}{2} - \frac{1}{4}\max_{a\in \F_2^n} (|\Ekn{k}{n}| - \kraw{k}{l}{n} + 2|\orbs_{o,k}|) \\
 \implies \NLk{k}(f_\pi) & \geq & \frac{1}{4}\left(|\Ekn{k}{n}|  - 2|\orbs_{o,k}| + \min_{a\in \F_2^n} \kraw{k}{l}{n}\right)
@@ -604,8 +606,11 @@ $$\NLk{k}(f_\pi) \geq \frac{1}{4}\left({n \choose k} - 2|\orbs_{o,k}| + \min_{\s
 \end{proof}
 
 
-In the following sections we will study 2-$\pi$S WAPB Boolean functions for two different permutations $\psi, \sigma \in \Sn$ for any positive integer $n$.
-Here, $\sigma$ is the rotation permutation and $\psi$ is defined in Section~\ref{sec:ELM}. Both functions generalizes the Liu-Mesnager construction~\cite{DCC:LiuMes19} of WPB Boolean functions on $n = 2^m$ variables.
+\pmnote{modify the following if we do not study sigma}
+
+In the following sections we study 2-$\pi$S WAPB Boolean functions for two different permutations $\psi, \sigma \in \Sn$ for any positive integer $n$.
+Here, $\sigma$ is the rotation permutation and $\psi$ is defined in Section~\ref{sec:ELM}. 
+Both functions generalize the Liu-Mesnager construction~\cite{DCC:LiuMes19} of WPB Boolean functions on $n = 2^m$ variables.
 
 %\section{Extending Liu-Mesnager construction~\cite{DCC:LiuMes19} for WAPB Boolean function}\label{sec:ELM}
 \section{Construction and Study of 2-$\psi$S WAPB Boolean functions}\label{sec:ELM}
@@ -656,6 +661,8 @@ Let $n$ be a positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm
 For a Boolean function $f_\psi \in \BN$, if $f_\psi(\psi(x)) = 1+f_\psi(x)$ holds for all $x \in \F_2^n \setminus \orbs_o$ where $\orbs_o$ is the set of vectors whose orbit cardinality is $1$, then $f_\psi$ is WAPB.
 \end{proposition}
 Hence, when $n = 2^m$, a power of $2$, $\psi = \sigma$ and Construction~\ref{cons:GA} on input $\psi \in \Sn$ results the 2-RotS WPB Boolean function by Liu and Mesnager~\cite{DCC:LiuMes19}. A simplified version of Construction~\ref{cons:GA} is presented in Construction~\ref{cons:ELM} for input $\psi$.
+
+
 \begin{constr}\label{cons:ELM}
 \caption{Construction of 2-$\psi$S WAPB Boolean function using $\psi \in \Sn$}
 \begin{algorithmic}%[1]
@@ -673,20 +680,20 @@ Hence, when $n = 2^m$, a power of $2$, $\psi = \sigma$ and Construction~\ref{con
 \end{algorithmic}
 \end{constr}
 
-\pmnote{	
-For construction 2, I propose the following modifications:
+%\pmnote{	
+%For construction 2, I propose the following modifications:
 
-\begin{itemize}
-	\item in input we add a representative $\nu_i$
-	\item in input we add a binary vector $v$ of length the number of orbits.
-	\item then, for every orbit $f$ takes the value $v_i$ on $\nu_i$, and we keep "$f$ satisfies $f_\psi(\psi(x)) = 1+f(x)$ for $x \in \orb$"
-	\item we withdraw the last part, forcing $f_\psi$ to be balanced.
-\end{itemize}
+%\begin{itemize}
+%	\item in input we add a representative $\nu_i$
+%	\item in input we add a binary vector $v$ of length the number of orbits.
+%	\item then, for every orbit $f$ takes the value $v_i$ on $\nu_i$, and we keep "$f$ satisfies $f_\psi(\psi(x)) = 1+f(x)$ for $x \in \orb$"
+%	\item we withdraw the last part, forcing $f_\psi$ to be balanced.
+%\end{itemize}
 
-The advantage of the extra inputs would be to define more easily each function later on (if we use an order to list the representatives, we can identify a function in $n$ variables only from the vector $v$).
+%The advantage of the extra inputs would be to define more easily each function later on (if we use an order to list the representatives, we can identify a function in $n$ variables only from the vector $v$).
 
-Regarding the balancedness, WAPB functions are not required to be balanced, so we would have a more general description (I do not think the balancedness is used in the proofs after). We would make a remark on the restriction that is sufficient to be balanced, or even than the weight of $f$ is determined by the weight of $v$ restricted to the orbits of size $1$.
-}
+%Regarding the balancedness, WAPB functions are not required to be balanced, so we would have a more general description (I do not think the balancedness is used in the proofs after). We would make a remark on the restriction that is sufficient to be balanced, or even than the weight of $f$ is determined by the weight of $v$ restricted to the orbits of size $1$.
+%}
 
 \begin{theorem}
 The number of orbits generated due the action of $\psi$ on $\F_2^n$ is
@@ -737,34 +744,52 @@ Nonlinearity lower bound & $3$ & $6$ & $14$ & $28$ & $63$ & $144$ & $254$\\ \hli
 Now we will study the weightwise nonlinearity of $f_\psi$.
 
 \begin{theorem}\label{thm:NLk_bound}
-Let $n \geq 2$ be an positive integer and $\psi \in \Sn$ as in  Equation~\ref{eqn:cycperm}.
+Let $n \geq 2$ be a positive integer and $\psi \in \Sn$ as in  Equation~\ref{eqn:cycperm}.
 Then $$\NLk{k}(f_\psi) ~\geq ~ 
 \left\{ \begin{array}{ll}
 \displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{2 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n}\right)}  & \text{ if }  k \not\preceq n \\
 \displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{2 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n} - 2\right)} & \text{ if } k \preceq n.
 \end{array}   \right.$$
 \end{theorem}
+%\begin{proof}
+%From Lemma~\ref{lem:orbNok}, we have $|\orbs_{o,k}| = |\orbs_{1,k}| = 1$ if 
+%$k \preceq n$ else it is $0$. Hence from Theorem~\ref{thm:NLkb}, we have
+%$$\NLk{k}(f_\pi) \geq 
+%\begin{cases}
+%\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{2 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n}\right)} & \text{ if }  k \not\preceq n \\
+%\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{2 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n}-2\right)} & \text{ if }  k \not\preceq n.
+%\end{cases}$$
+%\end{proof}
 \begin{proof}
-From Lemma~\ref{lem:orbNok}, we have $|\orbs_{o,k}| = |\orbs_{1,k}| = 1$ if 
-$k \preceq n$ else it is $0$. Hence from Theorem~\ref{thm:NLkb}, we have
-$$\NLk{k}(f_\pi) \geq 
-\begin{cases}
-\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{2 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n}\right)} & \text{ if }  k \not\preceq n \\
-\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{2 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n}-2\right)} & \text{ if }  k \not\preceq n.
-\end{cases}$$
+	From Lemma~\ref{lem:orbNok}, we have $|\orbs_{o,k}| = |\orbs_{1,k}| = 1$ if 
+	$k \preceq n$ else it is $0$. Hence from Theorem~\ref{thm:NLkb}, we have
+	$$\NLk{k}(f_\pi) \geq 
+	\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{2 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n}\right)} + \varepsilon,$$
+	where $\varepsilon=0$ if $k \not\preceq n$ and $-2$ otherwise.
 \end{proof}
+
+%\begin{corollary}\label{cor:NLk_bound}
+%Let $n \geq 2$ be an positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}. If $k$ is even or,  $n$ is odd then 
+%$$\NLk{k}(f_\psi) ~\geq ~ 
+%\left\{ \begin{array}{ll}
+%\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{2 \leq l \leq n-1 \\ l \text{ even}}} \kraw{k}{l}{n}\right)}  & \text{ if }  k \not\preceq n \\
+%\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{2 \leq l \leq n-1 \\ l \text{ even}}} \kraw{k}{l}{n} - 2\right)} & \text{ if } k \preceq n.
+%\end{array}   \right.$$
+%Otherwise (i.e., $k$ is odd and $n$ is even), $\NLk{k}(f_\psi) \geq 0$.
+%\end{corollary}
 \begin{corollary}\label{cor:NLk_bound}
-Let $n \geq 2$ be an positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}. If $k$ is even or,  $n$ is odd then 
-$$\NLk{k}(f_\psi) ~\geq ~ 
-\left\{ \begin{array}{ll}
-\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{2 \leq l \leq n-1 \\ l \text{ even}}} \kraw{k}{l}{n}\right)}  & \text{ if }  k \not\preceq n \\
-\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{2 \leq l \leq n-1 \\ l \text{ even}}} \kraw{k}{l}{n} - 2\right)} & \text{ if } k \preceq n.
-\end{array}   \right.$$
-Otherwise (i.e., $k$ is odd and $n$ is even), $\NLk{k}(f_\psi) \geq 0$.
-\dkdnote{need to something for this case}
+	Let $n \geq 2$ be an positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}. If $k$ is even or $n$ is odd then:
+	$$\NLk{k}(f_\psi) ~\geq ~ 
+	\displaystyle{\frac{1}{4}\left({n \choose k} + \min_{\substack{2 \leq l \leq n-1 \\ l \text{ even}}} \kraw{k}{l}{n}\right)}  + \varepsilon,$$
+	where $\varepsilon =0$ if $k \not\preceq n$ and $-2$ otherwise.
+	Otherwise (i.e., $k$ is odd and $n$ is even), $\NLk{k}(f_\psi) \geq 0$.
+	\dkdnote{need to something for this case}
+	
+	\pmnote{I am note sure, there are functions WPB that are linear on those slices, it can also be the case in the sub-class we consider.}
 \end{corollary}
 \begin{proof}
-From Theorem~\ref{thm:minK}[Item~\ref{itm:minmaxn}], if $k$ is even then $\max\limits_{0 \leq l \leq n} \kraw{k}{l}{n} = \kraw{k}{n}{n}$. Further, if $n$ is odd then $\kraw{k}{n}{n}$ is not included in the minimum finding. Hence we are done for the case $k$ is even or,  $n$ is odd.
+From Theorem~\ref{thm:minK}[Item~\ref{itm:minmaxn}], if $k$ is even then $\max\limits_{0 \leq l \leq n} \kraw{k}{l}{n} = \kraw{k}{n}{n}$. 
+Further, if $n$ is odd then $\kraw{k}{n}{n}$ is not included in the minimum finding. Hence we are done for the case $k$ is even or $n$ is odd.
 
 If $k$ is odd and $n$ is even, then $\min\limits_{\substack{2 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n} = \kraw{k}{n}{n} = -{n \choose k}$. Further, in this case $k \not\preceq n$. Hence, $\NLk{k}(f_\psi) \geq 0$, which is infact always true.
 \end{proof}
@@ -802,7 +827,7 @@ Now we will study some cases of $k$ where the minimum of $\kraw{k}{l}{n}$ can be
 \end{equation}}\fi
 %Let $a \in \F_2^n$, from Lemma~\ref{lem:setSize_k} $l$ defined as $l= \w(a + \psi^{-1}(a))$. We can see that $\w(a + \psi^{-1}(a)) = \w(a)+ \w(\psi^{-1}(a)) - 2 \w(a \cap \psi^{-1}(a)) = 2 (\w(a) - \w(a \cap \psi^{-1}(a)))$. This shows that $l= \w(a + \psi^{-1}(a))$ is always an even number. Since $0 \leq l \leq n$, when $n$ is odd, $l$ can never be equal to $n$.
 
-Now substituting the results of Theorem~\ref{thm:minK}[Item~\ref{itm:odd} and Item~\ref{itm:even}] in Corollary~\ref{thm:NLk_bound}, we have nonlinearity bounds for some $k$.
+Now, substituting the results of Theorem~\ref{thm:minK}[Item~\ref{itm:odd} and Item~\ref{itm:even}] in Corollary~\ref{thm:NLk_bound}, we have nonlinearity bounds for particular values of $k$.
 \begin{theorem}\label{thm:NLk_bound2}
 \begin{enumerate}
 \item If $n$ is odd then
@@ -822,7 +847,7 @@ $$\NLk{k}(f_\psi) ~\geq ~
 \end{enumerate}
 \end{theorem}
 
-As $\Ekn{\lfloor\frac{n}{2}\rfloor}{n}$ is a largest slice among all slices $\Ekn{k}{n}, k \in [0,n]$, studying the nonlinearity at this domain is useful for cryptographic purpose. The cipher FLIP also uses the domain $\Ekn{\frac{n}{2}}{n}$ for its design. We have the nonlinearity bounds for the largest slice (i.e., $k = \lfloor\frac{n}{2}\rfloor$) in the following Theorem.
+Since $\Ekn{\lfloor\frac{n}{2}\rfloor}{n}$ is a largest slice among all slices $\Ekn{k}{n}, k \in [0,n]$, studying the nonlinearity at this domain is useful for cryptographic purpose. The cipher FLIP also uses the domain $\Ekn{\frac{n}{2}}{n}$ for its design. We have the nonlinearity bounds for the largest slice (\ie, $k = \lfloor\frac{n}{2}\rfloor$) in the following theorem.
 \begin{theorem}\label{thm:NLk_boundm}
 \begin{enumerate}
 \item If $n = 2m+1$ is odd then
