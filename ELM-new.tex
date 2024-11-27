@@ -227,7 +227,7 @@ Let $n$ be a positive integer and $k \in [0,n]$. Then
 \begin{enumerate}
 \item\label{itm:l1} $\kraw{k}{1}{n} \geq 0$ if $k \leq \lfloor\frac{n}{2}\rfloor$ and $\kraw{k}{1}{n} < 0$ if $k > \lfloor\frac{n}{2}\rfloor$.
 In particular, $\kraw{k}{1}{n} = 0$ if $n$ is even and $k = \frac{n}{2}$.
-\item \label{itm:l2} $\kraw{k}{2}{n} \geq 0$ iff $k \leq \frac{n}{2} - \frac{\sqrt{n}}{2}$ or, $k \geq \frac{n}{2} + \frac{\sqrt{n}}{2}$.\\
+\item \label{itm:l2} $\kraw{k}{2}{n} \geq 0$ if and only if $k \leq \frac{n}{2} - \frac{\sqrt{n}}{2}$ or, $k \geq \frac{n}{2} + \frac{\sqrt{n}}{2}$.\\
 In particular, $\kraw{k}{2}{n} = 0$ if $n$ is an even square integer and $k = \frac{n}{2} \pm \frac{\sqrt{n}}{2}$.
 \item\label{itm:ksd} $\kraw{k}{l+1}{n} + \kraw{k}{l}{n} = 2\kraw{k}{l}{n-1}$
 and $\kraw{k}{l+1}{n} - \kraw{k}{l}{n} = -2\kraw{k-1}{l}{n-1}$.
@@ -815,7 +815,7 @@ If $k$ is odd and $n$ is even, then $\min\limits_{\substack{2 \leq l \leq n \\ l
 %\multirow{2}*{19} & - & - & - & - & - & - & - & - & -  \\
 %& - &- & - & - & - & - & - & - & - \\ \hline
 \end{tabular}
-\caption{A lower bound of $\NLk{k}(f_\psi)$ as per Theorem~\ref{thm:NLk_bound}}
+\caption{Values of the lower bound of $\NLk{k}(f_\psi)$ as per Theorem~\ref{thm:NLk_bound}}
  \end{table}
  \iffalse
 Now we will study some cases of $k$ where the minimum of $\kraw{k}{l}{n}$ can be obtained. We have
@@ -863,6 +863,12 @@ $$\NLk{m}(f_\psi) ~\geq ~
 \end{enumerate}
 \end{enumerate}
 \end{theorem}
+
+\pmnote{Adapt the second table?}
+
+
+
+
 \begin{table}[h!]\label{tab:NLk_bound1}
 \centering
 %\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}\hline
@@ -886,8 +892,8 @@ $$\NLk{m}(f_\psi) ~\geq ~
 \end{tabular}
 \caption{A lower bound of $\NLk{k}(f_\psi)$ as per Theorem~\ref{thm:NLk_bound}}
 \end{table}
-\noindent Now we will study the restricted nonlinearity $\NLk{2}(f_\psi)$.\\
-Denote $\NLk{k}^n = \min\{\NLk{k}^n(f_\psi) | f_\psi \in \BN  \text{constructed as in Proposition~\ref{prop:WAPB}}\}$.
+\noindent Now, we study the restricted nonlinearity $\NLk{2}(f_\psi)$.\\
+We denote by $\NLk{k}^n$ the minimum $\min\{\NLk{k}^n(f_\psi) \mid f_\psi \in \BN  \text{ constructed as in Proposition~\ref{prop:WAPB}}\}$.
 \begin{theorem}
 Let $n \geq 2$ be an positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
 Then $$\NLk{2}(f_\psi) ~\geq ~ \left\{
@@ -896,7 +902,7 @@ Then $$\NLk{2}(f_\psi) ~\geq ~ \left\{
 	\lfloor\frac{(n-1)^2}{8}\rfloor & \text{ if } n \text{ is odd}.   
 \end{array} \right.$$
 Moreover, if $n = 2^m$ for $m \geq 1$, ~~~~$\dfrac{n(n-2)}{8} \leq \NLk{2}^n \leq \NLk{4}^{2n} \leq \NLk{8}^{2^{2}n } \leq \cdots \leq \NLk{2^{i+1}}^{2^{i}n} \leq \cdots $,\\
-and if $n=  2^{a_w} + 2^{a_{w-1}} + \cdots + 2^{a_1}$ for $ a_w > a_{w-1} > \cdots > a_1 \geq 0$ as defined in \ref{eqn:binn},
+and if $n=  2^{a_w} + 2^{a_{w-1}} + \cdots + 2^{a_1}$ for $ a_w > a_{w-1} > \cdots > a_1 \geq 0$ as defined in ~Equation\ref{eqn:binn},
 $$\left\lfloor \dfrac{(n+1)(n-4)+n}{8}  \right\rfloor \leq \NLk{2}^n \leq \NLk{4}^{2n} \leq \NLk{8}^{2^{2}n } \leq \cdots \leq \NLk{2^{i+1}}^{2^{i}n} \leq \cdots.$$
 \end{theorem}
 \begin{proof}
@@ -911,17 +917,17 @@ $$\NLk{2}(f_\psi) ~\geq ~
 Therefore, for $2 \npreceq n$, we have
 $\NLk{2}(f_\psi) \geq \left\{
 \begin{array}{ll}
- \frac{n(n-2)}{8} & \text{ if } n \text{ is even (i.e., $n = 4t$ form)}\\
- \frac{(n-1)^2}{8} & \text{ if } n \text{ is odd (i.e., $n = 4t+1$ form)},
+ \frac{n(n-2)}{8} & \text{ if } n \text{ is even (\ie, $n = 4t$ form)}\\
+ \frac{(n-1)^2}{8} & \text{ if } n \text{ is odd (\ie, $n = 4t+1$ form)},
 \end{array} \right.$\\
 and for $2 \preceq n$, we have 
 $\NLk{2}(f_\psi) \geq \left\{
 \begin{array}{ll}
- \frac{n(n-2)}{8}-\frac{1}{2} & \text{ if } n \text{ is even (i.e., $n = 4t+2$ form)} \\
- \frac{(n-1)^2}{8}-\frac{1}{2} & \text{ if } n \text{ is odd (i.e., $n = 4t+3$ form)}.
+ \frac{n(n-2)}{8}-\frac{1}{2} & \text{ if } n \text{ is even (\ie, $n = 4t+2$ form)} \\
+ \frac{(n-1)^2}{8}-\frac{1}{2} & \text{ if } n \text{ is odd (\ie, $n = 4t+3$ form)}.
 \end{array} \right.$\\
 We can check that for $n$ even, $\frac{n(n-2)}{8}$ is always an integer and for 
-$n$ odd, $\frac{(n-1)^2}{8}$ is an integer iff $2 \npreceq n$. Hence, combining the cases, we have 
+$n$ odd, $\frac{(n-1)^2}{8}$ is an integer if and only if $2 \npreceq n$. Hence, combining the cases, we have 
 $$\NLk{2}(f_\psi) \geq \left\{
 \begin{array}{ll}
  \frac{n(n-2)}{8} & \text{ if } n \text{ is even} \\
@@ -947,15 +953,19 @@ The equality $\NLk{\Ekn{2}{\frac{n}{2}}}(g) = \NLk{R_2}(f)$ can be proved as fol
 %\leq  \frac{|R_2|}{2} - \frac{1}{2}\max\limits_{a \in \F_2^{\frac{n}{2}}}{\sum\limits_{y \in \Ekn{2}{\frac{n}{2}}} (-1)^{g(y)+a.y}} = \NLk{\Ekn{2}{\frac{n}{2}}}(g)$
 
 %\NLk{R \subset \Ekn{8}{32}}(f) \leq \NLk{8}^32(f) \leq \cdots \NLk{w}   $$ 
-Then we have the generalised result (by proving $\NLk{\Ekn{2^t}{\frac{n}{2}}}(g) = \NLk{R_{t+1}}(f)$)as
+Then, we have the generalized result (by proving $\NLk{\Ekn{2^t}{\frac{n}{2}}}(g) = \NLk{R_{t+1}}(f)$) as
 $$ \frac{n(n-2)}{8} \leq \NLk{2}^n \leq \NLk{4}^{2n} \leq \NLk{8}^{2^{2}n } \leq \cdots \leq \NLk{2^{i+1}}^{2^{i}n} \leq \cdots.$$ 
-Now consider $n = n_w + n _{w-1} + \cdots + n_1 = 2^{a_w} + 2^{a_{w-1}} + \cdots + 2^{a_1}$ such that $ a_w > a_{w-1} > \cdots > a_1 \geq 0$ as defined in \ref{eqn:binn}. Let $y \in \Ekn{2}{n}$ for  $y = y_{n_w} y_{n_{w-1}} \ldots y_{n_1}$ where $y_{n_i} = (y_{n_{i+1}+1},y_{n_{i+1}+2},\ldots , y_{n_{i+1}+n_i})$ and $\w(y)=2$. Let us define, $$R =\{(y_{n_w},y_{n_w})(y_{n_{w-1}},y_{n_{w-1}})\ldots (y_{n_1},y_{n_1}) : y = y_{n_w} y_{n_{w-1}} \ldots y_{n_1} \in \F_2^{n} \text{ and } \w(y) = 2 \} \subseteq \Ekn{4}{2n}.$$ Now for $x =  (y_{n_w},y_{n_w})(y_{n_{w-1}},y_{n_{w-1}})\ldots (y_{n_1},y_{n_1}) \in R $, we have
-$$ \orb_x = \{(z_{n_w}, z_{n_w})(z_{n_{w-1}},z_{n_{w-1}})\ldots (z_{n_1},z_{n_1}) : z_{n_w} z_{n_{w-1}} \ldots z_{n_1} \in \orb_y\}$$
- Then for a $ f \in \Bn{2n}$ satisfying Proposition~\ref{prop:WAPB}, we have a WAPB $g \in \Bn{n}$  such that $\forall y \in \F_2^{n}$,  $g(y) = f(x)$ for $ x \in R$. This implies, $\NLk{2}^{n}(g) = \NLk{R}(f) \leq \NLk{\Ekn{4}{2n}}(f) = \NLk{4}^{2n}(f)$. If we generalise the result, we have
+Consider $n = n_w + n _{w-1} + \cdots + n_1 = 2^{a_w} + 2^{a_{w-1}} + \cdots + 2^{a_1}$ such that $ a_w > a_{w-1} > \cdots > a_1 \geq 0$ as defined in Equation~\ref{eqn:binn}. Let $y \in \Ekn{2}{n}$ for  $y = y_{n_w} y_{n_{w-1}} \ldots y_{n_1}$ where $y_{n_i} = (y_{n_{i+1}+1},y_{n_{i+1}+2},\ldots , y_{n_{i+1}+n_i})$ and $\w(y)=2$. 
+Let us define:
+ $$R =\{(y_{n_w},y_{n_w})(y_{n_{w-1}},y_{n_{w-1}})\ldots (y_{n_1},y_{n_1}) : y = y_{n_w} y_{n_{w-1}} \ldots y_{n_1} \in \F_2^{n} \text{ and } \w(y) = 2 \} \subseteq \Ekn{4}{2n}.$$ 
+For $x =  (y_{n_w},y_{n_w})(y_{n_{w-1}},y_{n_{w-1}})\ldots (y_{n_1},y_{n_1}) \in R $, we have
+$$ \orb_x = \{(z_{n_w}, z_{n_w})(z_{n_{w-1}},z_{n_{w-1}})\ldots (z_{n_1},z_{n_1}) : z_{n_w} z_{n_{w-1}} \ldots z_{n_1} \in \orb_y\}.$$
+ Then, for a $ f \in \Bn{2n}$ satisfying Proposition~\ref{prop:WAPB}, we have a WAPB $g \in \Bn{n}$  such that $\forall y \in \F_2^{n}$,  $g(y) = f(x)$ for $ x \in R$. This implies, $\NLk{2}^{n}(g) = \NLk{R}(f) \leq \NLk{\Ekn{4}{2n}}(f) = \NLk{4}^{2n}(f)$. 
+ If we generalize the result, we have
 $$ \left\lfloor \frac{(n+1)(n-4)+n}{8}  \right\rfloor \leq \NLk{2}^n \leq \NLk{4}^{2n} \leq \NLk{8}^{2^{2}n } \leq \cdots \leq \NLk{2^{i+1}}^{2^{i}n}.$$
 \end{proof}
-Thus, the above theorem provides a better lower bound for the weightwise nonlinearity $\NLk{k}(f_\psi)$, as proved in the paper~\cite{DCC:LiuMes19}. 
-\begin{proposition}~\cite{DCC:LiuMes19}
+Thus, the above theorem provides a better lower bound for the weightwise nonlinearity $\NLk{k}(f_\psi)$, as proven in the article~\cite{DCC:LiuMes19}, recalled in the following proposition.
+\begin{proposition}~\cite{DCC:LiuMes19}[Theorem 3.14]
 For any $n = 2^m \geq 8$ and $f_\psi$ be a WPB Boolean function as defined in \ref{cons:LM19}, then $$\NLk{2^i}^{(n)}(f_\psi) ~\geq ~ \left \{ 
 \begin{array}{ll}
 5,  &  \text{ if } 1 \leq i \leq m-3, \\
@@ -1074,6 +1084,17 @@ Let $c=(c_1,c_2,\ldots,c_n) \in \F_2^n \setminus \{0^n,1^n\}$. Then
 Hence, this can be written as $A= \{ x \in \F_2^n : u. x = 0\}$ for $ u = (u_1,u_2, \ldots,u_n) \in \F_2^n$ where $ u_i = c_i + c_{i+1}$ for $  1 \leq i \leq {n-1} $, and $u_n = c_n + c_1$. Since, $ u \neq 0 $ as $c \not\in \{0^n,1^n\}$ and $A$ is a hyperplane, implies that the cardinality of the set $A$ is $2^{n-1}$.
 \end{proof}
 \fi
+
+
+\section{Conclusion and Open Questions}
+
+
+
+
+
+
+
+
 
 \ifnum\full=0
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
