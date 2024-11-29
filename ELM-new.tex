@@ -153,7 +153,7 @@ Let $\pi \in \Sn$ be a permutation on $n$ elements with order $o(\pi)$.
 A Boolean function $f$ is $\pi$ symmetric (in short, $\pi$S) if and only if for any $(x_1,x_2,\ldots,x_n)\in \F_2^n$, $$f(\pi^k(x_1,x_2,\ldots,x_n))= f(x_1,x_2,\ldots,x_n) \text{ for every } 1 \leq k \leq o(\pi)$$ where $\pi^k = \pi \circ \pi^{k-1}$ for $k > 1$ and $\pi^1 = \pi$.
 Therefore, $\pi$S Boolean functions have the same truth value for all vectors in every orbit obtained by the action of permutation group $P = \langle \pi \rangle$ on $\F_2^n$. 
 \end{definition}
-For $\pi = \sigma$, the $\sigma$S Boolean functions are known as Rotation Symmetric Boolean functions(in short, RotS). The $\sigma$S Boolean functions are very well studied functions in the literature~\cite{JUSC:PQ99,DM:CS02,DAM:SM08}. However, no study on $\psi$S Boolean functions is available in the literature. When $n$ is power of $2$, the class of $\sigma$S Boolean functions and the class of $\psi$S Boolean functions are same.
+For $\pi = \sigma$, the $\sigma$S Boolean functions are known as Rotation Symmetric Boolean functions(in short, RotS). The $\sigma$S Boolean functions are very well studied functions in the literature~\cite{JUSC:PQ99,DM:CS02,DAM:StaMai08}. However, no study on $\psi$S Boolean functions is available in the literature. When $n$ is power of $2$, the class of $\sigma$S Boolean functions and the class of $\psi$S Boolean functions are same.
 
 \begin{definition}[2-$\pi$ Symmetric Boolean function(2-$\pi$S)]\label{def:2PSBF}
 Let $\pi \in \Sn$ be a permutation on $n$ elements and $\orbs$ be the set of all orbits due to the group action of $P = \langle \pi \rangle$ on $\F_2^n$.
@@ -984,106 +984,64 @@ For any $n = 2^m \geq 8$ and $f_\psi$ be a WPB Boolean function as defined in \r
 \end{enumerate}
 }
 
+\pmnote{The following are only notes}
 
 
-\iffalse
-%%%%%%%%%%%%%%%=======================================================================%%%%%%%%%%%%
-\begin{theorem}\label{thm:nlpsi}
-Let $n \geq 2$ be an positive integer as in Equation~\ref{eqn:binn} and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
-Then $\NL(f_\psi) \ge 2^{n-2} - 2^{n-n_w}$.
+
+Number of orbits (for example Theorem 3 of~\cite{DAM:StaMai08})
+
+\begin{theorem}
+	The number of orbits generated due the action of $\sigma$ on $\F_2^n$ is
+	$$g_n= \frac{1}{n} \sum_{t \text{ divides } n}  \phi(t) 2^{n/t},$$
+where $\phi(t)$ denotes Euler's phi function.
 \end{theorem}
-\begin{proof}
-Let $x = (y,z) \in \F_2^n$, where $y\in \F_2^{n-n_w}$ and $z \in \F_2^{n_w}$. Let denote 
-the permutation $\psi \in \Sn$ in Equation~\ref{eqn:cycperm} as $\psi = \overline{\psi}~\pi_w$ where $\overline{\psi}  = (x_1, x_2, \ldots, x_{n_1}) (x_{n_1+1}, x_{n_1+2}, \ldots, x_{n_1+n_2})\cdots (x_{n-n_{w-1}-n_w+1}, \ldots, x_{n-n_{w-1}})$ and $\pi_w = (x_{n-n_w+1}, x_{n-n_w+2}, \ldots, x_n)$.
-Let $\orbs$ be the set of all orbits of $G = \langle \rho_{n_w} \rangle$ acts on $\F_2^{n_w}$.
-For the simplicity, we denote $f = f_\psi$.
-Then, the Walsh-Hadamard transform of $f$ at $a = (b,c) \in \F_2^n$ with $b \in \F_2^{n-n_w}$ and $c \in \F_2^{n_w}$ is
 
-%\begin{align*}
-%\wt{f}(a)&=\sum_{x\in \F_2^n} (-1)^{f(x)+a x}\\
-%&=\sum_{i=1}^{t} \sum_{z\in O_i} \sum_{y\in \F_2^{n-n_w}}(-1)^{f(y,z)+by+cz} + \sum_{i=t+1}^{t+s} \sum_{z\in O_i} \sum_{y\in \F_2^{n-n_w}}(-1)^{f(y,z)+by+cz},\\
-%\end{align*}	
-%$$ \wt{f_\psi}(a) = \sum_{x\in \F_2^n} (-1)^{f_\psi(x)+a \cdot x} 
-%= \sum_{\orb \in \orbs} \sum_{x \in \orb}(-1)^{f_\psi(x)+a \cdot x}
-%= \sum_{\orb \in \orbs} \sum_{(y,z) \in \orb} (-1)^{f_\psi(y,z)+b \cdot y+c \cdot z}.$$
-%= \sum_{\orb \in \orbs} \sum_{(y,z) \in \orb} \sum_{y\in \F_2^{n-n_w}}(-1)^{f(y,z)+by+cz}.$$
-\begin{eqnarray*}
-\wt{f}(a) & = & \sum_{x\in \F_2^n} (-1)^{f(x)+a \cdot x}
-= \sum_{z \in \F_2^{n_w}} \sum_{y \in \F_2^{n-n_w}}(-1)^{f(y,z)+b \cdot y+c \cdot z} \\
-& = & \sum_{\orb \in \orbs} \sum_{z \in \orb} \sum_{y \in \F_2^{n-n_w}}(-1)^{fs(y,z)+b \cdot y+c \cdot z}
-\end{eqnarray*}
-Here, $\orb_0 = \{0^{n_w}\}$ and $\orb_1 = \{1^{n_w}\}$ are the only orbits of cardinality $1$ in $\F_2^{n_w}$. 
-Denote $\hat{\orbs} = \orbs \setminus \{\orb_0,\orb_1\}$ which is the set of all orbits of cardinality even. Hence,
-\begin{equation}\label{eq:wt}
-\wt{f}(a) = \sum_{\orb \in \hat{\orbs}} \sum_{z \in \orb} \sum_{y \in \F_2^{n-n_w}} (-1)^{f(y,z) + b\cdot y + c\cdot z} + \sum_{z \in \{0^{n_w}, 1^{n_w}\}} \sum_{y \in \F_2^{n-n_w}}(-1)^{f(y,z) + b\cdot y + c \cdot z}
-\end{equation}	
-%$\[|\sum_{i=t+1}^{t+s} \sum_{z\in O_i} \sum_{y\in \F_2^{n-n_w}}(-1)^{f(y,z)+by+cz}| \le  |\sum_{z\in \{0_{n_w}, 1_{n_w}\}} \sum_{y\in \F_2^{n-n_w}}(-1)^{f(y,z)+by+cz}|\]$
-The bound for the second sum is given as 
-\begin{align*}
-|\sum_{z \in \{0^{n_w}, 1^{n_w}\}} \sum_{y \in \F_2^{n-n_w}}(-1)^{f(y,z) + b\cdot y + c \cdot z}|
- %& = |\sum_{y \in \F_2^{n-n_w}} (-1)^{f(y,0^{n_w})+b \cdot y} + \sum_{y \in \F_2^{n-n_w}} (-1)^{f(y,1^{n_w})+b \cdot y + c \cdot 1^{n_w}}|  \\
-      & \leq |\sum_{y \in \F_2^{n-n_w}} (-1)^{f(y,0^{n_w})+b \cdot y}| + |\sum_{y \in \F_2^{n-n_w}} (-1)^{f(y,1^{n_w})+b \cdot y + c \cdot 1^{n_w}}|  \leq   2^{n-n_w+1}.
-\end{align*}
-Then, we have from the first sum of Equation~\ref{eq:wt} as 
-\begin{align*}
-\sum_{\orb \in \hat{\orbs}} \sum_{z \in \orb} \sum_{y \in \F_2^{n-n_w}} (-1)^{f(y,z) + b\cdot y + c\cdot z}
-& = \frac{1}{2} \sum_{\orb \in \hat{\orbs}} \sum_{z \in \orb} \sum_{y \in \F_2^{n-n_w}} \left((-1)^{f(y,z) + b\cdot y + c\cdot z} + (-1)^{f(y,\pi_w(z)) + b\cdot y + c\cdot \pi_w(z)} \right)\\
-%& = \frac{1}{2} \left[ \sum_{O \in \hat{\mathcal{O}}} \sum_{z \in O} (-1)^{c.z} \sum_{y \in \mathbb{F}_2^{n-n_w}}(-1)^{f(y,z) + b.y} + \right. \\
-%& \left. \hspace{0.2in}   \sum_{O \in \hat{\mathcal{O}}} \sum_{z \in O} (-1)^{c.\pi_{n_w}(z)} \sum_{y \in \mathbb{F}_2^{n-n_w}}(-1)^{f(y,\pi_w(z)) + b.y}  \right] \\
-& =  \frac{1}{2} \sum_{\orb \in \hat{\orbs}} \sum_{z \in \orb} \sum_{y \in \F_2^{n-n_w}}
-\left((-1)^{f(y,z)+b\cdot y}  \right)\left( (-1)^{c \cdot z} \pm (-1)^{c\cdot \pi_w(z)} \right).
-\end{align*}
-Here the sign $\pm$ in the above expression is $+$ if $f(y,\pi_w(z) = f(y,z)$ else it is $-$.\\
-Note that the term in the summation is zero for $z$ such that $(-1)^{c\cdot z} \pm (-1)^{c\cdot  \pi_w(z)} = 0$ i.e., $c\cdot z \pm c\cdot \pi_w(z) = 0$.
-Thereafter
-\begin{align*}
-|\sum_{O \in \hat{\mathcal{O}}} \sum_{z \in O} \sum_{y\in \F_2^{n-n_w}}(-1)^{f(y,z)+by+cz}|
-&=|\frac{1}{2} \sum_{O \in \hat{\mathcal{O}}} \sum_{z\in O \atop {c(z+\pi_w(z))=1}} \sum_{y\in \F_2^{n-n_w}} \left((-1)^{f(y,z)+by}  \right)2(-1)^{cz}|\\
-&\le 2^{n-n_w} |\{ z \in \F_2^{n_w} \setminus \{0_{n_w},1_{n_w}\},  c(z+\pi_w(z))=1   \}|
-\end{align*}
 
-Using Proposition~\ref{prop:setSize} it allows to conclude:
-\[|\sum_{O \in \hat{\mathcal{O}}} \sum_{z \in O} \sum_{y\in \F_2^{n-n_w}}(-1)^{f(y,z)+by+cz}|\le 2^{n-1},\]
-and finally:
-\begin{align*}
-\NL(f)&\ge 2^{n-1}-\frac{1}{2} \max_{a\in \F_2^n}| \wt{f}(a)|\\
-&\ge 2^{n-1}-\frac{1}{2} \left(2^{n-n_w+1} + 2^{n-1}\right)\\
-&\ge 2^{n-2} - 2^{n-n_w}
-\end{align*} 
+In general I do not see an easy way to determine the number of orbits of size odd in $\Ekn{k}{n}$ for all $n$, but we could focus on cases:
+
+\begin{itemize}
+	\item when $n$ is a power of $2$ it is exactly LM19, but it is the only case where there are only 2 orbits of odd size (since the size of an orbit divides n).
+	\item when $n$ is odd, all orbits are of odd size so the number of orbits of odd size is $g_n$.	
+\end{itemize}
+
+Then, when $n$ is even, maybe we can count the number of odd size orbits by considering the odd divisor of $n$. I think the representative $x$ of an orbit of odd size $d$ (that divides $n$) has to be in an orbit of size $n/d$ of $\F_2^{n/d}$. 
+
+If this holds, the number of long cycles (orbits of size exactly $n$) in~\cite{DAM:StaMai08} Theorem 8, and it depends on the prime factorization of $n$.
 
 
 
 
-\end{proof}
+Regarding number of orbits of size odd in $\Ekn{k}{n}$, we have that $k$ has to divide $n$ for the order not be $n$, and the orbit size divides $n/k$. Hence we could consider subcases as above.
 
 
-\pmnote{TODO: redact the proof of the proposition}
 
-\begin{proposition}
-	Let $n\ge 2$ be a power of $2$, and $\pi= (x_1,\ldots,x_n)$ the following holds:
-\[ |\{ z \in \F_2^{n} \setminus \{0_{n},1_{n}\},  c(z+\pi(z))=1   \}| 
-= \left \{
-\begin{array}{l l}
-	2^{n-1}  & \text{ if } c \in \F_2^n \setminus \{0_n,1_n\}, \\
-	0  & \text{ if } c=0_n,\\
-	0 & \text{ if } c=1_n.
-\end{array}\right.\]
-	
-\end{proposition}
-\begin{proof}
-	Let $ c = 0^n \in \F_2^n$. Then $c(z + \pi(z))=0$. Hence $|\{ z \in \F_2^{n} \setminus \{0_{n},1_{n}\}, c(z+\pi(z))=1   \}| = 0$. Similarly, if $c = 1^n$, then  $$|\{ z \in \F_2^{n} \setminus \{0_{n},1_{n}\}, 1^n(z+\pi(z))=1   \}| = |\{ z \in \F_2^{n} \setminus \{0_{n},1_{n}\}, (z_1 + z_n)+(z_2 + z_1)+ \cdots (z_n + z_{n-1})= 1 \}|$$ is given as follows:
-	\begin{align*}
-	(z_1 + z_n)+(z_2 + z_1)+ \cdots (z_n + z_{n-1}) = 2(z_1 + z_2 + \cdots + z_n) 
-	\end{align*}
-	This implies, there is no $z \in \F_2^n$ such that the above equation will be 1. \\
-Let $c=(c_1,c_2,\ldots,c_n) \in \F_2^n \setminus \{0^n,1^n\}$. Then 
-\begin{align*}
-         & c_1(x_1 + x_n) + c_2(x_2 + x_1) + \ldots + c_n (x_n + x_{n-1})  = 0 \\
-\implies &  x_1 ( c_1 + c_2) + x_2 (c_2 + c_3) + \ldots + x_{n-1}(c_{n-1} + c_n) + x_n(c_n + c_1)= 0  
-\end{align*}
-Hence, this can be written as $A= \{ x \in \F_2^n : u. x = 0\}$ for $ u = (u_1,u_2, \ldots,u_n) \in \F_2^n$ where $ u_i = c_i + c_{i+1}$ for $  1 \leq i \leq {n-1} $, and $u_n = c_n + c_1$. Since, $ u \neq 0 $ as $c \not\in \{0^n,1^n\}$ and $A$ is a hyperplane, implies that the cardinality of the set $A$ is $2^{n-1}$.
-\end{proof}
-\fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{Conclusion and Open Questions}
