@@ -1,7 +1,7 @@
 \nonstopmode
 \synctex=1
 
-\def\anon{1} %% set to 1 for anonymous submissions, hides acknowledgments and author names
+\def\anon{0} %% set to 1 for anonymous submissions, hides acknowledgments and author names
 \def\full{1} %% set to 0 for springer proceedings
 \documentclass{llncs}
 \pagestyle{plain}
@@ -72,7 +72,7 @@ The research objectives and our contributions are already outlined. The remainin
 Section~\ref{ssec:PSBF} presents the definition and notations on $\pi$ symmetric Boolean functions and 2-$\pi$ symmetric Boolean functions.
 Some required known results and new results on Krawchouk polynomials are presents in Section~\ref{ssec:KP}.
 \item Section~\ref{sec:GA} contains a construction of 2-$\pi$S WAPB Boolean functions using the group action of a cyclic permutation group $P = \langle \pi \rangle$. Then some results on the lower bound of the nonlinearity and weightwise nonlinearities are presented.
-\item Section~\ref{sec:ELM} and Section~\ref{sec:2RotS} presents the cryptographic studies for the special cases when $\pi = \psi$ and $\pi = \sigma$ where $\psi$ and $\sigma$ are distinct binary-cycle permutation and rotation permutation respectively.
+\item Section~\ref{sec:ELM} and Section~\ref{sec:2RotS} presents the cryptographic studies for the special cases when $\pi = \psi$ and $\pi = \sigma$ where $\psi$ and $\sigma$ are distinct binary-cycle permutation and rotation permutation respectively,
 another main result of the paper.
 \item The paper is concluded in Section~\ref{sec:con}.
 \end{itemize}
@@ -134,17 +134,17 @@ If $f \in \BN$ then for $k \in [0,n]$,
 \[\NLk{k}(f) = \frac{|\Ekn{k}{n}|}{2}- \frac{1}{2}\max_{a \in \F_2^n} |\wtk{f}{k}(a)| \textit{, and } \]
 \[\NLk{k}(f) \leq \frac{1}{2} [|\Ekn{k}{n}| - \sqrt{|\Ekn{k}{n}|}] = \frac{1}{2} [{n \choose k} - \sqrt{{n \choose k}}].\]
 \end{lemma}
-\dkdnote{Do we need to put the definition of $\AI(f)$ and $\AIk{k}(f)$ ?}
+%\dkdnote{Do we need to put the definition of $\AI(f)$ and $\AIk{k}(f)$ ?}
 
-\begin{definition}[Algebraic immunity and weightwise algebraic immunity] \label{def:ai}
-The algebraic immunity of a Boolean function $f\in \Bfn{n}$, denoted as $\AI(f)$, is defined as:
-\[ \AI(f) = \min_{g \neq 0}\{ \degg(g) \; | \; fg = 0 \; \text{or} \; (f + 1)g = 0 \}{,} \]
-where $\degg(g)$ is the algebraic degree of $g$.
-The function $g$ is called an annihilator of $f$ (or $f + 1$).
+%\begin{definition}[Algebraic immunity and weightwise algebraic immunity] \label{def:ai}
+%The algebraic immunity of a Boolean function $f\in \Bfn{n}$, denoted as $\AI(f)$, is defined as:
+%\[ \AI(f) = \min_{g \neq 0}\{ \degg(g) \; | \; fg = 0 \; \text{or} \; (f + 1)g = 0 \}{,} \]
+%where $\degg(g)$ is the algebraic degree of $g$.
+%The function $g$ is called an annihilator of $f$ (or $f + 1$).
 
-The weightwise algebraic immunity of $f\in \Bfn{n}$ for $k\in [0,n]$, denoted as $\AI_k(f)$, is defined as:
-\[ \AIk{k}(f) = \min_{g \neq 0 \text{ over } \Ekn{k}{n}}\{ \degg(g) \; | \; fg = 0 \; \text{or} \; (f + 1)g = 0 \}{.} \]	
-\end{definition}
+%The weightwise algebraic immunity of $f\in \Bfn{n}$ for $k\in [0,n]$, denoted as $\AI_k(f)$, is defined as:
+%\[ \AIk{k}(f) = \min_{g \neq 0 \text{ over } \Ekn{k}{n}}\{ \degg(g) \; | \; fg = 0 \; \text{or} \; (f + 1)g = 0 \}{.} \]	
+%\end{definition}
 \subsection{Permutation symmetric Boolean functions}\label{ssec:PSBF}
 We denote $\Sn$ by the symmetric group on $n$ elements. For a permutation $\pi\in \Sn$, the action of permutation group $P = \langle \pi \rangle$ on $\F_2^n$ makes a partition of $\F_2^n$, called orbits. The set of orbits is denoted as $\orbs$. For $x \in \F_2^n$, we denote the orbit containing $x$ as
 $O_{\pi}(x) = \{y \in \F_2^n \,| \, \pi^k(y) = x \text{ for some } k \in \Z\}$. Now we define two special permutations as follows.
@@ -713,23 +713,24 @@ Let $n = 2^m$ be a positive integer. Then $\NL(f_\psi) \ge 2^{n-2} - 1$.
 \end{corollary}
 
 In Table~\ref{tab:NLminmax}, we have presented the maximum and minimum nonlinearity among all $f_\psi$ for the number of variables $n = \{4, 5, \ldots, 10\}$ along with the upperbound of balanced Boolean functions and lowerbound of $f_{\psi}$ as per Theorem~\ref{thm:nlboundf}. We have searched all such balanced Boolean functions for $n \leq 6$ and from $70 \times 2^{20}, 2 \times 2^{25}, 6 \times 2^{23}, 6 \times 2^{23}$  randomly chosen such Boolean functions for $n = 7,8,9,10$ respectively.
-\begin{table}[h!]\label{tab:NLminmax}
+\begin{table}[h!]
 \centering
+	\renewcommand{\tabcolsep}{2pt}
 \begin{tabular}{|c|c|c|c||c|c|c|c|}\hline
 $n$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$\\ \hline
 Number of functions & $2^4 \times \binom{2}{1}$ & $2^8 \times \binom{4}{2}$ & $2^{18} \times \binom{4}{2}$&$2^{36} \times \binom{8}{4}$&$2^{34} \times \binom{2}{1}$& $2^{68} \times \binom{4}{2}$& $2^{138} \times \binom{4}{2}$\\
 & $ = 2^5$& $= 6\times 2^9$& $= 6\times 2^{19}$& $= 70\times 2^{37}$&$ = 2^{35}$&$= 6\times 2^{69}$& $= 6\times 2^{139}$\\ \hline
-Max nl by experiment & $4$ & $12$ & $26$ & $56$ & $116$ & $238$ & $480$\\ \hline
-\% functions at max nl & $100$ & $22.92$ & $0.65$ & $4.3 \times 10^{-3}$ & $4.6 \times 10^{-3}$ & $1.6 \times 10^{-5}$ & $2.4 \times 10^{-3}$\\ \hline
+Max $\NL$ by experiment & $4$ & $12$ & $26$ & $56$ & $116$ & $238$ & $480$\\ \hline
+\% functions at max $\NL$ & $100$ & $22.92$ & $0.65$ & $4.3 \times 10^{-3}$ & $4.6 \times 10^{-3}$ & $1.6 \times 10^{-5}$ & $2.4 \times 10^{-3}$\\ \hline
 Nonlinearity upper bound & & & & & & &\\
 of balanced functions~\cite{SZZ95} & $4$ & $12$ & $28$ & $58$ & $118$ & $244$ & $494$\\ \hline
 Min Nonlinearity & $4$ & $6$ & $14$ & $28$ & $64$ & $144$ & $328$\\ \hline
-\% functions at min nl & $100$ & $4.17$ & $0.26$ & $2.3 \times 10^{-4}$ & $3.3 \times 10^{-3}$ & $3.2 \times 10^{-5}$ & $1.6 \times 10^{-5}$\\ \hline
-Average nl by experiment  & $4.0$ & $9.79$ & $21.83$ & $47.35$ & $106.01$  & $220.58$ & $453.49$\\ \hline
+\% functions at min $\NL$ & $100$ & $4.17$ & $0.26$ & $2.3 \times 10^{-4}$ & $3.3 \times 10^{-3}$ & $3.2 \times 10^{-5}$ & $1.6 \times 10^{-5}$\\ \hline
+Average $\NL$ by experiment  & $4.0$ & $9.79$ & $21.83$ & $47.35$ & $106.01$  & $220.58$ & $453.49$\\ \hline
 Nonlinearity lower bound & $3$ & $6$ & $14$ & $28$ & $63$ & $144$ & $254$\\
 by Theorem~\ref{thm:nlboundf} & & & & & & &\\ \hline
 \end{tabular}
-\caption{Percentage of $f_\psi \in \BN$ satisfying lower bound and upper value of $\NL(f_\psi)$}
+\caption{Percentage of $f_\psi \in \BN$ satisfying lower bound and upper value of $\NL(f_\psi)$.\label{tab:NLminmax}}
 \end{table}
 
 Now we will study the weightwise nonlinearity of $f_\psi$.
@@ -785,7 +786,7 @@ If $k$ is odd and $n$ is even, then $\min\limits_{\substack{2 \leq l \leq n \\ l
 %\multirow{2}*{19} & - & - & - & - & - & - & - & - & -  \\
 %& - &- & - & - & - & - & - & - & - \\ \hline
 \end{tabular}
-\caption{Values of the lower bound of $\NLk{k}(f_\psi)$ as per Theorem~\ref{thm:NLk_bound}}
+\caption{Values of the lower bound of $\NLk{k}(f_\psi)$ as per Theorem~\ref{thm:NLk_bound}.}
  \end{table}
 Now, substituting the results of Theorem~\ref{thm:minK}[Item~\ref{itm:odd} and Item~\ref{itm:even}] in Corollary~\ref{thm:NLk_bound}, we have nonlinearity bounds for particular values of $k$.
 \begin{theorem}\label{thm:NLk_bound2}
@@ -913,7 +914,7 @@ For any $n = 2^m \geq 8$ and $f_\psi$ be a WPB Boolean function as defined in \r
 \section{Construction and Study of 2-$\sigma$S (i.e., 2-RotS) WAPB Boolean functions}\label{sec:2RotS}
 
 In this section, we present a class of 2-$\sigma$S WAPB Boolean function which is another special case of the construction presented in Section~\ref{sec:GA}. Since $\sigma \in \Sn$ is the rotation permutation, these functions are also known as 2-RotS WAPB Boolean functions. When $n$ is a power of $2$, the construction matches the Liu-Mesnager construction~\cite{DCC:LiuMes19} to generate WPB Boolean functions. Now to study nonlinearity bound in Theorem~\ref{thm:nlbfpi}, we need to count the number of orbits of odd cardinality due to the group action of $C_n = \langle \sigma_n \rangle$ on $\F_2^n$. For a positive integer $n$, we denote $n_0$ as the largest odd integer that divides $n$ i.e., $n_0 = \frac{n}{2^t}$ for largest integer $t$ such that $\frac{n}{2^t}$ is an integer.
-\begin{proposition}\cite{DAM:SM08}\label{prop:no_orb}
+\begin{proposition}[\eg \cite{DAM:SM08}, Theorem 3]\label{prop:no_orb}
 Let $C_n = \langle \sigma_n \rangle$ for $\sigma_n \in \Sn$ be the cyclic group of rotation permutations acting on $\F_2^n$. Then the number of orbits induced on $\F_2^n$ is given by $g_n= \frac{1}{n} \sum\limits_{t \mid n} \phi(t)2^{\frac{n}{t}}$, where $\phi(t)$ is Euler's phi-function. 
 \end{proposition}
 
@@ -933,43 +934,51 @@ Therefore, $|\orb_{\sigma_d}(v)| = |\orb_{\sigma_n}(\hat{v})|$ for every $v \in 
 For $\sigma_n \in \Sn$, the number of orbits of odd cardinality due to the action of $C_n = \langle\sigma_n\rangle$ on $\F_2^n$ is given by
 $g_{n,odd} = g_{n_0}$.
 \end{theorem}
+
+
+
 \begin{proof}
 For $d \mid n$, it can be easily checked that if $|\orb_{\sigma_n}(x)| = d$ for an $x \in \F_2^n$ then there is a $v \in \F_2^d$ such that such that $x = (v,v, \ldots, v)$ and $|\orb_{\sigma_d}(v)| = d$ in $\F_2^d$.
-Every odd divisor $d$ of $n$ is also an divisor of $n_0$ and viceversa. Hence, for $d\mid n$ and $d$ is odd, $|\orb_{\sigma_n}(x)| = d$ for an $x\in \F_2^n$ iff there is a $v \in \F_2^d$ such that $x = (v,v, \ldots, v)$ and $|\orb_{\sigma_d}(v)| = d$ iff $|\orb_{\sigma_{n_0}}(y)| = d$ where $y = (v,v, \ldots, v) \in \F_2^{n_0}$. Therefore $g_{n,odd} = g_{n_0}$.
+Every odd divisor $d$ of $n$ is also a divisor of $n_0$ and viceversa. 
+Hence, for $d\mid n$ and $d$ odd, $|\orb_{\sigma_n}(x)| = d$ for an $x\in \F_2^n$ if and only if there is a $v \in \F_2^d$ such that $x = (v,v, \ldots, v)$ and $|\orb_{\sigma_d}(v)| = d$ if and only if $|\orb_{\sigma_{n_0}}(y)| = d$ where $y = (v,v, \ldots, v) \in \F_2^{n_0}$. Therefore $g_{n,odd} = g_{n_0}$.
 \end{proof}
 \begin{corollary}\label{cor:countsigma}
 For $\sigma_n \in \Sn$, the number of 2-$\sigma_n$S  WAPB functions is X and the number of balanced 2-$\sigma$S  WAPB functions is Y.
 \end{corollary}
 
+\pmnote{I do not think Corollary~\ref{cor:countsigma} is a corollary of Theorem~\ref{thm:oddorbs}: to determine X we need the number of even and odd orbits on each slice.}
+
 
 \begin{theorem}\label{thm:nlbfs}
 Let $\sigma_n \in \Sn$ for a positive integer $n$.
-Then $\NL(f_{\sigma_n}) \ge 2^{n-2} - \frac{g_{n_0}}{2}$.
+Then, $\NL(f_{\sigma_n}) \ge 2^{n-2} - \frac{g_{n_0}}{2}$.
 \end{theorem}
 \begin{proof}
 From Theorem~\ref{thm:nlbfpi}, we have
 $$\NL(f_{\sigma_n}) \ge 2^{n-2} - \frac{|\orb_o|}{2} = 2^{n-2} - \frac{g_{n,odd}}{2} = 2^{n-2} - \frac{g_{n_0}}{2}.$$
 \end{proof}
-As $g_n$ is an even integer~\cite{DM:CI18}, the bound is always an integer. 
-When $n = 2^m$ is a power of $2$, the nonlinearity bound $\NL(f_{\sigma_n}) \ge 2^{n-2} - 1$ as $g_{n_0} = g_1 = 2$. As $f_{\sigma_n} = f_{\psi_n}$ when $n$ is a power of $2$, the nonlinearity bound $\NL(f_{\sigma_n})$ matches with the result in Corollary~\ref{cor:nlbwpb}. 
+As $g_n$ is an even integer~\cite{DM:CI18} (Proposition 3.1), the bound is always an integer. 
+When $n = 2^m$ is a power of $2$, the nonlinearity bound becomes $\NL(f_{\sigma_n}) \ge 2^{n-2} - 1$ as $g_{n_0} = g_1 = 2$. 
+Since $f_{\sigma_n} = f_{\psi_n}$ when $n$ is a power of $2$, the nonlinearity bound $\NL(f_{\sigma_n})$ matches with the result in Corollary~\ref{cor:nlbwpb}. 
+In Table~\ref{tab:NLminmaxsigma}, we give the maximum and minimum nonlinearity among all $f_\sigma$ for the number of variables $n = \{4, 5, 6\}$, and over a sample $n = \{7, 8, 9, 10\}$, along with the upper bound of balanced Boolean functions and lower bound of $f_{\sigma}$ as per Theorem~\ref{thm:nlbfs}.
 
-\begin{table}[h!]\label{tab:NLminmaxsigma}
+\begin{table}[h!]
 \centering
 \begin{tabular}{|c|c|c|c||c|c|c|c|}\hline
 $n$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$\\ \hline\hline
 %Number of functions & $2^4 \times \binom{2}{1}$ & $2^8 \times \binom{4}{2}$ & $2^{18} \times \binom{4}{2}$&$2^{36} \times \binom{8}{4}$&$2^{34} \times \binom{2}{1}$& $2^{68} \times \binom{4}{2}$& $2^{138} \times \binom{4}{2}$\\
 %& $ = 2^5$& $= 3\times 2^9$& $= 3\times 2^{19}$& $= 70\times 2^{37}$&$ = 2^{35}$&$= 3\times 2^{69}$& $= 3\times 2^{139}$\\ \hline
-Max nl by experiment & $4$ & $12$ & $26$ & $54$ & $116$ & $232$ & $480$\\ \hline
-\% functions at max nl & $100$ & $2.34$ & $6.51$ & $8.2 \times 10^{-3}$ & $3.8 \times 10^{-3}$ & $8.5 \times 10^{-4}$ & $9.5 \times 10^{-5}$\\ \hline
+Max $\NL$ by experiment & $4$ & $12$ & $26$ & $54$ & $116$ & $232$ & $480$\\ \hline
+\% functions at max $\NL$ & $100$ & $2.34$ & $6.51$ & $8.2 \times 10^{-3}$ & $3.8 \times 10^{-3}$ & $8.5 \times 10^{-4}$ & $9.5 \times 10^{-5}$\\ \hline
 Nonlinearity upper bound & & & & & & &\\
 of balanced functions~\cite{SZZ95} & $4$ & $12$ & $28$ & $58$ & $118$ & $244$ & $494$\\ \hline
-Min nl by experiment & $4$ & $6$ & $14$ & $34$ & $64$ & $188$ & $334$\\ \hline
-\% functions at min nl & $100$ & $0.52$ & $1.04$ & $3.1 \times 10^{-6}$ & $3.2 \times 10^{-3}$ & $9.5 \times 10^{-5}$ & $9.5 \times 10^{-5}$\\ \hline
-Average nl by experiment & $4.0$ & $9.59$ & $22.05$ & $48.51$ & $106.01$  & $220.18$ & $460.45$\\ \hline
+Min $\NL$ by experiment & $4$ & $6$ & $14$ & $34$ & $64$ & $188$ & $334$\\ \hline
+\% functions at min $\NL$ & $100$ & $0.52$ & $1.04$ & $3.1 \times 10^{-6}$ & $3.2 \times 10^{-3}$ & $9.5 \times 10^{-5}$ & $9.5 \times 10^{-5}$\\ \hline
+Average $\NL$ by experiment & $4.0$ & $9.59$ & $22.05$ & $48.51$ & $106.01$  & $220.18$ & $460.45$\\ \hline
 Nonlinearity lower bound & $3$ & $4$ & $14$ & $22$ & $63$ & $98$ & $252$\\
 by Theorem~\ref{thm:nlbfs} & & & & & & &\\ \hline
 \end{tabular}
-\caption{Percentage of $f_\sigma \in \BN$ satisfying lower bound and upper value of $\NL(f_\sigma)$}
+\caption{Percentage of $f_\sigma \in \BN$ satisfying lower bound and upper value of $\NL(f_\sigma)$.\label{tab:NLminmaxsigma}}
 \end{table}
 \begin{theorem}\label{thm:resorb}
 For $\sigma_n \in \Sn$ and $k \in [0,n]$, the number of orbits due to the action of $C_n = \langle\sigma_n\rangle$ on $\Ekn{k}{n}$ is given by
@@ -986,10 +995,10 @@ $$g_{k,n,odd} = \begin{cases}
 				 0 & \text{ if } 2^e \nmid k \\
                  g_{\frac{k}{2^e},n_0} & \text{ if } 2^e \mid k,
                 \end{cases}$$
-where $n_0$ is the largest odd intger that divides $n$ and $2^e = \frac{n}{n_0}$ i.e., $e$ is the largest integer such that $2^e$ divides $n$.
+where $n_0$ is the largest odd integer that divides $n$ and $2^e = \frac{n}{n_0}$ \ie, $e$ is the largest integer such that $2^e$ divides $n$.
 \end{lemma}
 \begin{proof}
-As in the proof of Theorem~\ref{thm:oddorbs}, for $d \mid n$, if $|\orb_{\sigma_n}(x)| = d$ for an $x \in \Ekn{k}{n}$ then there is a $v \in \F_2^d$ such that such that $x = (v,v, \ldots, v)$ with $|\orb_{\sigma_d}(v)| = d$ in $\F_2^d$ and $\w(v) = \frac{k}{n/d} = \frac{kd}{n}$. Thus, in this case, $\frac{n}{d} \mid k$ and hence $v \in \Ekn{\frac{kd}{n}}{d}$. 
+As in the proof of Theorem~\ref{thm:oddorbs}, for $d \mid n$, if $|\orb_{\sigma_n}(x)| = d$ for an $x \in \Ekn{k}{n}$ then there is a $v \in \F_2^d$ such that $x = (v,v, \ldots, v)$ with $|\orb_{\sigma_d}(v)| = d$ in $\F_2^d$ and $\w(v) = \frac{k}{n/d} = \frac{kd}{n}$. Thus, in this case, $\frac{n}{d} \mid k$ and hence $v \in \Ekn{\frac{kd}{n}}{d}$. 
 
 \noindent For any odd divisor $d$ of $n$, if $\frac{n}{d} \mid k$ then $2^e \mid k$. That is, if $2^e \nmid k$ then $\frac{n}{d} \nmid k$ for every odd divisor $d$ of $n$ and that implies $g_{k,n,odd} = 0$.
 
@@ -1006,9 +1015,16 @@ Then $$\NLk{k}(f_{\sigma_n}) ~\geq ~
 \end{cases}$$
 where $n_0$ is the largest odd intger that divides $n$ and $2^e = \frac{n}{n_0}$
 \end{theorem}
-The proof of the theorem can directly be obtained by substituting the value of $|\orbs_{o,k}| = g_{k,n,odd}$ from Lemma~\ref{lem:rotodd} in Theorem~\ref{thm:NLkb}.
+\begin{proof} The proof of the theorem can directly be obtained by substituting the value of $|\orbs_{o,k}| = g_{k,n,odd}$ from Lemma~\ref{lem:rotodd} in Theorem~\ref{thm:NLkb}.
+\end{proof}
 
 \section{Conclusion}\label{sec:con}
+
+
+
+
+
+
 
 
 \ifnum\full=0
