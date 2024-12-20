@@ -27,7 +27,7 @@
 \usepackage{amsthm,amsfonts,amssymb}
 \usepackage[bookmarks,bookmarksopen,bookmarksdepth=2]{hyperref}
 \usepackage{pdflscape}
-
+\usepackage{slashbox}
 
 %\usepackage{natbib}
 
@@ -86,7 +86,7 @@
 
 \definecolor{mycolor}{rgb}{0.99,0.33,0.44}
 \newcommand{\pmnote}[1]{\colorbox{mycolor}{\parbox{0.9\linewidth}{[{\footnotesize {\bf PM:} { {#1}}}]}}}
-
+\newcommand{\dkdnote}[1]{\colorbox{mycolor}{\parbox{0.9\linewidth}{[{\footnotesize {\bf DKD:} { {#1}}}]}}}
 
 %% Sets
 
@@ -112,6 +112,7 @@
 \newcommand{\AN}{\mathsf{AN}}
 
 \newcommand{\Sn}{\mathbb{S}_n}
+\newcommand{\Sd}{\mathbb{S}_d}
 \newcommand{\orb}{\mathsf{O}}
 \newcommand{\orbs}{\mathcal{O}}
 
@@ -187,7 +188,7 @@
 \newcommand{\XOR}{\textsf{XOR}}
 \newcommand{\MUX}{\textsf{MUX}}
 
-
+\newcommand{\red}{\textcolor{red}}
 
 
 
@@ -213,7 +214,7 @@
  
 %latin
 
-\newcommand{\ie}{\textit{i.e.} }
+\newcommand{\ie}{\textit{i.e.}}
 \newcommand{\eg}{\textit{e.g.} }
 \newcommand{\ea}{\textit{et al.} }
 
