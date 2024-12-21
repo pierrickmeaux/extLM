@@ -39,41 +39,86 @@ Bhubaneswar, Odisha 752050, India.\\
 
 \setcounter{page}{1}	
 \begin{abstract}
-The construction of Boolean functions with good cryptographic properties over a subset of vectors with fixed Hamming weight is significant in lightweight stream ciphers like FLIP. 
-We present a general idea to construct a class of Weightwise Almost Perfectly Balanced (WAPB) Boolean functions by using the action of a cyclic permutation group on $\mathbb{F}_2^n$. Further, considering a particular permutation group $\langle \psi_n \rangle$ (where $\psi_n$ is a special type of permutation on $n$ elements), we present a class of WAPB Boolean functions on $n$ variables. This class generalizes the Weightwise Perfectly Balanced (WPB) Boolean function construction by Liu and Mesnager. Further, we studied the nonlinearity and weightwise nonlinearities of this class of functions.
+%The construction of Boolean functions with good cryptographic properties over a subset of vectors with fixed Hamming weight is significant in lightweight stream ciphers like FLIP. 
+%We present a general idea to construct a class of Weightwise Almost Perfectly Balanced (WAPB) Boolean functions by using the action of a cyclic permutation group on $\mathbb{F}_2^n$. 
+%This class generalizes the Weightwise Perfectly Balanced (WPB) $2^m$-variable Boolean function construction by Liu and Mesnager to any $n$. 
+%We show how to bound the nonlinearity and weightwise nonlinearities of any functions from this construction.
+%Further, we consider two different important permutations group $\langle \psi \rangle$ and $\langle \sigma \rangle$, where $\psi$ is a a binary-cycle permutation and $\sigma$ a rotation. 
+%We study theoretically the cryptographic properties of the WAPB functions obtained from these permutations, and examine their nonlinearity parameters for $n$ between $4$ and $10$.
+
+
+The construction of Boolean functions with good cryptographic properties over subsets of vectors with fixed Hamming weight is significant for lightweight stream ciphers like FLIP. 
+In this article, we propose a general method to construct a class of Weightwise Almost Perfectly Balanced (WAPB) Boolean functions using the action of a cyclic permutation group on $\mathbb{F}_2^n$. 
+This class generalizes the Weightwise Perfectly Balanced (WPB) $2^m$-variable Boolean function construction by Liu and Mesnager to any $n$. 
+We show how to bound the nonlinearity and weightwise nonlinearities of functions from this construction. Additionally, we explore two significant permutation groups, $\langle \psi \rangle$ and $\langle \sigma \rangle$, where $\psi$ is a binary-cycle permutation and $\sigma$ is a rotation. 
+We theoretically analyze the cryptographic properties of the WAPB functions derived from these permutations and experimentally evaluate their nonlinearity parameters for $n$ between 4 and 10.
+
+
+
+
 \keywords{Boolean function, Weightwise perfectly balanced (WPB), Weightwise almost perfectly balanced (WAPB), Nonlinearity}
 \end{abstract}
  
+ 
+ %Further, considering a particular permutation group $\langle \psi_n \rangle$ (where $\psi_n$ is a special type of permutation on $n$ elements), we present a class of WAPB Boolean functions on $n$ variables. This class generalizes the Weightwise Perfectly Balanced (WPB) Boolean function construction by Liu and Mesnager. Further, we studied the nonlinearity and weightwise nonlinearities of this class of functions.
 \section{Introduction}
-An $n$-variable Boolean function $f$ is a mapping from the $n$-dimensional vector space $\F_2^n$ to $\F_2$, where $\F_2$ denotes a finite field with two elements $\{0,1\}$. Depending upon the underlying algebraic structure, the symbol `$+$' is to indicate addition operations in $\F_2$, $\F_2^n$ and $\mathbb{R}$. The subsets of vectors with constant Hamming weight are denoted by $\Ekn{k}{n} = \{x \in \F_2^n : \w(x)=k\}$ for $0 \leq k \leq n$.
-Typically, the cryptographic properties of Boolean functions are analyzed over the entire domain of vector space $\F_2^n$. The study of Boolean functions over restricted domains, specifically to the subsets of vectors with constant Hamming weight i.e., $\Ekn{k}{n}$ for a specific $k$, has gained a considerable interest following the introduction of the stream cipher FLIP in 2016~\cite{EC:MJSC16}.
-In FLIP, the inputs to the filter function are from $\Ekn{\frac{n}{2}}{n}$. Further, this raises several questions concerning the characteristics of Boolean functions and their cryptographic properties. An initial cryptographic study of Boolean function in a restricted domain was undertaken by Carlet et al. in~\cite{TOSC:CarMeaRot17}. In this paper, the authors introduced the concept of Weightwise Perfectly Balanced (WPB) Boolean functions in $n$ variables which are balanced over $\Ekn{k}{n}, 1 \leq k \leq n-1$. Such functions exist only when $n$ is a power of two,  otherwise, only functions that are \textit{almost balanced} can exist. Here, \textit{almost balanced} means that the counts of preimages of $0$ and $1$ differ by at most one. Functions that are almost balanced on each subset of constant Hamming weight are termed Weightwise Almost Perfectly Balanced (WAPB). 
+An $n$-variable Boolean function $f$ is a mapping from the $n$-dimensional vector space $\F_2^n$ to $\F_2$, where $\F_2$ denotes a finite field with two elements $\{0,1\}$. 
+Depending upon the underlying algebraic structure, the symbol `$+$' is to indicate addition operations in $\F_2$, $\F_2^n$ and $\mathbb{R}$. 
+The subsets of vectors with constant Hamming weight, referred to as slices, are denoted by $\Ekn{k}{n} = \{x \in \F_2^n : \w(x)=k\}$ for $0 \leq k \leq n$.
+Typically, the cryptographic properties of Boolean functions are analyzed over the entire domain of vector space $\F_2^n$. 
+The study of Boolean functions over restricted domains, specifically to the subsets of vectors with constant Hamming weight \ie, $\Ekn{k}{n}$ for a specific $k$, has gained a considerable interest following the introduction of the stream cipher FLIP~\cite{EC:MJSC16} in 2016.
+In FLIP, the inputs to the filter function are from $\Ekn{\frac{n}{2}}{n}$. 
+Further, this raises several questions concerning the characteristics of Boolean functions and their cryptographic properties. 
+An initial cryptographic study of Boolean function in a restricted domain was undertaken by Carlet et al. in~\cite{TOSC:CarMeaRot17}. 
+In this paper, the authors introduced the concept of Weightwise Perfectly Balanced (WPB) Boolean functions in $n$ variables which are balanced over $\Ekn{k}{n}, 1 \leq k \leq n-1$. 
+Such functions exist only when $n$ is a power of two,  otherwise, only functions that are \textit{almost balanced} can exist. 
+Here, \textit{almost balanced} means that the counts of preimages of $0$ and $1$ differ by at most one. Functions that are almost balanced on each subset of constant Hamming weight are termed Weightwise Almost Perfectly Balanced (WAPB). 
 
-The first construction of Weightwise Perfectly Balanced (WPB) Boolean functions, presented in~\cite{TOSC:CarMeaRot17} is based on the direct sum of four Boolean functions.  The authors also proposed a recursive construction for Weightwise Almost Perfectly Balanced (WAPB) Boolean functions. 
+\pmnote{Which construction is the direct sum of 4 Boolean functions?}
+
+The first construction of Weightwise Perfectly Balanced (WPB) Boolean functions, presented in~\cite{TOSC:CarMeaRot17} is based on the direct sum of four Boolean functions. 
+The authors also proposed a recursive construction for Weightwise Almost Perfectly Balanced (WAPB) Boolean functions. 
 In the same paper, the author established upper bounds on the nonlinearity and algebraic immunity of WPB/WAPB Boolean functions defined over $\Ekn{k}{n}$. Subsequently, a numerous studies have been conducted within the framework of FLIP, focusing on optimizing Boolean functions for cryptographic criteria over restricted domains.
 
-We present a brief summary of the advancements and further constructions of the families of WAPB functions introduced in previous studies. Tang and Liu~\cite{CC:TangLiu19} proposed a construction for a class of WAPB Boolean functions in even number of variables. These functions achieve optimal algebraic immunity over $\F_2^n$ and possess algebraic immunity greater than or equal to $2$ on $\Ekn{k}{n}$ for $3 \leq k \leq n-1$.
-A class of quadratic WAPB function was introduced in~\cite{DAM:LiSu20} to construct WPB functions by modifying the support of WAPB Boolean functions. In 2021, Mesnager and Su~\cite{CC:MesSu21} derived a construction of $n$-variable WAPB Boolean functions for any positive integer $n$ by algebraic normal form of a particular quadratic Boolean function. Subsequetly, Zhu and Su in~\cite{DAM:ZhuSu22} proposed an elegant constructon of WAPB functions by the direct sum of several known WPB Boolean functions. Guo and Su~\cite{DAM:GuoSu22} introduced another class of WAPB Boolean functions on $n$-variables by modifying the support of quadratic Boolean functions. In \cite{INDO:GinMea22}, a secondary construction of WAPB Boolean functions was introduced using Siegenthaler's construction. This approach allows to compute the nonlinearity bound over $\Ekn{k}{n}$ of the resulting function to be determined using the known functions, enabling the generation of WAPB function with high nonlinearity over $\Ekn{k}{n}$. Recent advancements have employed genetic algorithms (GA) to refine the properties of WPB in~ \cite{CEC:MPJDL22} and WAPB functions in~\cite{ASIACCS:YCL+23}, specifically aiming to enhance their nonlinearity over $\Ekn{k}{n}$. In~\cite{AMC:DM24}, the author introduced a construction for a class of $n$-variable WAPB Boolean functions from the known support of an $n_0$-variable WAPB Boolean function where $n > n_0$. In~\cite{SAC:Meaux24}, the author proposed a construction for WAPB functions based on the concept of total order relations on vectors, aimed at simplifying implementation and also provide a recursive construction for WAPB Boolean function.
-Most studies primarily concentrate on WPB Boolean functions, which have been explored in  ~\cite{DCC:LiuMes19,CC:MesSu21,DAM:Su21,CEC:MPJDL22,C2SI:GinMea23,Latin:GinMea23,DAM:ZLCQZ23,BFA:DM23,AMC:ZhangSu23,Mat:ZJZQ23,CCDS:GinMea24}. Further, improved bounds on the nonlinearity and algebraic immunity of Boolean functions over restricted domains have been established in \cite{IC:MMMRS18,CC:MSLZ22,DAM:GinMea22,C2SI:GinMea23,Latin:GinMea23}. 
+We present a brief summary of the advancements and further constructions of the families of WAPB functions introduced in previous studies. 
+Tang and Liu~\cite{CC:TangLiu19} proposed a construction for a class of WAPB Boolean functions in even number of variables. 
+These functions achieve optimal algebraic immunity over $\F_2^n$ and possess algebraic immunity greater than or equal to $2$ on $\Ekn{k}{n}$ for $3 \leq k \leq n-1$.
+A class of quadratic WAPB function was introduced in~\cite{DAM:LiSu20} to construct WPB functions by modifying the support of WAPB Boolean functions. 
+In 2021, Mesnager and Su~\cite{CC:MesSu21} derived a construction of $n$-variable WAPB Boolean functions for any positive integer $n$ by algebraic normal form of a particular quadratic Boolean function. 
+Subsequently, Zhu and Su in~\cite{DAM:ZhuSu22} proposed an elegant construction of WAPB functions by the direct sum of several known WPB Boolean functions. 
+Guo and Su~\cite{DAM:GuoSu22} introduced another class of WAPB Boolean functions on $n$-variables by modifying the support of quadratic Boolean functions. 
+In \cite{INDO:GinMea22}, a secondary construction of WAPB Boolean functions was introduced using Siegenthaler's construction. 
+This approach allows to compute the nonlinearity bound over $\Ekn{k}{n}$ of the resulting function to be determined using the known functions, enabling the generation of WAPB function with high nonlinearity over $\Ekn{k}{n}$. 
+Recent advancements have employed genetic algorithms to refine the properties of WPB in~\cite{CEC:MPJDL22,ACI:ManKuLar22} and WAPB functions in~\cite{ASIACCS:YCL+23}, specifically aiming to enhance their nonlinearity over $\Ekn{k}{n}$. In~\cite{AMC:DM24}, the author introduced a construction for a class of $n$-variable WAPB Boolean functions from the known support of an $n_0$-variable WAPB Boolean function where $n > n_0$. 
+In~\cite{SAC:Meaux24}, the author proposed a construction for WAPB functions based on the concept of total order relations on vectors, aimed at simplifying implementation and also provide a recursive construction for WAPB Boolean function.
+Most studies primarily concentrate on WPB Boolean functions, which have been explored in  ~\cite{DCC:LiuMes19,CC:MesSu21,DAM:Su21,CEC:MPJDL22,C2SI:GinMea23,Latin:GinMea23,DAM:ZLCQZ23,BFA:DM23,AMC:ZhangSu23,Mat:ZJZQ23,CCDS:GinMea24}. 
+Further, improved bounds on the nonlinearity and algebraic immunity of Boolean functions over restricted domains have been established in~\cite{IC:MMMRS18,CC:MSLZ22,DAM:GinMea22,C2SI:GinMea23,Latin:GinMea23}. 
 
-To be cryptographic friendly, Boolean functions should be efficient to implement while achieving a balanced trade-off among various cryptographic criteria. However, these functions have not been comprehensively studied in terms of their cryptographic structures and properties, such as nonlinearity and algebraic immunity, both over $\F_2^n$ and over the set of vectors with constant Hamming weight. Moreover, Identifying such functions that closely approach the bounds established in previous research is also of significant importance. Therefore, analyzing the cryptographic properties and efficiency of WAPB Boolean functions is crucial for their potential application in ciphers like FLIP. 
+To be cryptographic friendly, Boolean functions should be efficient to implement while achieving a balanced trade-off among various cryptographic criteria. 
+However, these functions have not been comprehensively studied in terms of their cryptographic structures and properties, such as nonlinearity and algebraic immunity, both over $\F_2^n$ and over the set of vectors with constant Hamming weight. 
+Moreover, identifying such functions that closely approach the bounds established in previous research is also of significant importance. 
+Therefore, analyzing the cryptographic properties and efficiency of WAPB Boolean functions is crucial for their potential application in ciphers, like FLIP. 
 
-\subsection{Our Contribution}
-Liu and Mesnager in ~\cite{DCC:LiuMes19} presented a class of WPB Boolean functions that are 2-rotation symmetric (see Proposition~\ref{cons:LM19}).
-These functions have the good nonlinearity and weightwise nonlinearities. However, their existence is restricted to cases where $n$ is a power of $2$. Furthermore, this class of functions of intresting algebraic structure as the truth values are invariant under 2-rotations(see Section~\ref{ssec:PSBF}).
-In this article, we introduce the general constructon of WAPB Boolean functions which is 2-invariant under any cyclic subgroup of symmetric group (i.e., $\langle \pi \rangle$ where $\pi \in \Sn$) on $n$ elements. We also presented study of cryptographic properties for the cases of two different important permutations $\psi$ and $\sigma$. In both cases, we generalize the construction to develop a class of WAPB Boolean functions for any number of variables. Hence, the Liu-Mesnager construction is the class of functions of our construction when $n$ is power of $2$.
+\subsection{Our Contributions}
+Liu and Mesnager in~\cite{DCC:LiuMes19} presented a class of WPB Boolean functions that are 2-rotation symmetric (see Proposition~\ref{cons:LM19}).
+These functions have the good nonlinearity and weightwise nonlinearities. 
+However, their existence is restricted to cases where $n$ is a power of $2$. 
+Furthermore, this class of functions of interesting algebraic structure as the truth values are invariant under 2-rotations (see Section~\ref{ssec:PSBF}).
+In this article, we introduce the general construction of WAPB Boolean functions which is 2-invariant under any cyclic subgroup of symmetric group (\ie, $\langle \pi \rangle$ where $\pi \in \Sn$) on $n$ elements. 
+We also presented study of cryptographic properties for the cases of two different important permutations $\psi$ and $\sigma$. In both cases, we generalize the construction to develop a class of WAPB Boolean functions for any number of variables. Hence, the Liu-Mesnager construction is the class of functions of our construction when $n$ is power of $2$.
 
 Additionally, we propose new combinatorial identities for the binary Krawchouk polynomials of degree $k$ to investigate the lower bounds on the nonlinearities of Boolean functions derived from this group action. 
 Hereafter, we establish an improved bound on the nonlinearity over the set of vectors with Hamming weight 2 for the Liu-Mesnager~\cite{DCC:LiuMes19} construction. Additionally, we provide strong bounds for the WAPB Boolean functions resulting from our proposed construction.
-\subsection{Organisation}\label{ssec:org}
-The research objectives and our contributions are already outlined. The remaining part of the paper is organized as follows.
+\subsection{Organization}\label{ssec:org}
+%The research objectives and our contributions are already outlined. 
+The remaining part of the paper is organized as follows:
 \begin{itemize}
 \item Section~\ref{sec:prel} presents the required definitions and notations of a Boolean function and its critical cryptographic properties.
 Section~\ref{ssec:PSBF} presents the definition and notations on $\pi$ symmetric Boolean functions and 2-$\pi$ symmetric Boolean functions.
-Some required known results and new results on Krawchouk polynomials are presents in Section~\ref{ssec:KP}.
-\item Section~\ref{sec:GA} contains a construction of 2-$\pi$S WAPB Boolean functions using the group action of a cyclic permutation group $P = \langle \pi \rangle$. Then some results on the lower bound of the nonlinearity and weightwise nonlinearities are presented.
-\item Section~\ref{sec:ELM} and Section~\ref{sec:2RotS} presents the cryptographic studies for the special cases when $\pi = \psi$ and $\pi = \sigma$ where $\psi$ and $\sigma$ are distinct binary-cycle permutation and rotation permutation respectively,
-another main result of the paper.
+Some required known results and new results on Krawchouk polynomials are presented in Section~\ref{ssec:KP}.
+\item Section~\ref{sec:GA} contains a construction of 2-$\pi$S WAPB Boolean functions using the group action of a cyclic permutation group $P = \langle \pi \rangle$. Then, some results on the lower bound of the nonlinearity and weightwise nonlinearities are presented.
+\item 
+Section~\ref{sec:ELM} and Section~\ref{sec:2RotS} present the cryptographic studies for the special cases where $\pi = \psi$ and $\pi = \sigma$, where $\psi$ and $ \sigma$ are distinct binary-cycle and rotation permutations, respectively. This constitutes another main result of the paper.
 \item The paper is concluded in Section~\ref{sec:con}.
 \end{itemize}
 \section{Preliminaries}\label{sec:prel}
@@ -1021,6 +1066,16 @@ where $n_0$ is the largest odd intger that divides $n$ and $2^e = \frac{n}{n_0}$
 \section{Conclusion}\label{sec:con}
 
 
+In this article, we extended the construction of weightwise perfectly balanced Boolean functions, initially proposed by Liu and Mesnager~\cite{DCC:LiuMes19}, to a broad class of weightwise almost perfectly balanced Boolean functions. 
+Our general construction is based on the action of cyclic subgroups of the symmetric group (\ie, $\langle \pi \rangle$) on $n$-element sets, allowing us to overcome the restriction of $n$ being a power of two. 
+This generalization includes the Liu-Mesnager construction as a special case when $n$ is a power of $2$.
+
+We provided lower bounds on the nonlinearity and weightwise nonlinearities for all functions from this class, based on the number of orbits of odd sizes. 
+In particular we focused on the cryptographic properties of WAPB functions obtained from two specific permutations $\psi$ and $\sigma$, demonstrating that these functions achieve good nonlinearity and weightwise nonlinearity. 
+Additionally, we gave more results on binary Krawchouk polynomials, improved the proven bound on $\NLk{2}$ for Liu-Mesnager functions and provided experimental results on the distribution of the nonlinearity of the class ow WAPB function we introduced.
+Additionally, we presented new results on binary Krawchouk polynomials, improved the previously established bound on $\NLk{2}$ for Liu-Mesnager functions, and provided experimental insights into the distribution of the nonlinearity for the class of WAPB functions we introduced.
+
+In summary, our results provide a unified framework for constructing WAPB Boolean functions with desirable cryptographic properties for any number of variables, significantly expanding the applicability and flexibility of these functions in cryptographic systems. Future work could explore oteher permutations or further improve the study on other significant cryptographic properties of these constructions, such as the (restricted) algebraic immunity.
 
 
 
