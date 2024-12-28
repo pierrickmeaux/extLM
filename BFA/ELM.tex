@@ -74,9 +74,8 @@ In this paper, the authors introduced the concept of Weightwise Perfectly Balanc
 Such functions exist only when $n$ is a power of two,  otherwise, only functions that are \textit{almost balanced} can exist. 
 Here, \textit{almost balanced} means that the counts of preimages of $0$ and $1$ differ by at most one. Functions that are almost balanced on each subset of constant Hamming weight are termed Weightwise Almost Perfectly Balanced (WAPB). 
 
-\pmnote{Which construction is the direct sum of 4 Boolean functions?}
 
-The first construction of Weightwise Perfectly Balanced (WPB) Boolean functions, presented in~\cite{TOSC:CarMeaRot17} is based on the direct sum of four Boolean functions. 
+The first construction of Weightwise Perfectly Balanced (WPB) Boolean functions, presented in~\cite{TOSC:CarMeaRot17} is based on the indirect sum of four Boolean functions. 
 The authors also proposed a recursive construction for Weightwise Almost Perfectly Balanced (WAPB) Boolean functions. 
 In the same paper, the author established upper bounds on the nonlinearity and algebraic immunity of WPB/WAPB Boolean functions defined over $\Ekn{k}{n}$. Subsequently, a numerous studies have been conducted within the framework of FLIP, focusing on optimizing Boolean functions for cryptographic criteria over restricted domains.
 
@@ -985,13 +984,14 @@ $g_{n,odd} = g_{n_0}$.
 \begin{proof}
 For $d \mid n$, it can be easily checked that if $|\orb_{\sigma_n}(x)| = d$ for an $x \in \F_2^n$ then there is a $v \in \F_2^d$ such that such that $x = (v,v, \ldots, v)$ and $|\orb_{\sigma_d}(v)| = d$ in $\F_2^d$.
 Every odd divisor $d$ of $n$ is also a divisor of $n_0$ and viceversa. 
-Hence, for $d\mid n$ and $d$ odd, $|\orb_{\sigma_n}(x)| = d$ for an $x\in \F_2^n$ if and only if there is a $v \in \F_2^d$ such that $x = (v,v, \ldots, v)$ and $|\orb_{\sigma_d}(v)| = d$ if and only if $|\orb_{\sigma_{n_0}}(y)| = d$ where $y = (v,v, \ldots, v) \in \F_2^{n_0}$. Therefore $g_{n,odd} = g_{n_0}$.
+Hence, for $d\mid n$ and $d$ odd, $|\orb_{\sigma_n}(x)| = d$ for an $x\in \F_2^n$ if and only if there is a $v \in \F_2^d$ such that $x = (v,v, \ldots, v)$ and $|\orb_{\sigma_d}(v)| = d$ if and only if $|\orb_{\sigma_{n_0}}(y)| = d$ where $y = (v,v, \ldots, v) \in \F_2^{n_0}$. 
+Therefore $g_{n,odd} = g_{n_0}$.
 \end{proof}
-\begin{corollary}\label{cor:countsigma}
-For $\sigma_n \in \Sn$, the number of 2-$\sigma_n$S  WAPB functions is X and the number of balanced 2-$\sigma$S  WAPB functions is Y.
-\end{corollary}
+%\begin{corollary}\label{cor:countsigma}
+%For $\sigma_n \in \Sn$, the number of 2-$\sigma_n$S  WAPB functions is X and the number of balanced 2-$\sigma$S  WAPB functions is Y.
+%\end{corollary}
 
-\pmnote{I do not think Corollary~\ref{cor:countsigma} is a corollary of Theorem~\ref{thm:oddorbs}: to determine X we need the number of even and odd orbits on each slice.}
+%\pmnote{I do not think Corollary~\ref{cor:countsigma} is a corollary of Theorem~\ref{thm:oddorbs}: to determine X we need the number of even and odd orbits on each slice.}
 
 
 \begin{theorem}\label{thm:nlbfs}
