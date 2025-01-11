@@ -50,11 +50,8 @@ Bhubaneswar, Odisha 752050, India.\\
 The construction of Boolean functions with good cryptographic properties over subsets of vectors with fixed Hamming weight is significant for lightweight stream ciphers like FLIP. 
 In this article, we propose a general method to construct a class of Weightwise Almost Perfectly Balanced (WAPB) Boolean functions using the action of a cyclic permutation group on $\mathbb{F}_2^n$. 
 This class generalizes the Weightwise Perfectly Balanced (WPB) $2^m$-variable Boolean function construction by Liu and Mesnager to any $n$. 
-We show how to bound the nonlinearity and weightwise nonlinearities of functions from this construction. Additionally, we explore two significant permutation groups, $\langle \psi \rangle$ and $\langle \sigma \rangle$, where $\psi$ is a binary-cycle permutation and $\sigma$ is a rotation. 
+We show how to bound the nonlinearity and weightwise nonlinearities of functions from this construction. Additionally, we explore two significant permutation groups, $\langle \psi \rangle$ and $\langle \sigma \rangle$, where $\psi$ is a distinct binary-cycle permutation and $\sigma$ is a rotation. 
 We theoretically analyze the cryptographic properties of the WAPB functions derived from these permutations and experimentally evaluate their nonlinearity parameters for $n$ between 4 and 10.
-
-
-
 
 \keywords{Boolean function, Weightwise perfectly balanced (WPB), Weightwise almost perfectly balanced (WAPB), Nonlinearity}
 \end{abstract}
@@ -731,10 +728,11 @@ Hence, we denote, $\psi_n = (\sigma_{n_1},\sigma_{n_2},\ldots,\sigma_{n_w})$ and
 
 Now to apply Burnside's lemma, for every $k \in \{1, 2, \ldots, n_w\}$, we need to compute the number of fixed vectors $z \in \F_2^n$ by $\psi_n^k$ i.e., $\psi_n^k(z) = z$. That is, for every $k \in \{1, 2, \ldots, n_w\}$, we need to compute the number of vectors $z \in \F_2^n$ such that $\rho_{n_1}^k(z_1) = z_1, \rho_{n_2}^k(z_2) = z_2, \ldots, \rho_{n_w}^k(z_w) = z_w$ where $z = (z_1,z_2, \ldots, z_w)$ and $z_1 \in \F_2^{n_1}, z_2 \in \F_2^{n_2}, \ldots, z_w \in \F_2^{n_w}$.
 
-Here, the number of permutation cycles in $\sigma_{n_i}^k= \gcd(n_i,k)$ for $1 \leq i \leq w$ and $1 \leq k \leq n_w$. So, the length of each permutation cycle in $\sigma_{n_i}^k$ is $\frac{n_i}{\gcd(n_i,k)}$. 
+Here, the number of permutation cycles in $\sigma_{n_i}^k= \gcd(n_i,k)$ for $1 \leq i \leq w$ and $1 \leq k \leq n_w$ and the length of each permutation cycle in $\sigma_{n_i}^k$ is $\frac{n_i}{\gcd(n_i,k)}$. 
 Therefore, the total number of permutation cycles in $\psi^k$ is $$\gcd(n_1,k)+ \gcd(n_2,k) + \cdots + \gcd(n_w,k).$$
 As every permutation cycle fixes all $0$'s or all $1$'s, each permutation cycle has two choices.
-$\sigma_{n_i}^k$ fixes $2^{\gcd(n_i,k)}$ number of $z_i \in \F_2^{n_i}$. Therefore, $\psi^k$ fixes $2^{\gcd(n_1,k)+ \gcd(n_2,k) + \cdots + \gcd(n_w,k)}$ number of $z \in \F_2^n$. Hence, by using the Burnside Lemma, the number of orbits is\\
+%$\sigma_{n_i}^k$ fixes $2^{\gcd(n_i,k)}$ number of $z_i \in \F_2^{n_i}$.
+Therefore, $\psi^k$ fixes $2^{\gcd(n_1,k)+ \gcd(n_2,k) + \cdots + \gcd(n_w,k)}$ number of $z \in \F_2^n$. Hence, by using the Burnside Lemma, the number of orbits is\\
 $\displaystyle{g_n = \frac{1}{n_w} \sum_{\pi \in G} |fix_{\F_2^n}(\pi)| 
     = \frac{1}{n_w} \sum_{k=1}^{n_w}  2^{\gcd(n_1,k)+ \gcd(n_2,k) + \cdots + \gcd(n_w,k)}}$.
 \end{proof}
@@ -778,7 +776,6 @@ by Theorem~\ref{thm:nlboundf} & & & & & & &\\ \hline
 \end{table}
 
 Now we will study the weightwise nonlinearity of $f_\psi$.
-
 \begin{theorem}\label{thm:NLk_bound}
 Let $n \geq 2$ be a positive integer and $\psi \in \Sn$ as in  Equation~\ref{eqn:cycperm}.
 Then $$\NLk{k}(f_\psi) ~\geq ~ 
@@ -852,7 +849,16 @@ $$\NLk{k}(f_\psi) ~\geq ~
 \end{enumerate}
 \end{theorem}
 
-Since $\Ekn{\lfloor\frac{n}{2}\rfloor}{n}$ is a largest slice among all slices $\Ekn{k}{n}, k \in [0,n]$, studying the nonlinearity at this domain is useful for cryptographic purpose. The cipher FLIP also uses the domain $\Ekn{\frac{n}{2}}{n}$ for its design. We have the nonlinearity bounds for the largest slice (\ie, $k = \lfloor\frac{n}{2}\rfloor$) in the following theorem.
+\begin{note}\label{nt:nbnd}
+The bounds in Theorem~\ref{thm:NLk_bound2} do not cover the cases when 
+\begin{enumerate}
+\item $n$ is odd with $k \in [0,\frac{n-1}{2}]$ and even;
+\item $n$ is even with $k \in [0,\frac{n}{2}]$.
+\end{enumerate}
+\end{note}
+%Note that the bounds in Theorem~\ref{thm:NLk_bound2} do not cover the cases when (1) $n$ is odd with $k \in [0,\frac{n-1}{2}]$ and even; and (2) $n$ is even with $k \in [0,\frac{n}{2}]$.
+
+Since $\Ekn{\lfloor\frac{n}{2}\rfloor}{n}$ is a largest slice among all slices $\Ekn{k}{n}, k \in [0,n]$, studying the nonlinearity at this domain is useful for cryptographic purpose. The cipher FLIP also uses the domain $\Ekn{\frac{n}{2}}{n}$ for its design. Using the particular case results of Theorem~\ref{thm:minK}[Item~\ref{itm:odd} and Item~\ref{itm:even}] in Corollary~\ref{thm:NLk_bound}, we have the nonlinearity bounds for the largest slice (\ie, $k = \lfloor\frac{n}{2}\rfloor$) in the following theorem.
 \begin{theorem}\label{thm:NLk_boundm}
 \begin{enumerate}
 \item If $n = 2m+1$ is odd then
@@ -868,21 +874,10 @@ $$\NLk{m}(f_\psi) ~\geq ~
 \end{enumerate}
 \end{enumerate}
 \end{theorem}
-
-\noindent Now, we study the restricted nonlinearity $\NLk{2}(f_\psi)$.\\
-We denote by $\NLk{k}^n$ the minimum $\min\{\NLk{k}^n(f_\psi) \mid f_\psi \in \BN  \text{ constructed as in Theorem~\ref{thm:WAPB}}\}$.
-\begin{theorem}
+Now, we study the restricted nonlinearity $\NLk{2}(f_\psi)$.
+\begin{theorem}\label{thm:nl2psi}
 Let $n \geq 2$ be an positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
 Then $$\NLk{2}(f_\psi) ~\geq ~ \lfloor\frac{(n-1)^2}{8}\rfloor .$$
-\iffalse
-$$\NLk{2}(f_\psi) ~\geq ~ \left\{
-\begin{array}{lr}
-	\frac{n(n-2)}{8} & \text{ if } n \text{ is even}\\
-	\lfloor\frac{(n-1)^2}{8}\rfloor & \text{ if } n \text{ is odd}.   
-\end{array} \right.$$\fi
-Moreover, if $n = 2^m$ for $m \geq 1$, ~~~~$\dfrac{n(n-2)}{8} \leq \NLk{2}^n \leq \NLk{4}^{2n} \leq \NLk{8}^{2^{2}n } \leq \cdots \leq \NLk{2^{i+1}}^{2^{i}n} \leq \cdots $.\\
-For generalization, if $n =  2^{a_w} + 2^{a_{w-1}} + \cdots + 2^{a_1}$ for $ a_w > a_{w-1} > \cdots > a_1 \geq 0$ as defined in ~Equation\ref{eqn:binn},
-$$\lfloor\frac{(n-1)^2}{8}\rfloor \leq \NLk{2}^n \leq \NLk{4}^{2n} \leq \NLk{8}^{2^{2}n } \leq \cdots \leq \NLk{2^{i+1}}^{2^{i}n} \leq \cdots.$$
 \end{theorem}
 \begin{proof}
 From Theorem~\ref{thm:minK}, we have 
@@ -905,8 +900,7 @@ $\NLk{2}(f_\psi) \geq \left\{
  \frac{n(n-2)}{8}-\frac{1}{2} & \text{ if } n \text{ is even (\ie, $n = 4t+2$ form)} \\
  \frac{(n-1)^2}{8}-\frac{1}{2} & \text{ if } n \text{ is odd (\ie, $n = 4t+3$ form)}.
 \end{array} \right.$\\
-We can check that for $n$ even, $\frac{n(n-2)}{8}$ is always an integer and for 
-$n$ odd, $\frac{(n-1)^2}{8}$ is an integer if and only if $2 \npreceq n$. Hence, combining the cases, we have 
+We can check that for $n$ even, $\frac{n(n-2)}{8}$ is always an integer and for $n$ odd, $\frac{(n-1)^2}{8}$ is an integer if and only if $2 \npreceq n$. Hence, combining the cases, we have 
 $$\NLk{2}(f_\psi) \geq \left\{
 \begin{array}{ll}
  \frac{n(n-2)}{8} & \text{ if } n \text{ is even} \\
@@ -914,7 +908,7 @@ $$\NLk{2}(f_\psi) \geq \left\{
 \end{array} \right.$$
 Further, as $\frac{(n-1)^2}{8} = \frac{n(n-2)}{8} +\frac{1}{8}$, $\lfloor\frac{(n-1)^2}{8}\rfloor = \frac{n(n-2)}{8}$ when $n$ is even. Hence,
 $\NLk{2}(f_\psi) \geq \lfloor\frac{(n-1)^2}{8}\rfloor.$
-
+\iffalse
 To prove the second part of the theorem, we use the technique followed in the proof of~\cite[Theorem-3.14]{DCC:LiuMes19}.
 It can be checked that $\NLk{R}(f) \leq \NLk{E}(f)$ if $R \subseteq E$.
 When $n = 2^m$, for a fixed integer $j \in [1,m]$, consider the set  
@@ -943,8 +937,42 @@ For $x =  (y_{n_w},y_{n_w})(y_{n_{w-1}},y_{n_{w-1}})\ldots (y_{n_1},y_{n_1}) \in
 $$\orb_{\psi_n}(x) = \{(z_{n_w}, z_{n_w})(z_{n_{w-1}},z_{n_{w-1}})\ldots (z_{n_1},z_{n_1}) : z_{n_w} z_{n_{w-1}} \ldots z_{n_1} \in \orb_{\psi_\frac{n}{2}}(y)\}.$$
 Using similar technique as in the previous case, for a $ f \in \Bn{2n}$ satisfying Theorem~\ref{thm:WAPB}, we have a WAPB $g \in \Bn{n}$  such that $\forall y \in \F_2^{n}$,  $g(y) = f(x)$ for $ x \in R$. This implies, $\NLk{2}^{n}(g) = \NLk{R}(f) \leq \NLk{\Ekn{4}{2n}}(f) = \NLk{4}^{2n}(f)$. This implies, $\NLk{2}^{n} \leq \NLk{4}^{2n}$.
 If we generalize the result, we have
-$$ \lfloor\frac{(n-1)^2}{8}\rfloor \leq \NLk{2}^n \leq \NLk{4}^{2n} \leq \NLk{8}^{2^{2}n } \leq \cdots \leq \NLk{2^{i+1}}^{2^{i}n}.$$
+$$ \lfloor\frac{(n-1)^2}{8}\rfloor \leq \NLk{2}^n \leq \NLk{4}^{2n} \leq \NLk{8}^{2^{2}n } \leq \cdots \leq \NLk{2^{i+1}}^{2^{i}n}.$$\fi
 \end{proof}
+We denote by $\NLk{k}^n$ the minimum $\min\{\NLk{k}^n(f_\psi) \mid f_\psi \in \BN  \text{ constructed as in Theorem~\ref{thm:WAPB}}\}$.
+\begin{theorem}\label{thm:recbnd}
+Let $n \geq 2$ be an positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}. Then for $k \in [0,n]$
+$\NLk{k}^n \leq \NLk{2k}^{2n}$.
+Generalizing it further, we have $\NLk{k}^n \leq \NLk{2^ik}^{2^in}$ for $i \geq 0$.
+\end{theorem}
+\begin{proof}
+We use the technique followed in the proof of~\cite[Theorem-3.14]{DCC:LiuMes19} to prove it. It can be checked that $\NLk{R}(f) \leq \NLk{E}(f)$ if $R \subseteq E$.
+
+Let $n =  2^{a_w} + 2^{a_{w-1}} + \cdots + 2^{a_1}$ for $ a_w > a_{w-1} > \cdots > a_1 \geq 0$ as defined in ~Equation\ref{eqn:binn}. For $y \in \Ekn{k}{n}$, consider the form  $y = (\overline{y}_w, \overline{y}_{w-1}, \ldots,\overline{y}_1)$ where $(\overline{y}_i) = (y_{n_{i}-1},y_{n_{i}-2},\ldots , y_{n_{i-1}}) \in \F_2^{n_i}$ and $\w(y)=k$. Now define a set
+$$R_k =\{(\overline{y}_w \overline{y}_w \overline{y}_{w-1} \overline{y}_{w-1} \ldots\overline{y}_1\overline{y}_1) : y = \overline{y}_w \overline{y}_{w-1} \ldots\overline{y}_1 \in \F_2^{n} \text{ and } \w(y) = k \} \subseteq \Ekn{2k}{2n}.$$
+It can be checked that for $x =  (\overline{y}_w \overline{y}_w \overline{y}_{w-1} \overline{y}_{w-1} \ldots\overline{y}_1\overline{y}_1) \in R_k$, the orbit containing $x$,
+$$\orb_{\psi_n}(x) = \{(\overline{z}_w \overline{z}_w \overline{z}_{w-1} \overline{z}_{w-1} \ldots\overline{z}_1\overline{z}_1) : (\overline{z}_w  \overline{z}_{w-1} \ldots\overline{z}_1) \in \orb_{\psi_\frac{n}{2}}(y) \text{ where } y = \overline{y}_w \overline{y}_{w-1} \ldots\overline{y}_1\}.$$
+Then for a WAPB $f \in \Bn{2n}$ satisfying Theorem~\ref{thm:WAPB}, we have a WAPB $g \in \Bn{n}$  such that $\forall y \in \F_2^{n}$,  $g(y) = f(x)$ for $x \in R$. This implies,
+\begin{equation*}
+\NLk{k}^{n}(g) = \NLk{\Ekn{k}{n}}(g) = \NLk{R_k}(f) \leq \NLk{\Ekn{2k}{2n}}(f) = \NLk{2k}^{2n}(f).
+\end{equation*}
+The equality $\NLk{\Ekn{k}{n}}(g) = \NLk{R_k}(f)$ can be proved as follows.
+\begin{eqnarray*}
+\NLk{R_k}(f) & = & \frac{|R_k|}{2} - \frac{1}{2}\max\limits_{a \in \F_2^n}{\sum\limits_{x\in R_k} (-1)^{f(x)+a.x}} 
+= \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max\limits_{a \in \F_2^n}{\sum\limits_{y \in \Ekn{k}{n}} (-1)^{g(y)+a.(\overline{y}_w \overline{y}_w \ldots \overline{y}_1 \overline{y}_1)}} \\
+& = & \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max\limits_{a \in \F_2^n}{\sum\limits_{y \in \Ekn{k}{n}} (-1)^{g(y)+(a^l+a^r).y}} ~~~\text{ where } a^l,a^r \in \F_2^n \text{ with } a = (\overline{a}^l_w \overline{a}^r_w \ldots \overline{a}^l_1 \overline{a}^r_1)\\
+& = & \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max\limits_{b \in \F_2^{n}}{\sum\limits_{y \in \Ekn{k}{n}} (-1)^{g(y)+b.y}} = \NLk{\Ekn{k}{n}}(g).
+\end{eqnarray*}
+
+Let the $\NLk{2k}^{2n} = \min\limits_{f\in \Bn{2n} \text{WAPB}} \NLk{2k}^{2n}(f) = \NLk{2k}^{2n}(\hat{f})$ for a WAPB Boolean function $\hat{f} \in \Bn{2n}$. Then there is a WAPB $\hat{g} \in \BN$ such that $\NLk{k}^{n}(\hat{g}) \leq \NLk{2k}^{2n}(\hat{f})$. Hence, $\NLk{k}^{n} \leq \NLk{k}^{n}(\hat{g}) \leq \NLk{2k}^{2n}(\hat{f}) = \NLk{2k}^{2n}$.
+\end{proof}
+Now using  Theorem~\ref{thm:nl2psi} and Theorem~\ref{thm:recbnd}, we have the following Corollary.
+\begin{corollary}\label{cor:psi2bnd}
+Let $n \geq 2$ be an positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}. Then
+$$\lfloor\frac{(n-1)^2}{8}\rfloor \leq \NLk{2}^n \leq \NLk{4}^{2n} \leq \NLk{8}^{2^{2}n } \leq \cdots \leq \NLk{2^{i+1}}^{2^{i}n} \leq \cdots.$$
+Moreover, if $n = 2^m$ for $m \geq 1$, ~~~~$\dfrac{n(n-2)}{8} \leq \NLk{2}^n \leq \NLk{4}^{2n} \leq \NLk{8}^{2^{2}n } \leq \cdots \leq \NLk{2^{i+1}}^{2^{i}n} \leq \cdots $.
+\end{corollary}
+
 Thus, the above theorem provides a better lower bound for the weightwise nonlinearity $\NLk{k}(f_\psi)$, as proven in the article~\cite{DCC:LiuMes19}, recalled in the following proposition.
 \begin{proposition}~\cite{DCC:LiuMes19}[Theorem 3.14]
 For any $n = 2^m \geq 8$ and $f_\psi$ be a WPB Boolean function as defined in \ref{cons:LM19}, then $$\NLk{2^i}^{(n)}(f_\psi) ~\geq ~ \left \{ 
@@ -954,11 +982,22 @@ For any $n = 2^m \geq 8$ and $f_\psi$ be a WPB Boolean function as defined in \r
 19, &  \text{ if } i = m-1.
 \end{array} \right. $$	
 \end{proposition}
+Using Theorem~\ref{thm:recbnd}, we can provide bounds for some cases which are not covered in Theorem~\ref{thm:NLk_boundm} as mentioned in Note~\ref{nt:nbnd}.
+\begin{corollary}
+Let $n$ be a positive integer. If $k \in [0, \frac{n}{2}]$ such that there is a positive integer $e$ satisfying $2^e \mid n, 2^e \mid k$ and 
+$n_o = \frac{n}{2^e}$ and $k_o = \frac{k}{2^e}$ are odd integers, then 
+$$\NLk{k}(f_\psi) ~\geq ~ 
+\left\{ \begin{array}{ll}
+\displaystyle{\frac{1}{2}{n_o-1 \choose k_o-1}}  & \text{ if }  k \not\preceq n \\
+\displaystyle{\frac{1}{2}\left({n_o - 1 \choose k_o-1} - 1\right)} & \text{ if } k \preceq n.
+\end{array}  \right.$$
+\end{corollary}
 
 \section{Construction and Study of 2-$\sigma$S (i.e., 2-RotS) WAPB Boolean functions}\label{sec:2RotS}
 
-In this section, we present a class of 2-$\sigma$S WAPB Boolean function which is another special case of the construction presented in Section~\ref{sec:GA}. Since $\sigma \in \Sn$ is the rotation permutation, these functions are also known as 2-RotS WAPB Boolean functions. When $n$ is a power of $2$, the construction matches the Liu-Mesnager construction~\cite{DCC:LiuMes19} to generate WPB Boolean functions. Now to study nonlinearity bound in Theorem~\ref{thm:nlbfpi}, we need to count the number of orbits of odd cardinality due to the group action of $C_n = \langle \sigma_n \rangle$ on $\F_2^n$. For a positive integer $n$, we denote $n_0$ as the largest odd integer that divides $n$ i.e., $n_0 = \frac{n}{2^t}$ for largest integer $t$ such that $\frac{n}{2^t}$ is an integer.
-\begin{proposition}[\eg \cite{DAM:SM08}, Theorem 3]\label{prop:no_orb}
+In this section, we present a class of 2-$\sigma$S WAPB Boolean function which is another special case of the construction presented in Section~\ref{sec:GA}. Since $\sigma \in \Sn$ is the rotation permutation, these functions are also known as 2-RotS WAPB Boolean functions. When $n$ is a power of $2$, the construction matches the Liu-Mesnager construction~\cite{DCC:LiuMes19} to generate WPB Boolean functions. Now to study nonlinearity bound in Theorem~\ref{thm:nlbfpi}, we need to count the number of orbits of odd cardinality due to the group action of $C_n = \langle \sigma_n \rangle$ on $\F_2^n$. For a positive integer $n$, we denote $n_o$ as the largest odd integer that divides $n$ i.e., $n_o = \frac{n}{2^e}$ for largest integer $e$ such that $\frac{n}{2^e}$ is an integer.
+
+\begin{proposition}[\eg, \cite{DAM:SM08}, Theorem 3]\label{prop:no_orb}
 Let $C_n = \langle \sigma_n \rangle$ for $\sigma_n \in \Sn$ be the cyclic group of rotation permutations acting on $\F_2^n$. Then the number of orbits induced on $\F_2^n$ is given by $g_n= \frac{1}{n} \sum\limits_{t \mid n} \phi(t)2^{\frac{n}{t}}$, where $\phi(t)$ is Euler's phi-function. 
 \end{proposition}
 
@@ -976,34 +1015,26 @@ Therefore, $|\orb_{\sigma_d}(v)| = |\orb_{\sigma_n}(\hat{v})|$ for every $v \in 
 
 \begin{theorem}\label{thm:oddorbs}
 For $\sigma_n \in \Sn$, the number of orbits of odd cardinality due to the action of $C_n = \langle\sigma_n\rangle$ on $\F_2^n$ is given by
-$g_{n,odd} = g_{n_0}$.
+$g_{n,odd} = g_{n_o}$.
 \end{theorem}
-
-
 
 \begin{proof}
 For $d \mid n$, it can be easily checked that if $|\orb_{\sigma_n}(x)| = d$ for an $x \in \F_2^n$ then there is a $v \in \F_2^d$ such that such that $x = (v,v, \ldots, v)$ and $|\orb_{\sigma_d}(v)| = d$ in $\F_2^d$.
-Every odd divisor $d$ of $n$ is also a divisor of $n_0$ and viceversa. 
-Hence, for $d\mid n$ and $d$ odd, $|\orb_{\sigma_n}(x)| = d$ for an $x\in \F_2^n$ if and only if there is a $v \in \F_2^d$ such that $x = (v,v, \ldots, v)$ and $|\orb_{\sigma_d}(v)| = d$ if and only if $|\orb_{\sigma_{n_0}}(y)| = d$ where $y = (v,v, \ldots, v) \in \F_2^{n_0}$. 
-Therefore $g_{n,odd} = g_{n_0}$.
+Every odd divisor $d$ of $n$ is also a divisor of $n_o$ and viceversa. 
+Hence, for $d\mid n$ and $d$ odd, $|\orb_{\sigma_n}(x)| = d$ for an $x\in \F_2^n$ if and only if there is a $v \in \F_2^d$ such that $x = (v,v, \ldots, v)$ and $|\orb_{\sigma_d}(v)| = d$ if and only if $|\orb_{\sigma_{n_o}}(y)| = d$ where $y = (v,v, \ldots, v) \in \F_2^{n_o}$. 
+Therefore $g_{n,odd} = g_{n_o}$.
 \end{proof}
-%\begin{corollary}\label{cor:countsigma}
-%For $\sigma_n \in \Sn$, the number of 2-$\sigma_n$S  WAPB functions is X and the number of balanced 2-$\sigma$S  WAPB functions is Y.
-%\end{corollary}
-
-%\pmnote{I do not think Corollary~\ref{cor:countsigma} is a corollary of Theorem~\ref{thm:oddorbs}: to determine X we need the number of even and odd orbits on each slice.}
-
 
 \begin{theorem}\label{thm:nlbfs}
 Let $\sigma_n \in \Sn$ for a positive integer $n$.
-Then, $\NL(f_{\sigma_n}) \ge 2^{n-2} - \frac{g_{n_0}}{2}$.
+Then, $\NL(f_{\sigma_n}) \ge 2^{n-2} - \frac{g_{n_o}}{2}$.
 \end{theorem}
 \begin{proof}
 From Theorem~\ref{thm:nlbfpi}, we have
-$$\NL(f_{\sigma_n}) \ge 2^{n-2} - \frac{|\orb_o|}{2} = 2^{n-2} - \frac{g_{n,odd}}{2} = 2^{n-2} - \frac{g_{n_0}}{2}.$$
+$$\NL(f_{\sigma_n}) \ge 2^{n-2} - \frac{|\orb_o|}{2} = 2^{n-2} - \frac{g_{n,odd}}{2} = 2^{n-2} - \frac{g_{n_o}}{2}.$$
 \end{proof}
 As $g_n$ is an even integer~\cite{DM:CI18} (Proposition 3.1), the bound is always an integer. 
-When $n = 2^m$ is a power of $2$, the nonlinearity bound becomes $\NL(f_{\sigma_n}) \ge 2^{n-2} - 1$ as $g_{n_0} = g_1 = 2$. 
+When $n = 2^m$ is a power of $2$, the nonlinearity bound becomes $\NL(f_{\sigma_n}) \ge 2^{n-2} - 1$ as $g_{n_o} = g_1 = 2$. 
 Since $f_{\sigma_n} = f_{\psi_n}$ when $n$ is a power of $2$, the nonlinearity bound $\NL(f_{\sigma_n})$ matches with the result in Corollary~\ref{cor:nlbwpb}. 
 In Table~\ref{tab:NLminmaxsigma}, we give the maximum and minimum nonlinearity among all $f_\sigma$ for the number of variables $n = \{4, 5, 6\}$, and over a sample $n = \{7, 8, 9, 10\}$, along with the upper bound of balanced Boolean functions and lower bound of $f_{\sigma}$ as per Theorem~\ref{thm:nlbfs}.
 
@@ -1011,8 +1042,6 @@ In Table~\ref{tab:NLminmaxsigma}, we give the maximum and minimum nonlinearity a
 \centering
 \begin{tabular}{|c|c|c|c||c|c|c|c|}\hline
 $n$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$\\ \hline\hline
-%Number of functions & $2^4 \times \binom{2}{1}$ & $2^8 \times \binom{4}{2}$ & $2^{18} \times \binom{4}{2}$&$2^{36} \times \binom{8}{4}$&$2^{34} \times \binom{2}{1}$& $2^{68} \times \binom{4}{2}$& $2^{138} \times \binom{4}{2}$\\
-%& $ = 2^5$& $= 3\times 2^9$& $= 3\times 2^{19}$& $= 70\times 2^{37}$&$ = 2^{35}$&$= 3\times 2^{69}$& $= 3\times 2^{139}$\\ \hline
 Max $\NL$ by experiment & $4$ & $12$ & $26$ & $54$ & $116$ & $232$ & $480$\\ \hline
 \% functions at max $\NL$ & $100$ & $2.34$ & $6.51$ & $8.2 \times 10^{-3}$ & $3.8 \times 10^{-3}$ & $8.5 \times 10^{-4}$ & $9.5 \times 10^{-5}$\\ \hline
 Nonlinearity upper bound & & & & & & &\\
@@ -1025,30 +1054,34 @@ by Theorem~\ref{thm:nlbfs} & & & & & & &\\ \hline
 \end{tabular}
 \caption{Percentage of $f_\sigma \in \BN$ satisfying lower bound and upper value of $\NL(f_\sigma)$.\label{tab:NLminmaxsigma}}
 \end{table}
+
 \begin{theorem}\label{thm:resorb}
 For $\sigma_n \in \Sn$ and $k \in [0,n]$, the number of orbits due to the action of $C_n = \langle\sigma_n\rangle$ on $\Ekn{k}{n}$ is given by
 $$g_{k,n}= \frac{1}{n} \sum\limits_{\{\sigma_n^i \in C_n : o(\sigma_n^i) \mid k \}} {\gcd(n,i)  \choose \frac{k}{o(\sigma_n^i)}},$$
 where $o(\sigma_n^i) = \frac{n}{\gcd(n,i)}$ is the order of $\sigma_n^i$. 
 \end{theorem}
+
 \begin{proof}
 For $1 \leq i \leq o(\sigma_n)$, denote $F_i = \{x \in \Ekn{k}{n}: \sigma_n^i(x) = x \}$ be the set of fixed elements of $\sigma_n^i$ in $\Ekn{k}{n}$. To apply Burnside's Lemma for counting the number of orbits, we need to determine $|F_i|$. Observe that $o(\sigma_n^i) = \frac{n}{\gcd(n,i)}$. Hence, the number of disjoint cycles in $\sigma_n^i$ is $\gcd(n,i)$, with each cycle having length $o(\sigma_n^i) = \frac{n}{\gcd(n,i)}$. A vector $x \in \F_2^n$ is fixed by $\sigma_n^i$ if each cycle in $x$ must be all $0$ or all $1$. For $x$ being in $\Ekn{k}{n}$, $o(\sigma_n^i) \mid k$ and there are $\frac{k}{o(\sigma_n^i)}$ cycles in $x$ contain all $1$ and remaining cycles contain all $0$. Thus, there are $|F_i| = {\gcd(n,i)  \choose \frac{k}{o(\sigma^i)}}$. Hence, applying Burnside's Lemma, we have
 $$g_{k,n}= \frac{1}{n} \sum_{\sigma_n^i \in C_n} |F_i| =  \frac{1}{n} \sum\limits_{\{\sigma_n^i \in C_n : o(\sigma_n^i) \mid k \}} {\gcd(n,i)  \choose \frac{k}{o(\sigma_n^i)}}.$$     
 \end{proof}
+
 \begin{lemma}\label{lem:rotodd}
 For $\sigma_n \in \Sn$, the number of orbits of odd cardinality due to the action of $C_n = \langle\sigma_n\rangle$ on $\Ekn{k}{n}$ is given by
 $$g_{k,n,odd} = \begin{cases}
-				 0 & \text{ if } 2^e \nmid k \\
-                 g_{\frac{k}{2^e},n_0} & \text{ if } 2^e \mid k,
-                \end{cases}$$
-where $n_0$ is the largest odd integer that divides $n$ and $2^e = \frac{n}{n_0}$ \ie, $e$ is the largest integer such that $2^e$ divides $n$.
+0 & \text{ if } 2^e \nmid k \\
+g_{\frac{k}{2^e},n_o} & \text{ if } 2^e \mid k,
+\end{cases}$$
+where $n_o$ is the largest odd integer that divides $n$ and $2^e = \frac{n}{n_o}$ \ie, $e$ is the largest integer such that $2^e$ divides $n$.
 \end{lemma}
+
 \begin{proof}
 As in the proof of Theorem~\ref{thm:oddorbs}, for $d \mid n$, if $|\orb_{\sigma_n}(x)| = d$ for an $x \in \Ekn{k}{n}$ then there is a $v \in \F_2^d$ such that $x = (v,v, \ldots, v)$ with $|\orb_{\sigma_d}(v)| = d$ in $\F_2^d$ and $\w(v) = \frac{k}{n/d} = \frac{kd}{n}$. Thus, in this case, $\frac{n}{d} \mid k$ and hence $v \in \Ekn{\frac{kd}{n}}{d}$. 
 
-\noindent For any odd divisor $d$ of $n$, if $\frac{n}{d} \mid k$ then $2^e \mid k$. That is, if $2^e \nmid k$ then $\frac{n}{d} \nmid k$ for every odd divisor $d$ of $n$ and that implies $g_{k,n,odd} = 0$.
+For any odd divisor $d$ of $n$, if $\frac{n}{d} \mid k$ then $2^e \mid k$. That is, if $2^e \nmid k$ then $\frac{n}{d} \nmid k$ for every odd divisor $d$ of $n$ and that implies $g_{k,n,odd} = 0$.
 
-\noindent Now consider the case $2^e \mid k$. Every odd divisor $d$ of $n$ is also an divisor of $n_0$ and viceversa. Further, for any odd integer $d$ of $n$, if $\frac{n}{d} \nmid k$ then $\frac{n_0}{d} \nmid \frac{k}{2^e}$ and viceversa.
-Hence, $|\orb_{\sigma_n}(x)| = d$ for an $x\in \Ekn{k}{n}$ with $d$ is odd, $d\mid n$ and  $\frac{n}{d} \mid k$ iff there is a $v \in \Ekn{\frac{kd}{n}}{d}$ such that $x = (v,v, \ldots, v)$ and $|\orb_{\sigma_d}(v)| = d$ iff $|\orb_{\sigma_{n_0}}(y)| = d$ where $y = (v,v, \ldots, v) \in \Ekn{\frac{k}{2^e}}{n_0}$. Therefore, $g_{k,n,odd} = g_{\frac{k}{2^e},n_0}$.
+Now consider the case $2^e \mid k$. Every odd divisor $d$ of $n$ is also an divisor of $n_o$ and viceversa. Further, for any odd integer $d$ of $n$, if $\frac{n}{d} \nmid k$ then $\frac{n_o}{d} \nmid \frac{k}{2^e}$ and viceversa.
+Hence, $|\orb_{\sigma_n}(x)| = d$ for an $x\in \Ekn{k}{n}$ with $d$ is odd, $d\mid n$ and  $\frac{n}{d} \mid k$ iff there is a $v \in \Ekn{\frac{kd}{n}}{d}$ such that $x = (v,v, \ldots, v)$ and $|\orb_{\sigma_d}(v)| = d$ iff $|\orb_{\sigma_{n_o}}(y)| = d$ where $y = (v,v, \ldots, v) \in \Ekn{\frac{k}{2^e}}{n_o}$. Therefore, $g_{k,n,odd} = g_{\frac{k}{2^e},n_o}$.
 \end{proof}
 
 \begin{theorem}\label{thm:NLkb_sigma}
@@ -1056,24 +1089,24 @@ Let $n \geq 2$ be a positive integer and $\sigma_n \in \Sn$ be the rotation perm
 Then $$\NLk{k}(f_{\sigma_n}) ~\geq ~
 \begin{cases}
 \frac{1}{4}\left({n \choose k} + \min\limits_{\substack{2 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n}\right) & \text{if } 2^e \nmid k \\
-\frac{1}{4}\left({n \choose k} - 2g_{\frac{k}{2^e},n_0} + \min\limits_{\substack{2 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n}\right) & \text{if } 2^e \mid k,
+\frac{1}{4}\left({n \choose k} - 2g_{\frac{k}{2^e},n_o} + \min\limits_{\substack{2 \leq l \leq n \\ l \text{ even}}} \kraw{k}{l}{n}\right) & \text{if } 2^e \mid k,
 \end{cases}$$
-where $n_0$ is the largest odd intger that divides $n$ and $2^e = \frac{n}{n_0}$
+where $n_o$ is the largest odd intger that divides $n$ and $2^e = \frac{n}{n_o}$
 \end{theorem}
 \begin{proof} The proof of the theorem can directly be obtained by substituting the value of $|\orbs_{o,k}| = g_{k,n,odd}$ from Lemma~\ref{lem:rotodd} in Theorem~\ref{thm:NLkb}.
 \end{proof}
 
 \section{Conclusion}\label{sec:con}
-
-
-In this article, we extended the construction of weightwise perfectly balanced Boolean functions, initially proposed by Liu and Mesnager~\cite{DCC:LiuMes19}, to a broad class of weightwise almost perfectly balanced Boolean functions. 
+In this article, we generalized the construction of weightwise perfectly balanced Boolean functions, initially proposed by Liu and Mesnager~\cite{DCC:LiuMes19}, to a broad class of weightwise almost perfectly balanced Boolean functions. 
 Our general construction is based on the action of cyclic subgroups of the symmetric group (\ie, $\langle \pi \rangle$) on $n$-element sets, allowing us to overcome the restriction of $n$ being a power of two. 
 This generalization includes the Liu-Mesnager construction as a special case when $n$ is a power of $2$.
 
 We provided lower bounds on the nonlinearity and weightwise nonlinearities for all functions from this class, based on the number of orbits of odd sizes. 
 In particular we focused on the cryptographic properties of WAPB functions obtained from two specific permutations $\psi$ and $\sigma$, demonstrating that these functions achieve good nonlinearity and weightwise nonlinearity. 
-Additionally, we gave more results on binary Krawchouk polynomials, improved the proven bound on $\NLk{2}$ for Liu-Mesnager functions and provided experimental results on the distribution of the nonlinearity of the class ow WAPB function we introduced.
-Additionally, we presented new results on binary Krawchouk polynomials, improved the previously established bound on $\NLk{2}$ for Liu-Mesnager functions, and provided experimental insights into the distribution of the nonlinearity for the class of WAPB functions we introduced.
+%Additionally, we gave more results on binary Krawchouk polynomials, improved the proven bound on $\NLk{2}$ for Liu-Mesnager functions and provided experimental results on the distribution of the nonlinearity of the class ow WAPB function we introduced.
+%Additionally, we presented new results on binary Krawchouk polynomials, improved the previously established bound on $\NLk{2}$ for Liu-Mesnager functions, and provided experimental insights into the distribution of the nonlinearity for the class of WAPB functions we introduced.
+Additionally, we presented new results on binary Krawchouk polynomials.
+Using these results we presented the nonlinearity bounds and weightwise nonlinearities bounds ($\NLk{k}$). Specifically, we presented the weightwise nonlinearity bounds for the largest slices (i.e., when $k = \lfloor\frac{n}{2}\rfloor$) and for $k = 2$. Our results improved the previously established bound on $\NLk{2}$ for Liu-Mesnager functions, and provided experimental insights into the distribution of the nonlinearity for the class of WAPB functions we introduced.
 
 In summary, our results provide a unified framework for constructing WAPB Boolean functions with desirable cryptographic properties for any number of variables, significantly expanding the applicability and flexibility of these functions in cryptographic systems. Future work could explore oteher permutations or further improve the study on other significant cryptographic properties of these constructions, such as the (restricted) algebraic immunity.
 
