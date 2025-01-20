@@ -829,7 +829,7 @@ If $k$ is odd and $n$ is even, then $\min\limits_{\substack{2 \leq l \leq n \\ l
 \end{tabular}
 \caption{Values of the lower bound of $\NLk{k}(f_\psi)$ as per Theorem~\ref{thm:NLk_bound}.}
  \end{table}
-Now, substituting the results of Theorem~\ref{thm:minK}[Item~\ref{itm:odd} and Item~\ref{itm:even}] in Corollary~\ref{thm:NLk_bound}, we have nonlinearity bounds for particular values of $k$.
+Now, substituting the results of Theorem~\ref{thm:minK}[Item~\ref{itm:odd} and Item~\ref{itm:even}] in Theorem~\ref{thm:NLk_bound}, we have nonlinearity bounds for particular values of $k$.
 \begin{theorem}\label{thm:NLk_bound2}
 \begin{enumerate}
 \item If $n$ is odd then
@@ -876,7 +876,7 @@ $$\NLk{m}(f_\psi) ~\geq ~
 \end{theorem}
 Now, we study the restricted nonlinearity $\NLk{2}(f_\psi)$.
 \begin{theorem}\label{thm:nl2psi}
-Let $n \geq 2$ be an positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
+Let $n \geq 2$ be a positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}.
 Then $$\NLk{2}(f_\psi) ~\geq ~ \lfloor\frac{(n-1)^2}{8}\rfloor .$$
 \end{theorem}
 \begin{proof}
@@ -941,7 +941,8 @@ $$ \lfloor\frac{(n-1)^2}{8}\rfloor \leq \NLk{2}^n \leq \NLk{4}^{2n} \leq \NLk{8}
 \end{proof}
 We denote by $\NLk{k}^n$ the minimum $\min\{\NLk{k}^n(f_\psi) \mid f_\psi \in \BN  \text{ constructed as in Theorem~\ref{thm:WAPB}}\}$.
 \begin{theorem}\label{thm:recbnd}
-Let $n \geq 2$ be an positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}. Then for $k \in [0,n]$
+Let $n \geq 2$ be a positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}. 
+Then, for $k \in [0,n]$
 $\NLk{k}^n \leq \NLk{2k}^{2n}$.
 Generalizing it further, we have $\NLk{k}^n \leq \NLk{2^ik}^{2^in}$ for $i \geq 0$.
 \end{theorem}
@@ -964,11 +965,13 @@ The equality $\NLk{\Ekn{k}{n}}(g) = \NLk{R_k}(f)$ can be proved as follows.
 & = & \frac{|\Ekn{k}{n}|}{2} - \frac{1}{2}\max\limits_{b \in \F_2^{n}}{\sum\limits_{y \in \Ekn{k}{n}} (-1)^{g(y)+b.y}} = \NLk{\Ekn{k}{n}}(g).
 \end{eqnarray*}
 
-Let the $\NLk{2k}^{2n} = \min\limits_{f\in \Bn{2n} \text{WAPB}} \NLk{2k}^{2n}(f) = \NLk{2k}^{2n}(\hat{f})$ for a WAPB Boolean function $\hat{f} \in \Bn{2n}$. Then there is a WAPB $\hat{g} \in \BN$ such that $\NLk{k}^{n}(\hat{g}) \leq \NLk{2k}^{2n}(\hat{f})$. Hence, $\NLk{k}^{n} \leq \NLk{k}^{n}(\hat{g}) \leq \NLk{2k}^{2n}(\hat{f}) = \NLk{2k}^{2n}$.
+Let $\NLk{2k}^{2n} = \min\limits_{f\in \Bn{2n} \text{WAPB}} \NLk{2k}^{2n}(f) = \NLk{2k}^{2n}(\hat{f})$ for a WAPB Boolean function $\hat{f} \in \Bn{2n}$. 
+Then, there is a WAPB $\hat{g} \in \BN$ such that $\NLk{k}^{n}(\hat{g}) \leq \NLk{2k}^{2n}(\hat{f})$. Hence, $\NLk{k}^{n} \leq \NLk{k}^{n}(\hat{g}) \leq \NLk{2k}^{2n}(\hat{f}) = \NLk{2k}^{2n}$.
 \end{proof}
-Now using  Theorem~\ref{thm:nl2psi} and Theorem~\ref{thm:recbnd}, we have the following Corollary.
+Now, using Theorem~\ref{thm:nl2psi} and Theorem~\ref{thm:recbnd}, we have the following Corollary.
 \begin{corollary}\label{cor:psi2bnd}
-Let $n \geq 2$ be an positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}. Then
+Let $n \geq 2$ be a positive integer and $\psi \in \Sn$ as in Equation~\ref{eqn:cycperm}. 
+Then,
 $$\lfloor\frac{(n-1)^2}{8}\rfloor \leq \NLk{2}^n \leq \NLk{4}^{2n} \leq \NLk{8}^{2^{2}n } \leq \cdots \leq \NLk{2^{i+1}}^{2^{i}n} \leq \cdots.$$
 Moreover, if $n = 2^m$ for $m \geq 1$, ~~~~$\dfrac{n(n-2)}{8} \leq \NLk{2}^n \leq \NLk{4}^{2n} \leq \NLk{8}^{2^{2}n } \leq \cdots \leq \NLk{2^{i+1}}^{2^{i}n} \leq \cdots $.
 \end{corollary}
