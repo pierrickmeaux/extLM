@@ -474,6 +474,14 @@ Consider $n = 5$ and the permutation $\pi = \sigma$ is the rotation permutation.
 Hence, $f_{\sigma}$ is a 2-RotS (\ie, 2-$\sigma$S) WAPB Boolean function.
 \end{example}
 
+\textcolor{blue}{
+\begin{remark}
+	With Construction~\ref{cons:ELM}, for a fixed $\pi$ when the order of the orbits and the representative are fixed, the construction gives only one function. 
+	The flexibility of the construction comes from the choice of the orbit representatives $\nu_{k,n,i}$, and the order of the orbits (the index from $1$ to $g_{k,n}$).
+\end{remark}
+}
+
+
 Given a permutation $\pi \in \Sn$, let denote $\orbs_e$ and $\orbs_o$ be the set of orbits of even cardinality and  odd cardinality of the group action $P = \langle \pi \rangle$ on $\F_2^n$ respectively. Further, let denote $\orbs_k$ be the set of orbits of cardinality $k$ for $k \in [0,n]$. Here, $\orbs_1$ is the set of orbits of cardinality $1$. Since every orbit in $\orbs_1$ contains exactly one element, abusing the notation, we also denote $\orbs_1 = \{x \in \F_2^n \, | \, x = \pi(x)\}$(i.e.,  the set of vectors in $\F_2^n$ of orbit length $1$).
 
 \begin{theorem}\label{thm:x+pix}
@@ -1098,6 +1106,100 @@ where $n_o$ is the largest odd intger that divides $n$ and $2^e = \frac{n}{n_o}$
 \end{theorem}
 \begin{proof} The proof of the theorem can directly be obtained by substituting the value of $|\orbs_{o,k}| = g_{k,n,odd}$ from Lemma~\ref{lem:rotodd} in Theorem~\ref{thm:NLkb}.
 \end{proof}
+
+\textcolor{blue}{
+\section{Comparisons}
+}
+
+\pmnote{I added tables from the results from former works, please adapt.
+
+Tables on the AIk from~\cite{eprint:BonMea25}
+
+Table on the NLk from~\cite{DAM:GinMea22}
+}
+
+
+
+\begin{table}[H]
+	\center 
+	%	\renewcommand{\tabcolsep}{0.5pt}	
+	\begin{tabular}{|c| c|c|c|c|c|}
+		\hline
+		Function &  $\AIk{2}$ & $\AIk{3}$ & $\AIk{4}$ &  $\AIk{5}$ & $\AIk{6}$  \\ \hline 
+		\cite{AMC:DalMal23} & $1$ &  $2$ & $3$  &  $2$ & $2$ \\ \hline
+		\cite{Mat:ZJZQ23} & $2$ &  $2$ & $2$  &  $2$ & $2$ \\ \hline
+		\cite{CC:TangLiu19} & $2$ &  $2$ & $3$  &  $2$ & $2$ \\ \hline
+		\cite{TOSC:CarMeaRot17} & $1$ &  $2$ & $2$  &  $2$ & $2$ \\ \hline
+%		Estimated average & $1.95$ &  $2.02$ & $2.88$  &  $2.02$ & $1.95$ \\ \hline
+		\cite{SAC:Meaux24} &$ 1$& $2$& $3$& $2$ &$2$ \\	\hline
+		Upper bound & $2$ &  $3$ & $3$  &  $3$ & $2$ \\	\hline
+		
+		
+	\end{tabular}
+	\caption{$\AIk{k}$ of WPB functions in $8$ variables.}
+	\label{tab:WPB8}
+\end{table}
+\begin{table}[H]
+	\center 
+	%	\renewcommand{\tabcolsep}{0.5pt}	0
+	\begin{tabular}{|c| c|c|c|c|c| c|c|c|c|c| c|c|c| }
+		\hline
+		Function &  $\AIk{2}$ & $\AIk{3}$ & $\AIk{4}$ &  $\AIk{5}$ & $\AIk{6}$ &  $\AIk{7}$ & $\AIk{8}$ & $\AIk{9}$ &  $\AIk{10}$ & $\AIk{11}$ &  $\AIk{12}$ & $\AIk{13}$ & $\AIk{14}$ \\ \hline 
+		
+		\cite{AMC:DalMal23}		&$ 1$& $2$& $3$& $3$ &$3$ & $3$ &$3$ &$3$ &$3$ &$3$ &$3$ &$2$
+		&$2$ \\ \hline
+		\cite{Mat:ZJZQ23}		&$ 2$& $2$& $2$& $2$ &$2$ & $2$ &$2$ &$2$ &$2$ &$2$ &$2$ &$2$
+		&$2$ \\ \hline
+		\cite{CC:TangLiu19}		&$ 2$& $2$& $3$& $3$ &$4$ & $4$ &$5$ &$4$ &$4$ &$3$ &$3$ &$2$
+		&$2$ \\ \hline	
+		\cite{TOSC:CarMeaRot17}		&$1$& $2$& $2$& $3$ &$3$ & $3$ &$3$ &$3$ &$3$ &$3$ &$3$ &$3$
+		&$2$ \\ \hline	
+%		Estimated average &$2.00$& $2.99$& $3.89$& $4.39$ &$5.00$ & $6.00$ &$6.00$ &$6.00$ &5.00 &$4.41$ &$3.88$ &$2.99$ &$2.00$ \\ \hline
+		%2 3 4 4 5 6 6 6 5 4 3 2 2		
+		\cite{SAC:Meaux24} &$ 2$& $3$& $4$& $4$ &$5$ & $6$ &$6$ &$6$ &$5$ &$4$ &$3$ &$2$ &$2$ \\	\hline
+		Upper bound &$ 2$& $3$& $4$& $5$ &$5$ & $6$ &$6$ &$6$ &$5$ &$5$ &$4$ &$3$ &$2$  \\	\hline
+		
+		
+	\end{tabular}
+	\caption{$\AIk{k}$ of WPB functions in $16$ variables.}
+	\label{tab:WPB16}
+\end{table}
+
+
+
+\begin{table}[H]
+	\center 
+	%	\renewcommand{\tabcolsep}{0.5pt}	0
+	\begin{tabular}{|c| c|c|c|c|c| c|c|}
+		\hline
+		Function &  $\NLk{2}$ & $\NLk{3}$ & $\NLk{4}$ &  $\NLk{5}$ & $\NLk{6}$ &  $\NLk{7}$ & $\NLk{8}$  \\ \hline 
+		
+		Construction $1$~\cite{DCC:LiuMes19}	&$ \ge5$& $\ge144$& $\ge 472$& $\ge1056$ &$\ge2184$ & $\ge1296$ &$\ge 2184$  \\ \hline
+		Construction $2$~\cite{DAM:GinMea22}		&$ 2$& $6$& $52$& $226$ &$1500$ & $2502$ &$3002$  \\ \hline
+		\cite{TOSC:CarMeaRot17}		&$4$& $56$& $350$& $1288$ &$3108$ & $4774$ &$5539$  \\ \hline	
+	
+	
+	\cite{SAC:Meaux24} &	$40$ & $204$& $765$& $1814$& $3484$  & $5138$ & $5875$\\ \hline	
+	
+		Upper bound &$ 54$& $268$& $888$& $2150$ &$3959$ & $5666$ &$6378$  \\	\hline
+		
+		
+	\end{tabular}
+	\caption{$\NLk{k}$ of WPB functions in $16$ variables.}
+	\label{tab:WPBNLK16}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{Conclusion}\label{sec:con}
 In this article, we generalized the construction of weightwise perfectly balanced Boolean functions, initially proposed by Liu and Mesnager~\cite{DCC:LiuMes19}, to a broad class of weightwise almost perfectly balanced Boolean functions. 
